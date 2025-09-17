@@ -1,10 +1,12 @@
 import Stripe from 'stripe';
 
-// Initialize Stripe with the secret key
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-  typescript: true,
-});
+// Initialize Stripe with the secret key (handle build time when env vars might not be set)
+export const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2024-12-18.acacia',
+      typescript: true,
+    })
+  : null as any;
 
 // Credit package configurations (similar to Scribeless model)
 export const CREDIT_PACKAGES = {
@@ -51,6 +53,10 @@ export async function createCheckoutSession(
   successUrl: string,
   cancelUrl: string
 ) {
+  if (!stripe) {
+    throw new Error('Stripe is not configured');
+  }
+
   const creditPackage = CREDIT_PACKAGES[packageId];
 
   const session = await stripe.checkout.sessions.create({
@@ -78,6 +84,10 @@ export async function handleWebhook(
   payload: string | Buffer,
   signature: string
 ): Promise<Stripe.Event> {
+  if (!stripe) {
+    throw new Error('Stripe is not configured');
+  }
+
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
   try {
@@ -96,6 +106,10 @@ export async function createCustomer(
   email: string,
   name?: string
 ): Promise<Stripe.Customer> {
+  if (!stripe) {
+    throw new Error('Stripe is not configured');
+  }
+
   const customer = await stripe.customers.create({
     email,
     name,
@@ -110,6 +124,10 @@ export async function createCustomer(
 export async function getCustomerByEmail(
   email: string
 ): Promise<Stripe.Customer | null> {
+  if (!stripe) {
+    throw new Error('Stripe is not configured');
+  }
+
   const customers = await stripe.customers.list({
     email,
     limit: 1,
