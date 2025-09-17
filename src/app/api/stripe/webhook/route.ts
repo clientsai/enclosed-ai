@@ -4,6 +4,12 @@ import { handleWebhook } from '@/lib/stripe';
 import { supabase } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
+  if (!supabase) {
+    return NextResponse.json(
+      { error: 'Database not configured' },
+      { status: 500 }
+    );
+  }
   const body = await request.text();
   const signature = (await headers()).get('stripe-signature')!;
 
