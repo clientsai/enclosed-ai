@@ -1,0 +1,147 @@
+{
+  "route": "/pricing",
+  "extractedText": {
+    "navigation": {
+      "links": ["Home", "Features", "Pricing", "About", "Contact"],
+      "actions": ["Sign In", "Get Started"]
+    },
+    "hero": {
+      "badge": "No hidden fees • No contracts • No monthly charges",
+      "headline": "Simple, Transparent Pricing",
+      "subheadline": "Pay only for what you send. No monthly fees, no contracts, no hidden costs. Just straightforward pricing that scales with your business.",
+      "cta": ["Start Free Trial", "Talk to Sales"]
+    },
+    "planSection": {
+      "title": "Choose Your Plan",
+      "subtitle": "Select the plan that best fits your business needs. All plans include our core AI-powered features.",
+      "starterPlan": {
+        "name": "Starter",
+        "description": "Perfect for getting started with direct mail",
+        "price": "$99.99",
+        "billing": "per month",
+        "includedLetters": "50 personalized letters/month included",
+        "features": [
+          "CSV lead upload & management",
+          "50 direct mail letters per month",
+          "Professional printing & shipping",
+          "Basic templates (write your own)",
+          "Delivery tracking",
+          "Email support"
+        ],
+        "buttonText": "Get Started"
+      },
+      "premiumPlan": {
+        "name": "Premium",
+        "badge": "BEST VALUE",
+        "description": "AI-powered personalization for maximum ROI",
+        "price": "$299.99",
+        "billing": "per month",
+        "includedLetters": "100 AI-personalized letters/month included",
+        "features": [
+          "Everything in Starter",
+          "AI-powered personalization engine",
+          "100 personalized letters/month",
+          "Advanced CSV column mapping",
+          "Google Calendar integration",
+          "Customizable tracking links",
+          "Priority support & onboarding",
+          "Letter preview & approval flow"
+        ],
+        "buttonText": "Get Started"
+      },
+      "addon": {
+        "title": "Need More Letters?",
+        "subtitle": "Add more mailings to your plan anytime",
+        "bundleName": "Mailing Bundle",
+        "bundleDescription": "100 additional personalized letters",
+        "price": "$200",
+        "billing": "One-time purchase",
+        "features": [
+          "100 additional mailings",
+          "Never expires",
+          "Works with any plan"
+        ],
+        "buttonText": "Add to Account"
+      }
+    },
+    "includedSection": {
+      "title": "What's Included in Every Plan",
+      "subtitle": "All plans include our core features with no additional charges or hidden fees",
+      "features": [
+        {
+          "title": "AI-Powered Personalization",
+          "description": "Every letter is uniquely crafted using advanced AI to speak directly to each recipient's needs and interests."
+        },
+        {
+          "title": "Professional Printing",
+          "description": "High-quality printing on premium paper stock with professional finishing and attention to detail."
+        },
+        {
+          "title": "Real-Time Analytics",
+          "description": "Track delivery, response rates, and ROI with comprehensive analytics and detailed reporting."
+        },
+        {
+          "title": "No Hidden Fees",
+          "description": "Transparent pricing with no setup fees, monthly charges, or hidden costs. Pay only for what you send."
+        },
+        {
+          "title": "Delivery Guarantee",
+          "description": "We guarantee delivery of your mail pieces with full tracking and confirmation for every campaign."
+        },
+        {
+          "title": "Expert Support",
+          "description": "Get help when you need it with our dedicated support team and comprehensive knowledge base."
+        }
+      ]
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Get answers to common questions about our pricing and services",
+      "questions": [
+        {
+          "question": "How does the pricing work?",
+          "answer": "Our pricing is simple and transparent. You pay only for the letters you send, with no monthly fees or hidden costs. The price per letter decreases as you send more volume, with significant savings for larger campaigns. All costs include AI generation, professional printing, postage, and delivery tracking."
+        },
+        {
+          "question": "What's included in the per-letter cost?",
+          "answer": "Every letter includes AI-powered personalization, professional printing on high-quality paper, first-class postage, delivery tracking, and basic analytics. There are no additional fees for setup, processing, or delivery confirmation. The price you see is the total price you pay."
+        },
+        {
+          "question": "Can I change plans anytime?",
+          "answer": "Yes, you can upgrade or downgrade your plan at any time. Since we use pay-per-use pricing, there are no contracts or commitments. Simply choose the plan that best fits your current needs, and you can always adjust as your business grows."
+        },
+        {
+          "question": "Do you offer volume discounts?",
+          "answer": "Absolutely! Our pricing automatically includes volume discounts. The more letters you send, the less you pay per letter. Enterprise customers sending 10,000+ letters receive our best rates, and we also offer custom pricing for very large campaigns. Contact our sales team to discuss your specific volume needs."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit cards (Visa, MasterCard, American Express, Discover) and also support ACH bank transfers for Enterprise customers. All payments are processed securely through Stripe, and you can set up automatic billing for your campaigns. We also offer net payment terms for qualified Enterprise customers."
+        }
+      ]
+    },
+    "ctaSection": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Choose your plan and start creating more effective direct mail campaigns today. No setup fees, no contracts, just results.",
+      "actions": ["Start Free Trial", "Talk to Sales"]
+    },
+    "footer": {
+      "tagline": "Direct mail marketing powered by artificial intelligence",
+      "sections": [
+        {
+          "title": "Product",
+          "links": ["Features", "Pricing", "Integrations", "API"]
+        },
+        {
+          "title": "Company",
+          "links": ["About Us", "Team", "Careers", "Contact"]
+        },
+        {
+          "title": "Support",
+          "links": ["Help Center", "FAQ", "Privacy Policy", "Terms of Service"]
+        }
+      ],
+      "copyright": "© 2024 Enclosed.AI. All rights reserved."
+    }
+  }
+}
