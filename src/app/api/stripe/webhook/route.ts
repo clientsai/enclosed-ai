@@ -6,7 +6,7 @@ import { sendEmail, sendLowCreditWarning } from '@/lib/email';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
+  apiVersion: '2025-08-27.basil',
 });
 
 export async function POST(request: NextRequest) {
@@ -96,31 +96,7 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      const { error: updateError } = await supabase
-        .from('users')
-        .update({ credits: newCredits })
-        .eq('id', userId);
-
-      if (updateError) {
-        console.error('Error updating credits:', updateError);
-        return NextResponse.json({ error: 'Failed to update credits' }, { status: 500 });
-      }
-
-      // Record the transaction
-      const { error: transactionError } = await supabase
-        .from('credit_transactions')
-        .insert({
-          user_id: userId,
-          credits: parseInt(credits),
-          type: 'purchase',
-          package_id: packageId,
-          stripe_session_id: session.id,
-          amount: session.amount_total / 100, // Convert from cents
-        });
-
-      if (transactionError) {
-        console.error('Error recording transaction:', transactionError);
-      }
+      // Additional processing for one-time payments can be added here
 
       break;
     }

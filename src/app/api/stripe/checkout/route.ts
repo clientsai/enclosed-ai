@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createCheckoutSession, CREDIT_PACKAGES } from '@/lib/stripe';
+import { createSubscriptionSession, createAddonSession, SUBSCRIPTION_PLANS, ADDON_PACKAGES } from '@/lib/stripe';
 import { createServerSupabaseClient } from '@/lib/supabase-server';
 
 export async function POST(request: NextRequest) {
@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const { packageId } = await request.json();
 
     // Validate package
-    if (!packageId || !(packageId in CREDIT_PACKAGES)) {
+    if (!packageId || (!(packageId in SUBSCRIPTION_PLANS) && !(packageId in ADDON_PACKAGES))) {
       return NextResponse.json(
         { error: 'Invalid package selected' },
         { status: 400 }
@@ -27,12 +27,23 @@ export async function POST(request: NextRequest) {
 
     // Create checkout session
     const origin = request.headers.get('origin') || 'http://localhost:3000';
-    const session = await createCheckoutSession(
-      user.id,
-      packageId as keyof typeof CREDIT_PACKAGES,
-      `${origin}/billing?success=true`,
-      `${origin}/billing?canceled=true`
-    );
+    
+    let session;
+    if (packageId in SUBSCRIPTION_PLANS) {
+      session = await createSubscriptionSession(
+        user.id,
+        packageId as keyof typeof SUBSCRIPTION_PLANS,
+        `${origin}/billing?success=true`,
+        `${origin}/billing?canceled=true`
+      );
+    } else {
+      session = await createAddonSession(
+        user.id,
+        packageId as keyof typeof ADDON_PACKAGES,
+        `${origin}/billing?success=true`,
+        `${origin}/billing?canceled=true`
+      );
+    }
 
     return NextResponse.json({ url: session.url });
   } catch (error) {
