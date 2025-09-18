@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "🔐 Setting up secure environment variables in Vercel..."
+echo "⚠️  IMPORTANT: The exposed keys in .env.local have been compromised and must be rotated!"
+echo ""
+echo "📋 Required Actions:"
+echo "1. OpenAI: Generate new API key at https://platform.openai.com/api-keys"
+echo "2. SendGrid: Revoke old key and create new at https://app.sendgrid.com/settings/api_keys"
+echo "3. Stripe: Keep existing keys but monitor for suspicious activity"
+echo "4. Supabase: Generate new service role key in project settings"
+echo ""
+echo "Setting up Vercel environment variables..."
+
+# Supabase (Public keys are safe to use)
+vercel env add NEXT_PUBLIC_SUPABASE_URL production <<< "https://jwimrbdqsqwjobdninhi.supabase.co"
+vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production <<< "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3aW1yYmRxc3F3am9iZG5pbmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwNzgzODQsImV4cCI6MjA3MzY1NDM4NH0.bhgozZGUj7CuwJYplH5vWwjJV4XfDhZnxUccxuONoVM"
+
+# Stripe Public Keys (safe to expose)
+vercel env add NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY production <<< "pk_live_51S8MnqCXLbEz3Hk6GnDpNSwPYjKvtbANHJkAWuRLM9cVSXjQPwTT0ljFJi3rRQOMAHTpPxPItIagtnCPYa7yeAAr00fHjFSoua"
+vercel env add STRIPE_PUBLIC_KEY production <<< "pk_live_51S8MnqCXLbEz3Hk6GnDpNSwPYjKvtbANHJkAWuRLM9cVSXjQPwTT0ljFJi3rRQOMAHTpPxPItIagtnCPYa7yeAAr00fHjFSoua"
+
+# App URL
+vercel env add NEXT_PUBLIC_APP_URL production <<< "https://enclosed-ai.vercel.app"
+
+echo ""
+echo "✅ Public environment variables set!"
+echo ""
+echo "⚠️  MANUAL SETUP REQUIRED for sensitive keys:"
+echo ""
+echo "1. Go to: https://vercel.com/clientsais-projects/enclosed-ai/settings/environment-variables"
+echo ""
+echo "2. Add these SENSITIVE variables manually:"
+echo "   - SUPABASE_SERVICE_ROLE_KEY (get from Supabase dashboard)"
+echo "   - OPENAI_API_KEY (create new key - old one is compromised!)"
+echo "   - STRIPE_SECRET_KEY (from Stripe dashboard)"
+echo "   - STRIPE_WEBHOOK_SECRET (from Stripe webhooks)"
+echo "   - SENDGRID_API_KEY (create new key - old one is compromised!)"
+echo "   - NEXTAUTH_SECRET (generate with: openssl rand -base64 32)"
+echo ""
+echo "3. For Google OAuth (optional):"
+echo "   - GOOGLE_CLIENT_ID"
+echo "   - GOOGLE_CLIENT_SECRET"
+echo ""
+echo "🔒 Security Checklist:"
+echo "   [ ] Rotate OpenAI API key immediately"
+echo "   [ ] Rotate SendGrid API key immediately"
+echo "   [ ] Generate new Supabase service role key"
+echo "   [ ] Monitor Stripe account for suspicious activity"
+echo "   [ ] Update .env.local with new keys for local development"
+echo "   [ ] Never commit .env.local to git"
