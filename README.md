@@ -1,269 +1,168 @@
-# Enclosed.AI - Direct Mail Marketing Platform
+# Enclosed AI - Complete Marketing Platform
 
-A complete direct mail marketing platform powered by AI that generates personalized sales letters and sends real physical mail. This platform works as both a standalone web application AND an API service for Clients.AI integration.
+A comprehensive AI-powered marketing platform with Stripe integration, authentication, campaign management, and lead processing capabilities.
 
-## 🚀 Features
+## 🚀 Quick Start
 
-### Standalone Web Application
-- **User Authentication**: Secure signup/login with Supabase Auth
-- **CSV Upload**: Import recipient lists with intelligent column mapping
-- **8 Stock Offers**: Pre-built offer types matching Clients.AI patterns
-- **AI Letter Generation**: GPT-4 powered personalized sales letters
-- **Real Mail Delivery**: Integration with Lob.com for actual mail sending
-- **Campaign Tracking**: Monitor delivery status and analytics
-- **Cost Calculator**: Transparent pricing with bulk discounts
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Supabase account
+- Stripe account
+- Google OAuth credentials
 
-### API for Clients.AI Integration
-- **RESTful API**: Complete endpoints for campaign management
-- **JWT & API Key Auth**: Support for both authentication methods
-- **Webhook Support**: Real-time notifications for campaign events
-- **Bulk Operations**: Efficient handling of large recipient lists
-- **Template Management**: Custom and default letter templates
+### 1. Clone and Install
+```bash
+git clone https://github.com/successxx/enclosed-ai.git
+cd enclosed-ai
+npm install
+```
 
-## 🛠 Technology Stack
+### 2. Environment Setup
+Create a `.env.local` file in the root directory:
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS
-- **Backend**: Next.js API Routes, Supabase Database
-- **Authentication**: Supabase Auth with JWT
-- **Mail Provider**: Lob.com API
-- **AI Generation**: OpenAI GPT-4
-- **Storage**: Supabase Storage for CSV uploads
-- **Database**: PostgreSQL (Supabase)
+```env
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
-## 📦 Installation
+# Stripe Configuration
+STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd enclosed-ai
-   ```
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+# Email Configuration (Resend)
+RESEND_API_KEY=re_your_resend_api_key
 
-3. **Set up environment variables**
-   ```bash
-   cp .env.local.example .env.local
-   ```
+# Lob API (for letter sending)
+LOB_API_KEY=live_your_lob_api_key
 
-4. **Configure environment variables**
-   ```env
-   # Supabase (Shared with Enclose.AI)
-   NEXT_PUBLIC_SUPABASE_URL=https://jwimrbdqsqwjobdninhi.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+# App Configuration
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
+```
 
-   # Lob.com API Keys
-   LOB_API_KEY=test_your_lob_test_key
-   LOB_LIVE_KEY=live_your_lob_live_key
+### 3. Database Setup
+Run the Supabase migration:
+```bash
+# Import the schema into your Supabase project
+# Use the supabase-schema.sql file in the root directory
+```
 
-   # OpenAI
-   OPENAI_API_KEY=sk_your_openai_key
+### 4. Start Development Server
+```bash
+npm run dev
+```
 
-   # Stripe (for payments)
-   STRIPE_PUBLIC_KEY=pk_test_your_stripe_key
-   STRIPE_SECRET_KEY=sk_test_your_stripe_key
+Visit [http://localhost:3000](http://localhost:3000) to see the application.
 
-   # App Config
-   NEXT_PUBLIC_APP_URL=http://localhost:3000
-   ```
+## 🏗️ Architecture
 
-5. **Set up the database**
-   - Run the SQL schema in Supabase SQL Editor:
-   ```bash
-   # Copy contents of supabase-enclosed-schema.sql to Supabase SQL Editor
-   ```
+### Frontend
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **React Hook Form** for form handling
+- **Zustand** for state management
 
-6. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+### Backend
+- **Next.js API Routes** for backend logic
+- **Supabase** for database and authentication
+- **Stripe** for payment processing
+- **Resend** for email delivery
+- **Lob** for physical mail
 
-## 🗄 Database Schema
+### Key Features
+- 🔐 **Authentication**: Google OAuth integration
+- 💳 **Payments**: Stripe subscription management
+- 📧 **Email Campaigns**: AI-powered email personalization
+- 📮 **Physical Mail**: Integration with Lob for letter sending
+- 📊 **Analytics**: Campaign performance tracking
+- 👥 **Lead Management**: CSV import and processing
+- 🎨 **Templates**: Pre-built email and letter templates
 
-All tables are prefixed with `enclosed_` to avoid conflicts with Enclose.AI:
+## 📁 Project Structure
 
-- `enclosed_users` - User accounts and settings
-- `enclosed_campaigns` - Mail campaigns
-- `enclosed_recipients` - Campaign recipients
-- `enclosed_templates` - Letter templates
-- `enclosed_api_clients` - API client configurations
-- `enclosed_tracking` - Mail delivery tracking
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── api/               # API routes
+│   ├── auth/              # Authentication pages
+│   ├── campaigns/         # Campaign management
+│   ├── dashboard/         # User dashboard
+│   └── ...
+├── components/            # Reusable React components
+├── lib/                   # Utility functions and integrations
+├── types/                 # TypeScript type definitions
+└── styles/               # Global styles and CSS tokens
+```
 
-## 🎯 The 8 Stock Offers
-
-Matching Clients.AI's offer types exactly:
-
-1. **Free Consultation** - Personal meeting to discuss needs
-2. **Trial Offer** - Try the service free for X days
-3. **Discount Offer** - Special pricing for new customers
-4. **Exclusive Access** - VIP or early access to products/services
-5. **Free Audit** - Complimentary review of current situation
-6. **Demo Request** - Product demonstration scheduling
-7. **Limited Time Offer** - Urgency-based special deal
-8. **Free Resource** - Valuable guide/report/tool
-
-## 📊 Pricing Structure
-
-- **Letters**: $0.89 base, $0.79 (500+), $0.69 (5000+)
-- **Postcards 4x6**: $0.55 base, $0.48 (500+), $0.42 (5000+)
-- **Postcards 6x11**: $0.75 base, $0.65 (500+), $0.58 (5000+)
-
-Includes AI generation, printing, postage, and delivery tracking.
-
-## 🔌 API Integration
+## 🔧 API Endpoints
 
 ### Authentication
-```bash
-# API Key (Primary method for Clients.AI)
-Authorization: Bearer <api_key>
-```
+- `POST /api/auth/google` - Google OAuth login
+- `GET /api/auth/google/callback` - OAuth callback
 
-### Core Endpoints
+### Campaigns
+- `GET /api/v1/campaigns` - List campaigns
+- `POST /api/v1/campaigns` - Create campaign
+- `GET /api/v1/campaigns/[id]` - Get campaign details
+- `POST /api/v1/campaigns/[id]/send` - Send campaign
 
-#### Campaigns
-```bash
-GET /api/v1/campaigns              # List campaigns
-POST /api/v1/campaigns             # Create campaign
-GET /api/v1/campaigns/{id}         # Get campaign details
-PUT /api/v1/campaigns/{id}         # Update campaign
-DELETE /api/v1/campaigns/{id}      # Delete campaign
-POST /api/v1/campaigns/{id}/send   # Send campaign
-```
+### Payments
+- `POST /api/stripe/create-checkout` - Create Stripe checkout session
+- `POST /api/stripe/webhook` - Handle Stripe webhooks
 
-#### Templates
-```bash
-GET /api/v1/templates              # List templates
-POST /api/v1/templates             # Create template
-GET /api/v1/templates/{id}         # Get template
-```
-
-#### Recipients
-```bash
-POST /api/v1/recipients/bulk       # Bulk add recipients
-```
-
-### Example: Create Campaign via API
-```javascript
-const response = await fetch('/api/v1/campaigns', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer <jwt_token>',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    name: 'Q1 Outreach',
-    offer_type: 'free_consultation',
-    recipients: [
-      {
-        name: 'John Smith',
-        address_line1: '123 Main St',
-        city: 'San Francisco',
-        state: 'CA',
-        zip_code: '94107',
-        custom_variables: {
-          company: 'Smith Industries',
-          industry: 'Manufacturing'
-        }
-      }
-    ]
-  })
-})
-```
-
-### Example: Send Campaign
-```javascript
-const response = await fetch(`/api/v1/campaigns/${campaignId}/send`, {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer <jwt_token>',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    test_mode: false,
-    business_context: {
-      companyName: 'Your Company',
-      senderName: 'John Doe',
-      senderTitle: 'CEO',
-      phone: '(555) 123-4567',
-      website: 'https://yourcompany.com',
-      industry: 'Business Services',
-      companyDescription: 'We help businesses grow',
-      primaryGoal: 'Increase revenue',
-      targetAudience: 'Small business owners',
-      primaryCustomerPainPoints: 'Limited marketing budget'
-    }
-  })
-})
-```
-
-## 🧪 Testing
-
-### Test Mode
-Use `test_mode: true` when sending campaigns to generate letters without actually mailing them:
-
-```javascript
-await fetch(`/api/v1/campaigns/${campaignId}/send`, {
-  method: 'POST',
-  body: JSON.stringify({ test_mode: true })
-})
-```
-
-### Lob Test Environment
-- Use `test_` API keys for development
-- Test letters won't be physically mailed
-- Full API functionality available in test mode
-
-## 🔒 Security Features
-
-- **Row Level Security**: All database tables have RLS enabled
-- **API Rate Limiting**: Configurable rate limits per API client
-- **Input Validation**: Comprehensive validation on all endpoints
-- **Address Verification**: USPS address validation via Lob
-- **Secure Authentication**: JWT with Supabase Auth
+### Leads
+- `POST /api/leads/import` - Import leads from CSV
 
 ## 🚀 Deployment
 
-### Vercel Deployment
-1. Connect repository to Vercel
-2. Set environment variables
-3. Deploy
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push to main
 
-### Database Migration
-Run the schema in your Supabase project:
-```sql
--- Copy and paste contents of supabase-enclosed-schema.sql
-```
+### Manual Deployment
+1. Build the application: `npm run build`
+2. Start production server: `npm start`
+3. Configure your hosting provider
 
-## 🔗 Integration with Clients.AI
+## 🔒 Security
 
-Enclosed.AI is designed to seamlessly integrate with Clients.AI:
+- Environment variables for sensitive data
+- CSRF protection on API routes
+- Input validation and sanitization
+- Secure authentication with NextAuth.js
+- Stripe webhook signature verification
 
-1. **Matching Offer Types**: Same 8 offers with identical IDs
-2. **Compatible Variables**: Supports all Clients.AI personalization variables
-3. **API Response Format**: Matches Clients.AI response patterns
-4. **Webhook Support**: Real-time notifications for campaign events
+## 📊 Monitoring
 
-## 📈 Analytics & Tracking
+- Built-in error handling and logging
+- Stripe webhook monitoring
+- Email delivery tracking
+- Campaign performance analytics
 
-- **Delivery Tracking**: Real-time mail delivery status
-- **Response Tracking**: Monitor campaign performance
-- **Cost Analytics**: Track spending and ROI
-- **Bulk Discounts**: Automatic pricing tiers
+## 🤝 Contributing
 
-## 🤝 Support
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-- **Documentation**: Comprehensive API docs
-- **Test Environment**: Safe testing with Lob test keys
-- **Error Handling**: Detailed error messages and codes
-- **Monitoring**: Campaign status tracking
+## 📄 License
 
-## 📝 License
+This project is licensed under the MIT License.
 
-This project is proprietary software. All rights reserved.
+## 🆘 Support
+
+For support, email support@enclosed-ai.com or create an issue in this repository.
 
 ---
 
-**Enclosed.AI** - Making direct mail marketing intelligent and accessible.
+**Built with ❤️ by the Enclosed AI team**
