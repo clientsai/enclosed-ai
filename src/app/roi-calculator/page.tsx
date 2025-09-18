@@ -5,19 +5,18 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  Split,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  H1,
+  H2,
+  H3,
+  H4,
+  Text,
   Button,
   Card,
-  Stat,
-  Callout,
-} from "@/components/premium";
+  Badge,
+  Alert,
+} from "@/components/ui";
 
 export default function ROICalculatorPage() {
   const [inputs, setInputs] = useState({
@@ -158,25 +157,25 @@ export default function ROICalculatorPage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Free Calculator</Eyebrow>
-          <Headline level={1}>
+        <Flex direction="col" gap={6}>
+          <Badge>Free Calculator</Badge>
+          <H1>
             Calculate Your Direct Mail ROI
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+          </H1>
+          <Text size="lg" className="max-w-3xl mx-auto">
             Make data-driven decisions about your direct mail campaigns. Our comprehensive ROI calculator helps you estimate costs, responses, and returns before you invest. Input your campaign parameters below and see projected results instantly.
-          </Subhead>
-        </Stack>
+          </Text>
+        </Flex>
       </Section>
 
       {/* Calculator Section */}
       <Section>
         <div className="max-w-6xl mx-auto">
-          <Grid columns={2} className="gap-8">
+          <Grid cols={2} className="gap-8">
             {/* Input Panel */}
             <Card className="p-8">
-              <Stack gap={6}>
-                <Headline level={3}>Campaign Parameters</Headline>
+              <Flex direction="col" gap={6}>
+                <H3>Campaign Parameters</H3>
 
                 <div className="space-y-6">
                   {/* Campaign Details */}
@@ -310,13 +309,13 @@ export default function ROICalculatorPage() {
                     </div>
                   </div>
                 </div>
-              </Stack>
+              </Flex>
             </Card>
 
             {/* Results Panel */}
             <Card className="p-8">
-              <Stack gap={6}>
-                <Headline level={3}>Projected Results</Headline>
+              <Flex direction="col" gap={6}>
+                <H3>Projected Results</H3>
 
                 {/* Key Metrics */}
                 <div className="grid grid-cols-2 gap-4">
@@ -380,27 +379,27 @@ export default function ROICalculatorPage() {
                 {/* ROI Interpretation */}
                 <div className="mt-6">
                   {results.roi >= 300 && (
-                    <Callout intent="success">
+                    <Alert variant="success">
                       <strong>Excellent ROI!</strong> This campaign shows strong potential for profitability with a {results.roi}% return.
-                    </Callout>
+                    </Alert>
                   )}
                   {results.roi >= 100 && results.roi < 300 && (
-                    <Callout intent="info">
+                    <Alert variant="info">
                       <strong>Good ROI.</strong> This campaign should be profitable with a {results.roi}% return. Consider optimizing to increase returns further.
-                    </Callout>
+                    </Alert>
                   )}
                   {results.roi >= 0 && results.roi < 100 && (
-                    <Callout intent="warning">
+                    <Alert variant="warning">
                       <strong>Low ROI.</strong> While profitable, consider improving response rates or reducing costs to increase returns.
-                    </Callout>
+                    </Alert>
                   )}
                   {results.roi < 0 && (
-                    <Callout intent="warning">
+                    <Alert variant="error">
                       <strong>Negative ROI.</strong> This campaign may result in a loss. Consider adjusting parameters or testing with a smaller batch first.
-                    </Callout>
+                    </Alert>
                   )}
                 </div>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
         </div>
@@ -408,12 +407,12 @@ export default function ROICalculatorPage() {
 
       {/* Industry Benchmarks */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex direction="col" gap={8}>
           <div className="text-center">
-            <Headline level={2}>Industry Benchmarks</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H2>Industry Benchmarks</H2>
+            <Text size="lg" className="max-w-3xl mx-auto">
               Compare your projections with industry standards to set realistic expectations and identify opportunities for improvement.
-            </Subhead>
+            </Text>
           </div>
 
           <div className="overflow-x-auto">
@@ -454,22 +453,22 @@ export default function ROICalculatorPage() {
               </tbody>
             </table>
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Tips Section */}
       <Section>
-        <Stack gap={8}>
+        <Flex direction="col" gap={8}>
           <div className="text-center">
-            <Headline level={2}>Optimization Tips</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H2>Optimization Tips</H2>
+            <Text size="lg" className="max-w-3xl mx-auto">
               Maximize your direct mail ROI with these proven strategies
-            </Subhead>
+            </Text>
           </div>
 
-          <Grid columns={3}>
+          <Grid cols={3}>
             <Card className="p-6">
-              <Stack gap={4}>
+              <Flex direction="col" gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <svg
                     className="h-6 w-6 text-white"
@@ -485,15 +484,15 @@ export default function ROICalculatorPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Improve Response Rates</Headline>
+                <H4>Improve Response Rates</H4>
                 <p className="text-gray-700 leading-relaxed">
                   Use personalization, compelling offers, clear calls-to-action, and professional design to increase response rates by 20-40%.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card className="p-6">
-              <Stack gap={4}>
+              <Flex direction="col" gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <svg
                     className="h-6 w-6 text-white"
@@ -509,15 +508,15 @@ export default function ROICalculatorPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Reduce Costs</Headline>
+                <H4>Reduce Costs</H4>
                 <p className="text-gray-700 leading-relaxed">
                   Optimize mail formats, negotiate volume discounts, and use efficient targeting to reduce cost per piece by 15-30%.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card className="p-6">
-              <Stack gap={4}>
+              <Flex direction="col" gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <svg
                     className="h-6 w-6 text-white"
@@ -533,40 +532,40 @@ export default function ROICalculatorPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Increase Conversions</Headline>
+                <H4>Increase Conversions</H4>
                 <p className="text-gray-700 leading-relaxed">
                   Streamline your sales process, provide multiple response options, and follow up promptly to boost conversion rates.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
+        <Flex direction="col" gap={6}>
+          <H2 className="text-white">
             Ready to Launch Your Campaign?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+          </H2>
+          <Text size="lg" className="text-gray-300 max-w-3xl mx-auto">
             Start your direct mail campaign with Enclosed.AI and achieve the ROI you've calculated. Our AI-powered platform helps you exceed industry benchmarks.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
               Start Free Trial
             </Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
               Schedule Consultation
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo
                 size="md"
@@ -580,7 +579,7 @@ export default function ROICalculatorPage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex direction="col" gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Features
                 </Link>
@@ -593,11 +592,11 @@ export default function ROICalculatorPage() {
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
                   ROI Calculator
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex direction="col" gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
@@ -610,11 +609,11 @@ export default function ROICalculatorPage() {
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
-              <Stack gap={2}>
+              <Flex direction="col" gap={2}>
                 <Link href="/help" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Help Center
                 </Link>
@@ -627,7 +626,7 @@ export default function ROICalculatorPage() {
                 <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Terms of Service
                 </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

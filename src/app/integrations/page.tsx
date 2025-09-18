@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 
 export const metadata = {
-  title: "Integrations - Enclosed.AI | Connect Your Marketing Stack",
+  title: "Integrations - Enclosed.AI | Connect Your Marketing Flex",
   description:
     "Integrate Enclosed.AI with your existing marketing tools and CRM systems. Seamless connections with Salesforce, HubSpot, Mailchimp, and more.",
 };
@@ -111,7 +111,7 @@ export default function IntegrationsPage() {
               </p>
               <ul className="text-sm text-gray-500 space-y-1 mb-6">
                 <li>• Two-way contact synchronization</li>
-                <li>• Lead scoring integration</li>
+                <li>• Text scoring integration</li>
                 <li>• Campaign attribution tracking</li>
                 <li>• Custom field mapping</li>
               </ul>
@@ -150,7 +150,7 @@ export default function IntegrationsPage() {
               <ul className="text-sm text-gray-500 space-y-1 mb-6">
                 <li>• Contact list synchronization</li>
                 <li>• Workflow automation triggers</li>
-                <li>• Lead nurturing sequences</li>
+                <li>• Text nurturing sequences</li>
                 <li>• ROI tracking and reporting</li>
               </ul>
               <Link

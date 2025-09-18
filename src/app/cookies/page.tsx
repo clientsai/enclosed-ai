@@ -1,12 +1,20 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
+  Container,
   Section,
-  Stack,
-  Headline,
-  Subhead,
-  Prose,
-} from "@/components/premium";
+  Flex,
+  H1,
+  H2,
+  H3,
+  Text,
+  Button,
+  Nav,
+  NavLink,
+  GlowOrb,
+  Divider,
+  Badge,
+} from "@/components/ui";
 
 export const metadata = {
   title: "Cookie Policy - Enclosed.AI | How We Use Cookies",
@@ -16,207 +24,235 @@ export const metadata = {
 
 export default function CookiesPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</Link>
-              <Link href="/features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</Link>
-              <Link href="/about" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sign In</Link>
-              <Link href="/auth/signup" className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors">Get Started</Link>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Ambient background effects */}
+      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
+      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+
+      {/* Navigation */}
+      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
+        <Logo size="md" />
+        <Flex gap={8} align="center" className="hidden md:flex">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/features">Features</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
+        </Flex>
+        <Flex gap={4}>
+          <Button variant="ghost" size="sm" href="/auth/login">
+            Sign In
+          </Button>
+          <Button variant="primary" size="sm" href="/auth/signup">
+            Get Started
+          </Button>
+        </Flex>
+      </Nav>
 
       {/* Content */}
-      <Section>
-        <div className="max-w-4xl mx-auto">
-          <Stack gap={8}>
+      <Section className="pt-24">
+        <Container size="default">
+          <Flex direction="col" gap={12}>
             <div className="text-center">
-              <Headline level={1}>Cookie Policy</Headline>
-              <Subhead className="max-w-2xl mx-auto">
+              <Badge className="mb-4">Legal</Badge>
+              <H1 className="mb-4" gradient>Cookie Policy</H1>
+              <Text size="xl" color="secondary" className="max-w-2xl mx-auto">
                 This policy explains how Enclosed.AI uses cookies and similar technologies on our website.
-              </Subhead>
-              <p className="text-sm text-gray-600 mt-4">Last updated: March 15, 2024</p>
+              </Text>
+              <Text size="sm" color="muted" className="mt-4">Last updated: March 15, 2024</Text>
             </div>
 
-            <Prose>
-              <h2>What Are Cookies</h2>
-              <p>
+            <div className="prose prose-invert max-w-none">
+              <H2>What Are Cookies</H2>
+              <Text color="secondary" className="mb-6">
                 Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and analyzing how you use our services.
-              </p>
+              </Text>
 
-              <h2>Types of Cookies We Use</h2>
+              <H2>Types of Cookies We Use</H2>
 
-              <h3>Essential Cookies</h3>
-              <p>
+              <H3>Essential Cookies</H3>
+              <Text color="secondary" className="mb-4">
                 These cookies are necessary for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt-out of these cookies.
-              </p>
-              <ul>
-                <li><strong>Authentication cookies:</strong> Remember your login status</li>
-                <li><strong>Security cookies:</strong> Protect against fraud and security threats</li>
-                <li><strong>Load balancing cookies:</strong> Distribute traffic across our servers</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Authentication cookies:</span> Remember your login status</Text></li>
+                <li><Text><span className="font-semibold text-white">Security cookies:</span> Protect against fraud and security threats</Text></li>
+                <li><Text><span className="font-semibold text-white">Load balancing cookies:</span> Distribute traffic across our servers</Text></li>
               </ul>
 
-              <h3>Analytics Cookies</h3>
-              <p>
+              <H3>Analytics Cookies</H3>
+              <Text color="secondary" className="mb-4">
                 We use analytics cookies to understand how visitors interact with our website. This helps us improve our services and user experience.
-              </p>
-              <ul>
-                <li><strong>Google Analytics:</strong> Tracks website usage and performance</li>
-                <li><strong>Mixpanel:</strong> Analyzes user behavior and feature usage</li>
-                <li><strong>Hotjar:</strong> Records user sessions for usability analysis</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Google Analytics:</span> Tracks website usage and performance</Text></li>
+                <li><Text><span className="font-semibold text-white">Mixpanel:</span> Analyzes user behavior and feature usage</Text></li>
+                <li><Text><span className="font-semibold text-white">Hotjar:</span> Records user sessions for usability analysis</Text></li>
               </ul>
 
-              <h3>Marketing Cookies</h3>
-              <p>
+              <H3>Marketing Cookies</H3>
+              <Text color="secondary" className="mb-4">
                 These cookies track your online activity to help advertisers deliver more relevant advertising or to limit how many times you see an ad.
-              </p>
-              <ul>
-                <li><strong>Google Ads:</strong> Tracks conversions and remarketing</li>
-                <li><strong>Facebook Pixel:</strong> Measures advertising effectiveness</li>
-                <li><strong>LinkedIn Insight Tag:</strong> Provides audience insights</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Google Ads:</span> Tracks conversions and remarketing</Text></li>
+                <li><Text><span className="font-semibold text-white">Facebook Pixel:</span> Measures advertising effectiveness</Text></li>
+                <li><Text><span className="font-semibold text-white">LinkedIn Insight Tag:</span> Provides audience insights</Text></li>
               </ul>
 
-              <h3>Functionality Cookies</h3>
-              <p>
+              <H3>Functionality Cookies</H3>
+              <Text color="secondary" className="mb-4">
                 These cookies enable enhanced functionality and personalization, such as remembering your preferences and providing customized content.
-              </p>
-              <ul>
-                <li><strong>Preference cookies:</strong> Remember your settings and choices</li>
-                <li><strong>Language cookies:</strong> Store your language preference</li>
-                <li><strong>Theme cookies:</strong> Remember your display preferences</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Preference cookies:</span> Remember your settings and choices</Text></li>
+                <li><Text><span className="font-semibold text-white">Language cookies:</span> Store your language preference</Text></li>
+                <li><Text><span className="font-semibold text-white">Theme cookies:</span> Remember your display preferences</Text></li>
               </ul>
 
-              <h2>Third-Party Cookies</h2>
-              <p>
+              <H2>Third-Party Cookies</H2>
+              <Text color="secondary" className="mb-4">
                 Some cookies are placed by third-party services that appear on our pages. We do not control these cookies and recommend you check the privacy policies of these third parties.
-              </p>
+              </Text>
 
-              <h3>Third-Party Services We Use:</h3>
-              <ul>
-                <li><strong>Google Analytics:</strong> Web analytics service</li>
-                <li><strong>Intercom:</strong> Customer support and messaging</li>
-                <li><strong>Stripe:</strong> Payment processing</li>
-                <li><strong>Salesforce:</strong> Customer relationship management</li>
-                <li><strong>Zendesk:</strong> Customer support ticketing</li>
+              <H3>Third-Party Services We Use:</H3>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Google Analytics:</span> Web analytics service</Text></li>
+                <li><Text><span className="font-semibold text-white">Intercom:</span> Customer support and messaging</Text></li>
+                <li><Text><span className="font-semibold text-white">Stripe:</span> Payment processing</Text></li>
+                <li><Text><span className="font-semibold text-white">Salesforce:</span> Customer relationship management</Text></li>
+                <li><Text><span className="font-semibold text-white">Zendesk:</span> Customer support ticketing</Text></li>
               </ul>
 
-              <h2>Cookie Retention</h2>
-              <p>
+              <H2>Cookie Retention</H2>
+              <Text color="secondary" className="mb-4">
                 Different cookies have different lifespans:
-              </p>
-              <ul>
-                <li><strong>Session cookies:</strong> Deleted when you close your browser</li>
-                <li><strong>Persistent cookies:</strong> Remain for a set period (typically 30 days to 2 years)</li>
-                <li><strong>Authentication cookies:</strong> Expire after 30 days of inactivity</li>
-                <li><strong>Preference cookies:</strong> Stored for up to 1 year</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Session cookies:</span> Deleted when you close your browser</Text></li>
+                <li><Text><span className="font-semibold text-white">Persistent cookies:</span> Remain for a set period (typically 30 days to 2 years)</Text></li>
+                <li><Text><span className="font-semibold text-white">Authentication cookies:</span> Expire after 30 days of inactivity</Text></li>
+                <li><Text><span className="font-semibold text-white">Preference cookies:</span> Stored for up to 1 year</Text></li>
               </ul>
 
-              <h2>Managing Your Cookie Preferences</h2>
-              <p>
+              <H2>Managing Your Cookie Preferences</H2>
+              <Text color="secondary" className="mb-4">
                 You have several options for managing cookies:
-              </p>
+              </Text>
 
-              <h3>Browser Settings</h3>
-              <p>
+              <H3>Browser Settings</H3>
+              <Text color="secondary" className="mb-6">
                 Most browsers allow you to control cookies through their settings. You can usually find these in the "Options" or "Preferences" menu of your browser.
-              </p>
+              </Text>
 
-              <h3>Cookie Consent Manager</h3>
-              <p>
+              <H3>Cookie Consent Manager</H3>
+              <Text color="secondary" className="mb-6">
                 When you first visit our website, you'll see a cookie consent banner. You can manage your preferences by clicking on "Cookie Settings" or by accessing our cookie preference center.
-              </p>
+              </Text>
 
-              <h3>Opt-Out Tools</h3>
-              <p>
+              <H3>Opt-Out Tools</H3>
+              <Text color="secondary" className="mb-4">
                 You can opt out of certain third-party cookies using these tools:
-              </p>
-              <ul>
-                <li><strong>Google Analytics:</strong> <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics Opt-out Browser Add-on</a></li>
-                <li><strong>Network Advertising Initiative:</strong> <a href="http://optout.networkadvertising.org/">NAI Opt-out Tool</a></li>
-                <li><strong>Digital Advertising Alliance:</strong> <a href="http://optout.aboutads.info/">DAA Opt-out Tool</a></li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Google Analytics:</span> <a href="https://tools.google.com/dlpage/gaoptout" className="text-[var(--accent)] hover:underline">Google Analytics Opt-out Browser Add-on</a></Text></li>
+                <li><Text><span className="font-semibold text-white">Network Advertising Initiative:</span> <a href="http://optout.networkadvertising.org/" className="text-[var(--accent)] hover:underline">NAI Opt-out Tool</a></Text></li>
+                <li><Text><span className="font-semibold text-white">Digital Advertising Alliance:</span> <a href="http://optout.aboutads.info/" className="text-[var(--accent)] hover:underline">DAA Opt-out Tool</a></Text></li>
               </ul>
 
-              <h2>Impact of Disabling Cookies</h2>
-              <p>
+              <H2>Impact of Disabling Cookies</H2>
+              <Text color="secondary" className="mb-4">
                 If you disable cookies, some features of our website may not function properly:
-              </p>
-              <ul>
-                <li>You may need to log in repeatedly</li>
-                <li>Your preferences may not be saved</li>
-                <li>Some personalized features may not work</li>
-                <li>Website performance analytics may be affected</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text>You may need to log in repeatedly</Text></li>
+                <li><Text>Your preferences may not be saved</Text></li>
+                <li><Text>Some personalized features may not work</Text></li>
+                <li><Text>Website performance analytics may be affected</Text></li>
               </ul>
 
-              <h2>Mobile App Data</h2>
-              <p>
+              <H2>Mobile App Data</H2>
+              <Text color="secondary" className="mb-4">
                 Our mobile applications may use similar technologies to cookies, including:
-              </p>
-              <ul>
-                <li><strong>Device identifiers:</strong> Unique identifiers for analytics</li>
-                <li><strong>Local storage:</strong> Stores app preferences and data</li>
-                <li><strong>Push tokens:</strong> Enables push notifications</li>
-                <li><strong>Analytics SDKs:</strong> Third-party analytics tools</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Device identifiers:</span> Unique identifiers for analytics</Text></li>
+                <li><Text><span className="font-semibold text-white">Local storage:</span> Stores app preferences and data</Text></li>
+                <li><Text><span className="font-semibold text-white">Push tokens:</span> Enables push notifications</Text></li>
+                <li><Text><span className="font-semibold text-white">Analytics SDKs:</span> Third-party analytics tools</Text></li>
               </ul>
 
-              <h2>Data Protection Rights</h2>
-              <p>
+              <H2>Data Protection Rights</H2>
+              <Text color="secondary" className="mb-4">
                 Under applicable data protection laws, you have rights regarding your personal data:
-              </p>
-              <ul>
-                <li><strong>Access:</strong> Request information about data processing</li>
-                <li><strong>Rectification:</strong> Correct inaccurate personal data</li>
-                <li><strong>Erasure:</strong> Request deletion of personal data</li>
-                <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
-                <li><strong>Objection:</strong> Object to certain types of processing</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Access:</span> Request information about data processing</Text></li>
+                <li><Text><span className="font-semibold text-white">Rectification:</span> Correct inaccurate personal data</Text></li>
+                <li><Text><span className="font-semibold text-white">Erasure:</span> Request deletion of personal data</Text></li>
+                <li><Text><span className="font-semibold text-white">Portability:</span> Receive your data in a machine-readable format</Text></li>
+                <li><Text><span className="font-semibold text-white">Objection:</span> Object to certain types of processing</Text></li>
               </ul>
 
-              <h2>Changes to This Policy</h2>
-              <p>
+              <H2>Changes to This Policy</H2>
+              <Text color="secondary" className="mb-6">
                 We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the updated policy on our website and updating the "Last updated" date.
-              </p>
+              </Text>
 
-              <h2>Contact Us</h2>
-              <p>
+              <H2>Contact Us</H2>
+              <Text color="secondary" className="mb-4">
                 If you have any questions about this Cookie Policy or our use of cookies, please contact us:
-              </p>
-              <ul>
-                <li><strong>Email:</strong> privacy@enclosed.ai</li>
-                <li><strong>Address:</strong> 123 Innovation Drive, San Francisco, CA 94105</li>
-                <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><span className="font-semibold text-white">Email:</span> privacy@enclosed.ai</Text></li>
+                <li><Text><span className="font-semibold text-white">Address:</span> 123 Innovation Drive, San Francisco, CA 94105</Text></li>
+                <li><Text><span className="font-semibold text-white">Phone:</span> +1 (555) 123-4567</Text></li>
               </ul>
 
-              <h2>Additional Resources</h2>
-              <p>
+              <H2>Additional Resources</H2>
+              <Text color="secondary" className="mb-4">
                 For more information about cookies and privacy, visit:
-              </p>
-              <ul>
-                <li><a href="https://allaboutcookies.org/">All About Cookies</a></li>
-                <li><a href="https://www.youronlinechoices.com/">Your Online Choices</a></li>
-                <li><a href="https://ico.org.uk/for-the-public/online/cookies/">ICO Cookie Guidance</a></li>
+              </Text>
+              <ul className="space-y-2 mb-6">
+                <li><Text><a href="https://allaboutcookies.org/" className="text-[var(--accent)] hover:underline">All About Cookies</a></Text></li>
+                <li><Text><a href="https://www.youronlinechoices.com/" className="text-[var(--accent)] hover:underline">Your Online Choices</a></Text></li>
+                <li><Text><a href="https://ico.org.uk/for-the-public/online/cookies/" className="text-[var(--accent)] hover:underline">ICO Cookie Guidance</a></Text></li>
               </ul>
-            </Prose>
-          </Stack>
-        </div>
+            </div>
+          </Flex>
+        </Container>
       </Section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-16">
-        <Section>
-          <div className="text-center">
-            <Logo size="md" showText={true} linkToHome={false} className="text-white [&>div>span]:text-white mb-4" />
-            <p className="text-gray-400 text-sm">Direct mail marketing powered by artificial intelligence</p>
+      <footer className="border-t border-white/5 mt-24">
+        <Container>
+          <div className="py-12">
+            <div className="text-center">
+              <Logo showText size="sm" className="mb-4" />
+              <Text size="sm" color="muted">
+                Direct mail marketing powered by artificial intelligence
+              </Text>
+            </div>
+
+            <Divider className="my-8" />
+
+            <Flex justify="between" align="center">
+              <Text size="sm" color="muted">
+                © 2024 Enclosed.AI. All rights reserved.
+              </Text>
+              <Flex gap={6}>
+                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                  Privacy
+                </Text>
+                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                  Terms
+                </Text>
+                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                  Cookies
+                </Text>
+              </Flex>
+            </Flex>
           </div>
-        </Section>
+        </Container>
       </footer>
     </div>
   );

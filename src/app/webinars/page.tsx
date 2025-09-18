@@ -2,19 +2,18 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  Split,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  Badge,
+  H1,
+  H2,
+  H3,
+  H4,
+  Text,
   Button,
   Card,
-  Badge,
   Tabs,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "Webinars - Enclosed.AI | Learn Direct Mail Marketing",
@@ -59,7 +58,7 @@ export default function WebinarsPage() {
       date: "April 19, 2024",
       time: "3:00 PM EST",
       duration: "60 minutes",
-      presenter: "David Kim, Marketing Strategy Lead",
+      presenter: "David Kim, Marketing Strategy Text",
       description: "Learn how to seamlessly integrate direct mail with your digital marketing channels for maximum impact. Real case studies and actionable strategies included.",
       registrations: 789,
       featured: false,
@@ -187,33 +186,33 @@ export default function WebinarsPage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Expert Training</Eyebrow>
-          <Headline level={1}>
+        <Flex gap={6}>
+          <Badge>Expert Training</Badge>
+          <H1 level={1}>
             Master Direct Mail Marketing with Expert-Led Webinars
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+          </H1>
+          <Text className="max-w-3xl mx-auto">
             Join industry experts and successful marketers in live and recorded sessions designed to help you maximize your direct mail ROI. Learn advanced strategies, best practices, and insider tips from the professionals who've mastered AI-powered direct mail marketing.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="#upcoming" size="lg">
               View Upcoming Sessions
             </Button>
             <Button as={Link} href="#recorded" variant="ghost" size="lg">
               Browse Library
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Upcoming Webinars Section */}
       <Section id="upcoming">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Upcoming Live Webinars</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Upcoming Live Webinars</H1>
+            <Text className="max-w-3xl mx-auto">
               Reserve your spot in our upcoming live sessions. Interact directly with experts, ask questions, and get personalized advice for your specific challenges.
-            </Subhead>
+            </Text>
           </div>
 
           <div className="space-y-6">
@@ -221,10 +220,10 @@ export default function WebinarsPage() {
               <Card key={index} hover className={`p-8 ${webinar.featured ? 'border-2 border-gray-900' : ''}`}>
                 <div className="flex flex-col lg:flex-row gap-6">
                   <div className="flex-1">
-                    <Stack gap={4}>
+                    <Flex gap={4}>
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
-                          <Cluster gap={2} className="mb-2">
+                          <Flex gap={2} className="mb-2">
                             {webinar.featured && (
                               <Badge variant="default" className="bg-gray-900 text-white">
                                 Featured
@@ -233,10 +232,10 @@ export default function WebinarsPage() {
                             <span className="text-sm text-gray-600">
                               {webinar.registrations} registered
                             </span>
-                          </Cluster>
-                          <Headline level={3} className="text-xl">
+                          </Flex>
+                          <H1 level={3} className="text-xl">
                             {webinar.title}
-                          </Headline>
+                          </H1>
                         </div>
                       </div>
 
@@ -263,7 +262,7 @@ export default function WebinarsPage() {
                       <p className="text-gray-700 leading-relaxed">
                         {webinar.description}
                       </p>
-                    </Stack>
+                    </Flex>
                   </div>
 
                   <div className="flex flex-col justify-center gap-3 lg:w-48">
@@ -278,17 +277,17 @@ export default function WebinarsPage() {
               </Card>
             ))}
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Recorded Webinars Section */}
       <Section id="recorded" className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>On-Demand Webinar Library</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>On-Demand Webinar Library</H1>
+            <Text className="max-w-3xl mx-auto">
               Access our comprehensive library of recorded webinars. Learn at your own pace with expert insights available 24/7.
-            </Subhead>
+            </Text>
           </div>
 
           <Tabs
@@ -299,7 +298,7 @@ export default function WebinarsPage() {
                   <Grid columns={2}>
                     {recordedWebinars.map((webinar, index) => (
                       <Card key={index} hover className="p-6">
-                        <Stack gap={4}>
+                        <Flex gap={4}>
                           <div className="flex items-start justify-between">
                             <Badge variant="default">
                               {webinar.category}
@@ -309,9 +308,9 @@ export default function WebinarsPage() {
                             </span>
                           </div>
 
-                          <Headline level={4} className="text-lg">
+                          <H1 level={4} className="text-lg">
                             {webinar.title}
-                          </Headline>
+                          </H1>
 
                           <div className="grid grid-cols-2 gap-4 text-sm">
                             <div>
@@ -336,7 +335,7 @@ export default function WebinarsPage() {
                           <Button size="sm" className="w-full mt-auto">
                             Watch Now
                           </Button>
-                        </Stack>
+                        </Flex>
                       </Card>
                     ))}
                   </Grid>
@@ -350,7 +349,7 @@ export default function WebinarsPage() {
                       .filter(webinar => webinar.category === "Strategy")
                       .map((webinar, index) => (
                         <Card key={index} hover className="p-6">
-                          <Stack gap={4}>
+                          <Flex gap={4}>
                             <div className="flex items-start justify-between">
                               <Badge variant="default">
                                 {webinar.category}
@@ -360,9 +359,9 @@ export default function WebinarsPage() {
                               </span>
                             </div>
 
-                            <Headline level={4} className="text-lg">
+                            <H1 level={4} className="text-lg">
                               {webinar.title}
-                            </Headline>
+                            </H1>
 
                             <div className="grid grid-cols-2 gap-4 text-sm">
                               <div>
@@ -387,7 +386,7 @@ export default function WebinarsPage() {
                             <Button size="sm" className="w-full mt-auto">
                               Watch Now
                             </Button>
-                          </Stack>
+                          </Flex>
                         </Card>
                       ))}
                   </Grid>
@@ -401,7 +400,7 @@ export default function WebinarsPage() {
                       .filter(webinar => webinar.category === "Platform")
                       .map((webinar, index) => (
                         <Card key={index} hover className="p-6">
-                          <Stack gap={4}>
+                          <Flex gap={4}>
                             <div className="flex items-start justify-between">
                               <Badge variant="default">
                                 {webinar.category}
@@ -411,9 +410,9 @@ export default function WebinarsPage() {
                               </span>
                             </div>
 
-                            <Headline level={4} className="text-lg">
+                            <H1 level={4} className="text-lg">
                               {webinar.title}
-                            </Headline>
+                            </H1>
 
                             <div className="grid grid-cols-2 gap-4 text-sm">
                               <div>
@@ -438,7 +437,7 @@ export default function WebinarsPage() {
                             <Button size="sm" className="w-full mt-auto">
                               Watch Now
                             </Button>
-                          </Stack>
+                          </Flex>
                         </Card>
                       ))}
                   </Grid>
@@ -446,22 +445,22 @@ export default function WebinarsPage() {
               },
             ]}
           />
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Benefits Section */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Why Attend Our Webinars?</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Why Attend Our Webinars?</H1>
+            <Text className="max-w-3xl mx-auto">
               Learn from industry experts and join a community of successful direct mail marketers
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             <Card className="p-6 text-center">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
                   <svg
                     className="h-6 w-6 text-white"
@@ -477,15 +476,15 @@ export default function WebinarsPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Expert Knowledge</Headline>
+                <H1 level={4}>Expert Knowledge</H1>
                 <p className="text-gray-700 leading-relaxed">
                   Learn from industry professionals with years of direct mail marketing experience and proven track records.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card className="p-6 text-center">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
                   <svg
                     className="h-6 w-6 text-white"
@@ -501,15 +500,15 @@ export default function WebinarsPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Interactive Learning</Headline>
+                <H1 level={4}>Interactive Learning</H1>
                 <p className="text-gray-700 leading-relaxed">
                   Participate in live Q&A sessions, polls, and discussions with fellow marketers and industry experts.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card className="p-6 text-center">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
                   <svg
                     className="h-6 w-6 text-white"
@@ -525,34 +524,34 @@ export default function WebinarsPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Actionable Strategies</Headline>
+                <H1 level={4}>Actionable Strategies</H1>
                 <p className="text-gray-700 leading-relaxed">
                   Walk away with concrete tactics and frameworks you can implement immediately to improve your campaigns.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
+        <Flex gap={6}>
+          <H1 level={2} className="text-white">
             Ready to Level Up Your Direct Mail Marketing?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+          </H1>
+          <Text className="text-gray-300 max-w-3xl mx-auto">
             Join thousands of marketers who have transformed their campaigns through our expert-led training. Register for upcoming webinars or start learning today with our on-demand library.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="#upcoming" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
               Register for Webinar
             </Button>
             <Button as={Link} href="/auth/signup" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
               Start Free Trial
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
@@ -572,7 +571,7 @@ export default function WebinarsPage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Features
                 </Link>
@@ -585,11 +584,11 @@ export default function WebinarsPage() {
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
                   ROI Calculator
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
@@ -602,11 +601,11 @@ export default function WebinarsPage() {
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Resources</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/webinars" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Webinars
                 </Link>
@@ -619,7 +618,7 @@ export default function WebinarsPage() {
                 <Link href="/partners" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Partners
                 </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

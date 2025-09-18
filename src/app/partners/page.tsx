@@ -2,20 +2,17 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  Split,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  H1,
+  H2,
+  H3,
+  H4,
+  Text,
   Button,
   Card,
   Badge,
-  Stat,
-  Steps,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "Partners - Enclosed.AI | Integration Partners & Reseller Program",
@@ -30,7 +27,7 @@ export default function PartnersPage() {
       logo: "/logos/salesforce.svg",
       category: "CRM",
       description: "Seamless integration with Salesforce CRM for lead management and campaign tracking.",
-      features: ["Lead sync", "Campaign automation", "Activity tracking", "Custom fields"],
+      features: ["Text sync", "Campaign automation", "Activity tracking", "Custom fields"],
       tier: "Premier",
     },
     {
@@ -88,7 +85,7 @@ export default function PartnersPage() {
       "Competitive margins and pricing tiers",
       "Sales training and certification",
       "Marketing materials and co-branding",
-      "Lead sharing and referrals",
+      "Text sharing and referrals",
       "Dedicated partner success manager",
       "Quarterly business reviews",
     ],
@@ -184,33 +181,33 @@ export default function PartnersPage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Partnership Ecosystem</Eyebrow>
-          <Headline level={1}>
+        <Flex gap={6}>
+          <Badge>Partnership Ecosystem</Badge>
+          <H1 level={1}>
             Build the Future of Direct Mail Marketing Together
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+          </H1>
+          <Text className="max-w-3xl mx-auto">
             Join our growing ecosystem of technology partners, resellers, and agencies. Whether you're looking to integrate with our platform, resell our services, or build custom solutions for your clients, we provide the tools, support, and opportunities you need to succeed.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="#apply" size="lg">
               Become a Partner
             </Button>
             <Button as={Link} href="#integrations" variant="ghost" size="lg">
               View Integrations
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Partner Stats */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Partner Success by the Numbers</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Partner Success by the Numbers</H1>
+            <Text className="max-w-3xl mx-auto">
               Our partners see real results when they join the Enclosed.AI ecosystem
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={4}>
@@ -223,23 +220,23 @@ export default function PartnersPage() {
               />
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Integration Partners */}
       <Section id="integrations">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Technology Integration Partners</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Technology Integration Partners</H1>
+            <Text className="max-w-3xl mx-auto">
               Seamlessly connect Enclosed.AI with your existing marketing stack through our certified integration partners
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             {techPartners.map((partner, index) => (
               <Card key={index} hover className="p-6">
-                <Stack gap={4}>
+                <Flex gap={4}>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -248,9 +245,9 @@ export default function PartnersPage() {
                         </span>
                       </div>
                       <div>
-                        <Headline level={4} className="text-lg">
+                        <H1 level={4} className="text-lg">
                           {partner.name}
-                        </Headline>
+                        </H1>
                         <span className="text-sm text-gray-600">{partner.category}</span>
                       </div>
                     </div>
@@ -280,27 +277,27 @@ export default function PartnersPage() {
                   <Button size="sm" variant="ghost" className="w-full mt-auto">
                     Learn More
                   </Button>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Partner Types */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Partnership Opportunities</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Partnership Opportunities</H1>
+            <Text className="max-w-3xl mx-auto">
               Choose the partnership model that aligns with your business goals and capabilities
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             {/* Technology Partners */}
             <Card className="p-8">
-              <Stack gap={6}>
+              <Flex gap={6}>
                 <div className="text-center">
                   <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg
@@ -317,7 +314,7 @@ export default function PartnersPage() {
                       />
                     </svg>
                   </div>
-                  <Headline level={3}>Technology Partners</Headline>
+                  <H1 level={3}>Technology Partners</H1>
                   <p className="text-gray-600 mt-2">
                     Build native integrations and enhance your platform's capabilities
                   </p>
@@ -340,12 +337,12 @@ export default function PartnersPage() {
                 <Button as={Link} href="#apply" className="w-full">
                   Apply Now
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
 
             {/* Reseller Partners */}
             <Card className="p-8">
-              <Stack gap={6}>
+              <Flex gap={6}>
                 <div className="text-center">
                   <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg
@@ -362,7 +359,7 @@ export default function PartnersPage() {
                       />
                     </svg>
                   </div>
-                  <Headline level={3}>Reseller Partners</Headline>
+                  <H1 level={3}>Reseller Partners</H1>
                   <p className="text-gray-600 mt-2">
                     Sell Enclosed.AI services and earn competitive commissions
                   </p>
@@ -385,12 +382,12 @@ export default function PartnersPage() {
                 <Button as={Link} href="#apply" className="w-full">
                   Apply Now
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
 
             {/* Agency Partners */}
             <Card className="p-8">
-              <Stack gap={6}>
+              <Flex gap={6}>
                 <div className="text-center">
                   <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg
@@ -407,7 +404,7 @@ export default function PartnersPage() {
                       />
                     </svg>
                   </div>
-                  <Headline level={3}>Agency Partners</Headline>
+                  <H1 level={3}>Agency Partners</H1>
                   <p className="text-gray-600 mt-2">
                     Offer direct mail services to your clients with white-label options
                   </p>
@@ -430,20 +427,20 @@ export default function PartnersPage() {
                 <Button as={Link} href="#apply" className="w-full">
                   Apply Now
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Application Process */}
       <Section id="apply">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>How to Become a Partner</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>How to Become a Partner</H1>
+            <Text className="max-w-3xl mx-auto">
               Our streamlined application process gets you up and running quickly
-            </Subhead>
+            </Text>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -452,9 +449,9 @@ export default function PartnersPage() {
 
           <div className="max-w-2xl mx-auto">
             <Card className="p-8">
-              <Stack gap={6}>
+              <Flex gap={6}>
                 <div className="text-center">
-                  <Headline level={3}>Ready to Apply?</Headline>
+                  <H1 level={3}>Ready to Apply?</H1>
                   <p className="text-gray-600 mt-2">
                     Tell us about your company and partnership interests
                   </p>
@@ -527,25 +524,25 @@ export default function PartnersPage() {
                 <p className="text-sm text-gray-600 text-center">
                   Our partnership team will review your application and respond within 2 business days.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Support Section */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Partner Support & Resources</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Partner Support & Resources</H1>
+            <Text className="max-w-3xl mx-auto">
               We provide comprehensive support to ensure your success as a partner
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             <Card className="p-6 text-center">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
                   <svg
                     className="h-6 w-6 text-white"
@@ -561,15 +558,15 @@ export default function PartnersPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Technical Documentation</Headline>
+                <H1 level={4}>Technical Documentation</H1>
                 <p className="text-gray-700 leading-relaxed">
                   Comprehensive API documentation, SDKs, and integration guides to get you started quickly.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card className="p-6 text-center">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
                   <svg
                     className="h-6 w-6 text-white"
@@ -585,15 +582,15 @@ export default function PartnersPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Dedicated Support</Headline>
+                <H1 level={4}>Dedicated Support</H1>
                 <p className="text-gray-700 leading-relaxed">
                   Access to our partner success team for technical support, account management, and strategic guidance.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card className="p-6 text-center">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
                   <svg
                     className="h-6 w-6 text-white"
@@ -609,34 +606,34 @@ export default function PartnersPage() {
                     />
                   </svg>
                 </div>
-                <Headline level={4}>Marketing Resources</Headline>
+                <H1 level={4}>Marketing Resources</H1>
                 <p className="text-gray-700 leading-relaxed">
                   Co-branded materials, case studies, sales tools, and marketing support to help you promote our partnership.
                 </p>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
+        <Flex gap={6}>
+          <H1 level={2} className="text-white">
             Ready to Partner with Enclosed.AI?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+          </H1>
+          <Text className="text-gray-300 max-w-3xl mx-auto">
             Join our ecosystem of successful partners and unlock new revenue opportunities while providing innovative direct mail solutions to your customers.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="#apply" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
               Become a Partner
             </Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
               Contact Partnership Team
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
@@ -656,7 +653,7 @@ export default function PartnersPage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Features
                 </Link>
@@ -669,11 +666,11 @@ export default function PartnersPage() {
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
                   ROI Calculator
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
@@ -686,11 +683,11 @@ export default function PartnersPage() {
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Partners</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/partners" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Become a Partner
                 </Link>
@@ -703,7 +700,7 @@ export default function PartnersPage() {
                 <Link href="/resources" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Resources
                 </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

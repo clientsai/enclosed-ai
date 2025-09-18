@@ -2,20 +2,14 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  Split,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  Badge,
+  H1,
+  Text,
   Button,
   Card,
-  Stat,
-  Testimonial,
-  Steps,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "Real Estate Use Case - Enclosed.AI | Direct Mail for Property Marketing",
@@ -76,7 +70,7 @@ export default function RealEstateUseCasePage() {
 
   const useCaseExamples = [
     {
-      title: "Seller Lead Generation",
+      title: "Seller Text Generation",
       description: "Target homeowners with personalized property valuations and market reports to generate listing opportunities.",
       tactics: ["Home valuation reports", "Market trend analysis", "Sold comparables", "Commission structures"],
       results: "40% increase in listing appointments",
@@ -108,10 +102,10 @@ export default function RealEstateUseCasePage() {
     challenge: "New agent struggling to establish presence in competitive market dominated by established teams. Digital marketing wasn't generating quality leads.",
     solution: "Implemented targeted direct mail campaign using Enclosed.AI to send personalized market reports and property valuations to homeowners in target neighborhoods.",
     results: [
-      { metric: "Listing Leads", value: "24", comparison: "in 90 days" },
+      { metric: "Listing Texts", value: "24", comparison: "in 90 days" },
       { metric: "Closed Transactions", value: "$2.8M", comparison: "first quarter" },
       { metric: "Response Rate", value: "8.2%", comparison: "vs 1.5% email" },
-      { metric: "Cost per Lead", value: "$95", comparison: "60% lower than digital" },
+      { metric: "Cost per Text", value: "$95", comparison: "60% lower than digital" },
     ],
     testimonial: {
       quote: "Enclosed.AI helped me break into established neighborhoods where other agents had relationships for years. The personalized market reports positioned me as a local expert and homeowners started calling me directly.",
@@ -146,8 +140,8 @@ export default function RealEstateUseCasePage() {
 
   const benchmarks = [
     { metric: "Average Response Rate", value: "5.8%", industry: "Real Estate Direct Mail" },
-    { metric: "Cost per Lead", value: "$125", industry: "Real Estate Marketing" },
-    { metric: "Lead-to-Client Rate", value: "18%", industry: "Real Estate Prospecting" },
+    { metric: "Cost per Text", value: "$125", industry: "Real Estate Marketing" },
+    { metric: "Text-to-Client Rate", value: "18%", industry: "Real Estate Prospecting" },
     { metric: "ROI", value: "680%", industry: "Real Estate Campaigns" },
   ];
 
@@ -207,74 +201,74 @@ export default function RealEstateUseCasePage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Real Estate Use Case</Eyebrow>
-          <Headline level={1}>
-            Generate More Real Estate Leads with Direct Mail
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+        <Flex gap={6}>
+          <Badge>Real Estate Use Case</Badge>
+          <H1 level={1}>
+            Generate More Real Estate Texts with Direct Mail
+          </H1>
+          <Text className="max-w-3xl mx-auto">
             Build trust, establish local expertise, and generate high-quality leads with personalized direct mail campaigns tailored for real estate professionals. Stand out in competitive markets and grow your business.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg">
               Start Your Campaign
             </Button>
             <Button as={Link} href="#case-study" variant="ghost" size="lg">
               See Success Story
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Challenges Section */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Real Estate Marketing Challenges</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Real Estate Marketing Challenges</H1>
+            <Text className="max-w-3xl mx-auto">
               Common obstacles facing real estate professionals in today's competitive market
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
-                  <Headline level={4} className="text-lg text-red-600">
+                <Flex gap={4}>
+                  <H1 level={4} className="text-lg text-red-600">
                     {challenge.title}
-                  </Headline>
+                  </H1>
                   <p className="text-gray-700 leading-relaxed">
                     {challenge.description}
                   </p>
                   <p className="text-sm text-red-700 font-medium">
                     Impact: {challenge.impact}
                   </p>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Solutions Section */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Direct Mail Solutions for Real Estate</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Direct Mail Solutions for Real Estate</H1>
+            <Text className="max-w-3xl mx-auto">
               Proven strategies to overcome marketing challenges and grow your real estate business
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {solutions.map((solution, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
+                <Flex gap={4}>
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{solution.icon}</span>
-                    <Headline level={4} className="text-lg text-green-600">
+                    <H1 level={4} className="text-lg text-green-600">
                       {solution.title}
-                    </Headline>
+                    </H1>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
                     {solution.description}
@@ -282,30 +276,30 @@ export default function RealEstateUseCasePage() {
                   <p className="text-sm text-green-700 font-medium">
                     Benefit: {solution.benefit}
                   </p>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Use Case Examples */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Real Estate Campaign Types</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Real Estate Campaign Types</H1>
+            <Text className="max-w-3xl mx-auto">
               Effective direct mail strategies for different real estate objectives
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {useCaseExamples.map((useCase, index) => (
               <Card key={index} hover className="p-8">
-                <Stack gap={4}>
-                  <Headline level={3} className="text-xl">
+                <Flex gap={4}>
+                  <H1 level={3} className="text-xl">
                     {useCase.title}
-                  </Headline>
+                  </H1>
                   <p className="text-gray-700 leading-relaxed">
                     {useCase.description}
                   </p>
@@ -329,31 +323,31 @@ export default function RealEstateUseCasePage() {
                       Typical Results: {useCase.results}
                     </p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Case Study */}
       <Section id="case-study">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Success Story</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Success Story</H1>
+            <Text className="max-w-3xl mx-auto">
               How Maria Santos built her real estate business with direct mail
-            </Subhead>
+            </Text>
           </div>
 
           <Card className="p-8 max-w-5xl mx-auto">
-            <Stack gap={6}>
+            <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">MS</span>
                 </div>
                 <div>
-                  <Headline level={3}>{caseStudy.agent}</Headline>
+                  <H1 level={3}>{caseStudy.agent}</H1>
                   <p className="text-gray-600">{caseStudy.company} • {caseStudy.market}</p>
                 </div>
               </div>
@@ -394,35 +388,35 @@ export default function RealEstateUseCasePage() {
                 company={caseStudy.testimonial.company}
                 className="mt-6"
               />
-            </Stack>
+            </Flex>
           </Card>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Implementation Guide */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Implementation Guide</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Implementation Guide</H1>
+            <Text className="max-w-3xl mx-auto">
               Steps to launch successful real estate direct mail campaigns
-            </Subhead>
+            </Text>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <Steps items={implementation} />
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Industry Benchmarks */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Real Estate Direct Mail Benchmarks</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Real Estate Direct Mail Benchmarks</H1>
+            <Text className="max-w-3xl mx-auto">
               Industry performance standards for real estate marketing
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={4}>
@@ -435,27 +429,27 @@ export default function RealEstateUseCasePage() {
               />
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
+        <Flex gap={6}>
+          <H1 level={2} className="text-white">
             Ready to Grow Your Real Estate Business?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+          </H1>
+          <Text className="text-gray-300 max-w-3xl mx-auto">
             Join thousands of real estate professionals using Enclosed.AI to generate leads, build relationships, and close more deals with targeted direct mail campaigns.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
               Start Free Trial
             </Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
               Schedule Demo
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
@@ -475,7 +469,7 @@ export default function RealEstateUseCasePage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Use Cases</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/use-cases/b2b" className="text-gray-400 hover:text-white transition-colors text-sm">
                   B2B Sales
                 </Link>
@@ -488,11 +482,11 @@ export default function RealEstateUseCasePage() {
                 <Link href="/use-cases/financial" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Financial Services
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Features
                 </Link>
@@ -505,11 +499,11 @@ export default function RealEstateUseCasePage() {
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
                   ROI Calculator
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
@@ -522,7 +516,7 @@ export default function RealEstateUseCasePage() {
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

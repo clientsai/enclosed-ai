@@ -1,4 +1,7 @@
-/* UI Component Transformation - Diverse lightweight components with no duplicates per page */
+/*
+ * Dashboard - Minimalist Dark Theme
+ * Clean, focused interface for campaign management
+ */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,6 +11,24 @@ import { supabase } from "@/lib/supabase";
 import { Campaign, User } from "@/types";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
+import {
+  Container,
+  Section,
+  Grid,
+  Flex,
+  H1,
+  H2,
+  H3,
+  Text,
+  Button,
+  Card,
+  Badge,
+  Divider,
+  Nav,
+  NavLink,
+  Spinner,
+  Alert,
+} from "@/components/ui";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -17,15 +38,13 @@ export default function Dashboard() {
     totalSent: 0,
     activeCampaigns: 0,
     creditsBalance: 0,
+    responseRate: 0,
   });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadDashboard = async () => {
-      // Check auth
-      const {
-        data: { user: authUser },
-      } = await supabase.auth.getUser();
+      const { data: { user: authUser } } = await supabase.auth.getUser();
       if (!authUser) {
         router.push("/auth/login");
         return;
@@ -44,6 +63,7 @@ export default function Dashboard() {
           totalSent: userData.total_pieces_sent || 0,
           activeCampaigns: 0,
           creditsBalance: userData.credits_balance || 0,
+          responseRate: 12.4, // Example stat
         });
       }
 
@@ -53,12 +73,12 @@ export default function Dashboard() {
         .select("*")
         .eq("user_id", authUser.id)
         .order("created_at", { ascending: false })
-        .limit(10);
+        .limit(5);
 
       if (campaignData) {
         setCampaigns(campaignData);
         const active = campaignData.filter((c) =>
-          ["draft", "scheduled", "processing"].includes(c.status),
+          ["draft", "scheduled", "processing"].includes(c.status)
         ).length;
         setStats((prev) => ({ ...prev, activeCampaigns: active }));
       }
@@ -77,260 +97,189 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <Spinner size="lg" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation - Two-Column Split Component */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Logo size="md" />
+    <div className="min-h-screen">
+      {/* Navigation */}
+      <Nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
+        <Logo size="md" />
+        <Flex gap={8} align="center" className="hidden md:flex">
+          <NavLink href="/dashboard" active>Dashboard</NavLink>
+          <NavLink href="/campaigns">Campaigns</NavLink>
+          <NavLink href="/templates">Templates</NavLink>
+          <NavLink href="/api-keys">API</NavLink>
+          <NavLink href="/billing">Billing</NavLink>
+        </Flex>
+        <Flex gap={4} align="center">
+          <Badge variant="accent">
+            {formatCurrency(stats.creditsBalance)} credits
+          </Badge>
+          <Button variant="ghost" size="sm" onClick={handleSignOut}>
+            Sign Out
+          </Button>
+        </Flex>
+      </Nav>
 
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  href="/dashboard"
-                  className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  href="/campaigns"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Campaigns
-                </Link>
-                <Link
-                  href="/templates"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Templates
-                </Link>
-                <Link
-                  href="/api-keys"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  API Keys
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-600">
-                Credits:{" "}
-                <span className="font-semibold">
-                  {formatCurrency(stats.creditsBalance)}
-                </span>
-              </span>
-              <button
-                onClick={handleSignOut}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Sign Out
-              </button>
-            </div>
+      {/* Main Content */}
+      <Container size="xl">
+        <div className="py-8">
+          {/* Welcome Section */}
+          <div className="mb-12">
+            <Text size="sm" color="muted" className="mb-2">
+              Welcome back
+            </Text>
+            <H1 className="mb-4">
+              {user?.name || "Dashboard"}
+            </H1>
+            <Text size="lg" color="secondary">
+              Here's what's happening with your campaigns today
+            </Text>
           </div>
-        </div>
-      </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Welcome Section - Pull Quote Component */}
-        <blockquote className="mb-8 border-l-4 border-blue-600 pl-6 py-2">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Welcome back, {user?.name}!
-          </h1>
-          <cite className="not-italic text-gray-600 text-lg mt-2 block">
-            Manage your direct mail campaigns and track performance
-          </cite>
-        </blockquote>
+          {/* Quick Actions */}
+          <Grid cols={3} gap={4} className="mb-12">
+            <Button
+              variant="primary"
+              size="lg"
+              href="/campaigns/new"
+              className="h-auto py-6 flex-col gap-2"
+            >
+              <span className="text-2xl">+</span>
+              <span>New Campaign</span>
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              href="/leads/upload"
+              className="h-auto py-6 flex-col gap-2"
+            >
+              <span className="text-2xl">📤</span>
+              <span>Upload Texts</span>
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              href="/templates"
+              className="h-auto py-6 flex-col gap-2"
+            >
+              <span className="text-2xl">📝</span>
+              <span>Templates</span>
+            </Button>
+          </Grid>
 
-        {/* Quick Actions - Highlight Row Component */}
-        <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="flex items-center space-x-3">
-            <span className="text-3xl">🚀</span>
-            <div>
-              <div className="font-semibold text-gray-900">Quick Start</div>
-              <Link
-                href="/campaigns/new"
-                className="text-sm text-gray-700 hover:text-gray-900"
-              >
-                Create new campaign →
+          {/* Stats Grid */}
+          <Grid cols={4} gap={6} className="mb-12">
+            <Card glass>
+              <Text size="sm" color="muted" className="mb-2">Total Sent</Text>
+              <H2 className="gradient-text-accent">{stats.totalSent.toLocaleString()}</H2>
+              <Text size="sm" color="secondary" className="mt-1">
+                <span className="text-[var(--success)]">↑ 12%</span> from last month
+              </Text>
+            </Card>
+            <Card glass>
+              <Text size="sm" color="muted" className="mb-2">Active Campaigns</Text>
+              <H2 className="gradient-text">{stats.activeCampaigns}</H2>
+              <Text size="sm" color="secondary" className="mt-1">
+                {stats.activeCampaigns === 0 ? "Create your first campaign" : "Currently running"}
+              </Text>
+            </Card>
+            <Card glass>
+              <Text size="sm" color="muted" className="mb-2">Response Rate</Text>
+              <H2 className="gradient-text-accent">{stats.responseRate}%</H2>
+              <Text size="sm" color="secondary" className="mt-1">
+                <span className="text-[var(--success)]">↑ 3.2%</span> above average
+              </Text>
+            </Card>
+            <Card glass>
+              <Text size="sm" color="muted" className="mb-2">Credits Balance</Text>
+              <H2 className="gradient-text">{formatCurrency(stats.creditsBalance)}</H2>
+              <Link href="/billing">
+                <Text size="sm" color="accent" className="mt-1 hover:underline">
+                  Add more credits →
+                </Text>
               </Link>
-            </div>
-          </div>
-          <div className="flex items-center space-x-3">
-            <span className="text-3xl">📊</span>
-            <div>
-              <div className="font-semibold text-gray-900">Analytics Ready</div>
-              <span className="text-sm text-gray-600">
-                Real-time tracking enabled
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-3">
-            <span className="text-3xl">💳</span>
-            <div>
-              <div className="font-semibold text-gray-900">
-                Credits Available
-              </div>
-              <span className="text-sm text-gray-600">
-                {formatCurrency(stats.creditsBalance)} ready to use
-              </span>
-            </div>
-          </div>
-        </div>
+            </Card>
+          </Grid>
 
-        {/* Stats - Callout Muted Component */}
-        <aside className="mb-8 bg-gray-50 border-l-4 border-gray-300 p-6 rounded-r-lg">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
-            Account Overview
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <div className="text-sm font-medium text-gray-500">
-                Total Pieces Sent
-              </div>
-              <div className="text-2xl font-bold text-gray-900">
-                {stats.totalSent.toLocaleString()}
-              </div>
-            </div>
-            <div>
-              <div className="text-sm font-medium text-gray-500">
-                Active Campaigns
-              </div>
-              <div className="text-2xl font-bold text-gray-900">
-                {stats.activeCampaigns}
-              </div>
-            </div>
-            <div>
-              <div className="text-sm font-medium text-gray-500">
-                Credits Balance
-              </div>
-              <div className="text-2xl font-bold text-gray-900">
-                {formatCurrency(stats.creditsBalance)}
-              </div>
-              <Link
-                href="/billing"
-                className="text-sm text-gray-700 hover:text-gray-900"
-              >
-                Add credits →
-              </Link>
-            </div>
-          </div>
-        </aside>
+          {/* Recent Campaigns */}
+          <div>
+            <Flex justify="between" align="center" className="mb-6">
+              <H3>Recent Campaigns</H3>
+              <Button variant="ghost" size="sm" href="/campaigns">
+                View All →
+              </Button>
+            </Flex>
 
-        {/* Recent Campaigns - Accordion Native Component */}
-        <section className="space-y-2">
-          <h2 className="text-lg font-medium text-gray-900 mb-4">
-            Recent Campaigns
-          </h2>
-
-          {campaigns.length === 0 ? (
-            <div className="bg-gray-50 border-2 border-gray-200 border-dashed rounded-xl p-12 text-center">
-              <svg
-                className="mx-auto h-12 w-12 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                />
-              </svg>
-              <p className="mt-4 text-gray-600 font-medium">No campaigns yet</p>
-              <p className="text-sm text-gray-500 mt-1">
-                Get started with your first direct mail campaign
-              </p>
-              <Link
-                href="/campaigns/new"
-                className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors"
-              >
-                Create your first campaign
-              </Link>
-            </div>
-          ) : (
-            <>
-              {campaigns.map((campaign) => (
-                <details
-                  key={campaign.id}
-                  className="group bg-white rounded-lg shadow-sm border border-gray-200"
-                >
-                  <summary className="cursor-pointer px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors rounded-lg">
-                    <div className="flex items-center space-x-4">
-                      <h3 className="font-medium text-gray-900">
-                        {campaign.name}
-                      </h3>
-                      <span
-                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full
-                          ${campaign.status === "completed" ? "bg-gray-900 text-white" : ""}
-                          ${campaign.status === "processing" ? "bg-gray-600 text-white" : ""}
-                          ${campaign.status === "draft" ? "bg-gray-100 text-gray-800" : ""}
-                          ${campaign.status === "failed" ? "bg-gray-200 text-gray-900" : ""}
-                        `}
+            {campaigns.length === 0 ? (
+              <Card glass className="text-center py-12">
+                <div className="text-6xl mb-4">📮</div>
+                <H3 className="mb-2">No campaigns yet</H3>
+                <Text color="secondary" className="mb-6">
+                  Create your first campaign to start sending personalized direct mail
+                </Text>
+                <Button variant="primary" href="/campaigns/new">
+                  Create First Campaign
+                </Button>
+              </Card>
+            ) : (
+              <div className="space-y-4">
+                {campaigns.map((campaign) => (
+                  <Card key={campaign.id} hover className="p-4">
+                    <Flex justify="between" align="center">
+                      <Flex gap={4} align="center">
+                        <div>
+                          <Flex gap={2} align="center" className="mb-1">
+                            <Text weight="semibold">{campaign.name}</Text>
+                            <Badge
+                              variant={
+                                campaign.status === "completed" ? "success" :
+                                campaign.status === "processing" ? "warning" :
+                                campaign.status === "failed" ? "error" : "default"
+                              }
+                            >
+                              {campaign.status}
+                            </Badge>
+                          </Flex>
+                          <Flex gap={4}>
+                            <Text size="sm" color="muted">
+                              {campaign.recipient_count} recipients
+                            </Text>
+                            <Text size="sm" color="muted">
+                              {formatCurrency(campaign.total_cost)}
+                            </Text>
+                            <Text size="sm" color="muted">
+                              {new Date(campaign.created_at).toLocaleDateString()}
+                            </Text>
+                          </Flex>
+                        </div>
+                      </Flex>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        href={`/campaigns/${campaign.id}`}
                       >
-                        {campaign.status}
-                      </span>
-                    </div>
-                    <svg
-                      className="h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-4 pt-2 border-t border-gray-100">
-                    <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                      <div>
-                        <dt className="text-gray-500">Recipients</dt>
-                        <dd className="font-semibold text-gray-900">
-                          {campaign.recipient_count}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Total Cost</dt>
-                        <dd className="font-semibold text-gray-900">
-                          {formatCurrency(campaign.total_cost)}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Created</dt>
-                        <dd className="font-semibold text-gray-900">
-                          {new Date(campaign.created_at).toLocaleDateString()}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Actions</dt>
-                        <dd>
-                          <Link
-                            href={`/campaigns/${campaign.id}`}
-                            className="text-gray-900 hover:text-gray-700 font-medium"
-                          >
-                            View Details →
-                          </Link>
-                        </dd>
-                      </div>
-                    </dl>
-                  </div>
-                </details>
-              ))}
-            </>
-          )}
-        </section>
-      </div>
+                        View →
+                      </Button>
+                    </Flex>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Performance Chart Placeholder */}
+          <div className="mt-12">
+            <H3 className="mb-6">Performance Overview</H3>
+            <Card glass className="h-64 flex items-center justify-center">
+              <Text color="muted">Chart visualization coming soon</Text>
+            </Card>
+          </div>
+        </div>
+      </Container>
     </div>
   );
 }

@@ -1,19 +1,26 @@
+/*
+ * Features Page - Minimalist Dark Theme
+ * Comprehensive feature showcase
+ */
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
+  Container,
   Section,
-  Split,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  H1,
+  H2,
+  H3,
+  H4,
+  Text,
   Button,
   Card,
-  Stat,
-} from "@/components/premium";
+  Badge,
+  Nav,
+  NavLink,
+  GlowOrb,
+} from "@/components/ui";
 
 export const metadata = {
   title: "Features - Enclosed.AI | AI-Powered Direct Mail Marketing",
@@ -23,626 +30,417 @@ export const metadata = {
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen relative">
+      {/* Navigation */}
+      <Nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
+        <Logo size="md" />
+        <Flex gap={8} align="center" className="hidden md:flex">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/features" active>Features</NavLink>
+          <NavLink href="/pricing">Pricing</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
+        </Flex>
+        <Flex gap={4}>
+          <Button variant="ghost" size="sm" href="/auth/login">Sign In</Button>
+          <Button variant="primary" size="sm" href="/auth/signup">Start Free</Button>
+        </Flex>
+      </Nav>
 
       {/* Hero Section */}
-      <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>AI-Powered Features</Eyebrow>
-          <Headline level={1}>
-            Powerful Features for Modern Direct Mail
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
-            Everything you need to create, send, and track highly effective
-            direct mail campaigns with the power of artificial intelligence.
-          </Subhead>
-          <Cluster gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg">
+      <Section className="py-20 text-center relative">
+        <GlowOrb color="accent" size="lg" className="top-0 left-1/4 opacity-20" />
+        <GlowOrb color="purple" size="default" className="bottom-0 right-1/4 opacity-20" />
+
+        <Container size="lg">
+          <Badge variant="accent" className="mb-6">Powerful Features</Badge>
+          <H1 className="mb-6">
+            Everything You Need to
+            <br />
+            <span className="gradient-text-accent">Transform Direct Mail</span>
+          </H1>
+          <Text size="xl" color="secondary" className="max-w-3xl mx-auto mb-8">
+            Our comprehensive platform combines AI personalization, seamless automation,
+            and real-time analytics to deliver exceptional direct mail campaigns at scale.
+          </Text>
+          <Flex gap={4} justify="center">
+            <Button variant="primary" size="lg" href="/auth/signup">
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg">
-              Schedule Demo
+            <Button variant="secondary" size="lg" href="/demo">
+              Watch Demo
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Container>
       </Section>
 
-      {/* Core Features Section */}
-      <Section className="bg-gray-50">
-        <Stack gap={8}>
-          <div className="text-center">
-            <Headline level={2}>Core Features</Headline>
-            <Subhead className="max-w-3xl mx-auto">
-              Discover the powerful capabilities that make Enclosed.AI the
-              leading choice for intelligent direct mail marketing
-            </Subhead>
+      {/* Core Features Grid */}
+      <Section className="py-20">
+        <Container size="xl">
+          <div className="text-center mb-12">
+            <H2 className="mb-4">Core Features</H2>
+            <Text size="lg" color="secondary">
+              Built for modern marketers who demand results
+            </Text>
           </div>
 
-          <Grid columns={2}>
-            {/* AI-Powered Personalization */}
-            <Card hover className="p-8">
-              <Stack gap={4}>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                      />
-                    </svg>
+          <Grid cols={3} gap={8}>
+            {/* AI Personalization */}
+            <Card glass hover className="p-8">
+              <div className="h-14 w-14 bg-gradient-to-br from-[var(--accent)] to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                <svg className="h-7 w-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <H3 className="mb-4">AI Personalization</H3>
+              <Text color="secondary" className="mb-6">
+                Generate unique, personalized content for every recipient using advanced AI that understands context and intent.
+              </Text>
+              <div className="space-y-3">
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <Headline level={3}>AI-Powered Personalization</Headline>
-                </div>
-                <Lead>
-                  Our advanced AI analyzes each recipient's profile, preferences,
-                  and behavior patterns to generate highly personalized sales
-                  letters. Every letter is unique, crafted to speak directly to
-                  the recipient's needs, interests, and pain points.
-                </Lead>
-                <Stack gap={3}>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Dynamic content generation based on recipient data
-                    </span>
+                  <Text size="sm" color="secondary">Dynamic content generation</Text>
+                </Flex>
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Industry-specific messaging and tone adaptation
-                    </span>
+                  <Text size="sm" color="secondary">Behavioral targeting</Text>
+                </Flex>
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Behavioral pattern analysis for optimal timing
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Continuous learning and improvement algorithms
-                    </span>
-                  </div>
-                </Stack>
-              </Stack>
+                  <Text size="sm" color="secondary">Smart offer optimization</Text>
+                </Flex>
+              </div>
             </Card>
 
-            {/* Campaign Management */}
-            <Card hover className="p-8">
-              <Stack gap={4}>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                      />
-                    </svg>
+            {/* Campaign Automation */}
+            <Card glass hover className="p-8">
+              <div className="h-14 w-14 bg-gradient-to-br from-[var(--accent)] to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                <svg className="h-7 w-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <H3 className="mb-4">Campaign Automation</H3>
+              <Text color="secondary" className="mb-6">
+                Set up triggered campaigns, scheduled sends, and multi-touch sequences that run on autopilot.
+              </Text>
+              <div className="space-y-3">
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <Headline level={3}>Advanced Campaign Management</Headline>
-                </div>
-                <Lead>
-                  Create, manage, and optimize your direct mail campaigns with our
-                  intuitive dashboard. Schedule campaigns, A/B test different
-                  approaches, and track performance in real-time.
-                </Lead>
-                <Stack gap={3}>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Drag-and-drop campaign builder
-                    </span>
+                  <Text size="sm" color="secondary">Trigger-based sending</Text>
+                </Flex>
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Automated A/B testing and optimization
-                    </span>
+                  <Text size="sm" color="secondary">A/B testing built-in</Text>
+                </Flex>
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Advanced scheduling and automation
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Multi-channel campaign coordination
-                    </span>
-                  </div>
-                </Stack>
-              </Stack>
+                  <Text size="sm" color="secondary">Multi-channel coordination</Text>
+                </Flex>
+              </div>
             </Card>
 
             {/* Real-Time Analytics */}
-            <Card hover className="p-8">
-              <Stack gap={4}>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                      />
-                    </svg>
+            <Card glass hover className="p-8">
+              <div className="h-14 w-14 bg-gradient-to-br from-[var(--accent)] to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                <svg className="h-7 w-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <H3 className="mb-4">Real-Time Analytics</H3>
+              <Text color="secondary" className="mb-6">
+                Track performance, measure ROI, and optimize campaigns with comprehensive analytics dashboards.
+              </Text>
+              <div className="space-y-3">
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <Headline level={3}>Real-Time Analytics</Headline>
-                </div>
-                <Lead>
-                  Track every aspect of your campaign performance with detailed
-                  analytics and reporting. Monitor delivery rates, response rates,
-                  ROI, and customer engagement metrics.
-                </Lead>
-                <Stack gap={3}>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Real-time delivery and response tracking
-                    </span>
+                  <Text size="sm" color="secondary">Live tracking dashboard</Text>
+                </Flex>
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Customizable dashboards and reports
-                    </span>
+                  <Text size="sm" color="secondary">ROI measurement</Text>
+                </Flex>
+                <Flex gap={3} align="start">
+                  <div className="h-5 w-5 bg-[var(--accent)]/20 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-[var(--accent)] text-xs">✓</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      ROI and conversion analysis
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Export data for further analysis
-                    </span>
-                  </div>
-                </Stack>
-              </Stack>
-            </Card>
-
-            {/* Seamless Integration */}
-            <Card hover className="p-8">
-              <Stack gap={4}>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                      />
-                    </svg>
-                  </div>
-                  <Headline level={3}>Seamless Integrations</Headline>
-                </div>
-                <Lead>
-                  Connect Enclosed.AI with your existing marketing stack and
-                  business tools. Our platform integrates with popular CRM
-                  systems, email marketing platforms, analytics tools, and more.
-                </Lead>
-                <Stack gap={3}>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      CRM integration (Salesforce, HubSpot, Pipedrive)
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Email marketing platform sync
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Analytics and tracking tools
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-5 w-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                      <span className="text-blue-600 text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-gray-700">
-                      Custom API for advanced integrations
-                    </span>
-                  </div>
-                </Stack>
-              </Stack>
+                  <Text size="sm" color="secondary">Custom reports</Text>
+                </Flex>
+              </div>
             </Card>
           </Grid>
-        </Stack>
+        </Container>
       </Section>
 
-      {/* Advanced Features Section */}
-      <Section>
-        <Stack gap={8}>
-          <div className="text-center">
-            <Headline level={2}>Advanced Features</Headline>
-            <Subhead className="max-w-3xl mx-auto">
-              Powerful tools and capabilities that give you complete control
-              over your direct mail marketing
-            </Subhead>
+      {/* Advanced Features */}
+      <Section className="py-20 bg-black/50">
+        <Container size="xl">
+          <div className="text-center mb-12">
+            <H2 className="mb-4">Advanced Capabilities</H2>
+            <Text size="lg" color="secondary">
+              Enterprise-grade features for sophisticated campaigns
+            </Text>
           </div>
 
-          <Grid columns={3}>
-            <Card hover className="p-6">
-              <Stack gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v-2m0 2a2 2 0 100 4m0-4a2 2 0 100 4m0-4v2m0-6V4"
-                    />
-                  </svg>
-                </div>
-                <Headline level={4}>Smart List Management</Headline>
-                <p className="text-gray-700 leading-relaxed">
-                  Advanced list segmentation, deduplication, and data enrichment
-                  to ensure your campaigns reach the right people at the right
-                  time.
-                </p>
-              </Stack>
+          <Grid cols={4} gap={6}>
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v-2m0 2a2 2 0 100 4m0-4a2 2 0 110 4m0-4v2m0-6V4" />
+                </svg>
+              </div>
+              <H4 className="mb-2">Smart Segmentation</H4>
+              <Text size="sm" color="secondary">
+                Advanced list management with AI-powered segmentation and targeting
+              </Text>
             </Card>
 
-            <Card hover className="p-6">
-              <Stack gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <Headline level={4}>Quality Assurance</Headline>
-                <p className="text-gray-700 leading-relaxed">
-                  Automated quality checks, compliance verification, and proofing
-                  tools to ensure every piece of mail meets the highest standards.
-                </p>
-              </Stack>
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <H4 className="mb-2">Quality Assurance</H4>
+              <Text size="sm" color="secondary">
+                Automated proofing and compliance checks before sending
+              </Text>
             </Card>
 
-            <Card hover className="p-6">
-              <Stack gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                </div>
-                <Headline level={4}>Flexible Pricing</Headline>
-                <p className="text-gray-700 leading-relaxed">
-                  Pay-per-use pricing with volume discounts, no monthly fees, and
-                  transparent costs that scale with your business needs.
-                </p>
-              </Stack>
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              </div>
+              <H4 className="mb-2">Flexible Pricing</H4>
+              <Text size="sm" color="secondary">
+                Pay-per-use with volume discounts and transparent pricing
+              </Text>
             </Card>
 
-            <Card hover className="p-6">
-              <Stack gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                    />
-                  </svg>
-                </div>
-                <Headline level={4}>Enterprise Security</Headline>
-                <p className="text-gray-700 leading-relaxed">
-                  Bank-level security, SOC 2 compliance, and advanced data
-                  protection to keep your customer information safe and secure.
-                </p>
-              </Stack>
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <H4 className="mb-2">Enterprise Security</H4>
+              <Text size="sm" color="secondary">
+                SOC 2 compliant with bank-level encryption and data protection
+              </Text>
             </Card>
 
-            <Card hover className="p-6">
-              <Stack gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"
-                    />
-                  </svg>
-                </div>
-                <Headline level={4}>Global Delivery</Headline>
-                <p className="text-gray-700 leading-relaxed">
-                  Send mail anywhere in the world with our network of trusted
-                  delivery partners and real-time tracking capabilities.
-                </p>
-              </Stack>
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
+              <H4 className="mb-2">API Integration</H4>
+              <Text size="sm" color="secondary">
+                Connect with your CRM, ESP, and marketing tools seamlessly
+              </Text>
             </Card>
 
-            <Card hover className="p-6">
-              <Stack gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </div>
-                <Headline level={4}>24/7 Support</Headline>
-                <p className="text-gray-700 leading-relaxed">
-                  Dedicated customer success team available around the clock to
-                  help you maximize your direct mail marketing results.
-                </p>
-              </Stack>
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <H4 className="mb-2">Global Delivery</H4>
+              <Text size="sm" color="secondary">
+                Send mail anywhere with our worldwide delivery network
+              </Text>
+            </Card>
+
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9.75 9.75 0 11-19.5 0 9.75 9.75 0 0119.5 0z" />
+                </svg>
+              </div>
+              <H4 className="mb-2">24/7 Support</H4>
+              <Text size="sm" color="secondary">
+                Dedicated success team available around the clock
+              </Text>
+            </Card>
+
+            <Card glass hover className="p-6">
+              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                </svg>
+              </div>
+              <H4 className="mb-2">White Glove Service</H4>
+              <Text size="sm" color="secondary">
+                Concierge onboarding and campaign management available
+              </Text>
             </Card>
           </Grid>
-        </Stack>
+        </Container>
       </Section>
 
-      {/* Benefits Section */}
-      <Section className="bg-gray-50">
-        <Stack gap={8}>
-          <div className="text-center">
-            <Headline level={2}>Why Choose Enclosed.AI?</Headline>
-            <Subhead className="max-w-3xl mx-auto">
-              The numbers speak for themselves – see why businesses choose
-              Enclosed.AI for their direct mail marketing
-            </Subhead>
-          </div>
-
-          <Grid columns={4}>
-            <Stat value="3-5x" label="Higher Response Rates" delta="vs traditional mail" />
-            <Stat value="95%" label="Delivery Success Rate" delta="Guaranteed tracking" />
-            <Stat value="24/7" label="Platform Availability" delta="Access anywhere" />
-            <Stat value="$0" label="Setup Fees" delta="No hidden costs" />
+      {/* Integration Section */}
+      <Section className="py-20">
+        <Container size="lg">
+          <Grid cols={2} gap={12} className="items-center">
+            <div>
+              <Badge variant="accent" className="mb-4">Integrations</Badge>
+              <H2 className="mb-6">
+                Connects with Your
+                <br />
+                <span className="gradient-text-accent">Entire Tech Flex</span>
+              </H2>
+              <Text size="lg" color="secondary" className="mb-8">
+                Seamlessly integrate with your existing tools and workflows. Our platform works with all major CRMs, marketing platforms, and analytics tools.
+              </Text>
+              <div className="space-y-4">
+                <Flex gap={3} align="center">
+                  <div className="h-10 w-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center">
+                    <span className="text-[var(--accent)]">✓</span>
+                  </div>
+                  <Text>Salesforce, HubSpot, Pipedrive CRM sync</Text>
+                </Flex>
+                <Flex gap={3} align="center">
+                  <div className="h-10 w-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center">
+                    <span className="text-[var(--accent)]">✓</span>
+                  </div>
+                  <Text>Mailchimp, Klaviyo, ActiveCampaign</Text>
+                </Flex>
+                <Flex gap={3} align="center">
+                  <div className="h-10 w-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center">
+                    <span className="text-[var(--accent)]">✓</span>
+                  </div>
+                  <Text>Google Analytics, Segment, Mixpanel</Text>
+                </Flex>
+                <Flex gap={3} align="center">
+                  <div className="h-10 w-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center">
+                    <span className="text-[var(--accent)]">✓</span>
+                  </div>
+                  <Text>Custom API and webhook support</Text>
+                </Flex>
+              </div>
+            </div>
+            <div className="relative">
+              <GlowOrb color="accent" size="lg" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-30" />
+              <Card glass className="p-12">
+                <Grid cols={3} gap={6}>
+                  {[
+                    "Salesforce", "HubSpot", "Stripe",
+                    "Shopify", "Mailchimp", "Slack",
+                    "Google Analytics", "Zapier", "Segment"
+                  ].map((tool) => (
+                    <div key={tool} className="h-20 bg-white/5 rounded-lg flex items-center justify-center">
+                      <Text size="sm" color="secondary">{tool}</Text>
+                    </div>
+                  ))}
+                </Grid>
+              </Card>
+            </div>
           </Grid>
-        </Stack>
+        </Container>
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
-            Ready to Experience These Features?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
-            Start your free trial today and see how Enclosed.AI can transform
-            your direct mail marketing with powerful AI-driven features.
-          </Subhead>
-          <Cluster gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+      <Section className="py-20 text-center relative">
+        <GlowOrb className="top-0 left-1/2 transform -translate-x-1/2" color="accent" size="lg" />
+        <Container size="md">
+          <H2 className="mb-6">
+            Ready to Transform Your
+            <br />
+            <span className="gradient-text-accent">Direct Mail Marketing?</span>
+          </H2>
+          <Text size="lg" color="secondary" className="mb-8">
+            Join thousands of businesses using Enclosed.AI to send smarter, more effective direct mail campaigns.
+          </Text>
+          <Flex gap={4} justify="center">
+            <Button variant="primary" size="lg" href="/auth/signup">
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+            <Button variant="secondary" size="lg" href="/demo">
               Schedule Demo
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Container>
       </Section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <Section className="border-b border-gray-800">
-          <Grid columns={4}>
+      <footer className="border-t border-white/5">
+        <Container size="xl" className="py-12">
+          <Grid cols={4} gap={8}>
             <div>
-              <Logo
-                size="md"
-                showText={true}
-                linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
-              />
-              <p className="text-gray-400 text-sm">
-                Direct mail marketing powered by artificial intelligence
-              </p>
+              <Logo size="md" showText className="mb-4" />
+              <Text size="sm" color="muted">
+                AI-powered direct mail marketing
+              </Text>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Features
+              <Text weight="semibold" className="mb-4">Product</Text>
+              <Flex direction="col" gap={2}>
+                <Link href="/features">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Features</Text>
                 </Link>
-                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Pricing
+                <Link href="/pricing">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Pricing</Text>
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Integrations
+                <Link href="/api">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">API</Text>
                 </Link>
-                <Link href="/api" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  API
-                </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  About Us
+              <Text weight="semibold" className="mb-4">Company</Text>
+              <Flex direction="col" gap={2}>
+                <Link href="/about">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">About</Text>
                 </Link>
-                <Link href="/team" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Team
+                <Link href="/careers">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Careers</Text>
                 </Link>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Careers
+                <Link href="/contact">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Contact</Text>
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Contact
-                </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <Stack gap={2}>
-                <Link href="/help" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Help Center
+              <Text weight="semibold" className="mb-4">Support</Text>
+              <Flex direction="col" gap={2}>
+                <Link href="/help">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Help Center</Text>
                 </Link>
-                <Link href="/faq" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  FAQ
+                <Link href="/privacy">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Privacy</Text>
                 </Link>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Privacy Policy
+                <Link href="/terms">
+                  <Text size="sm" color="muted" className="hover:text-white transition-colors">Terms</Text>
                 </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Terms of Service
-                </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
-        </Section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-gray-400">
-          <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
+        </Container>
+        <div className="border-t border-white/5 py-6">
+          <Container>
+            <Text size="sm" color="muted" className="text-center">
+              © 2024 Enclosed.AI. All rights reserved.
+            </Text>
+          </Container>
         </div>
       </footer>
     </div>

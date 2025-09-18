@@ -235,7 +235,7 @@ export default function CSVUploadPage() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Import Leads</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Import Texts</h1>
           <p className="text-gray-600 mt-2">
             Upload your CSV file to import leads for direct mail campaigns
           </p>
@@ -499,7 +499,7 @@ export default function CSVUploadPage() {
                         Address
                       </th>
                       <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        City, State ZIP
+                        Citye ZIP
                       </th>
                       {columnMapping.company && (
                         <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -565,7 +565,7 @@ export default function CSVUploadPage() {
                   disabled={selectedRows.length === 0}
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Import {selectedRows.length} Leads
+                  Import {selectedRows.length} Texts
                 </button>
               </div>
             </motion.div>
@@ -601,7 +601,7 @@ export default function CSVUploadPage() {
                     ></path>
                   </svg>
                   <h3 className="text-xl font-semibold mb-2">
-                    Importing Leads...
+                    Importing Texts...
                   </h3>
                   <p className="text-gray-600">
                     Please wait while we process your data

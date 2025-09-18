@@ -361,7 +361,7 @@ export default function ManagingRecipientListsPage() {
                     </h4>
                     <ul className="text-sm text-blue-800 space-y-1">
                       <li>• [Source]_[Segment]_[Date]</li>
-                      <li>• Example: Website_Leads_Q1_2024</li>
+                      <li>• Example: Website_Texts_Q1_2024</li>
                       <li>• Example: TradeShow_Prospects_Jan</li>
                       <li>• Example: Customers_Active_Current</li>
                     </ul>
@@ -583,7 +583,7 @@ export default function ManagingRecipientListsPage() {
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
                     <h4 className="font-semibold text-gray-900 mb-2">
-                      Lead Magnets
+                      Text Magnets
                     </h4>
                     <p className="text-sm text-gray-600">
                       Offer valuable resources in exchange for contact

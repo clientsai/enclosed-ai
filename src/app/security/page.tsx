@@ -1,491 +1,204 @@
 /* Security & Compliance - Enterprise-Grade Protection */
 import Link from "next/link";
 import {
+  Container,
   Section,
   Grid,
-  Stack,
-  Cluster,
-  Headline,
-  Subhead,
-  Lead,
-  Eyebrow,
+  Flex,
+  H1,
+  H2,
+  H3,
+  Text,
   Button,
   Card,
   Badge,
-  Accordion,
-} from "@/components/premium";
+  Nav,
+  NavLink,
+  GlowOrb,
+  Divider,
+} from "@/components/ui";
 import Logo from "@/components/Logo";
 
 export const metadata = {
   title: "Security & Compliance - Enterprise-Grade Protection | Enclosed.AI",
-  description: "Bank-level security and comprehensive compliance. SOC 2 Type II certified, GDPR compliant, HIPAA ready. Learn how we protect your data.",
+  description:
+    "Learn about Enclosed.AI's enterprise-grade security measures, data protection, and compliance certifications.",
 };
 
 export default function SecurityPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <Section className="py-0">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex">
-              <Cluster gap={2}>
-                <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                  Features
-                </Link>
-                <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                  Pricing
-                </Link>
-                <Link href="/security" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                  Security
-                </Link>
-              </Cluster>
-            </nav>
-            <Cluster gap={2}>
-              <Button as={Link} href="/auth/login" variant="ghost" size="sm">
-                Sign In
-              </Button>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </Cluster>
-          </div>
-        </Section>
-      </header>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Ambient background effects */}
+      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
+      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+
+      {/* Navigation */}
+      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
+        <Logo size="md" />
+        <Flex gap={8} align="center" className="hidden md:flex">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/features">Features</NavLink>
+          <NavLink href="/pricing">Pricing</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
+        </Flex>
+        <Flex gap={4}>
+          <Button variant="ghost" size="sm" href="/auth/login">
+            Sign In
+          </Button>
+          <Button variant="primary" size="sm" href="/auth/signup">
+            Get Started
+          </Button>
+        </Flex>
+      </Nav>
 
       {/* Hero Section */}
-      <Section className="bg-gray-50">
-        <Stack gap={8} align="center" className="text-center">
-          <Eyebrow>Security & Compliance</Eyebrow>
-          <Headline level={1} className="max-w-4xl">
-            Bank-Level Security for Your
-            <span className="block">Most Sensitive Data</span>
-          </Headline>
-          <Lead className="max-w-3xl">
-            Enclosed.AI is built on a foundation of security-first architecture. We protect your customer
-            data with military-grade encryption, comprehensive compliance certifications, and industry-leading
-            security practices. Your trust is our highest priority.
-          </Lead>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Badge>SOC 2 Type II</Badge>
-            <Badge>GDPR Compliant</Badge>
-            <Badge>CCPA Ready</Badge>
-            <Badge>HIPAA Available</Badge>
-            <Badge>ISO 27001</Badge>
-            <Badge>PCI DSS</Badge>
-          </div>
-        </Stack>
+      <Section className="min-h-screen flex items-center justify-center pt-20">
+        <Container size="lg">
+          <Flex direction="col" align="center" gap={8} className="text-center">
+            <Badge variant="accent" className="animate-fade-in">
+              Enterprise-Grade Security
+            </Badge>
+            <H1 className="animate-fade-up max-w-5xl" gradient>
+              Security & Compliance
+            </H1>
+            <Text
+              size="2xl"
+              color="secondary"
+              weight="light"
+              className="animate-fade-up animation-delay-100 max-w-3xl"
+            >
+              Your data security is our top priority. We implement industry-leading
+              security measures to protect your information and ensure compliance.
+            </Text>
+          </Flex>
+        </Container>
       </Section>
 
-      {/* Certifications Grid */}
+      {/* Security Features */}
       <Section>
-        <Stack gap={12}>
-          <div className="text-center">
-            <Eyebrow>Certifications</Eyebrow>
-            <Headline level={2}>Independently Verified Security</Headline>
-            <Subhead className="mt-4 max-w-3xl mx-auto">
-              Our security practices are continuously audited and certified by leading independent firms
-            </Subhead>
-          </div>
-          <Grid columns={3}>
-            <Card hover className="text-center">
-              <Stack gap={4}>
-                <div className="h-20 w-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
-                  <span className="text-3xl font-bold text-gray-900">SOC2</span>
-                </div>
-                <Headline level={4}>SOC 2 Type II</Headline>
-                <p className="text-gray-600">
-                  Annual third-party audit validating our security controls, availability, processing
-                  integrity, confidentiality, and privacy practices. Type II certification demonstrates
-                  ongoing operational effectiveness.
-                </p>
-                <Link href="/compliance/soc2" className="text-gray-900 font-medium">
-                  View Report →
-                </Link>
-              </Stack>
-            </Card>
-            <Card hover className="text-center">
-              <Stack gap={4}>
-                <div className="h-20 w-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
-                  <span className="text-3xl font-bold text-gray-900">ISO</span>
-                </div>
-                <Headline level={4}>ISO 27001</Headline>
-                <p className="text-gray-600">
-                  International standard for information security management systems. Demonstrates our
-                  systematic approach to managing sensitive information and continuous improvement.
-                </p>
-                <Link href="/compliance/iso27001" className="text-gray-900 font-medium">
-                  View Certificate →
-                </Link>
-              </Stack>
-            </Card>
-            <Card hover className="text-center">
-              <Stack gap={4}>
-                <div className="h-20 w-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
-                  <span className="text-3xl font-bold text-gray-900">PCI</span>
-                </div>
-                <Headline level={4}>PCI DSS Level 1</Headline>
-                <p className="text-gray-600">
-                  Highest level of payment card security certification. Your payment information is
-                  protected by the same standards used by major banks and payment processors.
-                </p>
-                <Link href="/compliance/pci" className="text-gray-900 font-medium">
-                  View Compliance →
-                </Link>
-              </Stack>
-            </Card>
-          </Grid>
-        </Stack>
-      </Section>
+        <Container>
+          <Flex direction="col" gap={12}>
+            <div className="text-center">
+              <Badge className="mb-4">Protection</Badge>
+              <H2 className="mb-4">Security Features</H2>
+              <Text size="xl" color="secondary" className="max-w-3xl mx-auto">
+                Enterprise-grade security features to protect your data and campaigns.
+              </Text>
+            </div>
 
-      {/* Data Protection */}
-      <Section className="bg-gray-50">
-        <Stack gap={12}>
-          <div className="text-center">
-            <Eyebrow>Data Protection</Eyebrow>
-            <Headline level={2}>Multi-Layer Defense in Depth</Headline>
-            <Subhead className="mt-4 max-w-3xl mx-auto">
-              Your data is protected by multiple layers of security controls at every level
-            </Subhead>
-          </div>
-          <Grid columns={2}>
-            <Card>
-              <Stack gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 bg-gray-900 text-white rounded-xl flex items-center justify-center">
-                    <span className="text-xl">🔐</span>
+            <Grid cols={3} gap={8}>
+              <Card hover className="p-8 text-center">
+                <Flex direction="col" gap={4}>
+                  <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
+                    <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
                   </div>
-                  <Headline level={4}>Encryption Everywhere</Headline>
-                </div>
-                <p className="text-gray-600">
-                  All data is encrypted both in transit and at rest using AES-256 encryption. We use
-                  TLS 1.3 for all network communications and encrypt database fields containing sensitive
-                  information. Encryption keys are managed using industry-standard key management services
-                  with automatic rotation.
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">AES-256 encryption at rest</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">TLS 1.3 in transit</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Automatic key rotation</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-            <Card>
-              <Stack gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 bg-gray-900 text-white rounded-xl flex items-center justify-center">
-                    <span className="text-xl">🛡️</span>
-                  </div>
-                  <Headline level={4}>Access Controls</Headline>
-                </div>
-                <p className="text-gray-600">
-                  Zero-trust security model with principle of least privilege. Multi-factor authentication
-                  required for all accounts. Role-based access controls ensure users only access data they
-                  need. All access is logged and continuously monitored for anomalies.
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Mandatory MFA</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Role-based permissions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Audit logging</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-            <Card>
-              <Stack gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 bg-gray-900 text-white rounded-xl flex items-center justify-center">
-                    <span className="text-xl">🔍</span>
-                  </div>
-                  <Headline level={4}>Continuous Monitoring</Headline>
-                </div>
-                <p className="text-gray-600">
-                  24/7 security monitoring with automated threat detection and response. Our Security
-                  Operations Center uses AI-powered tools to identify and respond to threats in real-time.
-                  Regular penetration testing and vulnerability assessments ensure proactive security.
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">24/7 SOC monitoring</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">AI threat detection</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Quarterly pen testing</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-            <Card>
-              <Stack gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 bg-gray-900 text-white rounded-xl flex items-center justify-center">
-                    <span className="text-xl">💾</span>
-                  </div>
-                  <Headline level={4}>Secure Infrastructure</Headline>
-                </div>
-                <p className="text-gray-600">
-                  Hosted on enterprise-grade cloud infrastructure with built-in security controls.
-                  Geographically distributed with automatic failover and disaster recovery. Regular
-                  backups with point-in-time recovery capabilities ensure data durability.
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">99.99% uptime SLA</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Geo-redundant backups</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900 mt-0.5">✓</span>
-                    <span className="text-gray-600">Disaster recovery</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-          </Grid>
-        </Stack>
-      </Section>
+                  <H3>End-to-End Encryption</H3>
+                  <Text color="secondary">
+                    All data is encrypted in transit and at rest using AES-256 encryption standards.
+                  </Text>
+                </Flex>
+              </Card>
 
-      {/* Privacy & Compliance */}
-      <Section>
-        <Stack gap={12}>
-          <div className="text-center">
-            <Eyebrow>Privacy & Compliance</Eyebrow>
-            <Headline level={2}>Global Privacy Standards</Headline>
-            <Subhead className="mt-4 max-w-3xl mx-auto">
-              We comply with the strictest privacy regulations worldwide to protect your data rights
-            </Subhead>
-          </div>
-          <Grid columns={3}>
-            <Card hover>
-              <Stack gap={4}>
-                <Badge>GDPR</Badge>
-                <Headline level={4}>European Data Protection</Headline>
-                <p className="text-gray-600">
-                  Full GDPR compliance with data subject rights, privacy by design, and data protection
-                  officer. We process data lawfully with clear legal basis and provide complete transparency.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Right to access</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Right to deletion</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Data portability</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Privacy by design</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-            <Card hover>
-              <Stack gap={4}>
-                <Badge>CCPA</Badge>
-                <Headline level={4}>California Privacy Rights</Headline>
-                <p className="text-gray-600">
-                  Complete CCPA compliance protecting California residents' privacy rights. Transparent
-                  data collection, clear opt-out mechanisms, and no sale of personal information.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Do not sell data</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Opt-out rights</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Data disclosure</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Non-discrimination</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-            <Card hover>
-              <Stack gap={4}>
-                <Badge>HIPAA</Badge>
-                <Headline level={4}>Healthcare Compliance</Headline>
-                <p className="text-gray-600">
-                  HIPAA-compliant infrastructure available for healthcare organizations. Signed BAAs,
-                  PHI protection, and comprehensive administrative, physical, and technical safeguards.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">BAA available</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">PHI encryption</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Access controls</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-900">✓</span>
-                    <span className="text-gray-600">Audit logs</span>
-                  </li>
-                </ul>
-              </Stack>
-            </Card>
-          </Grid>
-        </Stack>
-      </Section>
+              <Card hover className="p-8 text-center">
+                <Flex direction="col" gap={4}>
+                  <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
+                    <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <H3>SOC 2 Compliance</H3>
+                  <Text color="secondary">
+                    We maintain SOC 2 Type II certification for security, availability, and confidentiality.
+                  </Text>
+                </Flex>
+              </Card>
 
-      {/* Security Practices */}
-      <Section className="bg-gray-50">
-        <Stack gap={12}>
-          <div className="text-center">
-            <Eyebrow>Security Practices</Eyebrow>
-            <Headline level={2}>Built Into Everything We Do</Headline>
-            <Subhead className="mt-4 max-w-3xl mx-auto">
-              Security isn't an afterthought—it's fundamental to how we build and operate
-            </Subhead>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Accordion
-              items={[
-                {
-                  title: "Secure Development Lifecycle",
-                  content: (
-                    <p className="text-gray-600">
-                      All code undergoes security review before deployment. We use static and dynamic
-                      analysis tools, dependency scanning, and manual code review. Security training is
-                      mandatory for all engineers. We follow OWASP guidelines and secure coding best practices.
-                      Regular security updates and patches are applied within 24 hours of release.
-                    </p>
-                  ),
-                },
-                {
-                  title: "Employee Security",
-                  content: (
-                    <p className="text-gray-600">
-                      Comprehensive background checks for all employees. Security awareness training required
-                      quarterly. Strict access controls with principle of least privilege. All employee devices
-                      are managed with endpoint protection, encryption, and remote wipe capabilities. Regular
-                      security drills and incident response training ensure readiness.
-                    </p>
-                  ),
-                },
-                {
-                  title: "Vendor Security",
-                  content: (
-                    <p className="text-gray-600">
-                      All vendors undergo security assessment before onboarding. We require SOC 2 or equivalent
-                      certifications from critical vendors. Regular vendor risk assessments and continuous
-                      monitoring. Data processing agreements and security addendums required. No vendor has
-                      access to customer data without explicit approval and audit logging.
-                    </p>
-                  ),
-                },
-                {
-                  title: "Incident Response",
-                  content: (
-                    <p className="text-gray-600">
-                      24/7 incident response team with defined escalation procedures. Average response time
-                      under 15 minutes for critical incidents. Comprehensive incident response plan tested
-                      quarterly. Transparent communication with affected customers within 72 hours. Post-incident
-                      reviews and continuous improvement of security controls.
-                    </p>
-                  ),
-                },
-                {
-                  title: "Data Retention & Deletion",
-                  content: (
-                    <p className="text-gray-600">
-                      Clear data retention policies aligned with legal requirements and business needs.
-                      Automatic data expiration and secure deletion processes. Customer data deleted within
-                      30 days of account closure. Secure data destruction for physical media. Complete audit
-                      trail of all data deletion activities.
-                    </p>
-                  ),
-                },
-                {
-                  title: "Business Continuity",
-                  content: (
-                    <p className="text-gray-600">
-                      Comprehensive disaster recovery plan with RTO of 4 hours and RPO of 1 hour. Geographically
-                      distributed infrastructure with automatic failover. Regular disaster recovery drills and
-                      testing. Redundant systems and data centers. Insurance coverage for cyber incidents and
-                      business interruption.
-                    </p>
-                  ),
-                },
-              ]}
-            />
-          </div>
-        </Stack>
-      </Section>
-
-      {/* Trust Center CTA */}
-      <Section className="bg-gray-900 text-white">
-        <Stack gap={8} align="center" className="text-center">
-          <Headline level={2} className="text-white">
-            Visit Our Trust Center
-          </Headline>
-          <Lead className="text-gray-300 max-w-2xl">
-            Access security documentation, compliance reports, and real-time system status.
-            Full transparency into our security posture.
-          </Lead>
-          <Cluster gap={4} justify="center">
-            <Button as={Link} href="/trust" className="bg-white text-gray-900 hover:bg-gray-100">
-              Visit Trust Center
-            </Button>
-            <Button as={Link} href="/contact" variant="ghost" className="border-white text-white hover:bg-white hover:text-gray-900">
-              Contact Security Team
-            </Button>
-          </Cluster>
-        </Stack>
+              <Card hover className="p-8 text-center">
+                <Flex direction="col" gap={4}>
+                  <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
+                    <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </div>
+                  <H3>24/7 Monitoring</H3>
+                  <Text color="secondary">
+                    Continuous security monitoring and threat detection across our infrastructure.
+                  </Text>
+                </Flex>
+              </Card>
+            </Grid>
+          </Flex>
+        </Container>
       </Section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-100">
-        <Section>
-          <div className="border-t border-gray-100 pt-8 text-center text-sm text-gray-600">
-            <p>© 2024 Enclosed.AI. All rights reserved.</p>
+      <footer className="border-t border-white/5 mt-24">
+        <Container>
+          <div className="py-12">
+            <Grid cols={5} gap={8} className="mb-12">
+              <div>
+                <Logo showText size="sm" className="mb-4" />
+                <Text size="sm" color="muted">
+                  Direct mail marketing powered by artificial intelligence
+                </Text>
+              </div>
+              {[
+                {
+                  title: "Product",
+                  links: ["Features", "Pricing", "API", "Integrations"],
+                },
+                {
+                  title: "Company",
+                  links: ["About", "Team", "Careers", "Contact"],
+                },
+                {
+                  title: "Resources",
+                  links: ["Documentation", "Help Center", "Community", "FAQ"],
+                },
+                {
+                  title: "Legal",
+                  links: ["Privacy", "Terms", "Security", "Cookies"],
+                },
+              ].map((col, i) => (
+                <div key={i}>
+                  <Text weight="semibold" className="mb-4">
+                    {col.title}
+                  </Text>
+                  <div className="space-y-2">
+                    {col.links.map((link, j) => (
+                      <Text key={j} size="sm" color="muted" className="block hover:text-white transition-colors cursor-pointer">
+                        {link}
+                      </Text>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </Grid>
+
+            <Divider className="mb-8" />
+
+            <Flex justify="between" align="center">
+              <Text size="sm" color="muted">
+                © 2024 Enclosed.AI. All rights reserved.
+              </Text>
+              <Flex gap={6}>
+                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                  Twitter
+                </Text>
+                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                  LinkedIn
+                </Text>
+                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                  GitHub
+                </Text>
+              </Flex>
+            </Flex>
           </div>
-        </Section>
+        </Container>
       </footer>
     </div>
   );

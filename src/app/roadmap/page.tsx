@@ -3,16 +3,16 @@ import Logo from "@/components/Logo";
 import {
   Section,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
+  Flex,
+  H1,
+  H2,
+  H3,
+  H4,
+  Text,
   Button,
   Card,
   Badge,
-  Timeline,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "Product Roadmap - Enclosed.AI | Upcoming Features & Updates",
@@ -120,28 +120,28 @@ export default function RoadmapPage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Product Roadmap</Eyebrow>
-          <Headline level={1}>The Future of AI-Powered Direct Mail</Headline>
-          <Subhead className="max-w-3xl mx-auto">
+        <Flex direction="col" gap={6}>
+          <Badge>Product Roadmap</Badge>
+          <H1>The Future of AI-Powered Direct Mail</H1>
+          <Text size="lg" className="max-w-3xl mx-auto">
             Discover what's coming next for Enclosed.AI. Our roadmap reflects customer feedback, market trends, and our vision for the future of direct mail marketing. Stay ahead with the latest innovations.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg">Get Early Access</Button>
             <Button as={Link} href="#timeline" variant="ghost" size="lg">View Timeline</Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Current Features */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex direction="col" gap={8}>
           <div className="text-center">
-            <Headline level={2}>Available Today</Headline>
-            <Subhead className="max-w-3xl mx-auto">Powerful features already helping thousands of businesses succeed</Subhead>
+            <H2>Available Today</H2>
+            <Text size="lg" className="max-w-3xl mx-auto">Powerful features already helping thousands of businesses succeed</Text>
           </div>
           <Card className="p-8 max-w-4xl mx-auto">
-            <Grid columns={2}>
+            <Grid cols={2}>
               {currentFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3 py-2">
                   <div className="h-5 w-5 bg-green-100 rounded-full flex items-center justify-center">
@@ -152,126 +152,156 @@ export default function RoadmapPage() {
               ))}
             </Grid>
           </Card>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Upcoming Highlights */}
       <Section>
-        <Stack gap={8}>
+        <Flex direction="col" gap={8}>
           <div className="text-center">
-            <Headline level={2}>Coming Soon Highlights</Headline>
-            <Subhead className="max-w-3xl mx-auto">Major features and improvements on the horizon</Subhead>
+            <H2>Coming Soon Highlights</H2>
+            <Text size="lg" className="max-w-3xl mx-auto">Major features and improvements on the horizon</Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             {upcomingHighlights.map((highlight, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
+                <Flex direction="col" gap={4}>
                   <div className="flex items-center justify-between">
                     <Badge variant="default">{highlight.quarter}</Badge>
                   </div>
-                  <Headline level={4} className="text-lg">{highlight.title}</Headline>
+                  <H4 className="text-lg">{highlight.title}</H4>
                   <p className="text-gray-700 leading-relaxed text-sm">{highlight.description}</p>
                   <div className="bg-blue-50 p-3 rounded-lg">
                     <p className="text-blue-700 font-medium text-sm">Impact: {highlight.impact}</p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Roadmap Timeline */}
       <Section id="timeline" className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex direction="col" gap={8}>
           <div className="text-center">
-            <Headline level={2}>Development Timeline</Headline>
-            <Subhead className="max-w-3xl mx-auto">Detailed roadmap of upcoming features and improvements</Subhead>
+            <H2>Development Timeline</H2>
+            <Text size="lg" className="max-w-3xl mx-auto">Detailed roadmap of upcoming features and improvements</Text>
           </div>
           <div className="max-w-4xl mx-auto">
-            <Timeline items={roadmapItems} />
+            {/* Custom Timeline Implementation */}
+            <div className="space-y-8">
+              {roadmapItems.map((item, index) => (
+                <div key={index} className="relative">
+                  {/* Timeline Line */}
+                  {index < roadmapItems.length - 1 && (
+                    <div className="absolute left-6 top-12 w-0.5 h-16 bg-gray-200"></div>
+                  )}
+
+                  <Flex gap={6} align="start">
+                    {/* Timeline Dot */}
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center border-4 border-white shadow-sm">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <Card className="flex-1 p-6">
+                      <Flex direction="col" gap={3}>
+                        <div className="flex items-center gap-3">
+                          <Badge variant="accent">{item.date}</Badge>
+                        </div>
+                        <H4>{item.title}</H4>
+                        <Text className="text-gray-600">{item.content}</Text>
+                      </Flex>
+                    </Card>
+                  </Flex>
+                </div>
+              ))}
+            </div>
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Feature Requests */}
       <Section>
-        <Stack gap={8}>
+        <Flex direction="col" gap={8}>
           <div className="text-center">
-            <Headline level={2}>Shape Our Future</Headline>
-            <Subhead className="max-w-3xl mx-auto">Your feedback drives our development priorities</Subhead>
+            <H2>Shape Our Future</H2>
+            <Text size="lg" className="max-w-3xl mx-auto">Your feedback drives our development priorities</Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             <Card className="p-8">
-              <Stack gap={4}>
-                <Headline level={3}>Request a Feature</Headline>
+              <Flex direction="col" gap={4}>
+                <H3>Request a Feature</H3>
                 <p className="text-gray-700 leading-relaxed">
                   Have an idea for a feature that would improve your direct mail campaigns? We want to hear from you! Our product team reviews all submissions and prioritizes based on customer impact.
                 </p>
                 <Button>Submit Feature Request</Button>
-              </Stack>
+              </Flex>
             </Card>
             <Card className="p-8">
-              <Stack gap={4}>
-                <Headline level={3}>Join Beta Testing</Headline>
+              <Flex direction="col" gap={4}>
+                <H3>Join Beta Testing</H3>
                 <p className="text-gray-700 leading-relaxed">
                   Get early access to new features and help us perfect them before general release. Beta testers receive exclusive previews and can directly influence final implementations.
                 </p>
                 <Button variant="ghost">Join Beta Program</Button>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">Ready to Experience the Future?</Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+        <Flex direction="col" gap={6}>
+          <H2 className="text-white">Ready to Experience the Future?</H2>
+          <Text size="lg" className="text-gray-300 max-w-3xl mx-auto">
             Start using Enclosed.AI today and get automatic access to all new features as they're released. No additional costs, just continuous innovation.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">Start Free Trial</Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">Contact Us</Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo size="md" showText={true} linkToHome={false} className="text-white [&>div>span]:text-white mb-4" />
               <p className="text-gray-400 text-sm">Direct mail marketing powered by artificial intelligence</p>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex direction="col" gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">Features</Link>
                 <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">Pricing</Link>
                 <Link href="/roadmap" className="text-gray-400 hover:text-white transition-colors text-sm">Roadmap</Link>
                 <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">Integrations</Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex direction="col" gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">About Us</Link>
                 <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">Careers</Link>
                 <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">Press</Link>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Resources</h3>
-              <Stack gap={2}>
+              <Flex direction="col" gap={2}>
                 <Link href="/webinars" className="text-gray-400 hover:text-white transition-colors text-sm">Webinars</Link>
                 <Link href="/partners" className="text-gray-400 hover:text-white transition-colors text-sm">Partners</Link>
                 <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">Press</Link>
                 <Link href="/help" className="text-gray-400 hover:text-white transition-colors text-sm">Support</Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

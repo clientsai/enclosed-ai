@@ -3,17 +3,17 @@ import Logo from "@/components/Logo";
 import {
   Section,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
+  Flex,
+  Flex,
+  Badge,
+  H1,
+  Text,
   Button,
   Card,
   Stat,
   Testimonial,
   Callout,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "Financial Services Use Case - Enclosed.AI | Compliant Direct Mail Marketing",
@@ -88,7 +88,7 @@ export default function FinancialUseCasePage() {
     solution: "Launched targeted mortgage campaigns using Enclosed.AI's compliance features and local market data integration.",
     results: [
       { metric: "Mortgage Applications", value: "+42%", comparison: "vs previous year" },
-      { metric: "Cost per Lead", value: "$180", comparison: "vs $340 digital" },
+      { metric: "Cost per Text", value: "$180", comparison: "vs $340 digital" },
       { metric: "Compliance Score", value: "100%", comparison: "regulatory audit" },
       { metric: "Market Share", value: "+8%", comparison: "in target areas" },
     ],
@@ -124,48 +124,48 @@ export default function FinancialUseCasePage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Financial Services Use Case</Eyebrow>
-          <Headline level={1}>Compliant Direct Mail for Financial Services</Headline>
-          <Subhead className="max-w-3xl mx-auto">
+        <Flex gap={6}>
+          <Badge>Financial Services Use Case</Badge>
+          <H1 level={1}>Compliant Direct Mail for Financial Services</H1>
+          <Text className="max-w-3xl mx-auto">
             Build trust, acquire customers, and promote financial products with compliant direct mail campaigns. Our platform ensures regulatory compliance while delivering personalized messaging that drives results.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg">Start Your Campaign</Button>
             <Button as={Link} href="#case-study" variant="ghost" size="lg">See Success Story</Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Challenges Section */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Financial Marketing Challenges</Headline>
-            <Subhead className="max-w-3xl mx-auto">How direct mail addresses unique financial services marketing needs</Subhead>
+            <H1 level={2}>Financial Marketing Challenges</H1>
+            <Text className="max-w-3xl mx-auto">How direct mail addresses unique financial services marketing needs</Text>
           </div>
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
-                  <Headline level={4} className="text-lg text-red-600">{challenge.title}</Headline>
+                <Flex gap={4}>
+                  <H1 level={4} className="text-lg text-red-600">{challenge.title}</H1>
                   <p className="text-gray-700 leading-relaxed">{challenge.description}</p>
                   <div className="bg-green-50 p-3 rounded-lg">
                     <p className="text-green-700 font-medium text-sm">Solution: {challenge.solution}</p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Compliance Features */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Built-in Compliance Features</Headline>
-            <Subhead className="max-w-3xl mx-auto">Ensure regulatory compliance with automated checks and industry-specific templates</Subhead>
+            <H1 level={2}>Built-in Compliance Features</H1>
+            <Text className="max-w-3xl mx-auto">Ensure regulatory compliance with automated checks and industry-specific templates</Text>
           </div>
           <Card className="p-8 max-w-4xl mx-auto">
             <Grid columns={2}>
@@ -182,21 +182,21 @@ export default function FinancialUseCasePage() {
           <Callout intent="info" className="max-w-4xl mx-auto">
             <strong>Compliance Guarantee:</strong> Our platform includes built-in checks for CFPB, FDIC, and state banking regulations. All templates are pre-reviewed by financial compliance experts.
           </Callout>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Use Cases */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Financial Services Campaign Types</Headline>
-            <Subhead className="max-w-3xl mx-auto">Proven direct mail strategies for financial institutions</Subhead>
+            <H1 level={2}>Financial Services Campaign Types</H1>
+            <Text className="max-w-3xl mx-auto">Proven direct mail strategies for financial institutions</Text>
           </div>
           <Grid columns={2}>
             {useCases.map((useCase, index) => (
               <Card key={index} hover className="p-8">
-                <Stack gap={4}>
-                  <Headline level={3} className="text-xl">{useCase.title}</Headline>
+                <Flex gap={4}>
+                  <H1 level={3} className="text-xl">{useCase.title}</H1>
                   <p className="text-gray-700 leading-relaxed">{useCase.description}</p>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Key Tactics:</h4>
@@ -214,28 +214,28 @@ export default function FinancialUseCasePage() {
                   <div className="bg-green-50 p-3 rounded-lg">
                     <p className="text-green-700 font-medium text-sm">Typical Results: {useCase.results}</p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Case Study */}
       <Section id="case-study">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Success Story</Headline>
-            <Subhead className="max-w-3xl mx-auto">How Community First Bank increased mortgage applications by 42%</Subhead>
+            <H1 level={2}>Success Story</H1>
+            <Text className="max-w-3xl mx-auto">How Community First Bank increased mortgage applications by 42%</Text>
           </div>
           <Card className="p-8 max-w-5xl mx-auto">
-            <Stack gap={6}>
+            <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">CF</span>
                 </div>
                 <div>
-                  <Headline level={3}>{caseStudy.company}</Headline>
+                  <H1 level={3}>{caseStudy.company}</H1>
                   <p className="text-gray-600">{caseStudy.type}</p>
                 </div>
               </div>
@@ -264,17 +264,17 @@ export default function FinancialUseCasePage() {
                 </div>
               </div>
               <Testimonial quote={caseStudy.testimonial.quote} author={caseStudy.testimonial.author} role={caseStudy.testimonial.role} company={caseStudy.testimonial.company} className="mt-6" />
-            </Stack>
+            </Flex>
           </Card>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Benchmarks */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Financial Services Benchmarks</Headline>
-            <Subhead className="max-w-3xl mx-auto">Industry performance standards for financial direct mail</Subhead>
+            <H1 level={2}>Financial Services Benchmarks</H1>
+            <Text className="max-w-3xl mx-auto">Industry performance standards for financial direct mail</Text>
           </div>
           <Grid columns={4}>
             <Stat value="4.8%" label="Average Response Rate" delta="Financial services mail" />
@@ -282,21 +282,21 @@ export default function FinancialUseCasePage() {
             <Stat value="32%" label="Application Rate" delta="for pre-qualified offers" />
             <Stat value="520%" label="Return on Investment" delta="for mortgage campaigns" />
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">Ready to Launch Compliant Campaigns?</Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+        <Flex gap={6}>
+          <H1 level={2} className="text-white">Ready to Launch Compliant Campaigns?</H1>
+          <Text className="text-gray-300 max-w-3xl mx-auto">
             Join financial institutions using Enclosed.AI to acquire customers and promote products with confidence in regulatory compliance.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">Start Free Trial</Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">Schedule Demo</Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
@@ -309,30 +309,30 @@ export default function FinancialUseCasePage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Use Cases</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/use-cases/b2b" className="text-gray-400 hover:text-white transition-colors text-sm">B2B Sales</Link>
                 <Link href="/use-cases/real-estate" className="text-gray-400 hover:text-white transition-colors text-sm">Real Estate</Link>
                 <Link href="/use-cases/ecommerce" className="text-gray-400 hover:text-white transition-colors text-sm">E-commerce</Link>
                 <Link href="/use-cases/financial" className="text-gray-400 hover:text-white transition-colors text-sm">Financial Services</Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">Features</Link>
                 <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">Pricing</Link>
                 <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">Integrations</Link>
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">ROI Calculator</Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">About Us</Link>
                 <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">Careers</Link>
                 <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">Press</Link>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

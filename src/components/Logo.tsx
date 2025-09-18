@@ -1,49 +1,74 @@
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface LogoProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   showText?: boolean;
-  className?: string;
   linkToHome?: boolean;
+  className?: string;
 }
 
 export default function Logo({
-  size = 'md',
+  size = "md",
   showText = true,
-  className = '',
-  linkToHome = true
+  linkToHome = true,
+  className = "",
 }: LogoProps) {
   const sizes = {
-    sm: { icon: 32, text: 'text-lg' },
-    md: { icon: 40, text: 'text-xl' },
-    lg: { icon: 48, text: 'text-2xl' },
+    sm: { icon: "w-8 h-8", text: "text-xl" },
+    md: { icon: "w-10 h-10", text: "text-2xl" },
+    lg: { icon: "w-12 h-12", text: "text-3xl" },
   };
 
-  const currentSize = sizes[size];
-
   const LogoContent = () => (
-    <div className={`flex items-center space-x-2 ${className}`}>
-      {/* Modern Envelope Logo using external SVG */}
-      <Image
-        src="/logo.svg"
-        alt="Enclosed.AI Logo"
-        width={currentSize.icon}
-        height={currentSize.icon}
-        className="drop-shadow-lg"
-      />
+    <div className={cn("flex items-center gap-3", className)}>
+      {/* Minimalist geometric logo - inspired by Apple's simplicity */}
+      <div className={cn("relative", sizes[size].icon)}>
+        {/* Outer ring with gradient */}
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] opacity-20 blur-xl" />
+
+        {/* Main shape */}
+        <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] p-[1px]">
+          <div className="w-full h-full rounded-xl bg-black flex items-center justify-center">
+            {/* Inner icon - envelope with AI dot */}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="w-2/3 h-2/3"
+            >
+              {/* Envelope */}
+              <path
+                d="M3 8L12 14L21 8M3 8V16C3 17.1046 3.89543 18 5 18H19C20.1046 18 21 17.1046 21 16V8M3 8C3 6.89543 3.89543 6 5 6H19C20.1046 6 21 6.89543 21 8"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-white"
+              />
+              {/* AI dot */}
+              <circle
+                cx="18"
+                cy="6"
+                r="2"
+                fill="currentColor"
+                className="text-[var(--accent)]"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
 
       {showText && (
-        <div className="flex flex-col">
-          <span className={`font-bold text-gray-900 ${currentSize.text}`}>
-            Enclosed.AI
-          </span>
-          {size === 'lg' && (
-            <span className="text-xs text-gray-600 -mt-1">
-              Direct Mail Marketing Platform
-            </span>
+        <span
+          className={cn(
+            "font-semibold tracking-tight gradient-text",
+            sizes[size].text
           )}
-        </div>
+        >
+          Enclosed.AI
+        </span>
       )}
     </div>
   );
@@ -57,17 +82,4 @@ export default function Logo({
   }
 
   return <LogoContent />;
-}
-
-// Export a simple icon-only version for favicons or small spaces
-export function LogoIcon({ size = 32 }: { size?: number }) {
-  return (
-    <Image
-      src="/logo.svg"
-      alt="Enclosed.AI Icon"
-      width={size}
-      height={size}
-      className="drop-shadow-lg"
-    />
-  );
 }

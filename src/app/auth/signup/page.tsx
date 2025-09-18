@@ -1,4 +1,7 @@
-/* UI Component Transformation - Diverse lightweight components with no duplicates per page */
+/*
+ * Signup Page - Minimalist Dark Theme
+ * Clean, focused onboarding experience
+ */
 "use client";
 
 import { useState } from "react";
@@ -6,6 +9,21 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import Logo from "@/components/Logo";
+import {
+  Container,
+  Grid,
+  Flex,
+  H2,
+  Text,
+  Button,
+  Input,
+  Card,
+  Alert,
+  Form,
+  FormGroup,
+  Badge,
+  GlowOrb,
+} from "@/components/ui";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -39,7 +57,6 @@ export default function SignupPage() {
       if (authError) throw authError;
 
       // Profile will be created automatically by trigger
-      // Update with additional info if needed
       if (authData.user && (formData.name || formData.company)) {
         const { error: profileError } = await supabase
           .from("enclosed_users")
@@ -51,7 +68,6 @@ export default function SignupPage() {
 
         if (profileError) {
           console.log("Profile update note:", profileError);
-          // Don't throw - profile might not exist yet, trigger will handle it
         }
       }
 
@@ -64,176 +80,163 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
-        {/* Header - Pros/Cons Table Component */}
-        <div className="bg-gray-900 p-6 text-white">
-          <Logo
-            size="md"
-            showText={true}
-            linkToHome={false}
-            className="text-white [&>div>span]:text-white mb-2"
-          />
-          <h1 className="text-2xl font-bold mb-4">Join the Platform</h1>
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <h3 className="font-semibold mb-2 text-gray-300">
-                What you get:
-              </h3>
-              <ul className="space-y-1">
-                <li className="flex items-start">
-                  <span className="mr-1">✓</span>
-                  <span className="text-white/90">AI-powered letters</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-1">✓</span>
-                  <span className="text-white/90">Campaign analytics</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-1">✓</span>
-                  <span className="text-white/90">API access</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2 text-gray-300">
-                No need for:
-              </h3>
-              <ul className="space-y-1">
-                <li className="flex items-start">
-                  <span className="mr-1">×</span>
-                  <span className="text-white/90">Manual writing</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-1">×</span>
-                  <span className="text-white/90">Complex setup</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-1">×</span>
-                  <span className="text-white/90">Credit card upfront</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-12">
+      {/* Background effects */}
+      <GlowOrb color="accent" size="lg" className="top-0 -left-32 opacity-10" />
+      <GlowOrb color="purple" size="default" className="bottom-0 -right-32 opacity-10" />
 
-        {/* Form - Legal Clause List Component */}
-        <form onSubmit={handleSignup} className="p-8">
-          <ol className="space-y-5 list-decimal list-inside">
-            <li className="text-sm text-gray-700">
-              <span className="font-semibold">Personal Information</span>
-              <div className="mt-2 ml-5 space-y-4">
+      <Container size="default">
+        <Grid cols={2} gap={8} className="items-center">
+          {/* Left side - Benefits */}
+          <div className="hidden lg:block">
+            <Badge variant="accent" className="mb-6">
+              Join 5,000+ Companies
+            </Badge>
+            <H2 className="mb-6">
+              Start sending smarter
+              <br />
+              <span className="gradient-text-accent">direct mail today</span>
+            </H2>
+            <div className="space-y-4">
+              {[
+                { icon: "✓", title: "14-day free trial", desc: "No credit card required" },
+                { icon: "✓", title: "AI-powered personalization", desc: "Unique letters for each recipient" },
+                { icon: "✓", title: "Complete automation", desc: "From creation to delivery" },
+                { icon: "✓", title: "Real-time analytics", desc: "Track ROI instantly" },
+              ].map((item, i) => (
+                <Flex key={i} gap={3} align="start">
+                  <span className="text-[var(--success)] text-xl">{item.icon}</span>
+                  <div>
+                    <Text weight="semibold">{item.title}</Text>
+                    <Text size="sm" color="muted">{item.desc}</Text>
+                  </div>
+                </Flex>
+              ))}
+            </div>
+
+            {/* Testimonial */}
+            <Card glass className="mt-8 p-6">
+              <Text className="italic mb-4">
+                "The AI personalization is incredible. Our response rates went from 0.5% to 12% overnight."
+              </Text>
+              <Flex align="center" gap={3}>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-purple-500" />
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Full Name *
-                  </label>
-                  <input
+                  <Text weight="semibold" size="sm">Michael Torres</Text>
+                  <Text size="xs" color="muted">CEO, SaaS Ventures</Text>
+                </div>
+              </Flex>
+            </Card>
+          </div>
+
+          {/* Right side - Form */}
+          <Card glass className="p-8 md:p-12">
+            {/* Logo */}
+            <Flex justify="center" className="mb-8">
+              <Logo size="lg" showText />
+            </Flex>
+
+            {/* Header */}
+            <div className="text-center mb-8">
+              <H2 className="mb-3">Create your account</H2>
+              <Text color="secondary">
+                Get started with your 14-day free trial
+              </Text>
+            </div>
+
+            {/* Form */}
+            <Form onSubmit={handleSignup}>
+              <Grid cols={2} gap={4}>
+                <FormGroup>
+                  <Input
                     type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                    label="Full Name"
                     placeholder="John Smith"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
                   />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Company (Optional)
-                  </label>
-                  <input
+                </FormGroup>
+
+                <FormGroup>
+                  <Input
                     type="text"
-                    value={formData.company}
-                    onChange={(e) =>
-                      setFormData({ ...formData, company: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                    label="Company (Optional)"
                     placeholder="Acme Corp"
+                    value={formData.company}
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   />
-                </div>
-              </div>
-            </li>
+                </FormGroup>
+              </Grid>
 
-            <li className="text-sm text-gray-700">
-              <span className="font-semibold">Account Credentials</span>
-              <div className="mt-2 ml-5 space-y-4">
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
-                    placeholder="you@company.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Password * (min 6 characters)
-                  </label>
-                  <input
-                    type="password"
-                    required
-                    minLength={6}
-                    value={formData.password}
-                    onChange={(e) =>
-                      setFormData({ ...formData, password: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
-                    placeholder="••••••••"
-                  />
-                </div>
-              </div>
-            </li>
-          </ol>
+              <FormGroup>
+                <Input
+                  type="email"
+                  label="Work Email"
+                  placeholder="you@company.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                />
+              </FormGroup>
 
-          {error && (
-            <div className="mt-4 bg-gray-100 border border-gray-900 text-gray-900 px-4 py-3 rounded-lg text-sm">
-              <strong>Error:</strong> {error}
-            </div>
-          )}
+              <FormGroup>
+                <Input
+                  type="password"
+                  label="Password"
+                  placeholder="Create a secure password"
+                  value={formData.password}
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                  required
+                />
+                <Text size="xs" color="muted" className="mt-1">
+                  Minimum 6 characters
+                </Text>
+              </FormGroup>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="mt-6 w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 disabled:opacity-50 shadow-lg"
-          >
-            {loading ? "Creating account..." : "Create Free Account"}
-          </button>
-        </form>
+              {error && (
+                <Alert variant="error" className="mb-6">
+                  {error}
+                </Alert>
+              )}
 
-        {/* Footer - FAQ Strip Component */}
-        <div className="bg-gray-50 px-8 pb-8">
-          <details className="group border-t pt-4">
-            <summary className="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">
-              What happens after I sign up?
-            </summary>
-            <p className="mt-2 text-sm text-gray-600 pl-4 border-l-2 border-gray-200">
-              You'll get instant access to your dashboard where you can create
-              your first campaign, upload recipient lists, and start sending
-              AI-powered direct mail.
-            </p>
-          </details>
-
-          <div className="mt-6 text-center">
-            <p className="text-gray-600 text-sm">
-              Already have an account?{" "}
-              <Link
-                href="/auth/login"
-                className="text-gray-900 hover:text-gray-700 font-semibold transition-colors"
+              <Button
+                type="submit"
+                variant="primary"
+                size="lg"
+                className="w-full"
+                loading={loading}
               >
-                Sign in instead
-              </Link>
-            </p>
-          </div>
-        </div>
-      </div>
+                Create Account
+              </Button>
+
+              {/* Terms */}
+              <Text size="xs" color="muted" className="text-center mt-4">
+                By signing up, you agree to our{" "}
+                <Link href="/terms" className="text-[var(--accent)] hover:underline">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link href="/privacy" className="text-[var(--accent)] hover:underline">
+                  Privacy Policy
+                </Link>
+              </Text>
+            </Form>
+
+            {/* Sign in link */}
+            <div className="text-center mt-8">
+              <Text size="sm" color="secondary">
+                Already have an account?{" "}
+                <Link href="/auth/login">
+                  <span className="text-[var(--accent)] hover:underline">
+                    Sign in
+                  </span>
+                </Link>
+              </Text>
+            </div>
+          </Card>
+        </Grid>
+      </Container>
     </div>
   );
 }

@@ -2,19 +2,17 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  Split,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  Badge,
+  H1,
+  H2,
+  H3,
+  H4,
+  Text,
   Button,
   Card,
-  Badge,
-  Timeline,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "Press - Enclosed.AI | News, Media Kit & Press Releases",
@@ -27,7 +25,7 @@ export default function PressPage() {
     {
       date: "March 15, 2024",
       title: "Enclosed.AI Raises $12M Series A to Revolutionize Direct Mail Marketing with AI",
-      content: "Leading venture capital firms invest in AI-powered direct mail platform that's helping businesses achieve 3-5x higher response rates than traditional methods.",
+      content: "Texting venture capital firms invest in AI-powered direct mail platform that's helping businesses achieve 3-5x higher response rates than traditional methods.",
       category: "Funding",
       featured: true,
     },
@@ -76,7 +74,7 @@ export default function PressPage() {
       { name: "Black Logo", format: "SVG, PNG", description: "Single color version" },
     ],
     photos: [
-      { name: "Leadership Team", format: "High-res JPG", description: "Professional headshots of key executives" },
+      { name: "Textership Team", format: "High-res JPG", description: "Professional headshots of key executives" },
       { name: "Office Photos", format: "High-res JPG", description: "Modern office space and team collaboration" },
       { name: "Product Screenshots", format: "PNG", description: "Platform interface and dashboard views" },
       { name: "Event Photos", format: "High-res JPG", description: "Conference presentations and partnerships" },
@@ -207,42 +205,42 @@ export default function PressPage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>Press Center</Eyebrow>
-          <Headline level={1}>
+        <Flex gap={6}>
+          <Badge>Press Center</Badge>
+          <H1 level={1}>
             Latest News & Media Resources
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+          </H1>
+          <Text className="max-w-3xl mx-auto">
             Stay up to date with Enclosed.AI's latest announcements, product updates, and industry insights. Access our comprehensive media kit and connect with our press team for interviews and exclusive stories.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="#media-kit" size="lg">
               Download Media Kit
             </Button>
             <Button as={Link} href="#contact" variant="ghost" size="lg">
               Contact Press Team
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Latest News */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Latest Press Releases</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Latest Press Releases</H1>
+            <Text className="max-w-3xl mx-auto">
               Recent announcements and company updates
-            </Subhead>
+            </Text>
           </div>
 
           <div className="space-y-6">
             {pressReleases.map((release, index) => (
               <Card key={index} hover className={`p-8 ${release.featured ? 'border-2 border-gray-900' : ''}`}>
-                <Stack gap={4}>
+                <Flex gap={4}>
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <Cluster gap={3} className="mb-3">
+                      <Flex gap={3} className="mb-3">
                         <Badge variant={release.featured ? "default" : "success"}>
                           {release.category}
                         </Badge>
@@ -252,10 +250,10 @@ export default function PressPage() {
                           </Badge>
                         )}
                         <span className="text-sm text-gray-600">{release.date}</span>
-                      </Cluster>
-                      <Headline level={3} className="text-xl mb-3">
+                      </Flex>
+                      <H1 level={3} className="text-xl mb-3">
                         {release.title}
-                      </Headline>
+                      </H1>
                       <p className="text-gray-700 leading-relaxed mb-4">
                         {release.content}
                       </p>
@@ -272,21 +270,21 @@ export default function PressPage() {
                       Share
                     </Button>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Media Coverage */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Media Coverage</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Media Coverage</H1>
+            <Text className="max-w-3xl mx-auto">
               What industry publications are saying about Enclosed.AI
-            </Subhead>
+            </Text>
           </div>
 
           <div className="space-y-4">
@@ -299,9 +297,9 @@ export default function PressPage() {
                       <Badge variant="success">{item.type}</Badge>
                       <span className="text-sm text-gray-600">{item.date}</span>
                     </div>
-                    <Headline level={4} className="text-lg text-gray-900">
+                    <H1 level={4} className="text-lg text-gray-900">
                       {item.headline}
-                    </Headline>
+                    </H1>
                   </div>
                   <Button size="sm" variant="ghost">
                     Read Article →
@@ -310,23 +308,23 @@ export default function PressPage() {
               </Card>
             ))}
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Media Kit */}
       <Section id="media-kit" className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Media Kit</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Media Kit</H1>
+            <Text className="max-w-3xl mx-auto">
               Download logos, photos, and company resources for your stories
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             {/* Logos */}
             <Card className="p-6">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-10 w-10 bg-gray-900 rounded-lg flex items-center justify-center">
                     <svg
@@ -343,7 +341,7 @@ export default function PressPage() {
                       />
                     </svg>
                   </div>
-                  <Headline level={4}>Logos & Brand Assets</Headline>
+                  <H1 level={4}>Logos & Brand Assets</H1>
                 </div>
                 <div className="space-y-3">
                   {mediaKit.logos.map((logo, index) => (
@@ -359,12 +357,12 @@ export default function PressPage() {
                 <Button size="sm" className="w-full">
                   Download All Logos
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
 
             {/* Photos */}
             <Card className="p-6">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-10 w-10 bg-gray-900 rounded-lg flex items-center justify-center">
                     <svg
@@ -381,7 +379,7 @@ export default function PressPage() {
                       />
                     </svg>
                   </div>
-                  <Headline level={4}>Photos & Screenshots</Headline>
+                  <H1 level={4}>Photos & Screenshots</H1>
                 </div>
                 <div className="space-y-3">
                   {mediaKit.photos.map((photo, index) => (
@@ -397,12 +395,12 @@ export default function PressPage() {
                 <Button size="sm" className="w-full">
                   Download All Photos
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
 
             {/* Documents */}
             <Card className="p-6">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-10 w-10 bg-gray-900 rounded-lg flex items-center justify-center">
                     <svg
@@ -419,7 +417,7 @@ export default function PressPage() {
                       />
                     </svg>
                   </div>
-                  <Headline level={4}>Documents & Reports</Headline>
+                  <H1 level={4}>Documents & Reports</H1>
                 </div>
                 <div className="space-y-3">
                   {mediaKit.documents.map((doc, index) => (
@@ -435,7 +433,7 @@ export default function PressPage() {
                 <Button size="sm" className="w-full">
                   Download All Documents
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
 
@@ -447,30 +445,30 @@ export default function PressPage() {
               Includes all logos, photos, documents, and brand guidelines
             </p>
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Executive Contacts */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Executive Team</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Executive Team</H1>
+            <Text className="max-w-3xl mx-auto">
               Connect with our leadership team for interviews and expert commentary
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             {executives.map((exec, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
+                <Flex gap={4}>
                   <div className="text-center">
                     <div className="h-20 w-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
                       <span className="text-2xl font-bold text-gray-600">
                         {exec.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
-                    <Headline level={4}>{exec.name}</Headline>
+                    <H1 level={4}>{exec.name}</H1>
                     <p className="text-blue-600 font-medium text-sm">{exec.title}</p>
                   </div>
 
@@ -496,29 +494,29 @@ export default function PressPage() {
                       </a>
                     </div>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Press Contact */}
       <Section id="contact" className="bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <Stack gap={8}>
+          <Flex gap={8}>
             <div className="text-center">
-              <Headline level={2}>Press Contact</Headline>
-              <Subhead className="max-w-3xl mx-auto">
+              <H1 level={2}>Press Contact</H1>
+              <Text className="max-w-3xl mx-auto">
                 Get in touch with our press team for interviews, quotes, and exclusive access
-              </Subhead>
+              </Text>
             </div>
 
             <Grid columns={2}>
               <Card className="p-8">
-                <Stack gap={6}>
+                <Flex gap={6}>
                   <div>
-                    <Headline level={3}>Media Inquiries</Headline>
+                    <H1 level={3}>Media Inquiries</H1>
                     <p className="text-gray-600 mt-2">
                       For press releases, executive interviews, and general media questions
                     </p>
@@ -565,13 +563,13 @@ export default function PressPage() {
                       </div>
                     </div>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
 
               <Card className="p-8">
-                <Stack gap={6}>
+                <Flex gap={6}>
                   <div>
-                    <Headline level={3}>Quick Media Request</Headline>
+                    <H1 level={3}>Quick Media Request</H1>
                     <p className="text-gray-600 mt-2">
                       Submit your request and we'll get back to you quickly
                     </p>
@@ -640,10 +638,10 @@ export default function PressPage() {
                   <Button size="md" className="w-full">
                     Submit Request
                   </Button>
-                </Stack>
+                </Flex>
               </Card>
             </Grid>
-          </Stack>
+          </Flex>
         </div>
       </Section>
 
@@ -664,7 +662,7 @@ export default function PressPage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Features
                 </Link>
@@ -677,11 +675,11 @@ export default function PressPage() {
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
                   ROI Calculator
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
@@ -694,11 +692,11 @@ export default function PressPage() {
                 <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Press
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Resources</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Press Center
                 </Link>
@@ -711,7 +709,7 @@ export default function PressPage() {
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

@@ -3,16 +3,16 @@ import Logo from "@/components/Logo";
 import {
   Section,
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
+  Flex,
+  Flex,
+  Badge,
+  H1,
+  Text,
   Button,
   Card,
   Stat,
   Testimonial,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "E-commerce Use Case - Enclosed.AI | Direct Mail for Online Retail",
@@ -128,42 +128,42 @@ export default function EcommerceUseCasePage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>E-commerce Use Case</Eyebrow>
-          <Headline level={1}>
+        <Flex gap={6}>
+          <Badge>E-commerce Use Case</Badge>
+          <H1 level={1}>
             Boost Online Sales with Strategic Direct Mail
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+          </H1>
+          <Text className="max-w-3xl mx-auto">
             Complement your digital marketing with targeted direct mail campaigns that recover abandoned carts, win back customers, and increase lifetime value. Stand out in crowded inboxes with tangible, personalized experiences.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg">
               Start Your Campaign
             </Button>
             <Button as={Link} href="#case-study" variant="ghost" size="lg">
               See Success Story
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Challenges Section */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>E-commerce Marketing Challenges</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>E-commerce Marketing Challenges</H1>
+            <Text className="max-w-3xl mx-auto">
               How direct mail solves common online retail marketing problems
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
-                  <Headline level={4} className="text-lg text-red-600">
+                <Flex gap={4}>
+                  <H1 level={4} className="text-lg text-red-600">
                     {challenge.title}
-                  </Headline>
+                  </H1>
                   <p className="text-gray-700 leading-relaxed">
                     {challenge.description}
                   </p>
@@ -172,30 +172,30 @@ export default function EcommerceUseCasePage() {
                       Solution: {challenge.solution}
                     </p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Use Cases */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>E-commerce Campaign Types</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>E-commerce Campaign Types</H1>
+            <Text className="max-w-3xl mx-auto">
               Proven direct mail strategies for online retailers
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {useCases.map((useCase, index) => (
               <Card key={index} hover className="p-8">
-                <Stack gap={4}>
-                  <Headline level={3} className="text-xl">
+                <Flex gap={4}>
+                  <H1 level={3} className="text-xl">
                     {useCase.title}
-                  </Headline>
+                  </H1>
                   <p className="text-gray-700 leading-relaxed">
                     {useCase.description}
                   </p>
@@ -219,31 +219,31 @@ export default function EcommerceUseCasePage() {
                       Typical Results: {useCase.results}
                     </p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Case Study */}
       <Section id="case-study" className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Success Story</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Success Story</H1>
+            <Text className="max-w-3xl mx-auto">
               How Artisan Home Goods increased customer lifetime value by 45%
-            </Subhead>
+            </Text>
           </div>
 
           <Card className="p-8 max-w-5xl mx-auto">
-            <Stack gap={6}>
+            <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">AH</span>
                 </div>
                 <div>
-                  <Headline level={3}>{caseStudy.company}</Headline>
+                  <H1 level={3}>{caseStudy.company}</H1>
                   <p className="text-gray-600">{caseStudy.industry}</p>
                 </div>
               </div>
@@ -284,19 +284,19 @@ export default function EcommerceUseCasePage() {
                 company={caseStudy.testimonial.company}
                 className="mt-6"
               />
-            </Stack>
+            </Flex>
           </Card>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Benchmarks */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>E-commerce Direct Mail Benchmarks</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>E-commerce Direct Mail Benchmarks</H1>
+            <Text className="max-w-3xl mx-auto">
               Industry performance standards for e-commerce direct mail
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={4}>
@@ -305,27 +305,27 @@ export default function EcommerceUseCasePage() {
             <Stat value="24%" label="Cart Recovery Rate" delta="with follow-up campaigns" />
             <Stat value="450%" label="Return on Ad Spend" delta="for targeted campaigns" />
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
+        <Flex gap={6}>
+          <H1 level={2} className="text-white">
             Ready to Boost Your E-commerce Sales?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+          </H1>
+          <Text className="text-gray-300 max-w-3xl mx-auto">
             Join successful e-commerce brands using Enclosed.AI to complement their digital marketing with high-converting direct mail campaigns.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
               Start Free Trial
             </Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
               Schedule Demo
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
@@ -338,30 +338,30 @@ export default function EcommerceUseCasePage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Use Cases</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/use-cases/b2b" className="text-gray-400 hover:text-white transition-colors text-sm">B2B Sales</Link>
                 <Link href="/use-cases/real-estate" className="text-gray-400 hover:text-white transition-colors text-sm">Real Estate</Link>
                 <Link href="/use-cases/ecommerce" className="text-gray-400 hover:text-white transition-colors text-sm">E-commerce</Link>
                 <Link href="/use-cases/financial" className="text-gray-400 hover:text-white transition-colors text-sm">Financial Services</Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">Features</Link>
                 <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">Pricing</Link>
                 <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">Integrations</Link>
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">ROI Calculator</Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">About Us</Link>
                 <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">Careers</Link>
                 <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">Press</Link>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

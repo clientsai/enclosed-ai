@@ -3,10 +3,10 @@ import Logo from "@/components/Logo";
 import {
   Section,
   Grid,
-  Stack,
-  Headline,
-  Subhead,
-} from "@/components/premium";
+  Flex,
+  H1,
+  Text,
+} from "@/components/ui";
 
 export const metadata = {
   title: "Sitemap - Enclosed.AI | Website Navigation & Page Directory",
@@ -26,7 +26,7 @@ export default function SitemapPage() {
     ],
     "Use Cases": [
       { name: "B2B Sales", href: "/use-cases/b2b", description: "Direct mail for business-to-business marketing" },
-      { name: "Real Estate", href: "/use-cases/real-estate", description: "Lead generation for real estate professionals" },
+      { name: "Real Estate", href: "/use-cases/real-estate", description: "Text generation for real estate professionals" },
       { name: "E-commerce", href: "/use-cases/ecommerce", description: "Drive online sales with direct mail" },
       { name: "Financial Services", href: "/use-cases/financial", description: "Compliant marketing for financial institutions" },
     ],
@@ -57,7 +57,7 @@ export default function SitemapPage() {
     "Campaign Management": [
       { name: "Campaigns", href: "/campaigns", description: "Create and manage your direct mail campaigns" },
       { name: "Templates", href: "/templates", description: "Browse and customize mail templates" },
-      { name: "Leads", href: "/leads", description: "Upload and manage your prospect lists" },
+      { name: "Texts", href: "/leads", description: "Upload and manage your prospect lists" },
     ],
     "Legal & Compliance": [
       { name: "Privacy Policy", href: "/privacy", description: "How we collect, use, and protect your data" },
@@ -108,20 +108,20 @@ export default function SitemapPage() {
       {/* Content */}
       <Section>
         <div className="max-w-6xl mx-auto">
-          <Stack gap={8}>
+          <Flex gap={8}>
             <div className="text-center">
-              <Headline level={1}>Sitemap</Headline>
-              <Subhead className="max-w-2xl mx-auto">
+              <H1 level={1}>Sitemap</H1>
+              <Text className="max-w-2xl mx-auto">
                 Navigate through all pages and resources available on the Enclosed.AI website. Find exactly what you're looking for.
-              </Subhead>
+              </Text>
             </div>
 
             <div className="space-y-12">
               {Object.entries(siteMap).map(([category, pages]) => (
                 <div key={category}>
-                  <Headline level={2} className="text-2xl mb-6 text-gray-900 border-b border-gray-200 pb-2">
+                  <H1 level={2} className="text-2xl mb-6 text-gray-900 border-b border-gray-200 pb-2">
                     {category}
-                  </Headline>
+                  </H1>
                   <Grid columns={2}>
                     {pages.map((page) => (
                       <div key={page.href} className="py-3 border-b border-gray-100 last:border-b-0">
@@ -155,8 +155,8 @@ export default function SitemapPage() {
 
             {/* Additional Information */}
             <div className="bg-gray-50 p-8 rounded-lg">
-              <Stack gap={4}>
-                <Headline level={3}>Can't Find What You're Looking For?</Headline>
+              <Flex gap={4}>
+                <H1 level={3}>Can't Find What You're Looking For?</H1>
                 <p className="text-gray-700">
                   If you can't find a specific page or resource, try using our search function or contact our support team for assistance.
                 </p>
@@ -168,9 +168,9 @@ export default function SitemapPage() {
                     Contact Support →
                   </Link>
                 </div>
-              </Stack>
+              </Flex>
             </div>
-          </Stack>
+          </Flex>
         </div>
       </Section>
 

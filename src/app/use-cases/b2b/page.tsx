@@ -2,20 +2,20 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  Split,
+  
   Grid,
-  Stack,
-  Cluster,
-  Eyebrow,
-  Headline,
-  Subhead,
-  Lead,
+  Flex,
+  Flex,
+  Badge,
+  H1,
+  Text,
+  Text,
   Button,
   Card,
   Stat,
   Testimonial,
   Steps,
-} from "@/components/premium";
+} from "@/components/ui";
 
 export const metadata = {
   title: "B2B Use Case - Enclosed.AI | Direct Mail for Business Sales",
@@ -76,7 +76,7 @@ export default function B2BUseCasePage() {
 
   const useCaseExamples = [
     {
-      title: "Lead Generation Campaigns",
+      title: "Text Generation Campaigns",
       description: "Target prospects with personalized offers, whitepapers, or demo invitations based on their company profile and industry challenges.",
       tactics: ["Industry-specific messaging", "Dimensional mailers", "QR codes for easy response", "Follow-up sequences"],
       results: "35% increase in qualified leads",
@@ -108,9 +108,9 @@ export default function B2BUseCasePage() {
     solution: "Implemented targeted direct mail campaign using Enclosed.AI's AI personalization to create industry-specific security threat scenarios and ROI calculators for each prospect company.",
     results: [
       { metric: "Response Rate", value: "18%", comparison: "vs 2% email" },
-      { metric: "Qualified Leads", value: "245", comparison: "65% increase" },
+      { metric: "Qualified Texts", value: "245", comparison: "65% increase" },
       { metric: "Sales Pipeline", value: "$2.4M", comparison: "180% growth" },
-      { metric: "Cost per Lead", value: "$145", comparison: "40% reduction" },
+      { metric: "Cost per Text", value: "$145", comparison: "40% reduction" },
     ],
     testimonial: {
       quote: "Enclosed.AI transformed our B2B outreach. We're now reaching CISOs and IT directors who never responded to our emails. The AI personalization makes each piece feel like it was written specifically for their company's security challenges.",
@@ -145,8 +145,8 @@ export default function B2BUseCasePage() {
 
   const benchmarks = [
     { metric: "Average Response Rate", value: "4.2%", industry: "B2B Direct Mail" },
-    { metric: "Cost per Lead", value: "$180", industry: "Technology Companies" },
-    { metric: "Lead-to-Customer Rate", value: "12%", industry: "Enterprise Software" },
+    { metric: "Cost per Text", value: "$180", industry: "Technology Companies" },
+    { metric: "Text-to-Customer Rate", value: "12%", industry: "Enterprise Software" },
     { metric: "ROI", value: "420%", industry: "B2B Campaigns" },
   ];
 
@@ -206,74 +206,74 @@ export default function B2BUseCasePage() {
 
       {/* Hero Section */}
       <Section className="text-center">
-        <Stack gap={6}>
-          <Eyebrow>B2B Use Case</Eyebrow>
-          <Headline level={1}>
+        <Flex gap={6}>
+          <Badge>B2B Use Case</Badge>
+          <H1 level={1}>
             Drive B2B Sales with AI-Powered Direct Mail
-          </Headline>
-          <Subhead className="max-w-3xl mx-auto">
+          </H1>
+          <Text className="max-w-3xl mx-auto">
             Break through digital noise and reach decision makers with personalized direct mail campaigns that generate qualified leads, accelerate sales cycles, and drive revenue growth for B2B companies.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg">
               Start Your Campaign
             </Button>
             <Button as={Link} href="#case-study" variant="ghost" size="lg">
               See Success Story
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Challenges Section */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>B2B Marketing Challenges</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>B2B Marketing Challenges</H1>
+            <Text className="max-w-3xl mx-auto">
               Traditional digital marketing faces increasing obstacles in reaching B2B decision makers
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
-                  <Headline level={4} className="text-lg text-red-600">
+                <Flex gap={4}>
+                  <H1 level={4} className="text-lg text-red-600">
                     {challenge.title}
-                  </Headline>
+                  </H1>
                   <p className="text-gray-700 leading-relaxed">
                     {challenge.description}
                   </p>
                   <p className="text-sm text-red-700 font-medium">
                     Impact: {challenge.impact}
                   </p>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Solutions Section */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Direct Mail Solutions for B2B</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Direct Mail Solutions for B2B</H1>
+            <Text className="max-w-3xl mx-auto">
               Overcome digital marketing challenges with strategic direct mail campaigns
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {solutions.map((solution, index) => (
               <Card key={index} className="p-6">
-                <Stack gap={4}>
+                <Flex gap={4}>
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{solution.icon}</span>
-                    <Headline level={4} className="text-lg text-green-600">
+                    <H1 level={4} className="text-lg text-green-600">
                       {solution.title}
-                    </Headline>
+                    </H1>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
                     {solution.description}
@@ -281,30 +281,30 @@ export default function B2BUseCasePage() {
                   <p className="text-sm text-green-700 font-medium">
                     Benefit: {solution.benefit}
                   </p>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Use Case Examples */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>B2B Campaign Types</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>B2B Campaign Types</H1>
+            <Text className="max-w-3xl mx-auto">
               Proven direct mail strategies for different B2B marketing objectives
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={2}>
             {useCaseExamples.map((useCase, index) => (
               <Card key={index} hover className="p-8">
-                <Stack gap={4}>
-                  <Headline level={3} className="text-xl">
+                <Flex gap={4}>
+                  <H1 level={3} className="text-xl">
                     {useCase.title}
-                  </Headline>
+                  </H1>
                   <p className="text-gray-700 leading-relaxed">
                     {useCase.description}
                   </p>
@@ -328,31 +328,31 @@ export default function B2BUseCasePage() {
                       Typical Results: {useCase.results}
                     </p>
                   </div>
-                </Stack>
+                </Flex>
               </Card>
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Case Study */}
       <Section id="case-study">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Success Story</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Success Story</H1>
+            <Text className="max-w-3xl mx-auto">
               How TechFlow Solutions transformed their B2B lead generation
-            </Subhead>
+            </Text>
           </div>
 
           <Card className="p-8 max-w-5xl mx-auto">
-            <Stack gap={6}>
+            <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">TF</span>
                 </div>
                 <div>
-                  <Headline level={3}>{caseStudy.company}</Headline>
+                  <H1 level={3}>{caseStudy.company}</H1>
                   <p className="text-gray-600">{caseStudy.industry}</p>
                 </div>
               </div>
@@ -393,35 +393,35 @@ export default function B2BUseCasePage() {
                 company={caseStudy.testimonial.company}
                 className="mt-6"
               />
-            </Stack>
+            </Flex>
           </Card>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Implementation Guide */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Implementation Guide</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Implementation Guide</H1>
+            <Text className="max-w-3xl mx-auto">
               Follow these steps to launch successful B2B direct mail campaigns
-            </Subhead>
+            </Text>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <Steps items={implementation} />
           </div>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Industry Benchmarks */}
       <Section>
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>B2B Direct Mail Benchmarks</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>B2B Direct Mail Benchmarks</H1>
+            <Text className="max-w-3xl mx-auto">
               Industry performance standards to guide your campaign expectations
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={4}>
@@ -434,86 +434,86 @@ export default function B2BUseCasePage() {
               />
             ))}
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* Related Use Cases */}
       <Section className="bg-gray-50">
-        <Stack gap={8}>
+        <Flex gap={8}>
           <div className="text-center">
-            <Headline level={2}>Explore Other Use Cases</Headline>
-            <Subhead className="max-w-3xl mx-auto">
+            <H1 level={2}>Explore Other Use Cases</H1>
+            <Text className="max-w-3xl mx-auto">
               Discover how different industries leverage direct mail marketing
-            </Subhead>
+            </Text>
           </div>
 
           <Grid columns={3}>
             <Card hover className="p-6">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">🏠</span>
                 </div>
-                <Headline level={4}>Real Estate</Headline>
+                <H1 level={4}>Real Estate</H1>
                 <p className="text-gray-700 text-sm leading-relaxed">
                   Generate leads, nurture prospects, and close more property deals with targeted direct mail campaigns.
                 </p>
                 <Button as={Link} href="/use-cases/real-estate" variant="ghost" size="sm" className="w-full mt-auto">
                   Learn More
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card hover className="p-6">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">🛒</span>
                 </div>
-                <Headline level={4}>E-commerce</Headline>
+                <H1 level={4}>E-commerce</H1>
                 <p className="text-gray-700 text-sm leading-relaxed">
                   Drive online sales, recover abandoned carts, and increase customer lifetime value with personalized mail.
                 </p>
                 <Button as={Link} href="/use-cases/ecommerce" variant="ghost" size="sm" className="w-full mt-auto">
                   Learn More
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
 
             <Card hover className="p-6">
-              <Stack gap={4}>
+              <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">💰</span>
                 </div>
-                <Headline level={4}>Financial Services</Headline>
+                <H1 level={4}>Financial Services</H1>
                 <p className="text-gray-700 text-sm leading-relaxed">
                   Build trust, acquire customers, and promote financial products with compliant direct mail strategies.
                 </p>
                 <Button as={Link} href="/use-cases/financial" variant="ghost" size="sm" className="w-full mt-auto">
                   Learn More
                 </Button>
-              </Stack>
+              </Flex>
             </Card>
           </Grid>
-        </Stack>
+        </Flex>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
-        <Stack gap={6}>
-          <Headline level={2} className="text-white">
+        <Flex gap={6}>
+          <H1 level={2} className="text-white">
             Ready to Transform Your B2B Marketing?
-          </Headline>
-          <Subhead className="text-gray-300 max-w-3xl mx-auto">
+          </H1>
+          <Text className="text-gray-300 max-w-3xl mx-auto">
             Join hundreds of B2B companies using Enclosed.AI to reach decision makers, generate qualified leads, and accelerate sales cycles with AI-powered direct mail.
-          </Subhead>
-          <Cluster gap={4} justify="center">
+          </Text>
+          <Flex gap={4} justify="center">
             <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
               Start Free Trial
             </Button>
             <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
               Schedule Demo
             </Button>
-          </Cluster>
-        </Stack>
+          </Flex>
+        </Flex>
       </Section>
 
       {/* Footer */}
@@ -533,7 +533,7 @@ export default function B2BUseCasePage() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Use Cases</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/use-cases/b2b" className="text-gray-400 hover:text-white transition-colors text-sm">
                   B2B Sales
                 </Link>
@@ -546,11 +546,11 @@ export default function B2BUseCasePage() {
                 <Link href="/use-cases/financial" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Financial Services
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Features
                 </Link>
@@ -563,11 +563,11 @@ export default function B2BUseCasePage() {
                 <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
                   ROI Calculator
                 </Link>
-              </Stack>
+              </Flex>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <Stack gap={2}>
+              <Flex gap={2}>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
@@ -580,7 +580,7 @@ export default function B2BUseCasePage() {
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
-              </Stack>
+              </Flex>
             </div>
           </Grid>
         </Section>

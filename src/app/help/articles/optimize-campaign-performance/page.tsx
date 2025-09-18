@@ -317,7 +317,7 @@ export default function OptimizeCampaignPerformancePage() {
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
                     <h4 className="font-semibold text-gray-900 mb-2">
-                      Compelling Headlines
+                      Compelling H1s
                     </h4>
                     <p className="text-sm text-gray-600">
                       Create headlines that grab attention and communicate value
@@ -365,7 +365,7 @@ export default function OptimizeCampaignPerformancePage() {
                       Creative Elements
                     </h4>
                     <ul className="text-sm text-yellow-800 space-y-1">
-                      <li>• Headlines and subject lines</li>
+                      <li>• H1s and subject lines</li>
                       <li>• Visual designs and layouts</li>
                       <li>• Color schemes and imagery</li>
                       <li>• Call-to-action buttons</li>

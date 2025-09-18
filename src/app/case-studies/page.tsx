@@ -88,7 +88,7 @@ export default function CaseStudiesPage() {
                   Featured Case Study
                 </div>
                 <h2 className="text-3xl font-bold mb-6">
-                  TechCorp Increases Lead Generation by 340%
+                  TechCorp Increases Text Generation by 340%
                 </h2>
                 <p className="text-lg opacity-90 mb-8 leading-relaxed">
                   A B2B software company used Enclosed.AI to transform their
@@ -99,7 +99,7 @@ export default function CaseStudiesPage() {
                   <div>
                     <div className="text-3xl font-bold">340%</div>
                     <div className="text-sm opacity-80">
-                      Increase in Qualified Leads
+                      Increase in Qualified Texts
                     </div>
                   </div>
                   <div>
@@ -150,7 +150,7 @@ export default function CaseStudiesPage() {
               <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">340%</div>
-                  <div className="text-sm opacity-90">Lead Increase</div>
+                  <div className="text-sm opacity-90">Text Increase</div>
                 </div>
               </div>
               <div className="p-8">
@@ -158,7 +158,7 @@ export default function CaseStudiesPage() {
                   B2B Software
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  TechCorp Lead Generation Success
+                  TechCorp Text Generation Success
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   How a B2B software company used AI-powered direct mail to

@@ -17,7 +17,7 @@ interface Campaign {
   industry: string;
 }
 
-interface Lead {
+interface Text {
   id: string;
   firstName: string;
   lastName: string;
@@ -45,8 +45,8 @@ export default function CreateCampaignPage() {
     companyName: "",
     industry: "",
   });
-  const [leads, setLeads] = useState<Lead[]>([]);
-  const [selectedLeads, setSelectedLeads] = useState<string[]>([]);
+  const [leads, setTexts] = useState<Text[]>([]);
+  const [selectedTexts, setSelectedTexts] = useState<string[]>([]);
   const [previewLetter, setPreviewLetter] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [customPrompt, setCustomPrompt] = useState("");
@@ -54,12 +54,12 @@ export default function CreateCampaignPage() {
 
   useEffect(() => {
     // Load saved leads from localStorage or API
-    loadSavedLeads();
+    loadSavedTexts();
   }, []);
 
-  const loadSavedLeads = () => {
+  const loadSavedTexts = () => {
     // Mock data - replace with actual API call
-    const mockLeads: Lead[] = [
+    const mockTexts: Text[] = [
       {
         id: "1",
         firstName: "John",
@@ -83,7 +83,7 @@ export default function CreateCampaignPage() {
         selected: false,
       },
     ];
-    setLeads(mockLeads);
+    setTexts(mockTexts);
   };
 
   const handleCampaignChange = (field: keyof Campaign, value: string) => {
@@ -93,33 +93,33 @@ export default function CreateCampaignPage() {
     }));
   };
 
-  const handleLeadSelection = (leadId: string) => {
-    setSelectedLeads((prev) =>
+  const handleTextSelection = (leadId: string) => {
+    setSelectedTexts((prev) =>
       prev.includes(leadId)
         ? prev.filter((id) => id !== leadId)
         : [...prev, leadId],
     );
   };
 
-  const selectAllLeads = () => {
-    setSelectedLeads(leads.map((lead) => lead.id));
+  const selectAllTexts = () => {
+    setSelectedTexts(leads.map((lead) => lead.id));
   };
 
-  const deselectAllLeads = () => {
-    setSelectedLeads([]);
+  const deselectAllTexts = () => {
+    setSelectedTexts([]);
   };
 
   const generatePreview = async () => {
     setIsGenerating(true);
     try {
-      const sampleLead =
-        leads.find((l) => selectedLeads.includes(l.id)) || leads[0];
+      const sampleText =
+        leads.find((l) => selectedTexts.includes(l.id)) || leads[0];
 
       const response = await fetch("/api/letters/preview", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          lead: sampleLead,
+          lead: sampleText,
           campaign,
           customPrompt,
         }),
@@ -183,16 +183,16 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
   };
 
   const handleSendCampaign = async () => {
-    if (selectedLeads.length > mailingCredits) {
+    if (selectedTexts.length > mailingCredits) {
       alert(
-        `Insufficient credits. You have ${mailingCredits} credits but selected ${selectedLeads.length} leads.`,
+        `Insufficient credits. You have ${mailingCredits} credits but selected ${selectedTexts.length} leads.`,
       );
       return;
     }
 
     // Process campaign
     alert(
-      `Campaign created successfully! ${selectedLeads.length} letters will be sent.`,
+      `Campaign created successfully! ${selectedTexts.length} letters will be sent.`,
     );
     router.push("/campaigns");
   };
@@ -323,7 +323,7 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Lead Magnet
+                    Text Magnet
                   </label>
                   <input
                     type="text"
@@ -390,13 +390,13 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                   onClick={() => setStep("leads")}
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Next: Select Leads
+                  Next: Select Texts
                 </button>
               </div>
             </motion.div>
           )}
 
-          {/* Lead Selection Step */}
+          {/* Text Selection Step */}
           {step === "leads" && (
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -405,19 +405,19 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
               className="bg-white rounded-lg shadow-sm p-8"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold">Select Leads</h2>
+                <h2 className="text-xl font-semibold">Select Texts</h2>
                 <div className="flex items-center space-x-4">
                   <span className="text-sm text-gray-600">
-                    {selectedLeads.length} of {leads.length} selected
+                    {selectedTexts.length} of {leads.length} selected
                   </span>
                   <button
-                    onClick={selectAllLeads}
+                    onClick={selectAllTexts}
                     className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Select All
                   </button>
                   <button
-                    onClick={deselectAllLeads}
+                    onClick={deselectAllTexts}
                     className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Deselect All
@@ -438,11 +438,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         <input
                           type="checkbox"
-                          checked={selectedLeads.length === leads.length}
+                          checked={selectedTexts.length === leads.length}
                           onChange={() =>
-                            selectedLeads.length === leads.length
-                              ? deselectAllLeads()
-                              : selectAllLeads()
+                            selectedTexts.length === leads.length
+                              ? deselectAllTexts()
+                              : selectAllTexts()
                           }
                           className="rounded border-gray-300"
                         />
@@ -463,14 +463,14 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                       <tr
                         key={lead.id}
                         className={
-                          selectedLeads.includes(lead.id) ? "bg-blue-50" : ""
+                          selectedTexts.includes(lead.id) ? "bg-blue-50" : ""
                         }
                       >
                         <td className="px-6 py-4 whitespace-nowrap">
                           <input
                             type="checkbox"
-                            checked={selectedLeads.includes(lead.id)}
-                            onChange={() => handleLeadSelection(lead.id)}
+                            checked={selectedTexts.includes(lead.id)}
+                            onChange={() => handleTextSelection(lead.id)}
                             className="rounded border-gray-300"
                           />
                         </td>
@@ -498,7 +498,7 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                 </button>
                 <button
                   onClick={() => {
-                    if (selectedLeads.length === 0) {
+                    if (selectedTexts.length === 0) {
                       alert("Please select at least one lead");
                       return;
                     }
@@ -603,7 +603,7 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                   <div>
                     <span className="text-gray-600">Recipients:</span>
                     <span className="ml-2 font-medium">
-                      {selectedLeads.length} leads
+                      {selectedTexts.length} leads
                     </span>
                   </div>
                   <div>
@@ -615,7 +615,7 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                   <div>
                     <span className="text-gray-600">Credits Required:</span>
                     <span className="ml-2 font-medium">
-                      {selectedLeads.length * 2}
+                      {selectedTexts.length * 2}
                     </span>
                   </div>
                 </div>
@@ -632,14 +632,14 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                 <p className="text-sm text-gray-600">
                   After Campaign:{" "}
                   <span className="font-bold">
-                    {mailingCredits - selectedLeads.length * 2}
+                    {mailingCredits - selectedTexts.length * 2}
                   </span>
                 </p>
-                {mailingCredits < selectedLeads.length * 2 && (
+                {mailingCredits < selectedTexts.length * 2 && (
                   <div className="mt-4 p-3 bg-red-100 border border-red-200 rounded">
                     <p className="text-sm text-red-800">
                       Insufficient credits! You need{" "}
-                      {selectedLeads.length * 2 - mailingCredits} more credits.
+                      {selectedTexts.length * 2 - mailingCredits} more credits.
                     </p>
                     <Link
                       href="/pricing"
@@ -674,10 +674,10 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                 </button>
                 <button
                   onClick={handleSendCampaign}
-                  disabled={mailingCredits < selectedLeads.length * 2}
+                  disabled={mailingCredits < selectedTexts.length * 2}
                   className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Campaign ({selectedLeads.length} Letters)
+                  Send Campaign ({selectedTexts.length} Letters)
                 </button>
               </div>
             </motion.div>
