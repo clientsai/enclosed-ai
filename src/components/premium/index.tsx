@@ -326,7 +326,7 @@ export const Card = ({
 }) => (
   <article
     className={cn(
-      "bg-white rounded-xl border border-gray-200 overflow-hidden",
+      "bg-white rounded-xl border border-gray-200 overflow-hidden p-6",
       hover &&
         "transition-all duration-200 ease-in-out hover:shadow-lg hover:border-gray-300 hover:-translate-y-1",
       className

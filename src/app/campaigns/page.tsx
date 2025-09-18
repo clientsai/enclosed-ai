@@ -48,7 +48,7 @@ export default function CampaignsPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
       </div>
     );
   }
@@ -112,7 +112,7 @@ export default function CampaignsPage() {
             <h1 className="text-3xl font-bold text-gray-900">Campaigns</h1>
             <Link
               href="/campaigns/new"
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
             >
               Create New Campaign
             </Link>
@@ -126,19 +126,19 @@ export default function CampaignsPage() {
               <div className="text-sm text-gray-600">Total Campaigns</div>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl font-bold text-gray-900">
                 {stats.active}
               </div>
               <div className="text-sm text-gray-600">Active</div>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-gray-900">
                 {stats.completed}
               </div>
               <div className="text-sm text-gray-600">Completed</div>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-purple-600">
+              <div className="text-2xl font-bold text-gray-900">
                 {formatCurrency(stats.totalSpent)}
               </div>
               <div className="text-sm text-gray-600">Total Spent</div>
@@ -153,9 +153,9 @@ export default function CampaignsPage() {
               <button
                 key={status}
                 onClick={() => setFilter(status)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   filter === status
-                    ? "bg-blue-600 text-white"
+                    ? "bg-gray-900 text-white shadow-sm"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -185,7 +185,7 @@ export default function CampaignsPage() {
               <p className="text-gray-600 mb-4">No campaigns found</p>
               <Link
                 href="/campaigns/new"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
               >
                 Create your first campaign
               </Link>
@@ -204,11 +204,11 @@ export default function CampaignsPage() {
                       </h3>
                       <div className="mt-2 flex items-center space-x-4 text-sm">
                         <span
-                          className={`inline-flex px-2 py-1 rounded-full font-medium
-                          ${campaign.status === "completed" ? "bg-green-100 text-green-800" : ""}
-                          ${campaign.status === "processing" ? "bg-yellow-100 text-yellow-800" : ""}
+                          className={`inline-flex px-2 py-1 rounded-full font-medium text-xs
+                          ${campaign.status === "completed" ? "bg-gray-900 text-white" : ""}
+                          ${campaign.status === "processing" ? "bg-gray-600 text-white" : ""}
                           ${campaign.status === "draft" ? "bg-gray-100 text-gray-800" : ""}
-                          ${campaign.status === "failed" ? "bg-red-100 text-red-800" : ""}
+                          ${campaign.status === "failed" ? "bg-gray-200 text-gray-900" : ""}
                         `}
                         >
                           {campaign.status}
@@ -249,7 +249,7 @@ export default function CampaignsPage() {
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-600">Total Cost</dt>
-                      <dd className="font-medium text-blue-600">
+                      <dd className="font-medium text-gray-900">
                         {formatCurrency(campaign.total_cost)}
                       </dd>
                     </div>
@@ -257,14 +257,14 @@ export default function CampaignsPage() {
                   <div className="mt-4 flex space-x-3">
                     <Link
                       href={`/campaigns/${campaign.id}`}
-                      className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                      className="flex-1 text-center px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm shadow-sm"
                     >
                       View Details
                     </Link>
                     {campaign.status === "draft" && (
                       <Link
                         href={`/campaigns/${campaign.id}`}
-                        className="flex-1 text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
+                        className="flex-1 text-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors text-sm shadow-sm"
                       >
                         Send Campaign
                       </Link>

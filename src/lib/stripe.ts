@@ -12,36 +12,54 @@ export const stripe = process.env.STRIPE_SECRET_KEY
 export const SUBSCRIPTION_PLANS = {
   starter: {
     id: 'plan_starter',
-    name: 'Starter Plan',
-    price: 9999, // $99.99 in cents
-    priceId: 'price_1S8Na9CXLbEz3Hk6VkoBMzvX',
-    productId: 'prod_T4WditEo3aU99H',
-    monthlyLetters: 50,
+    name: 'Starter',
+    price: 4900, // $49 in cents
+    priceId: 'price_1S8b3lCXLbEz3Hk6AFU8iErV',
+    productId: 'prod_T4kYzNzqrnQgps',
+    monthlyLetters: 1000,
     features: [
-      'CSV lead upload',
-      '50 direct mail letters per month',
-      'Professional printing & shipping',
-      'Basic templates',
-      'Delivery tracking',
+      '1,000 campaigns per month',
+      'Basic AI personalization',
+      'CSV upload & management',
       'Email support',
+      'Standard integrations',
+      'Campaign analytics',
     ],
   },
-  premium: {
-    id: 'plan_premium',
-    name: 'Premium Plan',
-    price: 29999, // $299.99 in cents
-    priceId: 'price_1S8NfrCXLbEz3Hk6oU04DDaa',
-    productId: 'prod_T4Wj2uFSmQFNon',
-    monthlyLetters: 100,
+  pro: {
+    id: 'plan_pro',
+    name: 'Pro',
+    price: 19900, // $199 in cents
+    priceId: 'price_1S8b3wCXLbEz3Hk65nV1bCIO',
+    productId: 'prod_T4kYkw2KQuSLEJ',
+    monthlyLetters: -1,
     features: [
-      'Everything in Starter',
-      'AI-powered personalization',
-      '100 personalized letters per month',
-      'Advanced CSV column mapping',
-      'Google Calendar integration',
-      'Customizable tracking links',
-      'Priority support',
-      'Letter preview & approval',
+      'Unlimited campaigns',
+      'Advanced AI personalization',
+      'Priority processing',
+      'Custom integrations',
+      'API access',
+      'Dedicated account manager',
+      'Advanced analytics & reporting',
+      'Custom branding',
+    ],
+  },
+  enterprise: {
+    id: 'plan_enterprise',
+    name: 'Enterprise',
+    price: 99900, // $999 in cents
+    priceId: 'price_1S8b46CXLbEz3Hk6r6GydWW8',
+    productId: 'prod_T4kZlMxnEXKcct',
+    monthlyLetters: -1,
+    features: [
+      'Everything in Pro',
+      'Custom AI models',
+      'White-label solutions',
+      'Dedicated infrastructure',
+      'SLA guarantees',
+      '24/7 phone support',
+      'Custom contracts',
+      'Compliance assistance',
     ],
   },
 };
@@ -50,18 +68,18 @@ export const SUBSCRIPTION_PLANS = {
 export const ADDON_PACKAGES = {
   bundle100: {
     id: 'addon_bundle100',
-    name: 'Letter Bundle',
-    price: 20000, // $200.00 in cents
+    name: 'Campaign Bundle',
+    price: 9900, // $99.00 in cents
     priceId: 'price_1S8NhRCXLbEz3Hk6YZXjkAgY',
     productId: 'prod_T4WkRtBnpuvZYE',
-    letters: 100,
+    letters: 1000,
   },
 };
 
-// Letter credit pricing
-export const LETTER_CREDITS = {
-  basic: 1, // Basic letter
-  personalized: 2, // AI-personalized letter
+// Campaign credit pricing
+export const CAMPAIGN_CREDITS = {
+  basic: 1, // Basic campaign
+  personalized: 2, // AI-personalized campaign
 };
 
 export async function createSubscriptionSession(

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
@@ -23,31 +24,14 @@ export default function Logo({
 
   const LogoContent = () => (
     <div className={`flex items-center space-x-2 ${className}`}>
-      {/* Modern Envelope Logo */}
-      <div
-        className="relative flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg"
-        style={{ width: currentSize.icon, height: currentSize.icon }}
-      >
-        {/* Clean Envelope SVG Icon */}
-        <svg
-          width={currentSize.icon * 0.6}
-          height={currentSize.icon * 0.6}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Envelope shape */}
-          <rect x="2" y="5" width="20" height="14" rx="2" stroke="white" strokeWidth="1.5" fill="none"/>
-          {/* Envelope flap */}
-          <path d="M2 7L12 13L22 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          {/* AI indicator */}
-          <circle cx="18" cy="6" r="3" fill="#10B981" />
-          <text x="18" y="9" fontSize="4" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
-        </svg>
-
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/0 to-white/10"></div>
-      </div>
+      {/* Modern Envelope Logo using external SVG */}
+      <Image
+        src="/logo.svg"
+        alt="Enclosed.AI Logo"
+        width={currentSize.icon}
+        height={currentSize.icon}
+        className="drop-shadow-lg"
+      />
 
       {showText && (
         <div className="flex flex-col">
@@ -78,23 +62,12 @@ export default function Logo({
 // Export a simple icon-only version for favicons or small spaces
 export function LogoIcon({ size = 32 }: { size?: number }) {
   return (
-    <div
-      className="relative flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg"
-      style={{ width: size, height: size }}
-    >
-      <svg
-        width={size * 0.6}
-        height={size * 0.6}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="2" y="5" width="20" height="14" rx="2" stroke="white" strokeWidth="1.5" fill="none"/>
-        <path d="M2 7L12 13L22 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="18" cy="6" r="3" fill="#10B981" />
-        <text x="18" y="9" fontSize="4" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
-      </svg>
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/0 to-white/10"></div>
-    </div>
+    <Image
+      src="/logo.svg"
+      alt="Enclosed.AI Icon"
+      width={size}
+      height={size}
+      className="drop-shadow-lg"
+    />
   );
 }

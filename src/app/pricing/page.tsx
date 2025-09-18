@@ -168,7 +168,7 @@ export default function PricingPage() {
             </Stack>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter Plan */}
             <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="text-center mb-8">
@@ -176,19 +176,19 @@ export default function PricingPage() {
                   Starter
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Perfect for getting started with direct mail
+                  Perfect for small teams getting started
                 </p>
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-gray-900 group-hover:scale-110 transition-transform duration-300">
-                    $99
+                    $49
                   </span>
-                  <span className="text-xl text-gray-600 ml-1">.99</span>
+                  <span className="text-xl text-gray-600 ml-1"></span>
                   <span className="text-lg text-gray-500 block mt-2">
                     per month
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 font-medium">
-                  50 personalized letters/month included
+                  1,000 campaigns/month included
                 </p>
               </div>
               <div className="space-y-4 mb-8">
@@ -196,54 +196,54 @@ export default function PricingPage() {
                   <div className="h-6 w-6 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
-                  <span className="text-gray-300 font-medium">
-                    CSV lead upload & management
+                  <span className="text-gray-700 font-medium">
+                    1,000 campaigns per month
                   </span>
                 </div>
                 <div className="flex items-start group/item">
-                  <div className="h-6 w-6 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">✓</span>
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
                   </div>
-                  <span className="text-gray-300 font-medium">
-                    50 direct mail letters per month
+                  <span className="text-gray-700 font-medium">
+                    Basic AI personalization
                   </span>
                 </div>
                 <div className="flex items-start group/item">
-                  <div className="h-6 w-6 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">✓</span>
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
                   </div>
-                  <span className="text-gray-300 font-medium">
-                    Professional printing & shipping
+                  <span className="text-gray-700 font-medium">
+                    CSV upload & management
                   </span>
                 </div>
                 <div className="flex items-start group/item">
-                  <div className="h-6 w-6 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">✓</span>
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
                   </div>
-                  <span className="text-gray-300 font-medium">
-                    Basic templates (write your own)
-                  </span>
-                </div>
-                <div className="flex items-start group/item">
-                  <div className="h-6 w-6 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-gray-300 font-medium">
-                    Delivery tracking
-                  </span>
-                </div>
-                <div className="flex items-start group/item">
-                  <div className="h-6 w-6 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-gray-300 font-medium">
+                  <span className="text-gray-700 font-medium">
                     Email support
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Standard integrations
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Campaign analytics
                   </span>
                 </div>
               </div>
               <button
                 onClick={() =>
-                  handleSubscribe("price_1S8Na9CXLbEz3Hk6VkoBMzvX", "starter")
+                  handleSubscribe("price_1S8b3lCXLbEz3Hk6AFU8iErV", "starter")
                 }
                 disabled={loading === "starter"}
                 className="w-full bg-gray-900 text-white py-4 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block disabled:opacity-50 disabled:cursor-not-allowed"
@@ -252,31 +252,31 @@ export default function PricingPage() {
               </button>
             </div>
 
-            {/* Premium Plan */}
+            {/* Pro Plan */}
             <div className="group bg-gray-900 text-white rounded-2xl p-8 border-2 border-gray-900 relative hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gray-900 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg border border-gray-700">
-                  BEST VALUE
+                  MOST POPULAR
                 </span>
               </div>
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Premium
+                  Pro
                 </h3>
                 <p className="text-gray-400 mb-6">
-                  AI-powered personalization for maximum ROI
+                  Advanced features for growing teams
                 </p>
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-                    $299
+                    $199
                   </span>
-                  <span className="text-xl text-gray-400 ml-1">.99</span>
+                  <span className="text-xl text-gray-400 ml-1"></span>
                   <span className="text-lg text-gray-500 block mt-2">
                     per month
                   </span>
                 </div>
                 <p className="text-sm text-gray-400 font-medium">
-                  100 AI-personalized letters/month included
+                  Unlimited campaigns
                 </p>
               </div>
               <div className="space-y-4 mb-8">
@@ -285,7 +285,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    Everything in Starter
+                    Unlimited campaigns
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -293,7 +293,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    AI-powered personalization engine
+                    Advanced AI personalization
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -301,7 +301,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    100 personalized letters/month
+                    Priority processing
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -309,7 +309,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    Advanced CSV column mapping
+                    Custom integrations
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -317,7 +317,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    Google Calendar integration
+                    API access
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -325,7 +325,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    Customizable tracking links
+                    Dedicated account manager
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -333,7 +333,7 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    Priority support & onboarding
+                    Advanced analytics & reporting
                   </span>
                 </div>
                 <div className="flex items-start group/item">
@@ -341,18 +341,117 @@ export default function PricingPage() {
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="text-gray-300 font-medium">
-                    Letter preview & approval flow
+                    Custom branding
                   </span>
                 </div>
               </div>
               <button
                 onClick={() =>
-                  handleSubscribe("price_1S8NfrCXLbEz3Hk6oU04DDaa", "premium")
+                  handleSubscribe("price_1S8b3wCXLbEz3Hk65nV1bCIO", "pro")
                 }
-                disabled={loading === "premium"}
+                disabled={loading === "pro"}
                 className="w-full bg-white text-gray-900 py-4 px-6 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading === "premium" ? "Processing..." : "Get Started"}
+                {loading === "pro" ? "Processing..." : "Get Started"}
+              </button>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Enterprise
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Complete solution for large organizations
+                </p>
+                <div className="mb-6">
+                  <span className="text-5xl font-bold text-gray-900 group-hover:scale-110 transition-transform duration-300">
+                    $999
+                  </span>
+                  <span className="text-xl text-gray-600 ml-1"></span>
+                  <span className="text-lg text-gray-500 block mt-2">
+                    per month
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 font-medium">
+                  Custom volume & features
+                </p>
+              </div>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Everything in Pro
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Custom AI models
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    White-label solutions
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Dedicated infrastructure
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    SLA guarantees
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    24/7 phone support
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Custom contracts
+                  </span>
+                </div>
+                <div className="flex items-start group/item">
+                  <div className="h-6 w-6 bg-gray-100 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-gray-900 text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-gray-700 font-medium">
+                    Compliance assistance
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() =>
+                  handleSubscribe("price_1S8b46CXLbEz3Hk6r6GydWW8", "enterprise")
+                }
+                disabled={loading === "enterprise"}
+                className="w-full bg-gray-900 text-white py-4 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading === "enterprise" ? "Processing..." : "Contact Sales"}
               </button>
             </div>
           </div>
