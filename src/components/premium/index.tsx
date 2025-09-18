@@ -81,10 +81,12 @@ export const Grid = ({
 export const Stack = ({
   children,
   gap = 4,
+  align = "",
   className = "",
 }: {
   children: React.ReactNode;
-  gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+  gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 12;
+  align?: "center" | "start" | "end" | "";
   className?: string;
 }) => {
   const gapClasses = {
@@ -96,10 +98,18 @@ export const Stack = ({
     6: "gap-6",
     7: "gap-7",
     8: "gap-8",
+    12: "gap-12",
+  };
+
+  const alignClasses = {
+    start: "items-start",
+    center: "items-center",
+    end: "items-end",
+    "": "",
   };
 
   return (
-    <div className={cn("flex flex-col", gapClasses[gap], className)}>
+    <div className={cn("flex flex-col", gapClasses[gap], alignClasses[align], className)}>
       {children}
     </div>
   );
@@ -411,6 +421,30 @@ export const Stat = ({
   </div>
 );
 
+export const Quote = ({
+  text,
+  author,
+  title,
+  className = "",
+}: {
+  text: string;
+  author?: string;
+  title?: string;
+  className?: string;
+}) => (
+  <blockquote className={cn("", className)}>
+    <p className="text-lg text-gray-700 italic leading-relaxed">
+      "{text}"
+    </p>
+    {author && (
+      <cite className="block mt-4 not-italic">
+        <div className="font-semibold text-gray-900">{author}</div>
+        {title && <div className="text-sm text-gray-600">{title}</div>}
+      </cite>
+    )}
+  </blockquote>
+);
+
 export const Testimonial = ({
   quote,
   author,
@@ -606,7 +640,7 @@ export const Timeline = ({
   items,
   className = "",
 }: {
-  items: { date: string; title: string; content: React.ReactNode }[];
+  items: { date?: string; title: string; description?: string; content?: React.ReactNode }[];
   className?: string;
 }) => (
   <div className={cn("space-y-6", className)}>
@@ -619,14 +653,16 @@ export const Timeline = ({
           )}
         </div>
         <div className="flex-1 pb-6">
-          <time className="text-sm text-gray-500">
-            {item.date}
-          </time>
+          {item.date && (
+            <time className="text-sm text-gray-500">
+              {item.date}
+            </time>
+          )}
           <h3 className="font-semibold text-gray-900 mt-1 mb-2">
             {item.title}
           </h3>
           <div className="text-gray-600">
-            {item.content}
+            {item.description || item.content}
           </div>
         </div>
       </div>

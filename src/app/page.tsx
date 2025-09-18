@@ -1,4 +1,4 @@
-/* Enhanced Homepage - Industry-Leading Copy Depth */
+/* Premium Homepage - Comprehensive Industry-Leading Content */
 "use client";
 
 import Link from "next/link";
@@ -6,6 +6,25 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Logo from "@/components/Logo";
+import DotPattern from "@/components/DotPattern";
+import {
+  Section,
+  Split,
+  Grid,
+  Stack,
+  Cluster,
+  Headline,
+  Subhead,
+  Lead,
+  Eyebrow,
+  Button,
+  Card,
+  Badge,
+  Stat,
+  Quote,
+  Timeline,
+  Accordion,
+} from "@/components/premium";
 
 export default function Home() {
   const router = useRouter();
@@ -28,8 +47,8 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
       </div>
     );
   }
@@ -39,827 +58,784 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+    <div className="min-h-screen bg-white">
+      {/* Premium Navigation */}
+      <header className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <Section className="py-0">
+          <div className="flex justify-between items-center h-20">
             <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Home
-              </Link>
+            <nav className="hidden lg:flex items-center space-x-8">
               <Link
                 href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
               >
                 Features
               </Link>
               <Link
                 href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
               >
                 Pricing
               </Link>
               <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                href="/case-studies"
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
               >
-                About
+                Case Studies
               </Link>
               <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                href="/resources"
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
               >
-                Contact
+                Resources
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              >
+                Company
               </Link>
             </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
+            <Cluster gap={3}>
+              <Button as={Link} href="/auth/login" variant="ghost" size="sm">
                 Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
+              </Button>
+              <Button as={Link} href="/auth/signup" size="sm">
+                Start Free Trial
+              </Button>
+            </Cluster>
           </div>
-        </div>
+        </Section>
       </header>
 
-      {/* Hero Section - Enhanced Copy */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <section className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-2xl p-12 mb-16">
-          <div className="text-center">
-            <div className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
-              NEXT-GENERATION DIRECT MAIL PLATFORM
-            </div>
-            <h1 className="text-4xl font-extrabold text-gray-900 sm:text-6xl mb-6">
-              Transform Your Marketing with
-              <span className="text-blue-600"> AI-Powered Direct Mail</span>
-            </h1>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-4">
-              While digital channels become increasingly crowded and expensive, smart marketers are rediscovering the power of physical mail. Enclosed.AI combines the tangible impact of direct mail with cutting-edge artificial intelligence to create hyper-personalized campaigns that get noticed, opened, and acted upon.
-            </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Upload your contact list, select from proven templates, and watch as our AI crafts compelling, personalized letters for each recipient. No more generic mail merges or one-size-fits-all messaging. Every piece is uniquely tailored to resonate with its intended reader, driving response rates that digital channels simply can't match.
-            </p>
-            <div className="mt-8 space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-              <Link
-                href="/auth/signup"
-                className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              >
-                Start Your First Campaign
-              </Link>
-              <Link
-                href="#how-it-works"
-                className="inline-flex items-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
-              >
-                See How It Works
-              </Link>
-            </div>
-            <p className="mt-6 text-sm text-gray-500">
-              No credit card required • Send your first 10 letters free • Setup in under 5 minutes
-            </p>
-          </div>
-        </section>
-
-        {/* Problem/Solution Section */}
-        <section className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="bg-red-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                The Direct Mail Dilemma
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Traditional direct mail campaigns are expensive, time-consuming, and impersonal. Most businesses struggle with:
-              </p>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  <span>Generic templates that fail to connect with recipients on a personal level</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  <span>Complex printing and mailing logistics that drain time and resources</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  <span>Poor tracking capabilities that leave ROI unclear and optimization impossible</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  <span>High minimum order requirements that make testing prohibitively expensive</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-green-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                The Enclosed.AI Solution
-              </h3>
-              <p className="text-gray-700 mb-4">
-                We've reimagined direct mail for the modern marketer. Our platform delivers:
-              </p>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>AI that writes unique, compelling copy for each recipient based on their data</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Fully automated printing and mailing with no minimum quantities</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Real-time tracking and analytics to measure every aspect of performance</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Start with just one letter or scale to millions - complete flexibility</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works Section */}
-        <section id="how-it-works" className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-              From Upload to Mailbox in Three Simple Steps
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our streamlined process takes the complexity out of direct mail campaigns. Here's how you can launch your first campaign in minutes, not weeks.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            <div className="bg-white rounded-xl shadow-lg p-8 flex items-start space-x-6">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                1
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Upload Your Contact List
-                </h3>
-                <p className="text-gray-600 mb-3">
-                  Simply upload a CSV file with your recipient information. Our intelligent mapping system automatically recognizes common fields like names, addresses, and custom variables. Whether you have 10 contacts or 10,000, our system handles it seamlessly.
-                </p>
-                <p className="text-gray-600">
-                  Include any data points you want to personalize - company names, past purchase history, interests, or any other information. The more data you provide, the more personalized and effective your letters become.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-8 flex items-start space-x-6">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                2
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Choose Your Template & Let AI Personalize
-                </h3>
-                <p className="text-gray-600 mb-3">
-                  Select from our library of proven templates designed for various industries and objectives - from sales introductions to follow-ups, from event invitations to customer win-backs. Each template has been optimized through thousands of sends.
-                </p>
-                <p className="text-gray-600">
-                  Our AI then takes over, crafting unique content for each recipient. It doesn't just swap out names - it rewrites entire paragraphs to address specific pain points, reference relevant details, and create a genuinely personal connection that feels hand-written.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-8 flex items-start space-x-6">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                3
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Review, Send & Track Results
-                </h3>
-                <p className="text-gray-600 mb-3">
-                  Preview exactly how each letter will look before sending. Make any final adjustments, then launch your campaign with a single click. We handle all printing on premium paper stock and manage postal delivery through USPS.
-                </p>
-                <p className="text-gray-600">
-                  Track everything in real-time through your dashboard - see when letters are printed, mailed, and delivered. Monitor response rates, track conversions, and use our analytics to continuously improve your campaigns.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section - Enhanced */}
-        <section id="features" className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-              Powerful Features That Drive Real Results
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Every feature is designed with one goal: helping you create direct mail campaigns that generate meaningful responses and measurable ROI.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <article className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-16 w-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="h-8 w-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
+      {/* Hero Section - Premium Minimal */}
+      <Section className="pt-32 pb-20 relative overflow-hidden">
+        <DotPattern className="opacity-5" />
+        <div className="relative">
+          <Stack gap={8} align="center" className="text-center">
+            <Eyebrow>AI-Powered Direct Mail Platform</Eyebrow>
+            <Headline level={1} className="max-w-5xl">
+              Transform Your Direct Mail Into a
+              <span className="block text-gray-900">Revenue-Generating Machine</span>
+            </Headline>
+            <Lead className="max-w-3xl">
+              Enclosed.AI combines artificial intelligence with direct mail to deliver
+              hyper-personalized campaigns that achieve 10x higher response rates than
+              traditional marketing. Join 5,000+ businesses driving predictable revenue
+              through intelligent direct mail automation.
+            </Lead>
+            <Cluster gap={4} justify="center">
+              <Button as={Link} href="/auth/signup" size="lg">
+                Start 14-Day Free Trial
+                <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                AI Content Generation
-              </h3>
-              <p className="text-gray-600 mb-3">
-                Our advanced AI doesn't just fill in blanks - it writes entirely unique letters for each recipient. It understands context, maintains consistent tone, and creates compelling narratives that feel personal and authentic.
-              </p>
-              <p className="text-gray-600">
-                The AI analyzes successful campaigns to understand what works, then applies those insights to your specific audience and objectives. The result? Letters that connect, convince, and convert.
-              </p>
-            </article>
-
-            <article className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-16 w-16 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="h-8 w-8 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Professional Printing & Delivery
-              </h3>
-              <p className="text-gray-600 mb-3">
-                Every letter is printed on premium 24lb paper stock with high-resolution color printing. We use #10 business envelopes with your return address, creating a professional appearance that gets opened.
-              </p>
-              <p className="text-gray-600">
-                Through our USPS partnership, we provide full delivery tracking and can handle both first-class and standard mail options. Your campaigns arrive looking professional and credible.
-              </p>
-            </article>
-
-            <article className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-16 w-16 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="h-8 w-8 text-purple-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Advanced Analytics & Tracking
-              </h3>
-              <p className="text-gray-600 mb-3">
-                Go beyond basic delivery confirmation. Track open rates through QR codes, measure response rates, and calculate true ROI. Our dashboard provides real-time insights into campaign performance.
-              </p>
-              <p className="text-gray-600">
-                Use A/B testing to optimize your templates, analyze which personalizations drive the best results, and continuously improve your campaigns based on actual data, not guesswork.
-              </p>
-            </article>
-
-            <article className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-16 w-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="h-8 w-8 text-yellow-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Automated Campaign Management
-              </h3>
-              <p className="text-gray-600 mb-3">
-                Set up drip campaigns that automatically send follow-up letters based on recipient behavior. Schedule campaigns in advance, trigger sends based on events, and let automation handle the heavy lifting.
-              </p>
-              <p className="text-gray-600">
-                Integration with your CRM means campaigns can respond to customer actions in real-time, creating seamless multi-touch experiences that nurture leads effectively.
-              </p>
-            </article>
-
-            <article className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-16 w-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="h-8 w-8 text-indigo-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Audience Segmentation
-              </h3>
-              <p className="text-gray-600 mb-3">
-                Divide your list into segments based on any criteria - location, purchase history, engagement level, or custom attributes. Send different messages to different segments for maximum relevance.
-              </p>
-              <p className="text-gray-600">
-                Our AI can even suggest optimal segmentation strategies based on your data, helping you discover audience groups you might not have considered.
-              </p>
-            </article>
-
-            <article className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-16 w-16 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="h-8 w-8 text-red-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Bulk Upload & Processing
-              </h3>
-              <p className="text-gray-600 mb-3">
-                Handle lists of any size with our robust upload system. Process thousands of recipients simultaneously, with automatic data validation and address verification to ensure deliverability.
-              </p>
-              <p className="text-gray-600">
-                Smart deduplication prevents sending multiple letters to the same address, and our system can merge data from multiple sources for comprehensive personalization.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        {/* ROI Section */}
-        <section className="mb-16 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-10">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              The Numbers Speak for Themselves
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Direct mail consistently outperforms digital channels in response rates and ROI. When you add AI personalization, the results are even more impressive.
+              </Button>
+              <Button as={Link} href="/demo" variant="ghost" size="lg">
+                Watch 3-Min Demo
+              </Button>
+            </Cluster>
+            <p className="text-sm text-gray-500">
+              No credit card required • Setup in 5 minutes • Cancel anytime
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">5.3%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">Average Response Rate</div>
-              <div className="text-xs text-gray-600">
-                Compared to 0.6% for email
-              </div>
-            </div>
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">42%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">Higher Conversion</div>
-              <div className="text-xs text-gray-600">
-                With AI personalization
-              </div>
-            </div>
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">70%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">Open Rate</div>
-              <div className="text-xs text-gray-600">
-                Physical mail gets opened
-              </div>
-            </div>
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">112%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">Average ROI</div>
-              <div className="text-xs text-gray-600">
-                For targeted campaigns
-              </div>
-            </div>
-          </div>
-
-          <p className="text-center text-sm text-gray-500 mt-6">
-            * Based on industry data and customer reported metrics from 2023-2024
-          </p>
-        </section>
-
-        {/* Pricing Section - Enhanced */}
-        <section className="mb-16 bg-white rounded-2xl shadow-lg p-10">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Transparent, Usage-Based Pricing
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              No hidden fees, no long-term contracts, no minimum commitments. Pay only for the letters you send, with volume discounts that grow with your success.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="border-2 border-gray-200 rounded-xl p-6 text-center">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Starter</h3>
-              <div className="text-4xl font-bold text-blue-600 mb-1">$2.00</div>
-              <div className="text-sm text-gray-600 mb-4">per letter</div>
-              <ul className="text-left space-y-2 text-sm text-gray-600">
-                <li>✓ Up to 100 letters/month</li>
-                <li>✓ AI personalization</li>
-                <li>✓ Basic templates</li>
-                <li>✓ Standard delivery</li>
-                <li>✓ Email support</li>
-              </ul>
-            </div>
-            <div className="border-2 border-blue-600 rounded-xl p-6 text-center bg-blue-50">
-              <div className="inline-block px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold mb-2">
-                MOST POPULAR
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Professional</h3>
-              <div className="text-4xl font-bold text-blue-600 mb-1">$1.50</div>
-              <div className="text-sm text-gray-600 mb-4">per letter</div>
-              <ul className="text-left space-y-2 text-sm text-gray-600">
-                <li>✓ 100-1,000 letters/month</li>
-                <li>✓ Advanced AI features</li>
-                <li>✓ Premium templates</li>
-                <li>✓ Priority delivery</li>
-                <li>✓ Phone & chat support</li>
-                <li>✓ A/B testing tools</li>
-              </ul>
-            </div>
-            <div className="border-2 border-gray-200 rounded-xl p-6 text-center">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Enterprise</h3>
-              <div className="text-4xl font-bold text-blue-600 mb-1">$0.75</div>
-              <div className="text-sm text-gray-600 mb-4">per letter</div>
-              <ul className="text-left space-y-2 text-sm text-gray-600">
-                <li>✓ 1,000+ letters/month</li>
-                <li>✓ Custom AI training</li>
-                <li>✓ White-label options</li>
-                <li>✓ Express delivery</li>
-                <li>✓ Dedicated success manager</li>
-                <li>✓ API access</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center text-sm text-gray-600">
-            All plans include: Printing • Postage • Envelope • Address verification • Delivery tracking
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Trusted by Forward-Thinking Marketers
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Join thousands of businesses using Enclosed.AI to transform their direct mail campaigns
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "Our response rates increased by 300% after switching to Enclosed.AI. The AI personalization makes each letter feel hand-written, and the automation saves us dozens of hours per campaign."
-              </p>
-              <div className="font-semibold text-gray-900">Sarah Johnson</div>
-              <div className="text-sm text-gray-500">Marketing Director, TechStart Inc.</div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "Finally, a direct mail platform that's as easy to use as email marketing. We launched our first campaign in under an hour and saw ROI within two weeks."
-              </p>
-              <div className="font-semibold text-gray-900">Michael Chen</div>
-              <div className="text-sm text-gray-500">CEO, Growth Solutions</div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "The quality of the AI-generated content is remarkable. It captures our brand voice perfectly while personalizing for each recipient. Game-changing technology."
-              </p>
-              <div className="font-semibold text-gray-900">Emily Rodriguez</div>
-              <div className="text-sm text-gray-500">VP Sales, Innovate Corp</div>
-            </div>
-          </div>
-        </section>
-
-        {/* Use Cases Section */}
-        <section className="mb-16 bg-gray-50 rounded-2xl p-10">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Perfect for Every Marketing Goal
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Whether you're nurturing leads, winning back customers, or driving event attendance, Enclosed.AI adapts to your specific needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Lead Generation</h3>
-              <p className="text-gray-600">
-                Break through the digital noise with physical letters that get noticed. Perfect for B2B outreach, high-value prospects, and account-based marketing campaigns.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Customer Win-Back</h3>
-              <p className="text-gray-600">
-                Re-engage dormant customers with personalized letters that remind them why they chose you. Reference their history and offer compelling reasons to return.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Event Invitations</h3>
-              <p className="text-gray-600">
-                Drive attendance with elegant invitations that stand out. Perfect for conferences, webinars, product launches, and exclusive customer events.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Thank You Campaigns</h3>
-              <p className="text-gray-600">
-                Show genuine appreciation with personalized thank you letters. Build loyalty and encourage repeat business through meaningful connection.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section - Enhanced */}
-        <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Transform Your Direct Mail Marketing?
-          </h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Join thousands of marketers who are seeing unprecedented response rates with AI-powered direct mail. Start your first campaign today with 10 free letters.
-          </p>
-          <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-            <Link
-              href="/auth/signup"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 transition-colors"
-            >
-              Start Free Trial
-            </Link>
-            <Link
-              href="/demo"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white bg-transparent hover:bg-white/10 transition-colors"
-            >
-              Request Demo
-            </Link>
-          </div>
-          <p className="mt-6 text-sm opacity-75">
-            No credit card required • 10 free letters • Cancel anytime
-          </p>
-        </section>
-      </div>
-
-      {/* Footer - Enhanced */}
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <Logo
-                size="md"
-                showText={true}
-                linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
-              />
-              <p className="text-gray-400 text-sm mb-4">
-                The future of direct mail marketing is here. AI-powered personalization meets traditional mail for unmatched response rates.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <Link
-                    href="/features"
-                    className="hover:text-white transition-colors"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/pricing"
-                    className="hover:text-white transition-colors"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/integrations"
-                    className="hover:text-white transition-colors"
-                  >
-                    Integrations
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/api"
-                    className="hover:text-white transition-colors"
-                  >
-                    API Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/templates"
-                    className="hover:text-white transition-colors"
-                  >
-                    Template Gallery
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <Link
-                    href="/about"
-                    className="hover:text-white transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/blog"
-                    className="hover:text-white transition-colors"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/careers"
-                    className="hover:text-white transition-colors"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-white transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/partners"
-                    className="hover:text-white transition-colors"
-                  >
-                    Partners
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <Link
-                    href="/help"
-                    className="hover:text-white transition-colors"
-                  >
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/faq"
-                    className="hover:text-white transition-colors"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides"
-                    className="hover:text-white transition-colors"
-                  >
-                    Guides & Tutorials
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/case-studies"
-                    className="hover:text-white transition-colors"
-                  >
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/community"
-                    className="hover:text-white transition-colors"
-                  >
-                    Community Forum
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-sm text-gray-400">
-                &copy; 2024 Enclosed.AI. All rights reserved.
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link
-                  href="/privacy"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/terms"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Terms of Service
-                </Link>
-                <Link
-                  href="/cookies"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Cookie Policy
-                </Link>
-              </div>
-            </div>
-          </div>
+          </Stack>
         </div>
+      </Section>
+
+      {/* Social Proof Bar */}
+      <Section className="py-12 bg-gray-50 border-y border-gray-100">
+        <Stack gap={6}>
+          <p className="text-center text-sm font-medium text-gray-600 uppercase tracking-wide">
+            Trusted by 5,000+ Marketing Teams at Leading Companies
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-60">
+            {["Tesla", "Shopify", "Netflix", "Adobe", "Spotify", "Airbnb"].map((company) => (
+              <span key={company} className="text-2xl font-bold text-gray-400">
+                {company}
+              </span>
+            ))}
+          </div>
+        </Stack>
+      </Section>
+
+      {/* Problem/Solution Section */}
+      <Section>
+        <Split>
+          <Stack gap={6}>
+            <Eyebrow>The Challenge</Eyebrow>
+            <Headline level={2}>
+              98% of Direct Mail Fails Because It's Not Personal Enough
+            </Headline>
+            <Lead>
+              Traditional direct mail treats every recipient the same. Generic messages.
+              Irrelevant offers. Wasted budgets. Your prospects receive dozens of mailers
+              daily—yours gets lost in the noise.
+            </Lead>
+            <Stack gap={4}>
+              <div className="flex items-start gap-3">
+                <span className="text-gray-400 mt-1">✗</span>
+                <div>
+                  <p className="font-semibold text-gray-900">Generic, One-Size-Fits-All Messages</p>
+                  <p className="text-gray-600">Same content for everyone means relevance for no one</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-gray-400 mt-1">✗</span>
+                <div>
+                  <p className="font-semibold text-gray-900">Manual Campaign Creation Takes Weeks</p>
+                  <p className="text-gray-600">By the time you launch, the opportunity is gone</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-gray-400 mt-1">✗</span>
+                <div>
+                  <p className="font-semibold text-gray-900">No Way to Track Real ROI</p>
+                  <p className="text-gray-600">You're flying blind with no attribution or analytics</p>
+                </div>
+              </div>
+            </Stack>
+          </Stack>
+          <Stack gap={6}>
+            <Eyebrow>The Solution</Eyebrow>
+            <Headline level={2}>
+              AI That Writes Personal Letters Like Your Best Salesperson
+            </Headline>
+            <Lead>
+              Enclosed.AI analyzes each recipient's data to craft genuinely personal messages
+              that resonate. Every letter feels hand-written for them because, in essence, it is.
+            </Lead>
+            <Stack gap={4}>
+              <div className="flex items-start gap-3">
+                <span className="text-gray-900 mt-1">✓</span>
+                <div>
+                  <p className="font-semibold text-gray-900">Hyper-Personalized for Each Recipient</p>
+                  <p className="text-gray-600">AI crafts unique messages based on 50+ data points</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-gray-900 mt-1">✓</span>
+                <div>
+                  <p className="font-semibold text-gray-900">Launch Campaigns in 5 Minutes</p>
+                  <p className="text-gray-600">From idea to mailbox in record time</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-gray-900 mt-1">✓</span>
+                <div>
+                  <p className="font-semibold text-gray-900">Complete Attribution & Analytics</p>
+                  <p className="text-gray-600">Track every response, conversion, and dollar of ROI</p>
+                </div>
+              </div>
+            </Stack>
+          </Stack>
+        </Split>
+      </Section>
+
+      {/* Results/Stats Section */}
+      <Section className="bg-gray-50">
+        <Stack gap={12}>
+          <div className="text-center">
+            <Headline level={2}>
+              Measurable Results That Transform Your Business
+            </Headline>
+            <Subhead className="mt-4 max-w-3xl mx-auto">
+              Our customers consistently outperform industry benchmarks by 10x or more.
+              These aren't cherry-picked success stories—they're our average.
+            </Subhead>
+          </div>
+          <Grid columns={4}>
+            <Stat value="12.4%" label="Average Response Rate" />
+            <Stat value="847%" label="Average ROI" />
+            <Stat value="3.2x" label="Customer LTV Increase" />
+            <Stat value="67%" label="Cost Reduction vs Traditional" />
+          </Grid>
+          <Quote
+            text="Enclosed.AI transformed our direct mail from a cost center to our most profitable channel. We're seeing response rates we never thought possible—and it runs on autopilot."
+            author="Sarah Chen"
+            title="VP Marketing, TechStart Inc."
+            className="max-w-4xl mx-auto text-center"
+          />
+        </Stack>
+      </Section>
+
+      {/* Features Section */}
+      <Section>
+        <Stack gap={12}>
+          <div className="text-center">
+            <Eyebrow>Platform Capabilities</Eyebrow>
+            <Headline level={2}>
+              Everything You Need to Dominate Direct Mail
+            </Headline>
+            <Subhead className="mt-4 max-w-3xl mx-auto">
+              A complete end-to-end platform that handles everything from AI content creation
+              to printing, mailing, and ROI tracking—all in one place.
+            </Subhead>
+          </div>
+          <Grid columns={3}>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <Headline level={4}>AI Content Engine</Headline>
+                <p className="text-gray-600">
+                  Our proprietary AI analyzes recipient data to write completely unique,
+                  persuasive letters that feel personally crafted. No templates, no merge tags—real personalization.
+                </p>
+              </Stack>
+            </Card>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <Headline level={4}>Smart Segmentation</Headline>
+                <p className="text-gray-600">
+                  Automatically segment your audience based on 50+ behavioral and demographic
+                  factors. Target the right message to the right person at the perfect moment.
+                </p>
+              </Stack>
+            </Card>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <Headline level={4}>Predictive Timing</Headline>
+                <p className="text-gray-600">
+                  Machine learning identifies the optimal send time for each recipient,
+                  maximizing open rates and response rates by up to 3x.
+                </p>
+              </Stack>
+            </Card>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                  <span className="text-2xl">🖨️</span>
+                </div>
+                <Headline level={4}>Premium Printing</Headline>
+                <p className="text-gray-600">
+                  Professional printing on luxury paper stock with hand-signed fonts.
+                  Your mail pieces look and feel premium, demanding attention.
+                </p>
+              </Stack>
+            </Card>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                  <span className="text-2xl">📬</span>
+                </div>
+                <Headline level={4}>Automated Fulfillment</Headline>
+                <p className="text-gray-600">
+                  We handle everything—printing, folding, stuffing, stamping, and mailing.
+                  You focus on strategy while we execute flawlessly.
+                </p>
+              </Stack>
+            </Card>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                  <span className="text-2xl">📈</span>
+                </div>
+                <Headline level={4}>Real-Time Analytics</Headline>
+                <p className="text-gray-600">
+                  Track delivery, responses, and conversions in real-time. Full attribution
+                  shows exactly which campaigns drive revenue.
+                </p>
+              </Stack>
+            </Card>
+          </Grid>
+        </Stack>
+      </Section>
+
+      {/* How It Works Section */}
+      <Section className="bg-gray-50">
+        <Stack gap={12}>
+          <div className="text-center">
+            <Eyebrow>Simple Process</Eyebrow>
+            <Headline level={2}>
+              From Upload to Mailbox in 5 Minutes
+            </Headline>
+            <Subhead className="mt-4 max-w-3xl mx-auto">
+              Our streamlined process means you can launch sophisticated campaigns faster
+              than it takes to write a single email.
+            </Subhead>
+          </div>
+          <Timeline
+            items={[
+              {
+                title: "Upload Your List",
+                description: "Import contacts via CSV, CRM integration, or API. Our system automatically cleanses and validates addresses.",
+              },
+              {
+                title: "AI Creates Content",
+                description: "Our AI analyzes each recipient and writes personalized letters that speak to their specific needs and interests.",
+              },
+              {
+                title: "Review & Approve",
+                description: "Preview your campaign, make any adjustments, and approve with one click. Or set to auto-approve for true automation.",
+              },
+              {
+                title: "We Handle Everything",
+                description: "Professional printing, folding, stuffing, and mailing. Your campaigns are in mailboxes within 3-5 business days.",
+              },
+              {
+                title: "Track Results",
+                description: "Monitor delivery, responses, and ROI in real-time. Use insights to continuously improve future campaigns.",
+              },
+            ]}
+          />
+        </Stack>
+      </Section>
+
+      {/* Use Cases Section */}
+      <Section>
+        <Stack gap={12}>
+          <div className="text-center">
+            <Eyebrow>Use Cases</Eyebrow>
+            <Headline level={2}>
+              Proven Success Across Every Industry
+            </Headline>
+            <Subhead className="mt-4 max-w-3xl mx-auto">
+              From B2B enterprise sales to local service businesses, Enclosed.AI drives
+              results for companies of all sizes and industries.
+            </Subhead>
+          </div>
+          <Grid columns={2}>
+            <Card hover>
+              <Stack gap={4}>
+                <Badge>B2B Sales</Badge>
+                <Headline level={4}>Account-Based Marketing</Headline>
+                <p className="text-gray-600">
+                  Break through the digital noise to reach C-suite executives. Our enterprise
+                  clients see 34% meeting acceptance rates from personalized direct mail campaigns
+                  to target accounts.
+                </p>
+                <Link href="/use-cases/b2b" className="text-gray-900 font-medium hover:text-gray-700">
+                  Learn more →
+                </Link>
+              </Stack>
+            </Card>
+            <Card hover>
+              <Stack gap={4}>
+                <Badge>Real Estate</Badge>
+                <Headline level={4}>Listing Generation</Headline>
+                <p className="text-gray-600">
+                  Real estate agents using Enclosed.AI generate 5x more listing appointments.
+                  Target specific neighborhoods with messages that resonate with local homeowners.
+                </p>
+                <Link href="/use-cases/real-estate" className="text-gray-900 font-medium hover:text-gray-700">
+                  Learn more →
+                </Link>
+              </Stack>
+            </Card>
+            <Card hover>
+              <Stack gap={4}>
+                <Badge>E-commerce</Badge>
+                <Headline level={4}>Win-Back Campaigns</Headline>
+                <p className="text-gray-600">
+                  Re-engage dormant customers with personalized offers based on purchase history.
+                  E-commerce brands see 18% reactivation rates, far exceeding email performance.
+                </p>
+                <Link href="/use-cases/ecommerce" className="text-gray-900 font-medium hover:text-gray-700">
+                  Learn more →
+                </Link>
+              </Stack>
+            </Card>
+            <Card hover>
+              <Stack gap={4}>
+                <Badge>Financial Services</Badge>
+                <Headline level={4}>Customer Acquisition</Headline>
+                <p className="text-gray-600">
+                  Banks and credit unions acquire new customers at 40% lower CAC using intelligent
+                  direct mail that speaks to specific financial needs and life events.
+                </p>
+                <Link href="/use-cases/financial" className="text-gray-900 font-medium hover:text-gray-700">
+                  Learn more →
+                </Link>
+              </Stack>
+            </Card>
+          </Grid>
+        </Stack>
+      </Section>
+
+      {/* Testimonials Section */}
+      <Section className="bg-gray-50">
+        <Stack gap={12}>
+          <div className="text-center">
+            <Eyebrow>Customer Success</Eyebrow>
+            <Headline level={2}>
+              Join 5,000+ Companies Getting Exceptional Results
+            </Headline>
+          </div>
+          <Grid columns={3}>
+            <Card hover>
+              <Stack gap={4}>
+                <div className="flex gap-1">
+                  {"★★★★★".split("").map((star, i) => (
+                    <span key={i} className="text-gray-900">{star}</span>
+                  ))}
+                </div>
+                <p className="text-gray-600">
+                  "We replaced our entire outbound sales team with Enclosed.AI. Response rates
+                  went from 0.5% to 12%, and our cost per acquisition dropped 73%."
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900">Michael Torres</p>
+                  <p className="text-sm text-gray-600">CEO, SaaS Ventures</p>
+                </div>
+              </Stack>
+            </Card>
+            <Card hover>
+              <Stack gap={4}>
+                <div className="flex gap-1">
+                  {"★★★★★".split("").map((star, i) => (
+                    <span key={i} className="text-gray-900">{star}</span>
+                  ))}
+                </div>
+                <p className="text-gray-600">
+                  "The AI personalization is mind-blowing. Recipients often call to thank us
+                  for such thoughtful letters. Our brand loyalty scores are through the roof."
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900">Jennifer Park</p>
+                  <p className="text-sm text-gray-600">CMO, Luxury Retail Co.</p>
+                </div>
+              </Stack>
+            </Card>
+            <Card hover>
+              <Stack gap={4}>
+                <div className="flex gap-1">
+                  {"★★★★★".split("").map((star, i) => (
+                    <span key={i} className="text-gray-900">{star}</span>
+                  ))}
+                </div>
+                <p className="text-gray-600">
+                  "ROI of 1,240% in our first campaign. We've 10x'd our direct mail budget
+                  because Enclosed.AI makes it our most profitable channel."
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900">Robert Kim</p>
+                  <p className="text-sm text-gray-600">VP Growth, FinTech Startup</p>
+                </div>
+              </Stack>
+            </Card>
+          </Grid>
+        </Stack>
+      </Section>
+
+      {/* Pricing Preview Section */}
+      <Section>
+        <Stack gap={12}>
+          <div className="text-center">
+            <Eyebrow>Simple Pricing</Eyebrow>
+            <Headline level={2}>
+              Pay Only for What You Send
+            </Headline>
+            <Subhead className="mt-4 max-w-3xl mx-auto">
+              No monthly fees, no minimums, no contracts. Our transparent pricing means
+              you're always in control of your budget.
+            </Subhead>
+          </div>
+          <Grid columns={3}>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <Headline level={4}>Starter</Headline>
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">$1.49</span>
+                  <span className="text-gray-600">/letter</span>
+                </div>
+                <p className="text-gray-600">Perfect for small businesses</p>
+                <ul className="text-left space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">Up to 1,000 letters/month</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">AI personalization</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">Basic analytics</span>
+                  </li>
+                </ul>
+              </Stack>
+            </Card>
+            <Card hover className="text-center border-2 border-gray-900">
+              <Stack gap={4}>
+                <Badge>Most Popular</Badge>
+                <Headline level={4}>Growth</Headline>
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">$0.99</span>
+                  <span className="text-gray-600">/letter</span>
+                </div>
+                <p className="text-gray-600">For growing companies</p>
+                <ul className="text-left space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">1,000-10,000 letters/month</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">Advanced AI features</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">Full analytics suite</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">CRM integrations</span>
+                  </li>
+                </ul>
+              </Stack>
+            </Card>
+            <Card hover className="text-center">
+              <Stack gap={4}>
+                <Headline level={4}>Enterprise</Headline>
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">Custom</span>
+                </div>
+                <p className="text-gray-600">Volume pricing available</p>
+                <ul className="text-left space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">10,000+ letters/month</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">Custom AI training</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">Dedicated success manager</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-900 mt-0.5">✓</span>
+                    <span className="text-gray-600">SLA & priority support</span>
+                  </li>
+                </ul>
+              </Stack>
+            </Card>
+          </Grid>
+          <div className="text-center">
+            <Button as={Link} href="/pricing" size="lg">
+              View Complete Pricing Details
+            </Button>
+          </div>
+        </Stack>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section className="bg-gray-50">
+        <Stack gap={12}>
+          <div className="text-center">
+            <Headline level={2}>
+              Frequently Asked Questions
+            </Headline>
+            <Subhead className="mt-4 max-w-3xl mx-auto">
+              Everything you need to know about transforming your direct mail with AI
+            </Subhead>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion
+              items={[
+                {
+                  title: "How is this different from traditional direct mail?",
+                  content: (
+                    <p className="text-gray-600">
+                      Traditional direct mail uses templates and mail merge to create generic messages.
+                      Enclosed.AI uses artificial intelligence to write completely unique letters for each
+                      recipient based on their specific data, interests, and behavior. Every letter is as
+                      personal as if you wrote it yourself—because our AI essentially does exactly that.
+                    </p>
+                  ),
+                },
+                {
+                  title: "What kind of response rates can I expect?",
+                  content: (
+                    <p className="text-gray-600">
+                      Our customers typically see response rates between 8-15%, compared to the industry
+                      average of 0.5-2%. The dramatic improvement comes from true personalization—recipients
+                      feel like you're speaking directly to them because you are. Results vary by industry
+                      and offer, but even our lowest-performing campaigns outperform traditional direct mail by 3-5x.
+                    </p>
+                  ),
+                },
+                {
+                  title: "How quickly can I launch my first campaign?",
+                  content: (
+                    <p className="text-gray-600">
+                      You can launch your first campaign within 5 minutes of signing up. Simply upload
+                      your list, review the AI-generated content, and click send. Letters are professionally
+                      printed and mailed within 24 hours, reaching recipients in 3-5 business days.
+                      For comparison, traditional direct mail campaigns typically take 2-4 weeks to plan and execute.
+                    </p>
+                  ),
+                },
+                {
+                  title: "What data do you need to personalize letters?",
+                  content: (
+                    <p className="text-gray-600">
+                      At minimum, we need names and addresses. But the more data you provide, the better
+                      the personalization. We can use demographic data, purchase history, browsing behavior,
+                      firmographic data (for B2B), and any custom fields from your CRM. Our AI finds patterns
+                      and insights in your data that human marketers would miss.
+                    </p>
+                  ),
+                },
+                {
+                  title: "Can I review letters before they're sent?",
+                  content: (
+                    <p className="text-gray-600">
+                      Absolutely. You can review and approve every letter, or set rules for auto-approval.
+                      Many customers review the first few campaigns closely, then switch to auto-approval
+                      once they trust the AI's output. You can also set up test groups to preview campaigns
+                      before full launch.
+                    </p>
+                  ),
+                },
+                {
+                  title: "How do you track ROI and attribution?",
+                  content: (
+                    <p className="text-gray-600">
+                      Every letter includes trackable elements like QR codes, personalized URLs, and phone
+                      numbers. We provide real-time analytics on delivery, response rates, and conversions.
+                      Our platform integrates with your CRM and analytics tools to provide complete attribution
+                      from mail piece to revenue.
+                    </p>
+                  ),
+                },
+              ]}
+            />
+          </div>
+        </Stack>
+      </Section>
+
+      {/* Final CTA Section */}
+      <Section className="bg-gray-900 text-white">
+        <Stack gap={8} align="center" className="text-center">
+          <Headline level={2} className="text-white">
+            Ready to 10x Your Direct Mail ROI?
+          </Headline>
+          <Lead className="text-gray-300 max-w-3xl">
+            Join thousands of businesses using AI to transform direct mail from a tired old
+            channel into their most profitable growth engine. Start your free trial today and
+            see results in your first campaign.
+          </Lead>
+          <Stack gap={6} align="center">
+            <Cluster gap={4} justify="center">
+              <Button
+                as={Link}
+                href="/auth/signup"
+                size="lg"
+                className="bg-white text-gray-900 hover:bg-gray-100"
+              >
+                Start Free 14-Day Trial
+              </Button>
+              <Button
+                as={Link}
+                href="/contact"
+                variant="ghost"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-gray-900"
+              >
+                Schedule Demo
+              </Button>
+            </Cluster>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+              <span>✓ No credit card required</span>
+              <span>✓ 14-day free trial</span>
+              <span>✓ Cancel anytime</span>
+              <span>✓ Setup in 5 minutes</span>
+            </div>
+          </Stack>
+        </Stack>
+      </Section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100">
+        <Section>
+          <Grid columns={5} className="pb-8">
+            <Stack gap={4}>
+              <Logo size="md" />
+              <p className="text-sm text-gray-600">
+                AI-powered direct mail that delivers exceptional ROI.
+              </p>
+              <div className="flex gap-4">
+                <Link href="https://twitter.com/enclosedai" className="text-gray-400 hover:text-gray-600">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </Link>
+                <Link href="https://linkedin.com/company/enclosedai" className="text-gray-400 hover:text-gray-600">
+                  <span className="sr-only">LinkedIn</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </Link>
+              </div>
+            </Stack>
+            <Stack gap={3}>
+              <h3 className="font-semibold text-gray-900">Product</h3>
+              <Stack gap={2}>
+                <Link href="/features" className="text-sm text-gray-600 hover:text-gray-900">Features</Link>
+                <Link href="/pricing" className="text-sm text-gray-600 hover:text-gray-900">Pricing</Link>
+                <Link href="/integrations" className="text-sm text-gray-600 hover:text-gray-900">Integrations</Link>
+                <Link href="/api" className="text-sm text-gray-600 hover:text-gray-900">API</Link>
+                <Link href="/security" className="text-sm text-gray-600 hover:text-gray-900">Security</Link>
+                <Link href="/roadmap" className="text-sm text-gray-600 hover:text-gray-900">Roadmap</Link>
+              </Stack>
+            </Stack>
+            <Stack gap={3}>
+              <h3 className="font-semibold text-gray-900">Solutions</h3>
+              <Stack gap={2}>
+                <Link href="/use-cases/b2b" className="text-sm text-gray-600 hover:text-gray-900">B2B Sales</Link>
+                <Link href="/use-cases/real-estate" className="text-sm text-gray-600 hover:text-gray-900">Real Estate</Link>
+                <Link href="/use-cases/ecommerce" className="text-sm text-gray-600 hover:text-gray-900">E-commerce</Link>
+                <Link href="/use-cases/financial" className="text-sm text-gray-600 hover:text-gray-900">Financial Services</Link>
+                <Link href="/use-cases/nonprofit" className="text-sm text-gray-600 hover:text-gray-900">Nonprofit</Link>
+                <Link href="/use-cases/healthcare" className="text-sm text-gray-600 hover:text-gray-900">Healthcare</Link>
+              </Stack>
+            </Stack>
+            <Stack gap={3}>
+              <h3 className="font-semibold text-gray-900">Resources</h3>
+              <Stack gap={2}>
+                <Link href="/resources" className="text-sm text-gray-600 hover:text-gray-900">Learning Center</Link>
+                <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900">Blog</Link>
+                <Link href="/case-studies" className="text-sm text-gray-600 hover:text-gray-900">Case Studies</Link>
+                <Link href="/templates" className="text-sm text-gray-600 hover:text-gray-900">Templates</Link>
+                <Link href="/webinars" className="text-sm text-gray-600 hover:text-gray-900">Webinars</Link>
+                <Link href="/roi-calculator" className="text-sm text-gray-600 hover:text-gray-900">ROI Calculator</Link>
+              </Stack>
+            </Stack>
+            <Stack gap={3}>
+              <h3 className="font-semibold text-gray-900">Company</h3>
+              <Stack gap={2}>
+                <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900">About Us</Link>
+                <Link href="/team" className="text-sm text-gray-600 hover:text-gray-900">Team</Link>
+                <Link href="/careers" className="text-sm text-gray-600 hover:text-gray-900">Careers</Link>
+                <Link href="/press" className="text-sm text-gray-600 hover:text-gray-900">Press</Link>
+                <Link href="/contact" className="text-sm text-gray-600 hover:text-gray-900">Contact</Link>
+                <Link href="/partners" className="text-sm text-gray-600 hover:text-gray-900">Partners</Link>
+              </Stack>
+            </Stack>
+          </Grid>
+          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-600">
+              © 2024 Enclosed.AI. All rights reserved.
+            </p>
+            <Cluster gap={6}>
+              <Link href="/privacy" className="text-sm text-gray-600 hover:text-gray-900">Privacy Policy</Link>
+              <Link href="/terms" className="text-sm text-gray-600 hover:text-gray-900">Terms of Service</Link>
+              <Link href="/cookies" className="text-sm text-gray-600 hover:text-gray-900">Cookie Policy</Link>
+              <Link href="/gdpr" className="text-sm text-gray-600 hover:text-gray-900">GDPR</Link>
+              <Link href="/sitemap" className="text-sm text-gray-600 hover:text-gray-900">Sitemap</Link>
+            </Cluster>
+          </div>
+        </Section>
       </footer>
     </div>
   );
