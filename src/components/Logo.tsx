@@ -25,37 +25,28 @@ export default function Logo({
     <div className={`flex items-center space-x-2 ${className}`}>
       {/* Modern Envelope Logo */}
       <div
-        className="relative flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg"
+        className="relative flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg"
         style={{ width: currentSize.icon, height: currentSize.icon }}
       >
-        {/* Envelope SVG Icon */}
+        {/* Clean Envelope SVG Icon */}
         <svg
-          className="absolute inset-0 p-2"
+          width={currentSize.icon * 0.6}
+          height={currentSize.icon * 0.6}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Envelope Back */}
-          <path
-            d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          {/* Letter/AI indicator dot */}
-          <circle
-            cx="18"
-            cy="6"
-            r="2"
-            fill="#10B981"
-            stroke="white"
-            strokeWidth="1"
-          />
+          {/* Envelope shape */}
+          <rect x="2" y="5" width="20" height="14" rx="2" stroke="white" strokeWidth="1.5" fill="none"/>
+          {/* Envelope flap */}
+          <path d="M2 7L12 13L22 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          {/* AI indicator */}
+          <circle cx="18" cy="6" r="3" fill="#10B981" />
+          <text x="18" y="9" fontSize="4" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
         </svg>
 
-        {/* Subtle glow effect */}
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-white/0 to-white/20"></div>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/0 to-white/10"></div>
       </div>
 
       {showText && (
@@ -88,32 +79,22 @@ export default function Logo({
 export function LogoIcon({ size = 32 }: { size?: number }) {
   return (
     <div
-      className="relative flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg"
+      className="relative flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg"
       style={{ width: size, height: size }}
     >
       <svg
-        className="absolute inset-0 p-2"
+        width={size * 0.6}
+        height={size * 0.6}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle
-          cx="18"
-          cy="6"
-          r="2"
-          fill="#10B981"
-          stroke="white"
-          strokeWidth="1"
-        />
+        <rect x="2" y="5" width="20" height="14" rx="2" stroke="white" strokeWidth="1.5" fill="none"/>
+        <path d="M2 7L12 13L22 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="18" cy="6" r="3" fill="#10B981" />
+        <text x="18" y="9" fontSize="4" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
       </svg>
-      <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-white/0 to-white/20"></div>
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/0 to-white/10"></div>
     </div>
   );
 }

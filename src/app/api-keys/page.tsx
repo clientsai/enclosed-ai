@@ -1,12 +1,12 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
-import crypto from 'crypto';
-import Logo from '@/components/Logo';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+import crypto from "crypto";
+import Logo from "@/components/Logo";
 
 interface ApiKey {
   id: string;
@@ -24,27 +24,29 @@ export default function ApiKeysPage() {
   const [loading, setLoading] = useState(true);
   const [showNewKeyModal, setShowNewKeyModal] = useState(false);
   const [newKeyData, setNewKeyData] = useState({
-    name: '',
-    webhook_url: '',
+    name: "",
+    webhook_url: "",
   });
-  const [generatedKey, setGeneratedKey] = useState('');
+  const [generatedKey, setGeneratedKey] = useState("");
 
   useEffect(() => {
     loadApiKeys();
   }, []);
 
   const loadApiKeys = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) {
-      router.push('/auth/login');
+      router.push("/auth/login");
       return;
     }
 
     const { data } = await supabase
-      .from('enclosed_api_clients')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
+      .from("enclosed_api_clients")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
 
     if (data) {
       setApiKeys(data);
@@ -53,26 +55,26 @@ export default function ApiKeysPage() {
   };
 
   const generateApiKey = () => {
-    const key = 'enc_' + crypto.randomBytes(32).toString('hex');
+    const key = "enc_" + crypto.randomBytes(32).toString("hex");
     return key;
   };
 
   const handleCreateKey = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) return;
 
     const apiKey = generateApiKey();
-    const apiKeyHash = crypto.createHash('sha256').update(apiKey).digest('hex');
+    const apiKeyHash = crypto.createHash("sha256").update(apiKey).digest("hex");
 
-    const { error } = await supabase
-      .from('enclosed_api_clients')
-      .insert({
-        user_id: user.id,
-        name: newKeyData.name,
-        api_key: apiKey,
-        api_key_hash: apiKeyHash,
-        webhook_url: newKeyData.webhook_url || null,
-      });
+    const { error } = await supabase.from("enclosed_api_clients").insert({
+      user_id: user.id,
+      name: newKeyData.name,
+      api_key: apiKey,
+      api_key_hash: apiKeyHash,
+      webhook_url: newKeyData.webhook_url || null,
+    });
 
     if (!error) {
       setGeneratedKey(apiKey);
@@ -81,21 +83,18 @@ export default function ApiKeysPage() {
   };
 
   const handleDeleteKey = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this API key?')) return;
+    if (!confirm("Are you sure you want to delete this API key?")) return;
 
-    await supabase
-      .from('enclosed_api_clients')
-      .delete()
-      .eq('id', id);
+    await supabase.from("enclosed_api_clients").delete().eq("id", id);
 
     await loadApiKeys();
   };
 
   const handleToggleActive = async (id: string, isActive: boolean) => {
     await supabase
-      .from('enclosed_api_clients')
+      .from("enclosed_api_clients")
       .update({ is_active: !isActive })
-      .eq('id', id);
+      .eq("id", id);
 
     await loadApiKeys();
   };
@@ -120,15 +119,23 @@ export default function ApiKeysPage() {
               </Link>
 
               <nav className="ml-10 flex items-center space-x-1">
-                <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/dashboard"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Dashboard
                 </Link>
                 <span className="text-gray-400">›</span>
-                <Link href="/campaigns" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/campaigns"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Campaigns
                 </Link>
                 <span className="text-gray-400">›</span>
-                <span className="text-gray-900 px-3 py-2 text-sm font-medium">API Keys</span>
+                <span className="text-gray-900 px-3 py-2 text-sm font-medium">
+                  API Keys
+                </span>
               </nav>
             </div>
           </div>
@@ -138,7 +145,9 @@ export default function ApiKeysPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header - Badge Header Component */}
         <div className="mb-8">
-          <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full mb-3 uppercase tracking-wide">Developer Tools</span>
+          <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full mb-3 uppercase tracking-wide">
+            Developer Tools
+          </span>
           <div className="flex justify-between items-start">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">API Keys</h1>
@@ -158,27 +167,45 @@ export default function ApiKeysPage() {
 
         {/* API Documentation - Numbered Steps Component */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-4">Quick Start Guide</h3>
+          <h3 className="font-semibold text-gray-900 mb-4">
+            Quick Start Guide
+          </h3>
           <ol className="space-y-3">
             <li className="flex">
-              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">1</span>
+              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">
+                1
+              </span>
               <div>
-                <div className="font-medium text-gray-900">Generate an API key</div>
-                <div className="text-sm text-gray-600">Click "Generate New Key" and give it a descriptive name</div>
+                <div className="font-medium text-gray-900">
+                  Generate an API key
+                </div>
+                <div className="text-sm text-gray-600">
+                  Click "Generate New Key" and give it a descriptive name
+                </div>
               </div>
             </li>
             <li className="flex">
-              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">2</span>
+              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">
+                2
+              </span>
               <div>
-                <div className="font-medium text-gray-900">Configure your application</div>
-                <div className="text-sm text-gray-600">Add the API key to your environment variables</div>
+                <div className="font-medium text-gray-900">
+                  Configure your application
+                </div>
+                <div className="text-sm text-gray-600">
+                  Add the API key to your environment variables
+                </div>
               </div>
             </li>
             <li className="flex">
-              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">3</span>
+              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">
+                3
+              </span>
               <div>
                 <div className="font-medium text-gray-900">Make API calls</div>
-                <div className="text-sm text-gray-600">Use the endpoints below to interact with Enclosed.AI</div>
+                <div className="text-sm text-gray-600">
+                  Use the endpoints below to interact with Enclosed.AI
+                </div>
               </div>
             </li>
           </ol>
@@ -186,26 +213,46 @@ export default function ApiKeysPage() {
 
         {/* API Endpoints - KBD Keys Component */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-4">Available Endpoints</h3>
+          <h3 className="font-semibold text-gray-900 mb-4">
+            Available Endpoints
+          </h3>
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">POST</kbd>
+              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">
+                POST
+              </kbd>
               <code className="text-sm text-gray-700">/api/v1/campaigns</code>
-              <span className="text-sm text-gray-500">- Create a new campaign</span>
+              <span className="text-sm text-gray-500">
+                - Create a new campaign
+              </span>
             </div>
             <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">GET</kbd>
+              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">
+                GET
+              </kbd>
               <code className="text-sm text-gray-700">/api/v1/campaigns</code>
-              <span className="text-sm text-gray-500">- List all campaigns</span>
+              <span className="text-sm text-gray-500">
+                - List all campaigns
+              </span>
             </div>
             <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">GET</kbd>
-              <code className="text-sm text-gray-700">/api/v1/campaigns/{'{id}'}</code>
-              <span className="text-sm text-gray-500">- Get campaign details</span>
+              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">
+                GET
+              </kbd>
+              <code className="text-sm text-gray-700">
+                /api/v1/campaigns/{"{id}"}
+              </code>
+              <span className="text-sm text-gray-500">
+                - Get campaign details
+              </span>
             </div>
             <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">POST</kbd>
-              <code className="text-sm text-gray-700">/api/v1/campaigns/{'{id}'}/send</code>
+              <kbd className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">
+                POST
+              </kbd>
+              <code className="text-sm text-gray-700">
+                /api/v1/campaigns/{"{id}"}/send
+              </code>
               <span className="text-sm text-gray-500">- Send a campaign</span>
             </div>
           </div>
@@ -219,8 +266,18 @@ export default function ApiKeysPage() {
 
           {apiKeys.length === 0 ? (
             <div className="text-center py-12">
-              <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+              <svg
+                className="mx-auto h-12 w-12 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                />
               </svg>
               <p className="mt-4 text-gray-600">No API keys yet</p>
               <button
@@ -233,18 +290,25 @@ export default function ApiKeysPage() {
           ) : (
             <ul className="divide-y divide-gray-200">
               {apiKeys.map((key) => (
-                <li key={key.id} className="px-6 py-4 hover:bg-gray-50 transition-colors">
+                <li
+                  key={key.id}
+                  className="px-6 py-4 hover:bg-gray-50 transition-colors"
+                >
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center space-x-3">
-                        <h3 className="text-sm font-semibold text-gray-900">{key.name}</h3>
+                        <h3 className="text-sm font-semibold text-gray-900">
+                          {key.name}
+                        </h3>
                         <button
-                          onClick={() => handleToggleActive(key.id, key.is_active)}
+                          onClick={() =>
+                            handleToggleActive(key.id, key.is_active)
+                          }
                           className={`inline-flex px-2 py-1 text-xs font-medium rounded-full cursor-pointer transition-colors
-                            ${key.is_active ? 'bg-green-100 text-green-800 hover:bg-green-200' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}
+                            ${key.is_active ? "bg-green-100 text-green-800 hover:bg-green-200" : "bg-gray-100 text-gray-800 hover:bg-gray-200"}
                           `}
                         >
-                          {key.is_active ? 'Active' : 'Inactive'}
+                          {key.is_active ? "Active" : "Inactive"}
                         </button>
                       </div>
                       <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
@@ -258,7 +322,10 @@ export default function ApiKeysPage() {
                           </span>
                         )}
                         <span>
-                          Last used: {key.last_used_at ? new Date(key.last_used_at).toLocaleDateString() : 'Never'}
+                          Last used:{" "}
+                          {key.last_used_at
+                            ? new Date(key.last_used_at).toLocaleDateString()
+                            : "Never"}
                         </span>
                       </div>
                     </div>
@@ -281,10 +348,21 @@ export default function ApiKeysPage() {
           <div className="relative flex justify-center">
             <div className="bg-gray-50 px-4">
               <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 inline-flex items-center space-x-2">
-                <svg className="h-4 w-4 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                <svg
+                  className="h-4 w-4 text-amber-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
                 </svg>
-                <span className="text-sm text-amber-800">Keep your API keys secure and never commit them to version control</span>
+                <span className="text-sm text-amber-800">
+                  Keep your API keys secure and never commit them to version
+                  control
+                </span>
               </div>
             </div>
           </div>
@@ -307,7 +385,9 @@ export default function ApiKeysPage() {
                     <input
                       type="text"
                       value={newKeyData.name}
-                      onChange={(e) => setNewKeyData({ ...newKeyData, name: e.target.value })}
+                      onChange={(e) =>
+                        setNewKeyData({ ...newKeyData, name: e.target.value })
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Clients.AI Integration"
                     />
@@ -324,7 +404,12 @@ export default function ApiKeysPage() {
                       <input
                         type="url"
                         value={newKeyData.webhook_url}
-                        onChange={(e) => setNewKeyData({ ...newKeyData, webhook_url: e.target.value })}
+                        onChange={(e) =>
+                          setNewKeyData({
+                            ...newKeyData,
+                            webhook_url: e.target.value,
+                          })
+                        }
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="https://clients.ai/webhooks/enclosed"
                       />
@@ -339,7 +424,7 @@ export default function ApiKeysPage() {
                   <button
                     onClick={() => {
                       setShowNewKeyModal(false);
-                      setNewKeyData({ name: '', webhook_url: '' });
+                      setNewKeyData({ name: "", webhook_url: "" });
                     }}
                     className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                   >
@@ -358,11 +443,21 @@ export default function ApiKeysPage() {
               <>
                 <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
                   <div className="flex items-start space-x-3">
-                    <svg className="h-5 w-5 text-green-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="h-5 w-5 text-green-600 mt-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     <div className="flex-1">
-                      <p className="text-green-900 font-medium">API Key Generated Successfully!</p>
+                      <p className="text-green-900 font-medium">
+                        API Key Generated Successfully!
+                      </p>
                       <p className="text-sm text-green-700 mt-1">
                         Copy this key now. You won't be able to see it again.
                       </p>
@@ -382,8 +477,8 @@ export default function ApiKeysPage() {
                 <button
                   onClick={() => {
                     setShowNewKeyModal(false);
-                    setGeneratedKey('');
-                    setNewKeyData({ name: '', webhook_url: '' });
+                    setGeneratedKey("");
+                    setNewKeyData({ name: "", webhook_url: "" });
                   }}
                   className="mt-4 w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                 >

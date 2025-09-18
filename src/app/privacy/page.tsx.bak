@@ -1,0 +1,586 @@
+import Link from "next/link";
+import Logo from "@/components/Logo";
+
+export const metadata = {
+  title: "Terms of Service - Enclosed.AI | Legal Terms and Conditions",
+  description:
+    "Read Enclosed.AI's Terms of Service to understand your rights and responsibilities when using our AI-powered direct mail marketing platform.",
+};
+
+export default function TermsPage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <Logo size="md" />
+            <nav className="hidden md:flex space-x-8">
+              <Link
+                href="/"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Home
+              </Link>
+              <Link
+                href="/features"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Features
+              </Link>
+              <Link
+                href="/pricing"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Contact
+              </Link>
+            </nav>
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/auth/login"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-6">
+            Terms of
+            <span className="text-blue-600"> Service</span>
+          </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Last updated: December 15, 2024
+          </p>
+        </div>
+
+        {/* Content */}
+        <div className="bg-white rounded-2xl shadow-lg p-12">
+          <div className="prose prose-lg max-w-none">
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                1. Acceptance of Terms
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                These Terms of Service ("Terms") govern your use of the
+                Enclosed.AI platform and services (collectively, the "Service")
+                provided by Enclosed.AI, Inc. ("Company," "we," "our," or "us").
+                By accessing or using our Service, you agree to be bound by
+                these Terms.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                If you do not agree to these Terms, you may not access or use
+                our Service. These Terms apply to all visitors, users, and
+                others who access or use the Service.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                We reserve the right to modify these Terms at any time. We will
+                notify you of any material changes by posting the new Terms on
+                this page and updating the "Last updated" date. Your continued
+                use of the Service after such modifications constitutes
+                acceptance of the updated Terms.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                2. Description of Service
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Enclosed.AI provides an AI-powered direct mail marketing
+                platform that enables users to create, send, and track
+                personalized direct mail campaigns. Our Service includes:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                <li>AI-powered content generation and personalization</li>
+                <li>Campaign management and scheduling tools</li>
+                <li>Recipient list management and validation</li>
+                <li>Professional printing and mailing services</li>
+                <li>Analytics and performance tracking</li>
+                <li>Customer support and technical assistance</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                The Service is provided on a pay-per-use basis with no monthly
+                fees or long-term commitments required.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                3. User Accounts and Registration
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                To use our Service, you must create an account and provide
+                accurate, complete, and current information. You are responsible
+                for:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                <li>
+                  Maintaining the confidentiality of your account credentials
+                </li>
+                <li>All activities that occur under your account</li>
+                <li>
+                  Notifying us immediately of any unauthorized use of your
+                  account
+                </li>
+                <li>
+                  Ensuring your account information remains accurate and
+                  up-to-date
+                </li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                We reserve the right to suspend or terminate accounts that
+                violate these Terms or engage in fraudulent or illegal
+                activities.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                4. Acceptable Use Policy
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                You agree to use our Service only for lawful purposes and in
+                accordance with these Terms. You may not:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                <li>
+                  Send spam, unsolicited commercial communications, or illegal
+                  content
+                </li>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Infringe on intellectual property rights of others</li>
+                <li>Transmit viruses, malware, or other harmful code</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Use the Service to harass, abuse, or harm others</li>
+                <li>Resell or redistribute our Service without permission</li>
+                <li>
+                  Engage in any activity that could damage our reputation or
+                  business
+                </li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                We reserve the right to monitor your use of the Service and take
+                appropriate action if we detect violations of this policy.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                5. Content and Data
+              </h2>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Your Content
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                You retain ownership of all content you provide to us, including
+                recipient lists, campaign content, and other materials ("Your
+                Content"). By using our Service, you grant us a limited,
+                non-exclusive license to use Your Content solely for the purpose
+                of providing the Service to you.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                You represent and warrant that you have all necessary rights to
+                Your Content and that it does not violate any third-party rights
+                or applicable laws.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Our Content
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                The Service and its original content, features, and
+                functionality are owned by Enclosed.AI and are protected by
+                international copyright, trademark, patent, trade secret, and
+                other intellectual property laws.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                You may not copy, modify, distribute, sell, or lease any part of
+                our Service or included software, nor may you reverse engineer
+                or attempt to extract the source code of that software.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Data Processing
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                We process your data in accordance with our Privacy Policy. By
+                using our Service, you consent to the collection, use, and
+                processing of your data as described in our Privacy Policy.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                6. Payment Terms
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our Service is provided on a pay-per-use basis. Payment terms
+                include:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                <li>Payment is due upon campaign submission</li>
+                <li>We accept major credit cards and ACH transfers</li>
+                <li>
+                  All prices are in US dollars and exclude applicable taxes
+                </li>
+                <li>Refunds are provided for undeliverable mail pieces only</li>
+                <li>
+                  We reserve the right to change pricing with 30 days' notice
+                </li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                If payment is not received or is declined, we may suspend or
+                terminate your access to the Service.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                7. Service Availability
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We strive to provide reliable service, but we cannot guarantee
+                that the Service will be available at all times. The Service may
+                be temporarily unavailable due to:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                <li>Scheduled maintenance and updates</li>
+                <li>Technical difficulties or system failures</li>
+                <li>Force majeure events beyond our control</li>
+                <li>Third-party service disruptions</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                We will make reasonable efforts to minimize downtime and provide
+                advance notice of scheduled maintenance when possible.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                8. Disclaimers and Limitations of Liability
+              </h2>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Service Disclaimers
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT
+                WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT
+                NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+                PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED,
+                ERROR-FREE, OR COMPLETELY SECURE.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Limitation of Liability
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE
+                FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
+                PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS,
+                DATA, OR USE, ARISING OUT OF OR RELATING TO YOUR USE OF THE
+                SERVICE.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR
+                RELATING TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE
+                AMOUNT YOU PAID US FOR THE SERVICE IN THE TWELVE MONTHS
+                PRECEDING THE CLAIM.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                9. Indemnification
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                You agree to indemnify, defend, and hold harmless Enclosed.AI
+                and its officers, directors, employees, and agents from and
+                against any claims, damages, obligations, losses, liabilities,
+                costs, or debt, and expenses (including attorney's fees) arising
+                from your use of the Service, Your Content, or your violation of
+                these Terms.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                10. Termination
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Either party may terminate these Terms at any time by providing
+                written notice to the other party. Upon termination:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                <li>Your right to use the Service will cease immediately</li>
+                <li>
+                  We may delete your account and data after a reasonable period
+                </li>
+                <li>You remain responsible for any outstanding payments</li>
+                <li>
+                  Provisions that by their nature should survive termination
+                  will remain in effect
+                </li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                We may also suspend or terminate your access immediately if you
+                violate these Terms or engage in fraudulent or illegal
+                activities.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                11. Governing Law and Dispute Resolution
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                These Terms shall be governed by and construed in accordance
+                with the laws of the State of California, without regard to its
+                conflict of law provisions.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Any disputes arising out of or relating to these Terms or the
+                Service shall be resolved through binding arbitration in
+                accordance with the rules of the American Arbitration
+                Association. The arbitration shall be conducted in San
+                Francisco, California.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Notwithstanding the foregoing, we may seek injunctive relief in
+                any court of competent jurisdiction to prevent unauthorized use
+                of our Service or intellectual property.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                12. General Provisions
+              </h2>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Entire Agreement
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                These Terms, together with our Privacy Policy, constitute the
+                entire agreement between you and Enclosed.AI regarding the use
+                of the Service.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Severability
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                If any provision of these Terms is found to be unenforceable or
+                invalid, that provision will be limited or eliminated to the
+                minimum extent necessary so that the remaining Terms will remain
+                in full force and effect.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Waiver
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Our failure to enforce any right or provision of these Terms
+                will not be considered a waiver of those rights.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Assignment
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                You may not assign or transfer these Terms or your rights
+                hereunder without our prior written consent. We may assign these
+                Terms without restriction.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                13. Contact Information
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                If you have any questions about these Terms, please contact us:
+              </p>
+              <div className="bg-gray-50 rounded-lg p-6">
+                <p className="text-gray-700 mb-2">
+                  <strong>Email:</strong> legal@enclosed.ai
+                </p>
+                <p className="text-gray-700 mb-2">
+                  <strong>Address:</strong> 123 Innovation Drive, San Francisco,
+                  CA 94105
+                </p>
+                <p className="text-gray-700 mb-2">
+                  <strong>Phone:</strong> +1 (555) 123-4567
+                </p>
+                <p className="text-gray-700">
+                  <strong>General Inquiries:</strong> support@enclosed.ai
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <Logo
+                size="md"
+                showText={true}
+                linkToHome={false}
+                className="text-white [&>div>span]:text-white mb-4"
+              />
+              <p className="text-gray-400 text-sm">
+                Direct mail marketing powered by artificial intelligence
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Product</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link
+                    href="/features"
+                    className="hover:text-white transition-colors"
+                  >
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/pricing"
+                    className="hover:text-white transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/integrations"
+                    className="hover:text-white transition-colors"
+                  >
+                    Integrations
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/api"
+                    className="hover:text-white transition-colors"
+                  >
+                    API
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Company</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link
+                    href="/about"
+                    className="hover:text-white transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/team"
+                    className="hover:text-white transition-colors"
+                  >
+                    Team
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/careers"
+                    className="hover:text-white transition-colors"
+                  >
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-white transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link
+                    href="/help"
+                    className="hover:text-white transition-colors"
+                  >
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faq"
+                    className="hover:text-white transition-colors"
+                  >
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/privacy"
+                    className="hover:text-white transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms"
+                    className="hover:text-white transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+            <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

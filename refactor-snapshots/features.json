@@ -1,0 +1,140 @@
+{
+  "route": "/features",
+  "extractedText": {
+    "navigation": {
+      "links": ["Home", "Features", "Pricing", "About", "Contact"],
+      "actions": ["Sign In", "Get Started"]
+    },
+    "hero": {
+      "badge": "AI-Powered Features",
+      "headline": "Powerful Features for Modern Direct Mail",
+      "subheadline": "Everything you need to create, send, and track highly effective direct mail campaigns with the power of artificial intelligence.",
+      "cta": ["Start Free Trial", "Schedule Demo"]
+    },
+    "coreFeatures": {
+      "title": "Core Features",
+      "subtitle": "Discover the powerful capabilities that make Enclosed.AI the leading choice for intelligent direct mail marketing",
+      "features": [
+        {
+          "title": "AI-Powered Personalization",
+          "description": "Our advanced AI analyzes each recipient's profile, preferences, and behavior patterns to generate highly personalized sales letters. Every letter is unique, crafted to speak directly to the recipient's needs, interests, and pain points. This level of personalization typically increases response rates by 300-500% compared to generic direct mail campaigns.",
+          "details": [
+            "Dynamic content generation based on recipient data",
+            "Industry-specific messaging and tone adaptation",
+            "Behavioral pattern analysis for optimal timing",
+            "Continuous learning and improvement algorithms"
+          ]
+        },
+        {
+          "title": "Advanced Campaign Management",
+          "description": "Create, manage, and optimize your direct mail campaigns with our intuitive dashboard. Schedule campaigns, A/B test different approaches, and track performance in real-time. Our platform handles everything from list management to delivery confirmation, giving you complete control over your marketing efforts.",
+          "details": [
+            "Drag-and-drop campaign builder",
+            "Automated A/B testing and optimization",
+            "Advanced scheduling and automation",
+            "Multi-channel campaign coordination"
+          ]
+        },
+        {
+          "title": "Real-Time Analytics & Reporting",
+          "description": "Track every aspect of your campaign performance with detailed analytics and reporting. Monitor delivery rates, response rates, ROI, and customer engagement metrics. Our comprehensive reporting helps you understand what's working and optimize future campaigns for maximum impact.",
+          "details": [
+            "Real-time delivery and response tracking",
+            "Customizable dashboards and reports",
+            "ROI and conversion analysis",
+            "Export data for further analysis"
+          ]
+        },
+        {
+          "title": "Seamless Integrations",
+          "description": "Connect Enclosed.AI with your existing marketing stack and business tools. Our platform integrates with popular CRM systems, email marketing platforms, analytics tools, and more. Sync your customer data, automate workflows, and maintain consistency across all your marketing channels.",
+          "details": [
+            "CRM integration (Salesforce, HubSpot, Pipedrive)",
+            "Email marketing platform sync",
+            "Analytics and tracking tools",
+            "Custom API for advanced integrations"
+          ]
+        }
+      ]
+    },
+    "advancedFeatures": {
+      "title": "Advanced Features",
+      "subtitle": "Powerful tools and capabilities that give you complete control over your direct mail marketing",
+      "features": [
+        {
+          "title": "Smart List Management",
+          "description": "Advanced list segmentation, deduplication, and data enrichment to ensure your campaigns reach the right people at the right time."
+        },
+        {
+          "title": "Quality Assurance",
+          "description": "Automated quality checks, compliance verification, and proofing tools to ensure every piece of mail meets the highest standards."
+        },
+        {
+          "title": "Flexible Pricing",
+          "description": "Pay-per-use pricing with volume discounts, no monthly fees, and transparent costs that scale with your business needs."
+        },
+        {
+          "title": "Enterprise Security",
+          "description": "Bank-level security, SOC 2 compliance, and advanced data protection to keep your customer information safe and secure."
+        },
+        {
+          "title": "Global Delivery",
+          "description": "Send mail anywhere in the world with our network of trusted delivery partners and real-time tracking capabilities."
+        },
+        {
+          "title": "24/7 Support",
+          "description": "Dedicated customer success team available around the clock to help you maximize your direct mail marketing results."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why Choose Enclosed.AI?",
+      "subtitle": "The numbers speak for themselves – see why businesses choose Enclosed.AI for their direct mail marketing",
+      "stats": [
+        {
+          "value": "3-5x",
+          "label": "Higher Response Rates",
+          "description": "Compared to traditional direct mail campaigns"
+        },
+        {
+          "value": "95%",
+          "label": "Delivery Success Rate",
+          "description": "Guaranteed delivery tracking and confirmation"
+        },
+        {
+          "value": "24/7",
+          "label": "Platform Availability",
+          "description": "Access your campaigns anytime, anywhere"
+        },
+        {
+          "value": "$0",
+          "label": "Setup Fees",
+          "description": "No hidden costs or monthly commitments"
+        }
+      ]
+    },
+    "ctaSection": {
+      "title": "Ready to Experience These Features?",
+      "subtitle": "Start your free trial today and see how Enclosed.AI can transform your direct mail marketing with powerful AI-driven features.",
+      "actions": ["Start Free Trial", "Schedule Demo"]
+    },
+    "footer": {
+      "tagline": "Direct mail marketing powered by artificial intelligence",
+      "sections": [
+        {
+          "title": "Product",
+          "links": ["Features", "Pricing", "Integrations", "API"]
+        },
+        {
+          "title": "Company",
+          "links": ["About Us", "Team", "Careers", "Contact"]
+        },
+        {
+          "title": "Support",
+          "links": ["Help Center", "FAQ", "Privacy Policy", "Terms of Service"]
+        }
+      ],
+      "copyright": "© 2024 Enclosed.AI. All rights reserved."
+    }
+  }
+}

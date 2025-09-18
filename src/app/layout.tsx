@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Enclosed.AI - Direct Mail Marketing Platform",
-  description: "AI-powered direct mail marketing with personalized sales letters and campaign tracking",
+  description:
+    "AI-powered direct mail marketing with personalized sales letters and campaign tracking",
 };
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased bg-gray-50`}>
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>

@@ -8,48 +8,65 @@ export const stripe = process.env.STRIPE_SECRET_KEY
     })
   : null as any;
 
-// Credit package configurations (similar to Scribeless model)
-export const CREDIT_PACKAGES = {
+// Subscription plans configuration
+export const SUBSCRIPTION_PLANS = {
   starter: {
-    id: 'credits_starter',
-    name: 'Starter Pack',
-    credits: 100,
-    price: 99, // $0.99 per credit
-    stripePriceId: process.env.STRIPE_PRICE_STARTER!,
+    id: 'plan_starter',
+    name: 'Starter Plan',
+    price: 9999, // $99.99 in cents
+    priceId: 'price_1S8Na9CXLbEz3Hk6VkoBMzvX',
+    productId: 'prod_T4WditEo3aU99H',
+    monthlyLetters: 50,
+    features: [
+      'CSV lead upload',
+      '50 direct mail letters per month',
+      'Professional printing & shipping',
+      'Basic templates',
+      'Delivery tracking',
+      'Email support',
+    ],
   },
-  professional: {
-    id: 'credits_professional',
-    name: 'Professional Pack',
-    credits: 500,
-    price: 449, // $0.90 per credit (10% discount)
-    stripePriceId: process.env.STRIPE_PRICE_PROFESSIONAL!,
-  },
-  business: {
-    id: 'credits_business',
-    name: 'Business Pack',
-    credits: 1500,
-    price: 1199, // $0.80 per credit (20% discount)
-    stripePriceId: process.env.STRIPE_PRICE_BUSINESS!,
-  },
-  enterprise: {
-    id: 'credits_enterprise',
-    name: 'Enterprise Pack',
-    credits: 5000,
-    price: 3499, // $0.70 per credit (30% discount)
-    stripePriceId: process.env.STRIPE_PRICE_ENTERPRISE!,
+  premium: {
+    id: 'plan_premium',
+    name: 'Premium Plan',
+    price: 29999, // $299.99 in cents
+    priceId: 'price_1S8NfrCXLbEz3Hk6oU04DDaa',
+    productId: 'prod_T4Wj2uFSmQFNon',
+    monthlyLetters: 100,
+    features: [
+      'Everything in Starter',
+      'AI-powered personalization',
+      '100 personalized letters per month',
+      'Advanced CSV column mapping',
+      'Google Calendar integration',
+      'Customizable tracking links',
+      'Priority support',
+      'Letter preview & approval',
+    ],
   },
 };
 
-// Email send pricing (credits per email)
-export const EMAIL_CREDITS = {
-  simple: 1, // Basic email
-  personalized: 2, // AI-personalized email
-  campaign: 3, // Full campaign email with analytics
+// Add-on packages
+export const ADDON_PACKAGES = {
+  bundle100: {
+    id: 'addon_bundle100',
+    name: 'Letter Bundle',
+    price: 20000, // $200.00 in cents
+    priceId: 'price_1S8NhRCXLbEz3Hk6YZXjkAgY',
+    productId: 'prod_T4WkRtBnpuvZYE',
+    letters: 100,
+  },
 };
 
-export async function createCheckoutSession(
+// Letter credit pricing
+export const LETTER_CREDITS = {
+  basic: 1, // Basic letter
+  personalized: 2, // AI-personalized letter
+};
+
+export async function createSubscriptionSession(
   userId: string,
-  packageId: keyof typeof CREDIT_PACKAGES,
+  planId: keyof typeof SUBSCRIPTION_PLANS,
   successUrl: string,
   cancelUrl: string
 ) {
@@ -57,13 +74,53 @@ export async function createCheckoutSession(
     throw new Error('Stripe is not configured');
   }
 
-  const creditPackage = CREDIT_PACKAGES[packageId];
+  const plan = SUBSCRIPTION_PLANS[planId];
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
       {
-        price: creditPackage.stripePriceId,
+        price: plan.priceId,
+        quantity: 1,
+      },
+    ],
+    mode: 'subscription',
+    success_url: successUrl,
+    cancel_url: cancelUrl,
+    metadata: {
+      userId,
+      planId,
+      monthlyLetters: plan.monthlyLetters.toString(),
+    },
+    subscription_data: {
+      metadata: {
+        userId,
+        planId,
+        monthlyLetters: plan.monthlyLetters.toString(),
+      },
+    },
+  });
+
+  return session;
+}
+
+export async function createAddonSession(
+  userId: string,
+  addonId: keyof typeof ADDON_PACKAGES,
+  successUrl: string,
+  cancelUrl: string
+) {
+  if (!stripe) {
+    throw new Error('Stripe is not configured');
+  }
+
+  const addon = ADDON_PACKAGES[addonId];
+
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price: addon.priceId,
         quantity: 1,
       },
     ],
@@ -72,8 +129,8 @@ export async function createCheckoutSession(
     cancel_url: cancelUrl,
     metadata: {
       userId,
-      credits: creditPackage.credits.toString(),
-      packageId,
+      addonId,
+      letters: addon.letters.toString(),
     },
   });
 

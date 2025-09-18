@@ -2,6 +2,12 @@ import { headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { handleWebhook } from '@/lib/stripe';
 import { supabase } from '@/lib/supabase';
+import { sendEmail, sendLowCreditWarning } from '@/lib/email';
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2024-12-18.acacia',
+});
 
 export async function POST(request: NextRequest) {
   if (!supabase) {
@@ -28,25 +34,67 @@ export async function POST(request: NextRequest) {
   // Handle the event
   switch (event.type) {
     case 'checkout.session.completed': {
-      const session = event.data.object as any;
+      const session = event.data.object as Stripe.Checkout.Session;
+      const { customer_email, metadata, mode } = session;
 
-      // Add credits to user account
-      const { userId, credits, packageId } = session.metadata;
+      if (mode === 'subscription') {
+        // Handle subscription creation
+        const subscriptionId = session.subscription as string;
+        const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+        const productId = subscription.items.data[0].price.product as string;
 
-      // Update user credits in database
-      const { data: user, error: fetchError } = await supabase
-        .from('users')
-        .select('credits')
-        .eq('id', userId)
-        .single();
+        let monthlyCredits = 0;
+        let planName = '';
 
-      if (fetchError) {
-        console.error('Error fetching user:', fetchError);
-        return NextResponse.json({ error: 'User not found' }, { status: 404 });
+        if (productId.includes('T4WditEo3aU99H')) {
+          monthlyCredits = 50;
+          planName = 'Starter';
+        } else if (productId.includes('T4Wj2uFSmQFNon')) {
+          monthlyCredits = 100;
+          planName = 'Premium';
+        }
+
+        // Update user subscription
+        if (metadata?.userId) {
+          await supabase
+            .from('enclosed_users')
+            .update({
+              stripe_customer_id: session.customer as string,
+              stripe_subscription_id: subscriptionId,
+              subscription_plan: planName.toLowerCase(),
+              subscription_status: 'active',
+              monthly_letter_credits: monthlyCredits,
+              letter_credits_remaining: monthlyCredits,
+            })
+            .eq('id', metadata.userId);
+
+          // Send confirmation email
+          if (customer_email) {
+            await sendEmail({
+              to: customer_email,
+              subject: `Welcome to Enclosed.AI ${planName} Plan!`,
+              html: `<h2>Subscription Activated</h2><p>You have ${monthlyCredits} letter credits available.</p>`,
+            });
+          }
+        }
+      } else {
+        // Handle one-time payment (add-on bundle)
+        const { userId, letters } = metadata || {};
+        if (userId && letters) {
+          const { data: user } = await supabase
+            .from('enclosed_users')
+            .select('addon_credits')
+            .eq('id', userId)
+            .single();
+
+          await supabase
+            .from('enclosed_users')
+            .update({
+              addon_credits: (user?.addon_credits || 0) + parseInt(letters),
+            })
+            .eq('id', userId);
+        }
       }
-
-      const currentCredits = user?.credits || 0;
-      const newCredits = currentCredits + parseInt(credits);
 
       const { error: updateError } = await supabase
         .from('users')

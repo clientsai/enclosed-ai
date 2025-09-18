@@ -1,39 +1,41 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
-import { Campaign } from '@/types';
-import { formatCurrency } from '@/lib/pricing';
-import Logo from '@/components/Logo';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+import { Campaign } from "@/types";
+import { formatCurrency } from "@/lib/pricing";
+import Logo from "@/components/Logo";
 
 export default function CampaignsPage() {
   const router = useRouter();
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     loadCampaigns();
   }, [filter]);
 
   const loadCampaigns = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) {
-      router.push('/auth/login');
+      router.push("/auth/login");
       return;
     }
 
     let query = supabase
-      .from('enclosed_campaigns')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
+      .from("enclosed_campaigns")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
 
-    if (filter !== 'all') {
-      query = query.eq('status', filter);
+    if (filter !== "all") {
+      query = query.eq("status", filter);
     }
 
     const { data } = await query;
@@ -53,9 +55,14 @@ export default function CampaignsPage() {
 
   const stats = {
     total: campaigns.length,
-    active: campaigns.filter(c => ['draft', 'scheduled', 'processing'].includes(c.status)).length,
-    completed: campaigns.filter(c => c.status === 'completed').length,
-    totalSpent: campaigns.reduce((sum, c) => sum + (c.status === 'completed' ? c.total_cost : 0), 0),
+    active: campaigns.filter((c) =>
+      ["draft", "scheduled", "processing"].includes(c.status),
+    ).length,
+    completed: campaigns.filter((c) => c.status === "completed").length,
+    totalSpent: campaigns.reduce(
+      (sum, c) => sum + (c.status === "completed" ? c.total_cost : 0),
+      0,
+    ),
   };
 
   return (
@@ -68,16 +75,28 @@ export default function CampaignsPage() {
               <Logo size="md" />
 
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/dashboard"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Dashboard
                 </Link>
-                <Link href="/campaigns" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                <Link
+                  href="/campaigns"
+                  className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
                   Campaigns
                 </Link>
-                <Link href="/templates" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/templates"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Templates
                 </Link>
-                <Link href="/api-keys" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/api-keys"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   API Keys
                 </Link>
               </div>
@@ -101,19 +120,27 @@ export default function CampaignsPage() {
 
           <div className="grid grid-cols-4 gap-4 mb-6">
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
+              <div className="text-2xl font-bold text-gray-900">
+                {stats.total}
+              </div>
               <div className="text-sm text-gray-600">Total Campaigns</div>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-blue-600">{stats.active}</div>
+              <div className="text-2xl font-bold text-blue-600">
+                {stats.active}
+              </div>
               <div className="text-sm text-gray-600">Active</div>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-green-600">{stats.completed}</div>
+              <div className="text-2xl font-bold text-green-600">
+                {stats.completed}
+              </div>
               <div className="text-sm text-gray-600">Completed</div>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-              <div className="text-2xl font-bold text-purple-600">{formatCurrency(stats.totalSpent)}</div>
+              <div className="text-2xl font-bold text-purple-600">
+                {formatCurrency(stats.totalSpent)}
+              </div>
               <div className="text-sm text-gray-600">Total Spent</div>
             </div>
           </div>
@@ -121,27 +148,39 @@ export default function CampaignsPage() {
 
         {/* Filter Tabs - Info Pill Group Component */}
         <div className="mb-6 flex flex-wrap gap-2">
-          {['all', 'draft', 'processing', 'completed', 'failed'].map((status) => (
-            <button
-              key={status}
-              onClick={() => setFilter(status)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                filter === status
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {status.charAt(0).toUpperCase() + status.slice(1)}
-            </button>
-          ))}
+          {["all", "draft", "processing", "completed", "failed"].map(
+            (status) => (
+              <button
+                key={status}
+                onClick={() => setFilter(status)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  filter === status
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {status.charAt(0).toUpperCase() + status.slice(1)}
+              </button>
+            ),
+          )}
         </div>
 
         {/* Campaigns List - Accordion Grid Component */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {campaigns.length === 0 ? (
             <div className="col-span-2 text-center py-12 bg-white rounded-lg shadow-sm">
-              <svg className="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+              <svg
+                className="mx-auto h-12 w-12 text-gray-400 mb-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                />
               </svg>
               <p className="text-gray-600 mb-4">No campaigns found</p>
               <Link
@@ -153,18 +192,25 @@ export default function CampaignsPage() {
             </div>
           ) : (
             campaigns.map((campaign) => (
-              <details key={campaign.id} className="group bg-white rounded-lg shadow-sm border border-gray-200">
+              <details
+                key={campaign.id}
+                className="group bg-white rounded-lg shadow-sm border border-gray-200"
+              >
                 <summary className="cursor-pointer p-6 hover:bg-gray-50 transition-colors rounded-t-lg">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="font-semibold text-gray-900">{campaign.name}</h3>
+                      <h3 className="font-semibold text-gray-900">
+                        {campaign.name}
+                      </h3>
                       <div className="mt-2 flex items-center space-x-4 text-sm">
-                        <span className={`inline-flex px-2 py-1 rounded-full font-medium
-                          ${campaign.status === 'completed' ? 'bg-green-100 text-green-800' : ''}
-                          ${campaign.status === 'processing' ? 'bg-yellow-100 text-yellow-800' : ''}
-                          ${campaign.status === 'draft' ? 'bg-gray-100 text-gray-800' : ''}
-                          ${campaign.status === 'failed' ? 'bg-red-100 text-red-800' : ''}
-                        `}>
+                        <span
+                          className={`inline-flex px-2 py-1 rounded-full font-medium
+                          ${campaign.status === "completed" ? "bg-green-100 text-green-800" : ""}
+                          ${campaign.status === "processing" ? "bg-yellow-100 text-yellow-800" : ""}
+                          ${campaign.status === "draft" ? "bg-gray-100 text-gray-800" : ""}
+                          ${campaign.status === "failed" ? "bg-red-100 text-red-800" : ""}
+                        `}
+                        >
                           {campaign.status}
                         </span>
                         <span className="text-gray-500">
@@ -172,8 +218,18 @@ export default function CampaignsPage() {
                         </span>
                       </div>
                     </div>
-                    <svg className="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <svg
+                      className="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </div>
                 </summary>
@@ -181,15 +237,21 @@ export default function CampaignsPage() {
                   <dl className="mt-4 space-y-2 text-sm">
                     <div className="flex justify-between">
                       <dt className="text-gray-600">Offer Type</dt>
-                      <dd className="font-medium text-gray-900">{campaign.offer_type.replace(/_/g, ' ')}</dd>
+                      <dd className="font-medium text-gray-900">
+                        {campaign.offer_type.replace(/_/g, " ")}
+                      </dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-600">Recipients</dt>
-                      <dd className="font-medium text-gray-900">{campaign.recipient_count}</dd>
+                      <dd className="font-medium text-gray-900">
+                        {campaign.recipient_count}
+                      </dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-gray-600">Total Cost</dt>
-                      <dd className="font-medium text-blue-600">{formatCurrency(campaign.total_cost)}</dd>
+                      <dd className="font-medium text-blue-600">
+                        {formatCurrency(campaign.total_cost)}
+                      </dd>
                     </div>
                   </dl>
                   <div className="mt-4 flex space-x-3">
@@ -199,7 +261,7 @@ export default function CampaignsPage() {
                     >
                       View Details
                     </Link>
-                    {campaign.status === 'draft' && (
+                    {campaign.status === "draft" && (
                       <Link
                         href={`/campaigns/${campaign.id}`}
                         className="flex-1 text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"

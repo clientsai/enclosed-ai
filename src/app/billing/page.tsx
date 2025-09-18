@@ -1,20 +1,37 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
-import { formatCurrency } from '@/lib/pricing';
-import Logo from '@/components/Logo';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+import { formatCurrency } from "@/lib/pricing";
+import Logo from "@/components/Logo";
 
 interface Transaction {
   id: string;
-  type: 'credit' | 'debit';
+  type: "credit" | "debit";
   amount: number;
   description: string;
   created_at: string;
   campaign_id?: string;
+}
+
+interface Subscription {
+  id: string;
+  plan: "starter" | "premium";
+  status: "active" | "canceled" | "past_due";
+  currentPeriodEnd: Date;
+  monthlyLetters: number;
+  lettersUsed: number;
+  pricePerMonth: number;
+}
+
+interface MailingCredit {
+  total: number;
+  used: number;
+  available: number;
+  addOns: number;
 }
 
 export default function BillingPage() {
@@ -22,13 +39,23 @@ export default function BillingPage() {
   const [user, setUser] = useState<any>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedPackage, setSelectedPackage] = useState<string>('');
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [credits, setCredits] = useState<MailingCredit>({
+    total: 0,
+    used: 0,
+    available: 0,
+    addOns: 0,
+  });
+  const [showLowCreditWarning, setShowLowCreditWarning] = useState(false);
 
-  const creditPackages = [
-    { id: 'starter', name: 'Starter', credits: 100, price: 99, savings: 0 },
-    { id: 'professional', name: 'Professional', credits: 500, price: 449, savings: 50 },
-    { id: 'business', name: 'Business', credits: 1500, price: 1199, savings: 300 },
-    { id: 'enterprise', name: 'Enterprise', credits: 5000, price: 3499, savings: 1500 },
+  const subscriptionPlans = [
+    { id: "starter", name: "Starter Plan", letters: 50, price: 99.99 },
+    { id: "premium", name: "Premium Plan", letters: 100, price: 299.99 },
+  ];
+
+  const letterBundles = [
+    { id: "bundle100", name: "100 Letter Bundle", letters: 100, price: 200 },
   ];
 
   useEffect(() => {
@@ -36,16 +63,18 @@ export default function BillingPage() {
   }, []);
 
   const loadBillingData = async () => {
-    const { data: { user: authUser } } = await supabase.auth.getUser();
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser();
     if (!authUser) {
-      router.push('/auth/login');
+      router.push("/auth/login");
       return;
     }
 
     const { data: userData } = await supabase
-      .from('enclosed_users')
-      .select('*')
-      .eq('id', authUser.id)
+      .from("enclosed_users")
+      .select("*")
+      .eq("id", authUser.id)
       .single();
 
     if (userData) {
@@ -55,19 +84,23 @@ export default function BillingPage() {
     // In a real app, load transactions from a transactions table
     setTransactions([
       {
-        id: '1',
-        type: 'credit',
+        id: "1",
+        type: "credit",
         amount: 100,
-        description: 'Starter package purchase',
-        created_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+        description: "Starter package purchase",
+        created_at: new Date(
+          Date.now() - 7 * 24 * 60 * 60 * 1000,
+        ).toISOString(),
       },
       {
-        id: '2',
-        type: 'debit',
+        id: "2",
+        type: "debit",
         amount: 25,
-        description: 'Campaign: Q4 Marketing',
-        created_at: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-        campaign_id: 'camp_123',
+        description: "Campaign: Q4 Marketing",
+        created_at: new Date(
+          Date.now() - 3 * 24 * 60 * 60 * 1000,
+        ).toISOString(),
+        campaign_id: "camp_123",
       },
     ]);
 
@@ -76,9 +109,9 @@ export default function BillingPage() {
 
   const handlePurchase = async (packageId: string) => {
     try {
-      const response = await fetch('/api/stripe/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ packageId }),
       });
 
@@ -87,8 +120,8 @@ export default function BillingPage() {
         window.location.href = url;
       }
     } catch (error) {
-      console.error('Checkout error:', error);
-      alert('Failed to create checkout session');
+      console.error("Checkout error:", error);
+      alert("Failed to create checkout session");
     }
   };
 
@@ -112,13 +145,22 @@ export default function BillingPage() {
               </Link>
 
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/dashboard"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Dashboard
                 </Link>
-                <Link href="/campaigns" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/campaigns"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Campaigns
                 </Link>
-                <Link href="/billing" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                <Link
+                  href="/billing"
+                  className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
                   Billing
                 </Link>
               </div>
@@ -126,7 +168,10 @@ export default function BillingPage() {
 
             <div className="flex items-center">
               <span className="text-sm text-gray-600">
-                Current Balance: <span className="font-semibold text-green-600">{formatCurrency(user?.credits_balance || 0)}</span>
+                Current Balance:{" "}
+                <span className="font-semibold text-green-600">
+                  {formatCurrency(user?.credits_balance || 0)}
+                </span>
               </span>
             </div>
           </div>
@@ -140,35 +185,49 @@ export default function BillingPage() {
             <span className="text-3xl">💰</span>
             <div>
               <div className="font-semibold text-gray-900">Current Balance</div>
-              <div className="text-2xl font-bold text-green-600">{formatCurrency(user?.credits_balance || 0)}</div>
+              <div className="text-2xl font-bold text-green-600">
+                {formatCurrency(user?.credits_balance || 0)}
+              </div>
             </div>
           </div>
           <div className="flex items-center space-x-3">
             <span className="text-3xl">📊</span>
             <div>
               <div className="font-semibold text-gray-900">Total Spent</div>
-              <div className="text-2xl font-bold text-gray-700">{formatCurrency(transactions.filter(t => t.type === 'debit').reduce((sum, t) => sum + t.amount, 0))}</div>
+              <div className="text-2xl font-bold text-gray-700">
+                {formatCurrency(
+                  transactions
+                    .filter((t) => t.type === "debit")
+                    .reduce((sum, t) => sum + t.amount, 0),
+                )}
+              </div>
             </div>
           </div>
           <div className="flex items-center space-x-3">
             <span className="text-3xl">✉️</span>
             <div>
               <div className="font-semibold text-gray-900">Letters Sent</div>
-              <div className="text-2xl font-bold text-blue-600">{user?.total_pieces_sent || 0}</div>
+              <div className="text-2xl font-bold text-blue-600">
+                {user?.total_pieces_sent || 0}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Credit Packages - Card Row Emphasis Component */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Purchase Credits</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Purchase Credits
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {creditPackages.map((pkg, index) => (
               <article
                 key={pkg.id}
                 className={`relative bg-white border-2 rounded-xl p-6 cursor-pointer transition-all hover:shadow-lg ${
-                  selectedPackage === pkg.id ? 'border-blue-600 shadow-lg' : 'border-gray-200'
-                } ${index === 2 ? 'md:scale-105 md:shadow-xl' : ''}`}
+                  selectedPackage === pkg.id
+                    ? "border-blue-600 shadow-lg"
+                    : "border-gray-200"
+                } ${index === 2 ? "md:scale-105 md:shadow-xl" : ""}`}
                 onClick={() => setSelectedPackage(pkg.id)}
               >
                 {index === 2 && (
@@ -178,7 +237,9 @@ export default function BillingPage() {
                     </span>
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{pkg.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {pkg.name}
+                </h3>
                 <div className="text-3xl font-bold text-gray-900 mb-1">
                   ${pkg.price}
                 </div>
@@ -200,8 +261,8 @@ export default function BillingPage() {
                   }}
                   className={`mt-4 w-full py-2 rounded-lg font-medium transition-colors ${
                     selectedPackage === pkg.id
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? "bg-blue-600 text-white hover:bg-blue-700"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
                   Purchase
@@ -213,24 +274,52 @@ export default function BillingPage() {
 
         {/* Transaction History - Timeline Vertical Component */}
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Transaction History</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+            Transaction History
+          </h2>
           <div className="space-y-4">
             {transactions.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">No transactions yet</p>
+              <p className="text-gray-500 text-center py-8">
+                No transactions yet
+              </p>
             ) : (
               transactions.map((transaction, index) => (
                 <div key={transaction.id} className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      transaction.type === 'credit' ? 'bg-green-100' : 'bg-red-100'
-                    }`}>
-                      {transaction.type === 'credit' ? (
-                        <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                        transaction.type === "credit"
+                          ? "bg-green-100"
+                          : "bg-red-100"
+                      }`}
+                    >
+                      {transaction.type === "credit" ? (
+                        <svg
+                          className="w-5 h-5 text-green-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 4v16m8-8H4"
+                          />
                         </svg>
                       ) : (
-                        <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                        <svg
+                          className="w-5 h-5 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M20 12H4"
+                          />
                         </svg>
                       )}
                     </div>
@@ -241,20 +330,36 @@ export default function BillingPage() {
                   <div className="ml-4 flex-1">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="font-medium text-gray-900">{transaction.description}</p>
+                        <p className="font-medium text-gray-900">
+                          {transaction.description}
+                        </p>
                         <p className="text-sm text-gray-500 mt-1">
-                          {new Date(transaction.created_at).toLocaleDateString()} at {new Date(transaction.created_at).toLocaleTimeString()}
+                          {new Date(
+                            transaction.created_at,
+                          ).toLocaleDateString()}{" "}
+                          at{" "}
+                          {new Date(
+                            transaction.created_at,
+                          ).toLocaleTimeString()}
                         </p>
                         {transaction.campaign_id && (
-                          <Link href={`/campaigns/${transaction.campaign_id}`} className="text-sm text-blue-600 hover:text-blue-700 mt-1 inline-block">
+                          <Link
+                            href={`/campaigns/${transaction.campaign_id}`}
+                            className="text-sm text-blue-600 hover:text-blue-700 mt-1 inline-block"
+                          >
                             View campaign →
                           </Link>
                         )}
                       </div>
-                      <span className={`font-semibold ${
-                        transaction.type === 'credit' ? 'text-green-600' : 'text-red-600'
-                      }`}>
-                        {transaction.type === 'credit' ? '+' : '-'}{formatCurrency(transaction.amount)}
+                      <span
+                        className={`font-semibold ${
+                          transaction.type === "credit"
+                            ? "text-green-600"
+                            : "text-red-600"
+                        }`}
+                      >
+                        {transaction.type === "credit" ? "+" : "-"}
+                        {formatCurrency(transaction.amount)}
                       </span>
                     </div>
                   </div>
@@ -267,12 +372,24 @@ export default function BillingPage() {
         {/* Info Section - Inset Note Component */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
           <div className="flex items-start space-x-3">
-            <svg className="h-5 w-5 text-blue-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+            <svg
+              className="h-5 w-5 text-blue-600 mt-0.5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clipRule="evenodd"
+              />
             </svg>
             <div className="text-sm text-blue-800">
               <p className="font-medium mb-1">How credits work</p>
-              <p>Each credit equals $1 and covers the full cost of sending one letter including AI generation, printing, and postage. Bulk purchases receive discounted rates.</p>
+              <p>
+                Each credit equals $1 and covers the full cost of sending one
+                letter including AI generation, printing, and postage. Bulk
+                purchases receive discounted rates.
+              </p>
             </div>
           </div>
         </div>

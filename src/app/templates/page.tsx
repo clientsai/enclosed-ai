@@ -1,12 +1,12 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
-import { OFFER_DETAILS, OfferType } from '@/types';
-import Logo from '@/components/Logo';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+import { OFFER_DETAILS, OfferType } from "@/types";
+import Logo from "@/components/Logo";
 
 interface Template {
   id: string;
@@ -22,25 +22,29 @@ export default function TemplatesPage() {
   const router = useRouter();
   const [templates, setTemplates] = useState<Template[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(
+    null,
+  );
   const [showEditor, setShowEditor] = useState(false);
-  const [editContent, setEditContent] = useState('');
+  const [editContent, setEditContent] = useState("");
 
   useEffect(() => {
     loadTemplates();
   }, []);
 
   const loadTemplates = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) {
-      router.push('/auth/login');
+      router.push("/auth/login");
       return;
     }
 
     const { data } = await supabase
-      .from('enclosed_templates')
-      .select('*')
-      .order('created_at', { ascending: false });
+      .from("enclosed_templates")
+      .select("*")
+      .order("created_at", { ascending: false });
 
     if (data) {
       setTemplates(data);
@@ -51,17 +55,19 @@ export default function TemplatesPage() {
   const handleSaveTemplate = async () => {
     if (!selectedTemplate) return;
 
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) return;
 
     await supabase
-      .from('enclosed_templates')
+      .from("enclosed_templates")
       .update({ content: editContent })
-      .eq('id', selectedTemplate.id);
+      .eq("id", selectedTemplate.id);
 
     setShowEditor(false);
     setSelectedTemplate(null);
-    setEditContent('');
+    setEditContent("");
     await loadTemplates();
   };
 
@@ -85,16 +91,28 @@ export default function TemplatesPage() {
               </Link>
 
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/dashboard"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Dashboard
                 </Link>
-                <Link href="/campaigns" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/campaigns"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   Campaigns
                 </Link>
-                <Link href="/templates" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                <Link
+                  href="/templates"
+                  className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
                   Templates
                 </Link>
-                <Link href="/api-keys" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link
+                  href="/api-keys"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
                   API Keys
                 </Link>
               </div>
@@ -105,7 +123,7 @@ export default function TemplatesPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header - Pull Quote Component */}
-        <blockquote className="mb-8 border-l-4 border-purple-600 pl-6">
+        <blockquote className="mb-8 border-l-4 border-gray-900 pl-6">
           <h1 className="text-3xl font-bold text-gray-900">Letter Templates</h1>
           <cite className="not-italic text-gray-600 text-lg mt-2 block">
             Customize AI-powered templates for each offer type
@@ -115,11 +133,18 @@ export default function TemplatesPage() {
         {/* Template Categories - Feature Grid Component */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {(Object.keys(OFFER_DETAILS) as OfferType[]).map((offerType) => {
-            const offerTemplates = templates.filter(t => t.offer_type === offerType);
+            const offerTemplates = templates.filter(
+              (t) => t.offer_type === offerType,
+            );
             return (
-              <article key={offerType} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">{OFFER_DETAILS[offerType].icon || '📄'}</span>
+              <article
+                key={offerType}
+                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-2xl">
+                    {OFFER_DETAILS[offerType].icon || "📄"}
+                  </span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {OFFER_DETAILS[offerType].title}
@@ -128,7 +153,8 @@ export default function TemplatesPage() {
                   {OFFER_DETAILS[offerType].description}
                 </p>
                 <div className="text-sm text-gray-500">
-                  {offerTemplates.length} template{offerTemplates.length !== 1 ? 's' : ''}
+                  {offerTemplates.length} template
+                  {offerTemplates.length !== 1 ? "s" : ""}
                 </div>
               </article>
             );
@@ -163,26 +189,47 @@ export default function TemplatesPage() {
             <tbody>
               {templates.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
-                    <svg className="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <td
+                    colSpan={5}
+                    className="px-6 py-12 text-center text-gray-500"
+                  >
+                    <svg
+                      className="mx-auto h-12 w-12 text-gray-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
                     </svg>
-                    No templates yet. Default templates will be created automatically.
+                    No templates yet. Default templates will be created
+                    automatically.
                   </td>
                 </tr>
               ) : (
                 templates.map((template, index) => (
-                  <tr key={template.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <tr
+                    key={template.id}
+                    className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  >
                     <td className="px-6 py-4 text-sm font-medium text-gray-900">
                       {template.name}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">
-                      {OFFER_DETAILS[template.offer_type]?.title || template.offer_type}
+                      {OFFER_DETAILS[template.offer_type]?.title ||
+                        template.offer_type}
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-wrap gap-1">
                         {template.variables.slice(0, 3).map((v) => (
-                          <span key={v} className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          <span
+                            key={v}
+                            className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                          >
                             {v}
                           </span>
                         ))}
@@ -224,16 +271,26 @@ export default function TemplatesPage() {
         </div>
 
         {/* Help Section - Callout Accent Component */}
-        <aside className="mt-8 bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
-          <h3 className="text-purple-900 font-semibold mb-2">Template Variables</h3>
-          <p className="text-purple-700 text-sm mb-3">
+        <aside className="mt-8 bg-gray-50 border-l-4 border-gray-900 p-6 rounded-r-lg">
+          <h3 className="text-gray-900 font-semibold mb-2">
+            Template Variables
+          </h3>
+          <p className="text-gray-700 text-sm mb-3">
             Use these variables in your templates to personalize each letter:
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-            <code className="bg-white px-2 py-1 rounded text-purple-600">{'{name}'}</code>
-            <code className="bg-white px-2 py-1 rounded text-purple-600">{'{company}'}</code>
-            <code className="bg-white px-2 py-1 rounded text-purple-600">{'{address}'}</code>
-            <code className="bg-white px-2 py-1 rounded text-purple-600">{'{offer}'}</code>
+            <code className="bg-white px-2 py-1 rounded text-gray-600">
+              {"{name}"}
+            </code>
+            <code className="bg-white px-2 py-1 rounded text-gray-600">
+              {"{company}"}
+            </code>
+            <code className="bg-white px-2 py-1 rounded text-gray-600">
+              {"{address}"}
+            </code>
+            <code className="bg-white px-2 py-1 rounded text-gray-600">
+              {"{offer}"}
+            </code>
           </div>
         </aside>
       </div>
@@ -243,23 +300,28 @@ export default function TemplatesPage() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
             <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
-              <h2 className="text-xl font-semibold text-gray-900">Edit Template: {selectedTemplate.name}</h2>
+              <h2 className="text-xl font-semibold text-gray-900">
+                Edit Template: {selectedTemplate.name}
+              </h2>
             </div>
             <div className="flex-1 p-6 overflow-y-auto">
               <textarea
                 value={editContent}
                 onChange={(e) => setEditContent(e.target.value)}
-                className="w-full h-96 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent font-mono text-sm"
+                className="w-full h-96 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent font-mono text-sm"
                 placeholder="Enter your template content..."
               />
               <details className="mt-4 group">
-                <summary className="cursor-pointer text-sm text-purple-600 hover:text-purple-700 font-medium">
+                <summary className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 font-medium">
                   Show available variables
                 </summary>
                 <div className="mt-3 p-4 bg-gray-50 rounded-lg">
                   <div className="flex flex-wrap gap-2">
                     {selectedTemplate.variables.map((v) => (
-                      <code key={v} className="px-2 py-1 bg-white border border-gray-200 rounded text-xs">
+                      <code
+                        key={v}
+                        className="px-2 py-1 bg-white border border-gray-200 rounded text-xs"
+                      >
                         {`{${v}}`}
                       </code>
                     ))}
@@ -272,7 +334,7 @@ export default function TemplatesPage() {
                 onClick={() => {
                   setShowEditor(false);
                   setSelectedTemplate(null);
-                  setEditContent('');
+                  setEditContent("");
                 }}
                 className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
               >
@@ -280,7 +342,7 @@ export default function TemplatesPage() {
               </button>
               <button
                 onClick={handleSaveTemplate}
-                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
               >
                 Save Template
               </button>
