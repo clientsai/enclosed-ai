@@ -39,14 +39,14 @@ export default function Navigation({
         "h-16" // Consistent height - 64px
       )}
     >
-      <div >
-        <div >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div >
+          <div className="flex items-center">
             <Logo size="sm" showText={true} />
           </div>
           {/* Desktop Navigation */}
-          <div >
+          <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -63,29 +63,32 @@ export default function Navigation({
             ))}
           </div>
           {/* Desktop Actions */}
-          <div >
+          <div className="hidden md:flex items-center space-x-4">
             {variant === "landing" ? (
               <>
                 <Link
                   href="/auth/login"
+                  className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
                   href="/auth/signup"
+                  className="btn btn-primary btn-sm"
                 >
                   Get Started
                 </Link>
               </>
             ) : (
-              <div >
+              <div className="flex items-center space-x-4">
                 {user && (
-                  <span >
+                  <span className="text-sm text-gray-300">
                     {user.email}
                   </span>
                 )}
                 <Link
                   href="/auth/login"
+                  className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
                 >
                   Sign Out
                 </Link>
@@ -93,11 +96,12 @@ export default function Navigation({
             )}
           </div>
           {/* Mobile menu button */}
-          <div >
+          <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-gray-300 hover:text-white transition-colors"
             >
-              <svg  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -111,8 +115,8 @@ export default function Navigation({
       </div>
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div >
-          <div >
+        <div className="md:hidden bg-black border-t border-white/10">
+          <div className="px-6 py-4 space-y-2">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -128,18 +132,20 @@ export default function Navigation({
                 {link.label}
               </Link>
             ))}
-            <div >
+            <div className="pt-4 border-t border-white/10 space-y-2">
               {variant === "landing" ? (
                 <>
                   <Link
                     href="/auth/login"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
                   >
                     Sign In
                   </Link>
                   <Link
                     href="/auth/signup"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block px-3 py-2 text-sm font-medium btn btn-primary text-center"
                   >
                     Get Started
                   </Link>
@@ -148,6 +154,7 @@ export default function Navigation({
                 <Link
                   href="/auth/login"
                   onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
                 >
                   Sign Out
                 </Link>

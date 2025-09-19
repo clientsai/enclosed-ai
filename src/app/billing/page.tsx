@@ -112,223 +112,209 @@ export default function BillingPage() {
   };
   if (loading) {
     return (
-      <div >
-      <Navigation variant="app" />
-      <div ></div>
+      <div className="min-h-screen bg-black text-white">
+        <Navigation variant="app" />
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="spinner"></div>
+        </div>
       </div>
     );
   }
+
+  const creditPackages = [
+    { id: "starter", name: "Starter", credits: 50, price: 99.99, savings: 0 },
+    { id: "premium", name: "Premium", credits: 100, price: 199.99, savings: 0 },
+    { id: "pro", name: "Pro", credits: 250, price: 449.99, savings: 50 },
+  ];
+
   return (
-    <div >
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <div >
-        {/* Header - Highlight Row Component */}
-        <div >
-          <div >
-            <span >💰</span>
-            <div>
-              <div >Current Balance</div>
-              <div >
-                {formatCurrency(user?.credits_balance || 0)}
-              </div>
-            </div>
-          </div>
-          <div >
-            <span >📊</span>
-            <div>
-              <div >Total Spent</div>
-              <div >
-                {formatCurrency(
-                  transactions
-                    .filter((t) => t.type === "debit")
-                    .reduce((sum, t) => sum + t.amount, 0),
-                )}
-              </div>
-            </div>
-          </div>
-          <div >
-            <span >✉️</span>
-            <div>
-              <div >Letters Sent</div>
-              <div >
-                {user?.total_pieces_sent || 0}
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Credit Packages - Card Row Emphasis Component */}
-        <div >
-          <h2 >
-            Purchase Credits
-          </h2>
-          <div >
-            {creditPackages.map((pkg, index) => (
-              <article
-                key={pkg.id}
-                className={`relative bg-black border-2 rounded-xl p-6 cursor-pointer transition-all hover:shadow-lg ${
-                  selectedPackage === pkg.id
-                    ? "border-blue-600 shadow-lg"
-                    : "border-gray-200"
-                } ${index === 2 ? "md:scale-105 md:shadow-xl" : ""}`}
-                onClick={() => setSelectedPackage(pkg.id)}
-              >
-                {index === 2 && (
-                  <div >
-                    <span >
-                      MOST POPULAR
-                    </span>
-                  </div>
-                )}
-                <h3 >
-                  {pkg.name}
-                </h3>
-                <div >
-                  ${pkg.price}
-                </div>
-                <div >
-                  {pkg.credits.toLocaleString()} credits
-                </div>
-                <div >
-                  ${(pkg.price / pkg.credits).toFixed(3)} per letter
-                </div>
-                {pkg.savings > 0 && (
-                  <div >
-                    Save ${pkg.savings}
-                  </div>
-                )}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePurchase(pkg.id);
-                  }}
-                  className={`mt-4 w-full py-2 rounded-lg font-medium transition-colors ${
-                    selectedPackage === pkg.id
-                      ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : "bg-gray-100 text-gray-300 hover:bg-gray-200"
-                  }`}
-                >
-                  Purchase
-                </button>
-              </article>
-            ))}
-          </div>
-        </div>
-        {/* Transaction History - Timeline Vertical Component */}
-        <div >
-          <h2 >
-            Transaction History
-          </h2>
-          <div >
-            {transactions.length === 0 ? (
-              <p >
-                No transactions yet
+      <Navigation variant="app" />
+      <div className="pt-24">
+        <Container size="xl">
+          <div className="space-y-12">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-light mb-4">Billing & Credits</h1>
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                Manage your account balance and purchase additional credits
               </p>
-            ) : (
-              transactions.map((transaction, index) => (
-                <div key={transaction.id} >
-                  <div >
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                        transaction.type === "credit"
-                          ? "bg-green-100"
-                          : "bg-red-100"
-                      }`}
-                    >
-                      {transaction.type === "credit" ? (
-                        <svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 4v16m8-8H4"
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M20 12H4"
-                          />
-                        </svg>
-                      )}
-                    </div>
-                    {index < transactions.length - 1 && (
-                      <div ></div>
-                    )}
-                  </div>
-                  <div >
-                    <div >
-                      <div>
-                        <p >
-                          {transaction.description}
-                        </p>
-                        <p >
-                          {new Date(
-                            transaction.created_at,
-                          ).toLocaleDateString()}{" "}
-                          at{" "}
-                          {new Date(
-                            transaction.created_at,
-                          ).toLocaleTimeString()}
-                        </p>
-                        {transaction.campaign_id && (
-                          <Link
-                            href={`/campaigns/${transaction.campaign_id}`}
-                          >
-                            View campaign →
-                          </Link>
-                        )}
+            </div>
+
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="card glass text-center p-6">
+                <div className="text-4xl mb-4">💰</div>
+                <div className="text-sm text-gray-400 mb-2">Current Balance</div>
+                <div className="text-3xl font-light">
+                  {formatCurrency(user?.credits_balance || 0)}
+                </div>
+              </div>
+              <div className="card glass text-center p-6">
+                <div className="text-4xl mb-4">📊</div>
+                <div className="text-sm text-gray-400 mb-2">Total Spent</div>
+                <div className="text-3xl font-light">
+                  {formatCurrency(
+                    transactions
+                      .filter((t) => t.type === "debit")
+                      .reduce((sum, t) => sum + t.amount, 0),
+                  )}
+                </div>
+              </div>
+              <div className="card glass text-center p-6">
+                <div className="text-4xl mb-4">✉️</div>
+                <div className="text-sm text-gray-400 mb-2">Letters Sent</div>
+                <div className="text-3xl font-light">
+                  {user?.total_pieces_sent || 0}
+                </div>
+              </div>
+            </div>
+            {/* Credit Packages */}
+            <div className="space-y-8">
+              <div className="text-center">
+                <h2 className="text-3xl font-semibold mb-4">Purchase Credits</h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Choose a credit package that fits your needs. Each credit covers one complete letter including AI generation, printing, and postage.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {creditPackages.map((pkg, index) => (
+                  <div
+                    key={pkg.id}
+                    className={`relative card glass p-8 cursor-pointer transition-all hover:scale-105 ${
+                      selectedPackage === pkg.id
+                        ? "border-blue-500 bg-blue-500/10"
+                        : "border-gray-600"
+                    } ${index === 2 ? "md:scale-105 md:shadow-2xl" : ""}`}
+                    onClick={() => setSelectedPackage(pkg.id)}
+                  >
+                    {index === 2 && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span className="badge badge-accent">
+                          MOST POPULAR
+                        </span>
                       </div>
-                      <span
-                        className={`font-semibold ${
-                          transaction.type === "credit"
-                            ? "text-green-600"
-                            : "text-red-600"
+                    )}
+                    <div className="text-center">
+                      <h3 className="text-2xl font-semibold mb-2">{pkg.name}</h3>
+                      <div className="text-4xl font-light mb-2">${pkg.price}</div>
+                      <div className="text-lg text-gray-400 mb-4">
+                        {pkg.credits.toLocaleString()} credits
+                      </div>
+                      <div className="text-sm text-gray-500 mb-4">
+                        ${(pkg.price / pkg.credits).toFixed(3)} per letter
+                      </div>
+                      {pkg.savings > 0 && (
+                        <div className="text-green-400 text-sm mb-6">
+                          Save ${pkg.savings}
+                        </div>
+                      )}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePurchase(pkg.id);
+                        }}
+                        className={`w-full py-3 rounded-lg font-medium transition-all ${
+                          selectedPackage === pkg.id
+                            ? "btn btn-primary"
+                            : "btn btn-ghost"
                         }`}
                       >
-                        {transaction.type === "credit" ? "+" : "-"}
-                        {formatCurrency(transaction.amount)}
-                      </span>
+                        Purchase
+                      </button>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+            {/* Transaction History */}
+            <div className="space-y-8">
+              <div className="text-center">
+                <h2 className="text-3xl font-semibold mb-4">Transaction History</h2>
+              </div>
+              <div className="space-y-4">
+                {transactions.length === 0 ? (
+                  <div className="card glass text-center py-12">
+                    <p className="text-gray-400 text-lg">No transactions yet</p>
+                  </div>
+                ) : (
+                  transactions.map((transaction, index) => (
+                    <div key={transaction.id} className="card glass p-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <div
+                            className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                              transaction.type === "credit"
+                                ? "bg-green-500/20 text-green-400"
+                                : "bg-red-500/20 text-red-400"
+                            }`}
+                          >
+                            {transaction.type === "credit" ? (
+                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                              </svg>
+                            ) : (
+                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                              </svg>
+                            )}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-lg">{transaction.description}</p>
+                            <p className="text-gray-400 text-sm">
+                              {new Date(transaction.created_at).toLocaleDateString()} at{" "}
+                              {new Date(transaction.created_at).toLocaleTimeString()}
+                            </p>
+                            {transaction.campaign_id && (
+                              <Link
+                                href={`/campaigns/${transaction.campaign_id}`}
+                                className="text-blue-400 hover:text-blue-300 text-sm"
+                              >
+                                View campaign →
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                        <span
+                          className={`text-2xl font-light ${
+                            transaction.type === "credit"
+                              ? "text-green-400"
+                              : "text-red-400"
+                          }`}
+                        >
+                          {transaction.type === "credit" ? "+" : "-"}
+                          {formatCurrency(transaction.amount)}
+                        </span>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+
+            {/* Info Section */}
+            <div className="card glass p-6">
+              <div className="flex items-start space-x-4">
+                <svg className="w-6 h-6 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <div>
+                  <p className="font-semibold text-lg mb-2">How credits work</p>
+                  <p className="text-gray-400">
+                    Each credit equals $1 and covers the full cost of sending one
+                    letter including AI generation, printing, and postage. Bulk
+                    purchases receive discounted rates.
+                  </p>
                 </div>
-              ))
-            )}
-          </div>
-        </div>
-        {/* Info Section - Inset Note Component */}
-        <div >
-          <div >
-            <svg
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <div >
-              <p >How credits work</p>
-              <p>
-                Each credit equals $1 and covers the full cost of sending one
-                letter including AI generation, printing, and postage. Bulk
-                purchases receive discounted rates.
-              </p>
+              </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </div>
   );

@@ -86,23 +86,24 @@ export default function Dashboard() {
   };
   if (loading) {
     return (
-      <div >
+      <div className="min-h-screen flex items-center justify-center">
         <Spinner size="lg" />
       </div>
     );
   }
   return (
-    <div >
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
+      <Navigation variant="app" user={user} />
       {/* Main Content */}
-      <Container size="xl">
-        <div >
+      <Container size="xl" className="pt-24">
+        <div className="space-y-12">
           {/* Welcome Section */}
-          <div >
-            <Text size="sm" color="muted" >
+          <div className="space-y-4">
+            <Text size="sm" color="muted">
               Welcome back
             </Text>
-            <H1 >
+            <H1 className="text-4xl font-light">
               {user?.name || "Dashboard"}
             </H1>
             <Text size="lg" color="secondary">
@@ -110,78 +111,81 @@ export default function Dashboard() {
             </Text>
           </div>
           {/* Quick Actions */}
-          <Grid cols={3} gap={4} >
+          <Grid cols={3} gap={4}>
             <Button
               variant="primary"
               size="lg"
               href="/campaigns/new"
+              className="justify-center"
             >
-              <span >+</span>
+              <span className="text-xl mr-2">+</span>
               <span>New Campaign</span>
             </Button>
             <Button
               variant="secondary"
               size="lg"
               href="/leads/upload"
+              className="justify-center"
             >
-              <span >📤</span>
+              <span className="text-xl mr-2">📤</span>
               <span>Upload Texts</span>
             </Button>
             <Button
               variant="secondary"
               size="lg"
               href="/templates"
+              className="justify-center"
             >
-              <span >📝</span>
+              <span className="text-xl mr-2">📝</span>
               <span>Templates</span>
             </Button>
           </Grid>
           {/* Stats Grid */}
-          <Grid cols={4} gap={6} >
-            <Card glass>
-              <Text size="sm" color="muted" >Total Sent</Text>
-              <H2 >{stats.totalSent.toLocaleString()}</H2>
-              <Text size="sm" color="secondary" >
-                <span >↑ 12%</span> from last month
+          <Grid cols={4} gap={6}>
+            <Card glass className="text-center">
+              <Text size="sm" color="muted" className="mb-2">Total Sent</Text>
+              <H2 className="text-3xl font-light mb-2">{stats.totalSent.toLocaleString()}</H2>
+              <Text size="sm" color="secondary">
+                <span className="text-green-400">↑ 12%</span> from last month
               </Text>
             </Card>
-            <Card glass>
-              <Text size="sm" color="muted" >Active Campaigns</Text>
-              <H2 >{stats.activeCampaigns}</H2>
-              <Text size="sm" color="secondary" >
+            <Card glass className="text-center">
+              <Text size="sm" color="muted" className="mb-2">Active Campaigns</Text>
+              <H2 className="text-3xl font-light mb-2">{stats.activeCampaigns}</H2>
+              <Text size="sm" color="secondary">
                 {stats.activeCampaigns === 0 ? "Create your first campaign" : "Currently running"}
               </Text>
             </Card>
-            <Card glass>
-              <Text size="sm" color="muted" >Response Rate</Text>
-              <H2 >{stats.responseRate}%</H2>
-              <Text size="sm" color="secondary" >
-                <span >↑ 3.2%</span> above average
+            <Card glass className="text-center">
+              <Text size="sm" color="muted" className="mb-2">Response Rate</Text>
+              <H2 className="text-3xl font-light mb-2">{stats.responseRate}%</H2>
+              <Text size="sm" color="secondary">
+                <span className="text-green-400">↑ 3.2%</span> above average
               </Text>
             </Card>
-            <Card glass>
-              <Text size="sm" color="muted" >Credits Balance</Text>
-              <H2 >{formatCurrency(stats.creditsBalance)}</H2>
+            <Card glass className="text-center">
+              <Text size="sm" color="muted" className="mb-2">Credits Balance</Text>
+              <H2 className="text-3xl font-light mb-2">{formatCurrency(stats.creditsBalance)}</H2>
               <Link href="/billing">
-                <Text size="sm" color="accent" >
+                <Text size="sm" color="accent" className="hover:underline">
                   Add more credits →
                 </Text>
               </Link>
             </Card>
           </Grid>
           {/* Recent Campaigns */}
-          <div>
-            <Flex justify="between" align="center" >
-              <H3>Recent Campaigns</H3>
+          <div className="space-y-6">
+            <Flex justify="between" align="center">
+              <H3 className="text-2xl font-semibold">Recent Campaigns</H3>
               <Button variant="ghost" size="sm" href="/campaigns">
                 View All →
               </Button>
             </Flex>
             {campaigns.length === 0 ? (
-              <Card glass >
-                <div >📮</div>
-                <H3 >No campaigns yet</H3>
-                <Text color="secondary" >
+              <Card glass className="text-center py-12">
+                <div className="text-6xl mb-4">📮</div>
+                <H3 className="text-2xl font-semibold mb-4">No campaigns yet</H3>
+                <Text color="secondary" className="mb-6 max-w-md mx-auto">
                   Create your first campaign to start sending personalized direct mail
                 </Text>
                 <Button variant="primary" href="/campaigns/new">
@@ -189,14 +193,14 @@ export default function Dashboard() {
                 </Button>
               </Card>
             ) : (
-              <div >
+              <div className="space-y-4">
                 {campaigns.map((campaign) => (
-                  <Card key={campaign.id} hover >
+                  <Card key={campaign.id} hover className="p-6">
                     <Flex justify="between" align="center">
                       <Flex gap={4} align="center">
                         <div>
-                          <Flex gap={2} align="center" >
-                            <Text weight="semibold">{campaign.name}</Text>
+                          <Flex gap={2} align="center" className="mb-2">
+                            <Text weight="semibold" className="text-lg">{campaign.name}</Text>
                             <Badge
                               variant={
                                 campaign.status === "completed" ? "success" :
@@ -207,16 +211,10 @@ export default function Dashboard() {
                               {campaign.status}
                             </Badge>
                           </Flex>
-                          <Flex gap={4}>
-                            <Text size="sm" color="muted">
-                              {campaign.recipient_count} recipients
-                            </Text>
-                            <Text size="sm" color="muted">
-                              {formatCurrency(campaign.total_cost)}
-                            </Text>
-                            <Text size="sm" color="muted">
-                              {new Date(campaign.created_at).toLocaleDateString()}
-                            </Text>
+                          <Flex gap={4} className="text-sm text-gray-400">
+                            <span>{campaign.recipient_count} recipients</span>
+                            <span>{formatCurrency(campaign.total_cost)}</span>
+                            <span>{new Date(campaign.created_at).toLocaleDateString()}</span>
                           </Flex>
                         </div>
                       </Flex>
@@ -234,10 +232,10 @@ export default function Dashboard() {
             )}
           </div>
           {/* Performance Chart Placeholder */}
-          <div >
-            <H3 >Performance Overview</H3>
-            <Card glass >
-              <Text color="muted">Chart visualization coming soon</Text>
+          <div className="space-y-6">
+            <H3 className="text-2xl font-semibold">Performance Overview</H3>
+            <Card glass className="p-8 text-center">
+              <Text color="muted" className="text-lg">Chart visualization coming soon</Text>
             </Card>
           </div>
         </div>

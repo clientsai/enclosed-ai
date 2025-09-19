@@ -209,7 +209,7 @@ export const Text = ({
     primary: "text-white",
     secondary: "text-gray-300",
     muted: "text-gray-500",
-    accent: "text-[]"
+    accent: "text-blue-400"
   };
   const weights = {
     light: "font-light",
@@ -259,7 +259,7 @@ export const Button = ({
     primary: "btn-primary",
     secondary: "btn-secondary",
     ghost: "btn-ghost",
-    danger: "bg-[] hover:bg-red-600 text-white"
+    danger: "bg-red-600 hover:bg-red-700 text-white"
   };
   const sizes = {
     sm: "btn-sm",
@@ -301,7 +301,7 @@ export const Input = ({
     <input
       className={cn(
         "input",
-        error && "border-[]",
+        error && "border-red-500",
         className
       )}
       {...props}
@@ -323,7 +323,7 @@ export const Textarea = ({
     <textarea
       className={cn(
         "input min-h-[120px] resize-none",
-        error && "border-[]",
+        error && "border-red-500",
         className
       )}
       {...props}
@@ -347,7 +347,7 @@ export const Select = ({
     <select
       className={cn(
         "input appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDJMNiA3TDExIDIiIHN0cm9rZT0iIzk5OTk5OSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+')] bg-[right_1rem_center] bg-no-repeat",
-        error && "border-[]",
+        error && "border-red-500",
         className
       )}
       {...props}
@@ -397,9 +397,9 @@ export const Badge = ({
   const variants = {
     default: "badge",
     accent: "badge-accent",
-    success: "bg-[] bg-opacity-20 text-[] border-[]",
-    warning: "bg-[] bg-opacity-20 text-[] border-[]",
-    error: "bg-[] bg-opacity-20 text-[] border-[]"
+    success: "bg-green-500 bg-opacity-20 text-green-400 border-green-500",
+    warning: "bg-yellow-500 bg-opacity-20 text-yellow-400 border-yellow-500",
+    error: "bg-red-500 bg-opacity-20 text-red-400 border-red-500"
   };
   return (
     <span className={cn(variants[variant], className)} {...props}>
@@ -454,10 +454,10 @@ export const Alert = ({
   variant?: "info" | "success" | "warning" | "error";
 } & HTMLAttributes<HTMLDivElement>) => {
   const variants = {
-    info: "bg-[] bg-opacity-10 border-[] text-[]",
-    success: "bg-[] bg-opacity-10 border-[] text-[]",
-    warning: "bg-[] bg-opacity-10 border-[] text-[]",
-    error: "bg-[] bg-opacity-10 border-[] text-[]"
+    info: "bg-blue-500 bg-opacity-10 border-blue-500 text-blue-400",
+    success: "bg-green-500 bg-opacity-10 border-green-500 text-green-400",
+    warning: "bg-yellow-500 bg-opacity-10 border-yellow-500 text-yellow-400",
+    error: "bg-red-500 bg-opacity-10 border-red-500 text-red-400"
   };
   return (
     <div
@@ -557,8 +557,8 @@ export const Checkbox = ({
     <input
       type="checkbox"
       className={cn(
-        "w-4 h-4 rounded border border-gray-700 bg-gray-800 text-[] focus:ring-[] focus:ring-2",
-        error && "border-[]",
+        "w-4 h-4 rounded border border-gray-700 bg-gray-800 text-blue-500 focus:ring-blue-500 focus:ring-2",
+        error && "border-red-500",
         className
       )}
       {...props}
@@ -579,7 +579,7 @@ export const GlowOrb = ({
   size?: "sm" | "default" | "lg";
 } & HTMLAttributes<HTMLDivElement>) => {
   const colors = {
-    accent: "bg-[]",
+    accent: "bg-blue-500",
     white: "bg-white",
     purple: "bg-purple-500"
   };

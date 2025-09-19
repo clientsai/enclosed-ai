@@ -71,23 +71,23 @@ export default function SignupPage() {
     }
   };
   return (
-    <div >
+    <div className="min-h-screen bg-black text-white py-12">
       {/* Background effects */}
-      <GlowOrb color="accent" size="lg"  />
-      <GlowOrb color="purple" size="default"  />
+      <GlowOrb color="accent" size="lg" className="top-1/4 left-1/4" />
+      <GlowOrb color="purple" size="default" className="top-3/4 right-1/4" />
       <Container size="default">
-        <Grid cols={2} gap={8} >
+        <Grid cols={2} gap={8} className="items-center">
           {/* Left side - Benefits */}
-          <div >
-            <Badge variant="accent" >
+          <div className="space-y-8">
+            <Badge variant="accent" className="mb-4">
               Join 5,000+ Companies
             </Badge>
-            <H2 >
+            <H2 className="text-5xl font-light leading-tight">
               Start sending smarter
               <br />
-              <span >direct mail today</span>
+              <span className="gradient-text-accent">direct mail today</span>
             </H2>
-            <div >
+            <div className="space-y-6">
               {[
                 { icon: "✓", title: "14-day free trial", desc: "No credit card required" },
                 { icon: "✓", title: "AI-powered personalization", desc: "Unique letters for each recipient" },
@@ -95,21 +95,23 @@ export default function SignupPage() {
                 { icon: "✓", title: "Real-time analytics", desc: "Track ROI instantly" },
               ].map((item, i) => (
                 <Flex key={i} gap={3} align="start">
-                  <span >{item.icon}</span>
+                  <span className="text-green-400 text-xl">{item.icon}</span>
                   <div>
-                    <Text weight="semibold">{item.title}</Text>
+                    <Text weight="semibold" className="mb-1">{item.title}</Text>
                     <Text size="sm" color="muted">{item.desc}</Text>
                   </div>
                 </Flex>
               ))}
             </div>
             {/* Testimonial */}
-            <Card glass >
-              <Text >
+            <Card glass className="mt-8">
+              <Text className="mb-4 italic">
                 "The AI personalization is incredible. Our response rates went from 0.5% to 12% overnight."
               </Text>
               <Flex align="center" gap={3}>
-                <div  />
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+                  MT
+                </div>
                 <div>
                   <Text weight="semibold" size="sm">Michael Torres</Text>
                   <Text size="xs" color="muted">CEO, SaaS Ventures</Text>
@@ -118,14 +120,14 @@ export default function SignupPage() {
             </Card>
           </div>
           {/* Right side - Form */}
-          <Card glass >
+          <Card glass className="max-w-md mx-auto">
             {/* Logo */}
-            <Flex justify="center" >
+            <Flex justify="center" className="mb-8">
               <Logo size="lg" showText />
             </Flex>
             {/* Header */}
-            <div >
-              <H2 >Create your account</H2>
+            <div className="text-center mb-8">
+              <H2 className="mb-2">Create your account</H2>
               <Text color="secondary">
                 Get started with your 14-day free trial
               </Text>
@@ -177,7 +179,7 @@ export default function SignupPage() {
                 </Text>
               </FormGroup>
               {error && (
-                <Alert variant="error" >
+                <Alert variant="error" className="mb-6">
                   {error}
                 </Alert>
               )}
@@ -186,27 +188,28 @@ export default function SignupPage() {
                 variant="primary"
                 size="lg"
                 loading={loading}
+                className="w-full mb-6"
               >
                 Create Account
               </Button>
               {/* Terms */}
-              <Text size="xs" color="muted" >
+              <Text size="xs" color="muted" className="text-center">
                 By signing up, you agree to our{" "}
-                <Link href="/terms" >
+                <Link href="/terms" className="text-blue-400 hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy" >
+                <Link href="/privacy" className="text-blue-400 hover:underline">
                   Privacy Policy
                 </Link>
               </Text>
             </Form>
             {/* Sign in link */}
-            <div >
+            <div className="text-center mt-6">
               <Text size="sm" color="secondary">
                 Already have an account?{" "}
                 <Link href="/auth/login">
-                  <span >
+                  <span className="text-blue-400 hover:underline">
                     Sign in
                   </span>
                 </Link>

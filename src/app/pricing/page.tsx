@@ -135,38 +135,39 @@ export default function PricingPage() {
     },
   ];
   return (
-    <div >
+    <div className="min-h-screen bg-black text-white">
       {/* Background effects */}
-      <GlowOrb color="accent" size="lg"  />
-      <GlowOrb color="purple" size="default"  />
+      <GlowOrb color="accent" size="lg" className="top-1/4 left-1/4" />
+      <GlowOrb color="purple" size="default" className="top-3/4 right-1/4" />
       {/* Navigation */}
       {/* Hero Section */}
-      <Section>
+      <Section className="pt-32">
         <Container>
-          <div >
-            <Badge variant="accent" >
+          <div className="text-center space-y-6">
+            <Badge variant="accent" className="mb-4">
               Simple, Transparent Pricing
             </Badge>
-            <H1  gradient>
+            <H1 gradient className="text-6xl font-light leading-tight">
               Pricing that scales
               <br />
               with your business
             </H1>
-            <Text size="xl" color="secondary" >
+            <Text size="xl" color="secondary" className="max-w-3xl mx-auto">
               No hidden fees. No contracts. Pay only for what you send.
               Start with a 14-day free trial.
             </Text>
             {/* Billing Toggle */}
-            <Flex justify="center" align="center" gap={4}>
+            <Flex justify="center" align="center" gap={4} className="mt-8">
               <Text color={billingPeriod === "monthly" ? "primary" : "secondary"}>
                 Monthly
               </Text>
               <button
                 onClick={() => setBillingPeriod(billingPeriod === "monthly" ? "annual" : "monthly")}
+                className="relative w-12 h-6 bg-gray-700 rounded-full p-1 transition-colors"
               >
                 <div
-                  className={`absolute top-1 w-5 h-5 bg-[] rounded-full transition-transform ${
-                    billingPeriod === "annual" ? "translate-x-7" : "translate-x-1"
+                  className={`absolute top-1 w-4 h-4 bg-blue-500 rounded-full transition-transform ${
+                    billingPeriod === "annual" ? "translate-x-6" : "translate-x-0"
                   }`}
                 />
               </button>
@@ -179,13 +180,13 @@ export default function PricingPage() {
             </Flex>
           </div>
           {/* Pricing Cards */}
-          <Grid cols={3} gap={8} >
+          <Grid cols={3} gap={8} className="mt-16">
             {plans.map((plan) => (
               <Card
                 key={plan.name}
                 className={`relative ${
                   plan.featured
-                    ? "border-[] scale-105 shadow-2xl"
+                    ? "border-blue-500 scale-105 shadow-2xl"
                     : ""
                 }`}
                 glass={!plan.featured}
@@ -193,39 +194,38 @@ export default function PricingPage() {
                 {plan.featured && (
                   <Badge
                     variant="accent"
+                    className="absolute -top-3 left-1/2 transform -translate-x-1/2"
                   >
                     Most Popular
                   </Badge>
                 )}
-                <div >
-                  <H3 >{plan.name}</H3>
-                  <Text color="secondary" size="sm" >
+                <div className="text-center mb-8">
+                  <H3 className="text-2xl font-semibold mb-2">{plan.name}</H3>
+                  <Text color="secondary" size="sm" className="mb-6">
                     {plan.description}
                   </Text>
                   {typeof plan.price === "number" ? (
-                    <div >
-                      <span >
-                        ${plan.price}
-                      </span>
-                      <Text color="muted" >
+                    <div className="flex items-baseline justify-center">
+                      <span className="text-5xl font-light">${plan.price}</span>
+                      <Text color="muted" className="ml-2">
                         {plan.period}
                       </Text>
                     </div>
                   ) : (
-                    <div >
+                    <div className="text-5xl font-light">
                       {plan.price}
                     </div>
                   )}
                   {billingPeriod === "annual" && typeof plan.price === "number" && (
-                    <Text size="sm" color="success">
+                    <Text size="sm" color="success" className="mt-2">
                       Save ${(plan.price * 12 * 0.2).toFixed(0)} per year
                     </Text>
                   )}
                 </div>
-                <div >
+                <div className="space-y-4 mb-8">
                   {plan.features.map((feature, i) => (
                     <Flex key={i} gap={3} align="start">
-                      <span >✓</span>
+                      <span className="text-green-400 text-lg">✓</span>
                       <Text size="sm">{feature}</Text>
                     </Flex>
                   ))}
@@ -239,6 +239,7 @@ export default function PricingPage() {
                       : handleSubscribe(plan.priceId, plan.name.toLowerCase())
                   }
                   loading={loading === plan.name.toLowerCase()}
+                  className="w-full"
                 >
                   {plan.name === "Enterprise" ? "Contact Sales" : "Start Free Trial"}
                 </Button>
@@ -246,23 +247,23 @@ export default function PricingPage() {
             ))}
           </Grid>
           {/* Add-on Section */}
-          <div >
-            <H2 >Need more letters?</H2>
-            <Text size="lg" color="secondary" >
+          <div className="text-center space-y-6 mt-20">
+            <H2 className="text-3xl font-semibold">Need more letters?</H2>
+            <Text size="lg" color="secondary" className="max-w-2xl mx-auto">
               Add letter bundles to any plan
             </Text>
-            <Card glass >
-              <Flex justify="between" align="center" >
-                <div >
-                  <Text weight="semibold" >
+            <Card glass className="max-w-md mx-auto">
+              <Flex justify="between" align="center" className="mb-6">
+                <div>
+                  <Text weight="semibold" className="text-lg">
                     Letter Bundle
                   </Text>
                   <Text size="sm" color="secondary">
                     100 additional letters
                   </Text>
                 </div>
-                <div >
-                  <div >$200</div>
+                <div className="text-right">
+                  <div className="text-2xl font-light">$200</div>
                   <Text size="sm" color="muted">One-time</Text>
                 </div>
               </Flex>
@@ -270,16 +271,17 @@ export default function PricingPage() {
                 variant="primary"
                 onClick={() => handleSubscribe("price_1S8NhRCXLbEz3Hk6YZXjkAgY", "addon")}
                 loading={loading === "addon"}
+                className="w-full"
               >
                 Add to Account
               </Button>
             </Card>
           </div>
           {/* Features Grid */}
-          <div >
-            <div >
-              <H2 >Everything included</H2>
-              <Text size="lg" color="secondary">
+          <div className="space-y-12 mt-20">
+            <div className="text-center">
+              <H2 className="text-3xl font-semibold mb-4">Everything included</H2>
+              <Text size="lg" color="secondary" className="max-w-2xl mx-auto">
                 All plans include our core features
               </Text>
             </div>
@@ -292,9 +294,9 @@ export default function PricingPage() {
                 { icon: "🚀", title: "Fast Delivery", desc: "First-class mail included" },
                 { icon: "🔒", title: "Security", desc: "Enterprise-grade protection" },
               ].map((feature, i) => (
-                <Card key={i} glass >
-                  <div >{feature.icon}</div>
-                  <Text weight="semibold" >
+                <Card key={i} glass className="text-center">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <Text weight="semibold" className="text-lg mb-2">
                     {feature.title}
                   </Text>
                   <Text size="sm" color="secondary">
@@ -305,38 +307,38 @@ export default function PricingPage() {
             </Grid>
           </div>
           {/* FAQ Section */}
-          <div >
-            <div >
-              <H2 >Frequently asked questions</H2>
-              <Text size="lg" color="secondary">
+          <div className="space-y-12 mt-20">
+            <div className="text-center">
+              <H2 className="text-3xl font-semibold mb-4">Frequently asked questions</H2>
+              <Text size="lg" color="secondary" className="max-w-2xl mx-auto">
                 Everything you need to know about our pricing
               </Text>
             </div>
-            <div >
+            <div className="space-y-4 max-w-4xl mx-auto">
               {faqs.map((faq, i) => (
-                <details key={i} >
-                  <summary >
-                    <Card glass >
+                <details key={i} className="group">
+                  <summary className="cursor-pointer">
+                    <Card glass className="hover:bg-white/5 transition-colors">
                       <Flex justify="between" align="center">
-                        <Text weight="semibold">{faq.question}</Text>
-                        <span >
+                        <Text weight="semibold" className="text-lg">{faq.question}</Text>
+                        <span className="text-2xl transition-transform group-open:rotate-180">
                           ↓
                         </span>
                       </Flex>
                     </Card>
                   </summary>
-                  <Card >
-                    <Text color="secondary">{faq.answer}</Text>
+                  <Card className="mt-2">
+                    <Text color="secondary" className="leading-relaxed">{faq.answer}</Text>
                   </Card>
                 </details>
               ))}
             </div>
           </div>
           {/* CTA Section */}
-          <Section>
-            <Card glass >
-              <H2 >Ready to get started?</H2>
-              <Text size="xl" color="secondary" >
+          <Section className="mt-20">
+            <Card glass className="text-center">
+              <H2 className="text-3xl font-semibold mb-4">Ready to get started?</H2>
+              <Text size="xl" color="secondary" className="mb-8 max-w-2xl mx-auto">
                 Join thousands of businesses using AI-powered direct mail to drive exceptional results.
               </Text>
               <Flex gap={4} justify="center">

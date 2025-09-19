@@ -23,14 +23,15 @@ export default function Logo({
       {/* Minimalist geometric logo - inspired by Apple's simplicity */}
       <div className={cn("relative", sizes[size].icon)}>
         {/* Outer ring with gradient */}
-        <div  />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-20" />
         {/* Main shape */}
-        <div >
-          <div >
+        <div className="relative w-full h-full bg-black rounded-full flex items-center justify-center">
+          <div className="w-3/4 h-3/4">
             {/* Inner icon - envelope with AI dot */}
             <svg
               viewBox="0 0 24 24"
               fill="none"
+              className="w-full h-full text-white"
             >
               {/* Envelope */}
               <path
@@ -65,7 +66,7 @@ export default function Logo({
   );
   if (linkToHome) {
     return (
-      <Link href="/" >
+      <Link href="/" className="hover:opacity-80 transition-opacity">
         <LogoContent />
       </Link>
     );
