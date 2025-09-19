@@ -9,6 +9,7 @@ import Logo from "@/components/Logo";
 import { letterTemplates, applyVariables } from "@/lib/letter-templates";
 import Papa from "papaparse";
 import Navigation from "@/components/Navigation";
+import { Container } from "@/components/ui";
 export default function NewCampaignPage() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
