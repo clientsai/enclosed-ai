@@ -13,13 +13,11 @@ import {
   Card,
   Badge,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Partners - Enclosed.AI | Integration Partners & Reseller Program",
   description:
     "Join our partner ecosystem and integrate with Enclosed.AI. Explore technology partnerships, reseller opportunities, and strategic alliances.",
 };
-
 export default function PartnersPage() {
   const techPartners = [
     {
@@ -71,7 +69,6 @@ export default function PartnersPage() {
       tier: "Certified",
     },
   ];
-
   const partnerBenefits = {
     technology: [
       "Technical documentation and API access",
@@ -98,14 +95,12 @@ export default function PartnersPage() {
       "Priority customer support",
     ],
   };
-
   const partnerStats = [
     { value: "150+", label: "Active Partners", delta: "Growing monthly" },
     { value: "98%", label: "Partner Satisfaction", delta: "Based on quarterly surveys" },
     { value: "45%", label: "Average Revenue Increase", delta: "For partners in first year" },
     { value: "24/7", label: "Partner Support", delta: "Dedicated team available" },
   ];
-
   const applicationSteps = [
     {
       title: "Submit Application",
@@ -124,61 +119,9 @@ export default function PartnersPage() {
       content: "Begin development with our support team and launch your integration with joint marketing efforts."
     },
   ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/partners"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Partners
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex gap={6}>
@@ -199,9 +142,8 @@ export default function PartnersPage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Partner Stats */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Partner Success by the Numbers</H1>
@@ -209,11 +151,10 @@ export default function PartnersPage() {
               Our partners see real results when they join the Enclosed.AI ecosystem
             </Text>
           </div>
-
           <Grid columns={4}>
             {partnerStats.map((stat, index) => (
               <Card key={index} className="p-6 text-center">
-                <H3 className="text-2xl font-bold text-gray-900">{stat.value}</H3>
+                <H3 className="text-xl md:text-2xl font-bold text-white">{stat.value}</H3>
                 <Text size="sm" color="muted">{stat.label}</Text>
                 <Text size="xs" className="text-gray-500">{stat.delta}</Text>
               </Card>
@@ -221,7 +162,6 @@ export default function PartnersPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Integration Partners */}
       <Section id="integrations">
         <Flex gap={8}>
@@ -231,7 +171,6 @@ export default function PartnersPage() {
               Seamlessly connect Enclosed.AI with your existing marketing stack through our certified integration partners
             </Text>
           </div>
-
           <Grid columns={3}>
             {techPartners.map((partner, index) => (
               <Card key={index} hover className="p-6">
@@ -239,7 +178,7 @@ export default function PartnersPage() {
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <span className="text-sm font-semibold text-gray-600">
+                        <span className="text-sm font-semibold text-gray-400">
                           {partner.name.charAt(0)}
                         </span>
                       </div>
@@ -247,23 +186,21 @@ export default function PartnersPage() {
                         <H1 level={4} className="text-lg">
                           {partner.name}
                         </H1>
-                        <span className="text-sm text-gray-600">{partner.category}</span>
+                        <span className="text-sm text-gray-400">{partner.category}</span>
                       </div>
                     </div>
                     <Badge variant={partner.tier === "Premier" ? "default" : "success"}>
                       {partner.tier}
                     </Badge>
                   </div>
-
-                  <p className="text-gray-700 leading-relaxed text-sm">
+                  <p className="text-gray-300 leading-relaxed text-sm">
                     {partner.description}
                   </p>
-
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2 text-sm">Key Features:</h5>
+                    <h5 className="font-semibold text-white mb-2 text-sm">Key Features:</h5>
                     <ul className="space-y-1">
                       {partner.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-700">
+                        <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
                           <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
                             <span className="text-blue-600 text-xs font-bold">✓</span>
                           </div>
@@ -272,7 +209,6 @@ export default function PartnersPage() {
                       ))}
                     </ul>
                   </div>
-
                   <Button size="sm" variant="ghost" className="w-full mt-auto">
                     Learn More
                   </Button>
@@ -282,9 +218,8 @@ export default function PartnersPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Partner Types */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Partnership Opportunities</H1>
@@ -292,7 +227,6 @@ export default function PartnersPage() {
               Choose the partnership model that aligns with your business goals and capabilities
             </Text>
           </div>
-
           <Grid columns={3}>
             {/* Technology Partners */}
             <Card className="p-8">
@@ -314,16 +248,15 @@ export default function PartnersPage() {
                     </svg>
                   </div>
                   <H1 level={3}>Technology Partners</H1>
-                  <p className="text-gray-600 mt-2">
+                  <p className="text-gray-400 mt-2">
                     Build native integrations and enhance your platform's capabilities
                   </p>
                 </div>
-
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Benefits Include:</h4>
+                  <h4 className="font-semibold text-white mb-3">Benefits Include:</h4>
                   <ul className="space-y-2">
                     {partnerBenefits.technology.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                      <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
                         <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
                           <span className="text-blue-600 text-xs font-bold">✓</span>
                         </div>
@@ -332,13 +265,11 @@ export default function PartnersPage() {
                     ))}
                   </ul>
                 </div>
-
                 <Button as={Link} href="#apply" className="w-full">
                   Apply Now
                 </Button>
               </Flex>
             </Card>
-
             {/* Reseller Partners */}
             <Card className="p-8">
               <Flex gap={6}>
@@ -359,16 +290,15 @@ export default function PartnersPage() {
                     </svg>
                   </div>
                   <H1 level={3}>Reseller Partners</H1>
-                  <p className="text-gray-600 mt-2">
+                  <p className="text-gray-400 mt-2">
                     Sell Enclosed.AI services and earn competitive commissions
                   </p>
                 </div>
-
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Benefits Include:</h4>
+                  <h4 className="font-semibold text-white mb-3">Benefits Include:</h4>
                   <ul className="space-y-2">
                     {partnerBenefits.reseller.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                      <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
                         <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
                           <span className="text-blue-600 text-xs font-bold">✓</span>
                         </div>
@@ -377,13 +307,11 @@ export default function PartnersPage() {
                     ))}
                   </ul>
                 </div>
-
                 <Button as={Link} href="#apply" className="w-full">
                   Apply Now
                 </Button>
               </Flex>
             </Card>
-
             {/* Agency Partners */}
             <Card className="p-8">
               <Flex gap={6}>
@@ -404,16 +332,15 @@ export default function PartnersPage() {
                     </svg>
                   </div>
                   <H1 level={3}>Agency Partners</H1>
-                  <p className="text-gray-600 mt-2">
+                  <p className="text-gray-400 mt-2">
                     Offer direct mail services to your clients with white-label options
                   </p>
                 </div>
-
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Benefits Include:</h4>
+                  <h4 className="font-semibold text-white mb-3">Benefits Include:</h4>
                   <ul className="space-y-2">
                     {partnerBenefits.agency.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                      <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
                         <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
                           <span className="text-blue-600 text-xs font-bold">✓</span>
                         </div>
@@ -422,7 +349,6 @@ export default function PartnersPage() {
                     ))}
                   </ul>
                 </div>
-
                 <Button as={Link} href="#apply" className="w-full">
                   Apply Now
                 </Button>
@@ -431,7 +357,6 @@ export default function PartnersPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Application Process */}
       <Section id="apply">
         <Flex gap={8}>
@@ -441,7 +366,6 @@ export default function PartnersPage() {
               Our streamlined application process gets you up and running quickly
             </Text>
           </div>
-
           <div className="max-w-4xl mx-auto">
             <Flex gap={6}>
               {applicationSteps.map((step, index) => (
@@ -451,29 +375,27 @@ export default function PartnersPage() {
                       <span className="text-white text-sm font-bold">{index + 1}</span>
                     </div>
                     <div>
-                      <H3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</H3>
-                      <Text className="text-gray-700 leading-relaxed">{step.content}</Text>
+                      <H3 className="text-lg font-semibold text-white mb-2">{step.title}</H3>
+                      <Text className="text-gray-300 leading-relaxed">{step.content}</Text>
                     </div>
                   </Flex>
                 </Card>
               ))}
             </Flex>
           </div>
-
           <div className="max-w-2xl mx-auto">
             <Card className="p-8">
               <Flex gap={6}>
                 <div className="text-center">
                   <H1 level={3}>Ready to Apply?</H1>
-                  <p className="text-gray-600 mt-2">
+                  <p className="text-gray-400 mt-2">
                     Tell us about your company and partnership interests
                   </p>
                 </div>
-
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Company Name *
                       </label>
                       <input
@@ -483,7 +405,7 @@ export default function PartnersPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Partnership Type *
                       </label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
@@ -494,10 +416,9 @@ export default function PartnersPage() {
                       </select>
                     </div>
                   </div>
-
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Your Name *
                       </label>
                       <input
@@ -507,7 +428,7 @@ export default function PartnersPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -517,9 +438,8 @@ export default function PartnersPage() {
                       />
                     </div>
                   </div>
-
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Tell us about your integration or partnership goals *
                     </label>
                     <textarea
@@ -529,12 +449,10 @@ export default function PartnersPage() {
                     />
                   </div>
                 </div>
-
                 <Button size="lg" className="w-full">
                   Submit Application
                 </Button>
-
-                <p className="text-sm text-gray-600 text-center">
+                <p className="text-sm text-gray-400 text-center">
                   Our partnership team will review your application and respond within 2 business days.
                 </p>
               </Flex>
@@ -542,9 +460,8 @@ export default function PartnersPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Support Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Partner Support & Resources</H1>
@@ -552,7 +469,6 @@ export default function PartnersPage() {
               We provide comprehensive support to ensure your success as a partner
             </Text>
           </div>
-
           <Grid columns={3}>
             <Card className="p-6 text-center">
               <Flex gap={4}>
@@ -572,12 +488,11 @@ export default function PartnersPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Technical Documentation</H1>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Comprehensive API documentation, SDKs, and integration guides to get you started quickly.
                 </p>
               </Flex>
             </Card>
-
             <Card className="p-6 text-center">
               <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
@@ -596,12 +511,11 @@ export default function PartnersPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Dedicated Support</H1>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Access to our partner success team for technical support, account management, and strategic guidance.
                 </p>
               </Flex>
             </Card>
-
             <Card className="p-6 text-center">
               <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
@@ -620,7 +534,7 @@ export default function PartnersPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Marketing Resources</H1>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Co-branded materials, case studies, sales tools, and marketing support to help you promote our partnership.
                 </p>
               </Flex>
@@ -628,7 +542,6 @@ export default function PartnersPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex gap={6}>
@@ -639,16 +552,15 @@ export default function PartnersPage() {
             Join our ecosystem of successful partners and unlock new revenue opportunities while providing innovative direct mail solutions to your customers.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="#apply" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+            <Button as={Link} href="#apply" size="lg" className="bg-black text-white hover:bg-gray-100">
               Become a Partner
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
               Contact Partnership Team
             </Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

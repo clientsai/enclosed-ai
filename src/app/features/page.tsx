@@ -21,37 +21,19 @@ import {
   NavLink,
   GlowOrb,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Features - Enclosed.AI | AI-Powered Direct Mail Marketing",
   description:
     "Discover the powerful features that make Enclosed.AI the leading AI-powered direct mail marketing platform. Personalization, analytics, and automation.",
 };
-
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <Nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features" active>Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">Sign In</Button>
-          <Button variant="primary" size="sm" href="/auth/signup">Start Free</Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
-      <Section className="py-20 text-center relative">
+      <Section className="py-24 text-center relative">
         <GlowOrb color="accent" size="lg" className="top-0 left-1/4 opacity-20" />
         <GlowOrb color="purple" size="default" className="bottom-0 right-1/4 opacity-20" />
-
         <Container size="lg">
           <Badge variant="accent" className="mb-6">Powerful Features</Badge>
           <H1 className="mb-6">
@@ -73,9 +55,8 @@ export default function FeaturesPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Core Features Grid */}
-      <Section className="py-20">
+      <Section className="py-24">
         <Container size="xl">
           <div className="text-center mb-12">
             <H2 className="mb-4">Core Features</H2>
@@ -83,7 +64,6 @@ export default function FeaturesPage() {
               Built for modern marketers who demand results
             </Text>
           </div>
-
           <Grid cols={3} gap={8}>
             {/* AI Personalization */}
             <Card glass hover className="p-8">
@@ -117,7 +97,6 @@ export default function FeaturesPage() {
                 </Flex>
               </div>
             </Card>
-
             {/* Campaign Automation */}
             <Card glass hover className="p-8">
               <div className="h-14 w-14 bg-gradient-to-br from-[var(--accent)] to-purple-500 rounded-xl flex items-center justify-center mb-6">
@@ -150,7 +129,6 @@ export default function FeaturesPage() {
                 </Flex>
               </div>
             </Card>
-
             {/* Real-Time Analytics */}
             <Card glass hover className="p-8">
               <div className="h-14 w-14 bg-gradient-to-br from-[var(--accent)] to-purple-500 rounded-xl flex items-center justify-center mb-6">
@@ -186,9 +164,8 @@ export default function FeaturesPage() {
           </Grid>
         </Container>
       </Section>
-
       {/* Advanced Features */}
-      <Section className="py-20 bg-black/50">
+      <Section className="py-24 bg-black/50">
         <Container size="xl">
           <div className="text-center mb-12">
             <H2 className="mb-4">Advanced Capabilities</H2>
@@ -196,7 +173,6 @@ export default function FeaturesPage() {
               Enterprise-grade features for sophisticated campaigns
             </Text>
           </div>
-
           <Grid cols={4} gap={6}>
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
@@ -209,7 +185,6 @@ export default function FeaturesPage() {
                 Advanced list management with AI-powered segmentation and targeting
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,7 +196,6 @@ export default function FeaturesPage() {
                 Automated proofing and compliance checks before sending
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -233,7 +207,6 @@ export default function FeaturesPage() {
                 Pay-per-use with volume discounts and transparent pricing
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,7 +218,6 @@ export default function FeaturesPage() {
                 SOC 2 compliant with bank-level encryption and data protection
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,7 +229,6 @@ export default function FeaturesPage() {
                 Connect with your CRM, ESP, and marketing tools seamlessly
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,7 +240,6 @@ export default function FeaturesPage() {
                 Send mail anywhere with our worldwide delivery network
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,7 +251,6 @@ export default function FeaturesPage() {
                 Dedicated success team available around the clock
               </Text>
             </Card>
-
             <Card glass hover className="p-6">
               <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center mb-4">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,9 +265,8 @@ export default function FeaturesPage() {
           </Grid>
         </Container>
       </Section>
-
       {/* Integration Section */}
-      <Section className="py-20">
+      <Section className="py-24">
         <Container size="lg">
           <Grid cols={2} gap={12} className="items-center">
             <div>
@@ -347,7 +315,7 @@ export default function FeaturesPage() {
                     "Shopify", "Mailchimp", "Slack",
                     "Google Analytics", "Zapier", "Segment"
                   ].map((tool) => (
-                    <div key={tool} className="h-20 bg-white/5 rounded-lg flex items-center justify-center">
+                    <div key={tool} className="h-20 bg-black/5 rounded-lg flex items-center justify-center">
                       <Text size="sm" color="secondary">{tool}</Text>
                     </div>
                   ))}
@@ -357,9 +325,8 @@ export default function FeaturesPage() {
           </Grid>
         </Container>
       </Section>
-
       {/* CTA Section */}
-      <Section className="py-20 text-center relative">
+      <Section className="py-24 text-center relative">
         <GlowOrb className="top-0 left-1/2 transform -translate-x-1/2" color="accent" size="lg" />
         <Container size="md">
           <H2 className="mb-6">
@@ -380,7 +347,6 @@ export default function FeaturesPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5">
         <Container size="xl" className="py-12">

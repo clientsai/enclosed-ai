@@ -17,40 +17,18 @@ import {
   GlowOrb,
   Divider,
 } from "@/components/ui";
-
 export const metadata = {
   title: "FAQ - Enclosed.AI | Frequently Asked Questions",
   description:
     "Find answers to common questions about Enclosed.AI's AI-powered direct mail marketing platform, pricing, features, and more.",
 };
-
 export default function FAQPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
       <Section className="min-h-screen flex items-center justify-center pt-20">
         <Container size="lg">
@@ -89,7 +67,6 @@ export default function FAQPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* FAQ Content Section */}
       <Section id="faq-content">
         <Container>
@@ -142,7 +119,6 @@ export default function FAQPage() {
                   required.
                 </Text>
               </Card>
-
               <Card glass className="p-6">
                 <H3 className="mb-4">What file formats do you accept for recipient lists?</H3>
                 <Text color="secondary" className="mb-4">
@@ -164,7 +140,6 @@ export default function FAQPage() {
                   addresses and flag any that need correction before sending.
                 </Text>
               </Card>
-
               <Card glass className="p-6">
                 <H3 className="mb-4">Is there a minimum order size?</H3>
                 <Text color="secondary" className="mb-4">
@@ -186,7 +161,6 @@ export default function FAQPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Still Have Questions CTA */}
       <Section>
         <Container>
@@ -207,7 +181,6 @@ export default function FAQPage() {
           </Card>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5 mt-24">
         <Container>
@@ -251,9 +224,7 @@ export default function FAQPage() {
                 </div>
               ))}
             </Grid>
-
             <Divider className="mb-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

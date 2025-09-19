@@ -1,93 +1,36 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "Case Studies - Enclosed.AI | Success Stories & Results",
   description:
     "Discover how businesses are achieving remarkable results with Enclosed.AI's AI-powered direct mail marketing. Real case studies and success stories.",
 };
-
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-6">
+          <h1 className="text-4xl font-extrabold text-white sm:text-5xl mb-6">
             Success
             <span className="text-blue-600"> Stories</span>
           </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover how businesses across industries are achieving remarkable
             results with AI-powered direct mail marketing. Real results from
             real customers.
           </p>
         </div>
-
         {/* Featured Case Study */}
         <section className="mb-20">
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-block bg-white/20 rounded-full px-4 py-2 text-sm font-medium mb-6">
+                <div className="inline-block bg-black/20 rounded-full px-4 py-2 text-sm font-medium mb-6">
                   Featured Case Study
                 </div>
-                <h2 className="text-3xl font-bold mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   TechCorp Increases Text Generation by 340%
                 </h2>
                 <p className="text-lg opacity-90 mb-8 leading-relaxed">
@@ -97,13 +40,13 @@ export default function CaseStudiesPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div>
-                    <div className="text-3xl font-bold">340%</div>
+                    <div className="text-2xl md:text-3xl font-bold">340%</div>
                     <div className="text-sm opacity-80">
                       Increase in Qualified Texts
                     </div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">280%</div>
+                    <div className="text-2xl md:text-3xl font-bold">280%</div>
                     <div className="text-sm opacity-80">
                       Improvement in Conversion
                     </div>
@@ -111,12 +54,12 @@ export default function CaseStudiesPage() {
                 </div>
                 <Link
                   href="#techcorp-case"
-                  className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-black text-blue-600 rounded-lg font-medium hover:bg-black transition-colors"
                 >
                   Read Full Case Study →
                 </Link>
               </div>
-              <div className="bg-white/10 rounded-xl p-8">
+              <div className="bg-black/10 rounded-xl p-8">
                 <blockquote className="text-lg italic mb-6">
                   "Enclosed.AI completely transformed our lead generation
                   strategy. The AI personalization made our direct mail
@@ -124,7 +67,7 @@ export default function CaseStudiesPage() {
                   speak for themselves."
                 </blockquote>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-black/20 rounded-full flex items-center justify-center mr-4">
                     <span className="text-white font-bold text-lg">SM</span>
                   </div>
                   <div>
@@ -138,15 +81,14 @@ export default function CaseStudiesPage() {
             </div>
           </div>
         </section>
-
         {/* Case Studies Grid */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
             All Case Studies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Case Study 1 */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">340%</div>
@@ -157,10 +99,10 @@ export default function CaseStudiesPage() {
                 <div className="text-sm text-blue-600 font-medium mb-2">
                   B2B Software
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                   TechCorp Text Generation Success
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   How a B2B software company used AI-powered direct mail to
                   increase qualified leads by 340% and improve conversion rates
                   by 280%.
@@ -176,9 +118,8 @@ export default function CaseStudiesPage() {
                 </div>
               </div>
             </div>
-
             {/* Case Study 2 */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">450%</div>
@@ -189,10 +130,10 @@ export default function CaseStudiesPage() {
                 <div className="text-sm text-green-600 font-medium mb-2">
                   E-commerce
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                   RetailMax Customer Retention
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   An e-commerce retailer achieved 450% ROI improvement by using
                   personalized direct mail to re-engage dormant customers.
                 </p>
@@ -207,9 +148,8 @@ export default function CaseStudiesPage() {
                 </div>
               </div>
             </div>
-
             {/* Case Study 3 */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">520%</div>
@@ -220,10 +160,10 @@ export default function CaseStudiesPage() {
                 <div className="text-sm text-purple-600 font-medium mb-2">
                   Financial Services
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                   FinanceFirst Product Launch
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   A financial services company used AI personalization to
                   achieve a 520% higher response rate for their new product
                   launch campaign.
@@ -239,9 +179,8 @@ export default function CaseStudiesPage() {
                 </div>
               </div>
             </div>
-
             {/* Case Study 4 */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">280%</div>
@@ -252,10 +191,10 @@ export default function CaseStudiesPage() {
                 <div className="text-sm text-orange-600 font-medium mb-2">
                   Events & Conferences
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                   EventPro Conference Marketing
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   An event management company increased conference attendance by
                   280% using targeted direct mail campaigns with AI
                   personalization.
@@ -271,9 +210,8 @@ export default function CaseStudiesPage() {
                 </div>
               </div>
             </div>
-
             {/* Case Study 5 */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">380%</div>
@@ -284,10 +222,10 @@ export default function CaseStudiesPage() {
                 <div className="text-sm text-teal-600 font-medium mb-2">
                   Real Estate
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                   PropertyPro Sales Growth
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   A real estate agency achieved 380% sales increase by using
                   AI-powered direct mail to nurture leads and close more deals.
                 </p>
@@ -302,9 +240,8 @@ export default function CaseStudiesPage() {
                 </div>
               </div>
             </div>
-
             {/* Case Study 6 */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-4xl font-bold mb-2">290%</div>
@@ -315,10 +252,10 @@ export default function CaseStudiesPage() {
                 <div className="text-sm text-pink-600 font-medium mb-2">
                   Healthcare
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                   HealthPlus Patient Acquisition
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   A healthcare provider increased patient acquisition by 290%
                   using personalized direct mail campaigns for new service
                   offerings.
@@ -336,11 +273,10 @@ export default function CaseStudiesPage() {
             </div>
           </div>
         </section>
-
         {/* Industry Results */}
         <section className="mb-20">
           <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
               Industry Results
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -348,7 +284,7 @@ export default function CaseStudiesPage() {
                 <div className="text-4xl font-bold text-blue-600 mb-2">
                   3.2x
                 </div>
-                <div className="text-sm text-gray-600 mb-2">
+                <div className="text-sm text-gray-400 mb-2">
                   Average Response Rate
                 </div>
                 <p className="text-xs text-gray-500">
@@ -359,7 +295,7 @@ export default function CaseStudiesPage() {
                 <div className="text-4xl font-bold text-green-600 mb-2">
                   85%
                 </div>
-                <div className="text-sm text-gray-600 mb-2">
+                <div className="text-sm text-gray-400 mb-2">
                   Customer Satisfaction
                 </div>
                 <p className="text-xs text-gray-500">
@@ -370,7 +306,7 @@ export default function CaseStudiesPage() {
                 <div className="text-4xl font-bold text-purple-600 mb-2">
                   420%
                 </div>
-                <div className="text-sm text-gray-600 mb-2">Average ROI</div>
+                <div className="text-sm text-gray-400 mb-2">Average ROI</div>
                 <p className="text-xs text-gray-500">
                   Across all customer campaigns
                 </p>
@@ -379,7 +315,7 @@ export default function CaseStudiesPage() {
                 <div className="text-4xl font-bold text-orange-600 mb-2">
                   95%
                 </div>
-                <div className="text-sm text-gray-600 mb-2">
+                <div className="text-sm text-gray-400 mb-2">
                   Delivery Success Rate
                 </div>
                 <p className="text-xs text-gray-500">
@@ -389,65 +325,62 @@ export default function CaseStudiesPage() {
             </div>
           </div>
         </section>
-
         {/* Testimonials */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
             What Our Customers Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm p-8">
+            <div className="bg-black rounded-xl shadow-sm p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
                   <span className="text-blue-600 font-bold">JM</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">
+                  <div className="font-semibold text-white">
                     John Martinez
                   </div>
-                  <div className="text-sm text-gray-600">CMO, RetailMax</div>
+                  <div className="text-sm text-gray-400">CMO, RetailMax</div>
                 </div>
               </div>
-              <p className="text-gray-700 italic mb-4">
+              <p className="text-gray-300 italic mb-4">
                 "The AI personalization is incredible. Each letter feels like it
                 was written specifically for that customer. Our response rates
                 have never been higher."
               </p>
               <div className="flex text-yellow-400">★★★★★</div>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8">
+            <div className="bg-black rounded-xl shadow-sm p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
                   <span className="text-green-600 font-bold">LC</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">Lisa Chen</div>
-                  <div className="text-sm text-gray-600">
+                  <div className="font-semibold text-white">Lisa Chen</div>
+                  <div className="text-sm text-gray-400">
                     VP Marketing, FinanceFirst
                   </div>
                 </div>
               </div>
-              <p className="text-gray-700 italic mb-4">
+              <p className="text-gray-300 italic mb-4">
                 "Enclosed.AI has transformed our marketing strategy. The ROI is
                 outstanding, and the platform is incredibly easy to use."
               </p>
               <div className="flex text-yellow-400">★★★★★</div>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8">
+            <div className="bg-black rounded-xl shadow-sm p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
                   <span className="text-purple-600 font-bold">MR</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">
+                  <div className="font-semibold text-white">
                     Michael Rodriguez
                   </div>
-                  <div className="text-sm text-gray-600">CEO, PropertyPro</div>
+                  <div className="text-sm text-gray-400">CEO, PropertyPro</div>
                 </div>
               </div>
-              <p className="text-gray-700 italic mb-4">
+              <p className="text-gray-300 italic mb-4">
                 "The results speak for themselves. We've seen a 380% increase in
                 sales since implementing Enclosed.AI. It's been a game-changer."
               </p>
@@ -455,10 +388,9 @@ export default function CaseStudiesPage() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Create Your Success Story?
           </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
@@ -469,20 +401,19 @@ export default function CaseStudiesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/auth/signup"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-black hover:bg-black transition-colors"
             >
               Start Your Success Story
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors"
+              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-black hover:text-blue-600 transition-colors"
             >
               Talk to Sales
             </Link>
           </div>
         </section>
       </div>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -618,4 +549,3 @@ export default function CaseStudiesPage() {
     </div>
   );
 }
-

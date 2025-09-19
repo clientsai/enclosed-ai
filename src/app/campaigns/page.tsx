@@ -3,7 +3,6 @@
  * Campaign management interface
  */
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -11,6 +10,7 @@ import { supabase } from "@/lib/supabase";
 import { Campaign } from "@/types";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
+import Navigation from "@/components/Navigation";
 import {
   Container,
   Grid,
@@ -27,55 +27,49 @@ import {
   Spinner,
   Select,
 } from "@/components/ui";
-
 export default function CampaignsPage() {
   const router = useRouter();
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("created_at");
-
   useEffect(() => {
     loadCampaigns();
   }, [filter, sortBy]);
-
   const loadCampaigns = async () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       router.push("/auth/login");
       return;
     }
-
     let query = supabase
       .from("enclosed_campaigns")
       .select("*")
       .eq("user_id", user.id)
       .order(sortBy, { ascending: false });
-
     if (filter !== "all") {
       query = query.eq("status", filter);
     }
-
     const { data } = await query;
     if (data) {
       setCampaigns(data);
     }
     setLoading(false);
   };
-
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push("/");
   };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Spinner size="lg" />
+      <div className="min-h-screen bg-black">
+        <Navigation variant="app" />
+        <div className="flex items-center justify-center h-screen">
+          <Spinner size="lg" />
+        </div>
       </div>
     );
   }
-
   const stats = {
     total: campaigns.length,
     active: campaigns.filter((c) =>
@@ -87,29 +81,9 @@ export default function CampaignsPage() {
       0
     ),
   };
-
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <Nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/dashboard">Dashboard</NavLink>
-          <NavLink href="/campaigns" active>Campaigns</NavLink>
-          <NavLink href="/templates">Templates</NavLink>
-          <NavLink href="/api-keys">API</NavLink>
-          <NavLink href="/billing">Billing</NavLink>
-        </Flex>
-        <Flex gap={4} align="center">
-          <Button variant="primary" size="sm" href="/campaigns/new">
-            New Campaign
-          </Button>
-          <Button variant="ghost" size="sm" onClick={handleSignOut}>
-            Sign Out
-          </Button>
-        </Flex>
-      </Nav>
-
       <Container size="xl">
         <div className="py-8">
           {/* Header */}
@@ -127,7 +101,6 @@ export default function CampaignsPage() {
               </Button>
             </Flex>
           </div>
-
           {/* Stats Cards */}
           <Grid cols={4} gap={6} className="mb-12">
             <Card glass>
@@ -147,7 +120,6 @@ export default function CampaignsPage() {
               <H2>{formatCurrency(stats.totalSpent)}</H2>
             </Card>
           </Grid>
-
           {/* Filters */}
           <Flex justify="between" className="mb-8">
             <Flex gap={2}>
@@ -173,7 +145,6 @@ export default function CampaignsPage() {
               <option value="total_cost">Cost</option>
             </Select>
           </Flex>
-
           {/* Campaigns List */}
           {campaigns.length === 0 ? (
             <Card glass className="text-center py-16">
@@ -195,7 +166,7 @@ export default function CampaignsPage() {
                   <Flex justify="between" align="start">
                     <div className="flex-1">
                       <Flex gap={3} align="center" className="mb-3">
-                        <H3 className="text-xl">{campaign.name}</H3>
+                        <H3 className="text-lg md:text-lg md:text-xl">{campaign.name}</H3>
                         <Badge
                           variant={
                             campaign.status === "completed" ? "success" :
@@ -207,7 +178,6 @@ export default function CampaignsPage() {
                           {campaign.status}
                         </Badge>
                       </Flex>
-
                       <Grid cols={4} gap={4} className="mb-4">
                         <div>
                           <Text size="sm" color="muted">Recipients</Text>
@@ -231,7 +201,6 @@ export default function CampaignsPage() {
                           </Text>
                         </div>
                       </Grid>
-
                       {campaign.status === "completed" && (
                         <Flex gap={6}>
                           <Text size="sm">
@@ -243,7 +212,6 @@ export default function CampaignsPage() {
                         </Flex>
                       )}
                     </div>
-
                     <Flex gap={2}>
                       <Button
                         variant="ghost"

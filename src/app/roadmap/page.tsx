@@ -13,13 +13,11 @@ import {
   Card,
   Badge,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Product Roadmap - Enclosed.AI | Upcoming Features & Updates",
   description:
     "Explore our product roadmap and see what new features and improvements are coming to Enclosed.AI's AI-powered direct mail platform.",
 };
-
 export default function RoadmapPage() {
   const roadmapItems = [
     {
@@ -63,7 +61,6 @@ export default function RoadmapPage() {
       content: "Complete white-label solution for agencies and resellers. Includes custom branding, client management tools, and sub-account functionality with granular permissions."
     },
   ];
-
   const currentFeatures = [
     "AI-Powered Content Generation",
     "Multi-Channel Campaign Coordination",
@@ -74,7 +71,6 @@ export default function RoadmapPage() {
     "Custom Template Builder",
     "Advanced Audience Segmentation",
   ];
-
   const upcomingHighlights = [
     {
       title: "Global Expansion",
@@ -95,29 +91,9 @@ export default function RoadmapPage() {
       impact: "20-30% improvement in campaign response rates",
     },
   ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</Link>
-              <Link href="/features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</Link>
-              <Link href="/roadmap" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Roadmap</Link>
-              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pricing</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sign In</Link>
-              <Button as={Link} href="/auth/signup" size="sm">Get Started</Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex direction="col" gap={6}>
@@ -132,9 +108,8 @@ export default function RoadmapPage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Current Features */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex direction="col" gap={8}>
           <div className="text-center">
             <H2>Available Today</H2>
@@ -147,14 +122,13 @@ export default function RoadmapPage() {
                   <div className="h-5 w-5 bg-green-100 rounded-full flex items-center justify-center">
                     <span className="text-green-600 text-xs font-bold">✓</span>
                   </div>
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-gray-300">{feature}</span>
                 </div>
               ))}
             </Grid>
           </Card>
         </Flex>
       </Section>
-
       {/* Upcoming Highlights */}
       <Section>
         <Flex direction="col" gap={8}>
@@ -170,7 +144,7 @@ export default function RoadmapPage() {
                     <Badge variant="default">{highlight.quarter}</Badge>
                   </div>
                   <H4 className="text-lg">{highlight.title}</H4>
-                  <p className="text-gray-700 leading-relaxed text-sm">{highlight.description}</p>
+                  <p className="text-gray-300 leading-relaxed text-sm">{highlight.description}</p>
                   <div className="bg-blue-50 p-3 rounded-lg">
                     <p className="text-blue-700 font-medium text-sm">Impact: {highlight.impact}</p>
                   </div>
@@ -180,9 +154,8 @@ export default function RoadmapPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Roadmap Timeline */}
-      <Section id="timeline" className="bg-gray-50">
+      <Section id="timeline" className="bg-black">
         <Flex direction="col" gap={8}>
           <div className="text-center">
             <H2>Development Timeline</H2>
@@ -197,7 +170,6 @@ export default function RoadmapPage() {
                   {index < roadmapItems.length - 1 && (
                     <div className="absolute left-6 top-12 w-0.5 h-16 bg-gray-200"></div>
                   )}
-
                   <Flex gap={6} align="start">
                     {/* Timeline Dot */}
                     <div className="relative">
@@ -205,7 +177,6 @@ export default function RoadmapPage() {
                         <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                       </div>
                     </div>
-
                     {/* Content */}
                     <Card className="flex-1 p-6">
                       <Flex direction="col" gap={3}>
@@ -213,7 +184,7 @@ export default function RoadmapPage() {
                           <Badge variant="accent">{item.date}</Badge>
                         </div>
                         <H4>{item.title}</H4>
-                        <Text className="text-gray-600">{item.content}</Text>
+                        <Text className="text-gray-400">{item.content}</Text>
                       </Flex>
                     </Card>
                   </Flex>
@@ -223,7 +194,6 @@ export default function RoadmapPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Feature Requests */}
       <Section>
         <Flex direction="col" gap={8}>
@@ -235,7 +205,7 @@ export default function RoadmapPage() {
             <Card className="p-8">
               <Flex direction="col" gap={4}>
                 <H3>Request a Feature</H3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Have an idea for a feature that would improve your direct mail campaigns? We want to hear from you! Our product team reviews all submissions and prioritizes based on customer impact.
                 </p>
                 <Button>Submit Feature Request</Button>
@@ -244,7 +214,7 @@ export default function RoadmapPage() {
             <Card className="p-8">
               <Flex direction="col" gap={4}>
                 <H3>Join Beta Testing</H3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Get early access to new features and help us perfect them before general release. Beta testers receive exclusive previews and can directly influence final implementations.
                 </p>
                 <Button variant="ghost">Join Beta Program</Button>
@@ -253,7 +223,6 @@ export default function RoadmapPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex direction="col" gap={6}>
@@ -262,12 +231,11 @@ export default function RoadmapPage() {
             Start using Enclosed.AI today and get automatic access to all new features as they're released. No additional costs, just continuous innovation.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">Start Free Trial</Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">Contact Us</Button>
+            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">Start Free Trial</Button>
+            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">Contact Us</Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

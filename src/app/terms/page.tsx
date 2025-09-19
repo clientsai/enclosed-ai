@@ -15,40 +15,18 @@ import {
   Badge,
 } from "@/components/ui";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "Terms of Service - Enclosed.AI | Legal Terms and Conditions",
   description:
     "Read Enclosed.AI's terms of service to understand your rights and responsibilities when using our AI-powered direct mail platform.",
 };
-
 export default function TermsPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Content */}
       <Section className="pt-24">
         <Container size="default">
@@ -61,33 +39,27 @@ export default function TermsPage() {
               </Text>
               <Text size="sm" color="muted" className="mt-4">Last updated: March 15, 2024</Text>
             </div>
-
             <div className="prose prose-invert max-w-none">
               <H2>Acceptance of Terms</H2>
               <Text color="secondary" className="mb-6">
                 By accessing or using our services, you agree to be bound by these Terms of Service and all applicable laws and regulations.
               </Text>
-
               <H2>Service Description</H2>
               <Text color="secondary" className="mb-6">
                 Enclosed.AI provides AI-powered direct mail marketing services, including content generation, printing, and delivery services.
               </Text>
-
               <H2>User Responsibilities</H2>
               <Text color="secondary" className="mb-6">
                 You are responsible for providing accurate recipient information and ensuring compliance with all applicable marketing laws and regulations.
               </Text>
-
               <H2>Payment Terms</H2>
               <Text color="secondary" className="mb-6">
                 Payment is due upon placing an order. We accept major credit cards and other payment methods as specified on our platform.
               </Text>
-
               <H2>Limitation of Liability</H2>
               <Text color="secondary" className="mb-6">
                 Our liability is limited to the amount paid for the specific service. We are not liable for indirect, incidental, or consequential damages.
               </Text>
-
               <H2>Contact Us</H2>
               <Text color="secondary" className="mb-4">
                 If you have any questions about these Terms of Service, please contact us:
@@ -101,7 +73,6 @@ export default function TermsPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5 mt-24">
         <Container>
@@ -112,9 +83,7 @@ export default function TermsPage() {
                 Direct mail marketing powered by artificial intelligence
               </Text>
             </div>
-
             <Divider className="my-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

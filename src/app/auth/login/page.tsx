@@ -3,7 +3,6 @@
  * Focus on simplicity and clarity
  */
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -22,25 +21,21 @@ import {
   FormGroup,
   GlowOrb,
 } from "@/components/ui";
-
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
-
       if (error) throw error;
       router.push("/dashboard");
     } catch (err: any) {
@@ -49,20 +44,17 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Background effects */}
       <GlowOrb color="accent" size="lg" className="top-0 -right-32 opacity-10" />
       <GlowOrb color="purple" size="default" className="bottom-0 -left-32 opacity-10" />
-
       <Container size="sm">
         <Card glass className="p-8 md:p-12">
           {/* Logo */}
           <Flex justify="center" className="mb-8">
             <Logo size="lg" showText />
           </Flex>
-
           {/* Header */}
           <div className="text-center mb-8">
             <H2 className="mb-3">Welcome back</H2>
@@ -70,7 +62,6 @@ export default function LoginPage() {
               Sign in to continue to your dashboard
             </Text>
           </div>
-
           {/* Form */}
           <Form onSubmit={handleLogin}>
             <FormGroup>
@@ -83,7 +74,6 @@ export default function LoginPage() {
                 required
               />
             </FormGroup>
-
             <FormGroup>
               <Input
                 type="password"
@@ -94,7 +84,6 @@ export default function LoginPage() {
                 required
               />
             </FormGroup>
-
             {/* Forgot password link */}
             <Flex justify="end" className="mb-6">
               <Link href="/auth/forgot-password">
@@ -103,13 +92,11 @@ export default function LoginPage() {
                 </Text>
               </Link>
             </Flex>
-
             {error && (
               <Alert variant="error" className="mb-6">
                 {error}
               </Alert>
             )}
-
             <Button
               type="submit"
               variant="primary"
@@ -119,7 +106,6 @@ export default function LoginPage() {
             >
               Sign In
             </Button>
-
             {/* Divider */}
             <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
@@ -129,7 +115,6 @@ export default function LoginPage() {
                 <span className="px-4 bg-black text-gray-500">Or continue with</span>
               </div>
             </div>
-
             {/* Social login */}
             <Flex gap={4}>
               <Button
@@ -169,7 +154,6 @@ export default function LoginPage() {
               </Button>
             </Flex>
           </Form>
-
           {/* Sign up link */}
           <div className="text-center mt-8">
             <Text size="sm" color="secondary">

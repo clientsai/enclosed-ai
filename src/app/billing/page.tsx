@@ -1,6 +1,5 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -8,6 +7,7 @@ import { supabase } from "@/lib/supabase";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
 
+import Navigation from "@/components/Navigation";
 interface Transaction {
   id: string;
   type: "credit" | "debit";
@@ -16,7 +16,6 @@ interface Transaction {
   created_at: string;
   campaign_id?: string;
 }
-
 interface Subscription {
   id: string;
   plan: "starter" | "premium";
@@ -26,14 +25,12 @@ interface Subscription {
   lettersUsed: number;
   pricePerMonth: number;
 }
-
 interface MailingCredit {
   total: number;
   used: number;
   available: number;
   addOns: number;
 }
-
 export default function BillingPage() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
@@ -48,20 +45,16 @@ export default function BillingPage() {
     addOns: 0,
   });
   const [showLowCreditWarning, setShowLowCreditWarning] = useState(false);
-
   const subscriptionPlans = [
     { id: "starter", name: "Starter Plan", letters: 50, price: 99.99 },
     { id: "premium", name: "Premium Plan", letters: 100, price: 299.99 },
   ];
-
   const letterBundles = [
     { id: "bundle100", name: "100 Letter Bundle", letters: 100, price: 200 },
   ];
-
   useEffect(() => {
     loadBillingData();
   }, []);
-
   const loadBillingData = async () => {
     const {
       data: { user: authUser },
@@ -70,17 +63,14 @@ export default function BillingPage() {
       router.push("/auth/login");
       return;
     }
-
     const { data: userData } = await supabase
       .from("enclosed_users")
       .select("*")
       .eq("id", authUser.id)
       .single();
-
     if (userData) {
       setUser(userData);
     }
-
     // In a real app, load transactions from a transactions table
     setTransactions([
       {
@@ -103,10 +93,8 @@ export default function BillingPage() {
         campaign_id: "camp_123",
       },
     ]);
-
     setLoading(false);
   };
-
   const handlePurchase = async (packageId: string) => {
     try {
       const response = await fetch("/api/stripe/checkout", {
@@ -114,7 +102,6 @@ export default function BillingPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ packageId }),
       });
-
       const { url } = await response.json();
       if (url) {
         window.location.href = url;
@@ -124,77 +111,34 @@ export default function BillingPage() {
       alert("Failed to create checkout session");
     }
   };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen bg-black">
+      <Navigation variant="app" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
   }
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Link href="/dashboard" className="flex items-center space-x-2">
-                <Logo size="md" />
-              </Link>
-
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  href="/dashboard"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  href="/campaigns"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  Campaigns
-                </Link>
-                <Link
-                  href="/billing"
-                  className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Billing
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <span className="text-sm text-gray-600">
-                Current Balance:{" "}
-                <span className="font-semibold text-green-600">
-                  {formatCurrency(user?.credits_balance || 0)}
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         {/* Header - Highlight Row Component */}
         <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="flex items-center space-x-3">
-            <span className="text-3xl">💰</span>
+            <span className="text-2xl md:text-3xl">💰</span>
             <div>
-              <div className="font-semibold text-gray-900">Current Balance</div>
-              <div className="text-2xl font-bold text-green-600">
+              <div className="font-semibold text-white">Current Balance</div>
+              <div className="text-xl md:text-2xl font-bold text-green-600">
                 {formatCurrency(user?.credits_balance || 0)}
               </div>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="text-3xl">📊</span>
+            <span className="text-2xl md:text-3xl">📊</span>
             <div>
-              <div className="font-semibold text-gray-900">Total Spent</div>
-              <div className="text-2xl font-bold text-gray-700">
+              <div className="font-semibold text-white">Total Spent</div>
+              <div className="text-xl md:text-2xl font-bold text-gray-300">
                 {formatCurrency(
                   transactions
                     .filter((t) => t.type === "debit")
@@ -204,26 +148,25 @@ export default function BillingPage() {
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="text-3xl">✉️</span>
+            <span className="text-2xl md:text-3xl">✉️</span>
             <div>
-              <div className="font-semibold text-gray-900">Letters Sent</div>
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="font-semibold text-white">Letters Sent</div>
+              <div className="text-xl md:text-2xl font-bold text-blue-600">
                 {user?.total_pieces_sent || 0}
               </div>
             </div>
           </div>
         </div>
-
         {/* Credit Packages - Card Row Emphasis Component */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
             Purchase Credits
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {creditPackages.map((pkg, index) => (
               <article
                 key={pkg.id}
-                className={`relative bg-white border-2 rounded-xl p-6 cursor-pointer transition-all hover:shadow-lg ${
+                className={`relative bg-black border-2 rounded-xl p-6 cursor-pointer transition-all hover:shadow-lg ${
                   selectedPackage === pkg.id
                     ? "border-blue-600 shadow-lg"
                     : "border-gray-200"
@@ -237,13 +180,13 @@ export default function BillingPage() {
                     </span>
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {pkg.name}
                 </h3>
-                <div className="text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
                   ${pkg.price}
                 </div>
-                <div className="text-sm text-gray-600 mb-4">
+                <div className="text-sm text-gray-400 mb-4">
                   {pkg.credits.toLocaleString()} credits
                 </div>
                 <div className="text-xs text-gray-500 mb-4">
@@ -262,7 +205,7 @@ export default function BillingPage() {
                   className={`mt-4 w-full py-2 rounded-lg font-medium transition-colors ${
                     selectedPackage === pkg.id
                       ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      : "bg-gray-100 text-gray-300 hover:bg-gray-200"
                   }`}
                 >
                   Purchase
@@ -271,10 +214,9 @@ export default function BillingPage() {
             ))}
           </div>
         </div>
-
         {/* Transaction History - Timeline Vertical Component */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+        <div className="bg-black rounded-lg shadow-sm p-6">
+          <h2 className="text-lg md:text-xl font-semibold text-white mb-6">
             Transaction History
           </h2>
           <div className="space-y-4">
@@ -330,7 +272,7 @@ export default function BillingPage() {
                   <div className="ml-4 flex-1">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-white">
                           {transaction.description}
                         </p>
                         <p className="text-sm text-gray-500 mt-1">
@@ -368,7 +310,6 @@ export default function BillingPage() {
             )}
           </div>
         </div>
-
         {/* Info Section - Inset Note Component */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
           <div className="flex items-start space-x-3">

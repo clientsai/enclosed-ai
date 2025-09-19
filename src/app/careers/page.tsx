@@ -19,34 +19,13 @@ import {
   Divider,
 } from "@/components/ui";
 import Logo from "@/components/Logo";
-
 export default function CareersPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
       <Section className="min-h-screen flex items-center justify-center pt-20">
         <Container size="lg">
@@ -79,7 +58,6 @@ export default function CareersPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Why Work With Us */}
       <Section id="culture">
         <Container>
@@ -91,7 +69,6 @@ export default function CareersPage() {
                 We're building something extraordinary, and we want you to be part of it.
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
@@ -107,7 +84,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-xl flex items-center justify-center mx-auto">
@@ -122,7 +98,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-xl flex items-center justify-center mx-auto">
@@ -137,7 +112,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-xl flex items-center justify-center mx-auto">
@@ -152,7 +126,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-xl flex items-center justify-center mx-auto">
@@ -167,7 +140,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-xl flex items-center justify-center mx-auto">
@@ -186,7 +158,6 @@ export default function CareersPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Open Positions */}
       <Section id="positions">
         <Container>
@@ -198,7 +169,6 @@ export default function CareersPage() {
                 Join our team and help build the future of direct mail marketing.
               </Text>
             </div>
-
             <Flex direction="col" gap={6}>
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
@@ -225,12 +195,11 @@ export default function CareersPage() {
                     </Flex>
                   </Flex>
                   <div className="text-right">
-                    <div className="text-2xl font-bold gradient-text-accent">$120,000 - $180,000</div>
+                    <div className="text-xl md:text-2xl font-bold gradient-text-accent">$120,000 - $180,000</div>
                     <Text color="secondary">+ Equity + Benefits</Text>
                   </div>
                 </Grid>
               </Card>
-
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
                   <Flex direction="col" gap={4}>
@@ -256,12 +225,11 @@ export default function CareersPage() {
                     </Flex>
                   </Flex>
                   <div className="text-right">
-                    <div className="text-2xl font-bold gradient-text-accent">$130,000 - $200,000</div>
+                    <div className="text-xl md:text-2xl font-bold gradient-text-accent">$130,000 - $200,000</div>
                     <Text color="secondary">+ Equity + Benefits</Text>
                   </div>
                 </Grid>
               </Card>
-
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
                   <Flex direction="col" gap={4}>
@@ -287,12 +255,11 @@ export default function CareersPage() {
                     </Flex>
                   </Flex>
                   <div className="text-right">
-                    <div className="text-2xl font-bold gradient-text-accent">$90,000 - $140,000</div>
+                    <div className="text-xl md:text-2xl font-bold gradient-text-accent">$90,000 - $140,000</div>
                     <Text color="secondary">+ Equity + Benefits</Text>
                   </div>
                 </Grid>
               </Card>
-
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
                   <Flex direction="col" gap={4}>
@@ -318,7 +285,7 @@ export default function CareersPage() {
                     </Flex>
                   </Flex>
                   <div className="text-right">
-                    <div className="text-2xl font-bold gradient-text-accent">$70,000 - $110,000</div>
+                    <div className="text-xl md:text-2xl font-bold gradient-text-accent">$70,000 - $110,000</div>
                     <Text color="secondary">+ Equity + Benefits</Text>
                   </div>
                 </Grid>
@@ -327,7 +294,6 @@ export default function CareersPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Benefits */}
       <Section>
         <Container>
@@ -339,7 +305,6 @@ export default function CareersPage() {
                 We take care of our team so you can focus on doing your best work.
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               <div className="text-center">
                 <Flex direction="col" gap={3}>
@@ -351,7 +316,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </div>
-
               <div className="text-center">
                 <Flex direction="col" gap={3}>
                   <div className="text-4xl">💰</div>
@@ -361,7 +325,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </div>
-
               <div className="text-center">
                 <Flex direction="col" gap={3}>
                   <div className="text-4xl">🏖️</div>
@@ -371,7 +334,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </div>
-
               <div className="text-center">
                 <Flex direction="col" gap={3}>
                   <div className="text-4xl">📚</div>
@@ -381,7 +343,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </div>
-
               <div className="text-center">
                 <Flex direction="col" gap={3}>
                   <div className="text-4xl">💻</div>
@@ -391,7 +352,6 @@ export default function CareersPage() {
                   </Text>
                 </Flex>
               </div>
-
               <div className="text-center">
                 <Flex direction="col" gap={3}>
                   <div className="text-4xl">🏠</div>
@@ -405,7 +365,6 @@ export default function CareersPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Hiring Process */}
       <Section>
         <Container>
@@ -417,7 +376,6 @@ export default function CareersPage() {
                 A transparent, efficient process designed to find the right fit for both sides.
               </Text>
             </div>
-
             <Grid cols={4} gap={8}>
               {[
                 {
@@ -445,7 +403,7 @@ export default function CareersPage() {
                   <div className="text-6xl font-bold gradient-text-accent mb-4">
                     {step.step}
                   </div>
-                  <H3 className="text-xl mb-2">{step.title}</H3>
+                  <H3 className="text-lg md:text-xl mb-2">{step.title}</H3>
                   <Text color="secondary">{step.content}</Text>
                 </div>
               ))}
@@ -453,7 +411,6 @@ export default function CareersPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* CTA Section */}
       <Section>
         <Container>
@@ -474,7 +431,6 @@ export default function CareersPage() {
           </Card>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5 mt-24">
         <Container>
@@ -518,9 +474,7 @@ export default function CareersPage() {
                 </div>
               ))}
             </Grid>
-
             <Divider className="mb-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

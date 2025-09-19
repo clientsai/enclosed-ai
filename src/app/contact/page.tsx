@@ -20,39 +20,19 @@ import {
   Textarea,
   Form,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Contact Us - Enclosed.AI | Get in Touch with Our Team",
   description:
     "Contact Enclosed.AI for support, sales inquiries, or general questions. We're here to help you succeed with direct mail marketing.",
 };
-
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-dark text-white relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       <GlowOrb className="top-20 left-10" color="accent" size="lg" />
       <GlowOrb className="bottom-20 right-10" color="purple" size="default" />
-
       {/* Header */}
-      <Nav className="sticky top-0 z-50">
-        <Logo size="md" />
-        <Flex gap={8} className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact" active>Contact</NavLink>
-        </Flex>
-        <Flex gap={4} align="center">
-          <NavLink href="/auth/login">Sign In</NavLink>
-          <Button as={Link} href="/auth/signup" size="sm">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
-      <Section className="text-center py-20">
+      <Section className="text-center py-24">
         <Flex direction="col" gap={6} align="center">
           <Badge variant="accent">We're here to help • 24/7 Support • Quick Response</Badge>
           <H1 gradient>Get in Touch</H1>
@@ -70,9 +50,8 @@ export default function ContactPage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Main Contact Section */}
-      <Section className="py-20">
+      <Section className="py-24">
         <Grid cols={2} gap={8}>
           {/* Contact Form */}
           <Card glass className="p-8">
@@ -95,7 +74,6 @@ export default function ContactPage() {
                 </div>
                 <H2>Send us a message</H2>
               </Flex>
-
               <Form id="contact-form" className="space-y-6">
                 <Grid cols={2} gap={6}>
                   <Input
@@ -109,20 +87,17 @@ export default function ContactPage() {
                     name="lastName"
                   />
                 </Grid>
-
                 <Input
                   label="Email Address"
                   type="email"
                   placeholder="john@company.com"
                   name="email"
                 />
-
                 <Input
                   label="Company"
                   placeholder="Your Company"
                   name="company"
                 />
-
                 <Select label="Subject" name="subject">
                   <option value="">Select a subject</option>
                   <option value="sales">Sales Inquiry</option>
@@ -131,21 +106,18 @@ export default function ContactPage() {
                   <option value="partnership">Partnership Opportunity</option>
                   <option value="other">Other</option>
                 </Select>
-
                 <Textarea
                   label="Message"
                   placeholder="Tell us how we can help you..."
                   rows={6}
                   name="message"
                 />
-
                 <Button type="submit" className="w-full">
                   Send Message
                 </Button>
               </Form>
             </Flex>
           </Card>
-
           {/* Contact Information */}
           <Flex direction="col" gap={6}>
             <Card glass className="p-8">
@@ -174,7 +146,6 @@ export default function ContactPage() {
                   </div>
                   <H2>Contact Information</H2>
                 </Flex>
-
                 <Flex direction="col" gap={6}>
                   <Flex align="start" gap={4}>
                     <div className="h-12 w-12 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -205,7 +176,6 @@ export default function ContactPage() {
                       </a>
                     </Flex>
                   </Flex>
-
                   <Flex align="start" gap={4}>
                     <div className="h-12 w-12 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg
@@ -235,7 +205,6 @@ export default function ContactPage() {
                       </a>
                     </Flex>
                   </Flex>
-
                   <Flex align="start" gap={4}>
                     <div className="h-12 w-12 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg
@@ -273,7 +242,6 @@ export default function ContactPage() {
                 </Flex>
               </Flex>
             </Card>
-
             <Card glass className="p-6">
               <Flex direction="col" gap={4}>
                 <Flex align="center" gap={3}>
@@ -313,9 +281,8 @@ export default function ContactPage() {
           </Flex>
         </Grid>
       </Section>
-
       {/* Additional Contact Options */}
-      <Section className="py-20">
+      <Section className="py-24">
         <Flex direction="col" gap={8}>
           <div className="text-center">
             <H2>Other Ways to Connect</H2>
@@ -323,7 +290,6 @@ export default function ContactPage() {
               Explore additional ways to get help and connect with our community
             </Text>
           </div>
-
           <Grid cols={3} gap={6}>
             <Card glass hover className="p-8 text-center">
               <Flex direction="col" gap={4} align="center">
@@ -352,7 +318,6 @@ export default function ContactPage() {
                 </Button>
               </Flex>
             </Card>
-
             <Card glass hover className="p-8 text-center">
               <Flex direction="col" gap={4} align="center">
                 <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center">
@@ -380,7 +345,6 @@ export default function ContactPage() {
                 </Button>
               </Flex>
             </Card>
-
             <Card glass hover className="p-8 text-center">
               <Flex direction="col" gap={4} align="center">
                 <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center">
@@ -411,7 +375,6 @@ export default function ContactPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-gray-800">
         <Section className="py-12">

@@ -1,19 +1,17 @@
 "use client";
-
 import { useState, useCallback, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import Papa from "papaparse";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Navigation from "@/components/Navigation";
 interface CSVData {
   headers: string[];
   rows: any[];
 }
-
 interface ColumnMapping {
   [key: string]: string;
 }
-
 const REQUIRED_FIELDS = [
   "firstName",
   "lastName",
@@ -22,7 +20,6 @@ const REQUIRED_FIELDS = [
   "state",
   "zipCode",
 ];
-
 const OPTIONAL_FIELDS = [
   "company",
   "email",
@@ -37,7 +34,6 @@ const OPTIONAL_FIELDS = [
   "customField2",
   "customField3",
 ];
-
 export default function CSVUploadPage() {
   const [csvData, setCsvData] = useState<CSVData | null>(null);
   const [columnMapping, setColumnMapping] = useState<ColumnMapping>({});
@@ -47,10 +43,8 @@ export default function CSVUploadPage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
-
     if (file) {
       Papa.parse(file, {
         complete: (result) => {
@@ -60,7 +54,6 @@ export default function CSVUploadPage() {
             .filter((row: any) =>
               row.some((cell: any) => cell && cell.toString().trim()),
             );
-
           setCsvData({ headers, rows });
           autoMapColumns(headers);
           setStep("mapping");
@@ -70,13 +63,10 @@ export default function CSVUploadPage() {
       });
     }
   }, []);
-
   const autoMapColumns = (headers: string[]) => {
     const mapping: ColumnMapping = {};
-
     headers.forEach((header, index) => {
       const normalizedHeader = header.toLowerCase().trim();
-
       // Auto-map common field names
       if (
         normalizedHeader.includes("first") &&
@@ -124,10 +114,8 @@ export default function CSVUploadPage() {
         mapping.phone = header;
       }
     });
-
     setColumnMapping(mapping);
   };
-
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
@@ -139,29 +127,24 @@ export default function CSVUploadPage() {
     },
     maxFiles: 1,
   });
-
   const handleMappingChange = (field: string, csvColumn: string) => {
     setColumnMapping((prev) => ({
       ...prev,
       [field]: csvColumn,
     }));
   };
-
   const validateMapping = () => {
     const missingRequired = REQUIRED_FIELDS.filter(
       (field) => !columnMapping[field],
     );
-
     if (missingRequired.length > 0) {
       alert(
         `Please map the following required fields: ${missingRequired.join(", ")}`,
       );
       return false;
     }
-
     return true;
   };
-
   const handlePreview = () => {
     if (validateMapping()) {
       setStep("preview");
@@ -169,46 +152,36 @@ export default function CSVUploadPage() {
       setSelectedRows(csvData?.rows.map((_, index) => index) || []);
     }
   };
-
   const toggleRowSelection = (index: number) => {
     setSelectedRows((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
-
   const selectAllRows = () => {
     setSelectedRows(csvData?.rows.map((_, index) => index) || []);
   };
-
   const deselectAllRows = () => {
     setSelectedRows([]);
   };
-
   const getMappedValue = (row: any[], field: string) => {
     const columnName = columnMapping[field];
     if (!columnName || !csvData) return "";
-
     const columnIndex = csvData.headers.indexOf(columnName);
     return columnIndex >= 0 ? row[columnIndex] : "";
   };
-
   const handleProcessData = async () => {
     setStep("processing");
     setUploadProgress(0);
-
     const processedData = selectedRows.map((index) => {
       const row = csvData!.rows[index];
       const mappedRow: any = {};
-
       [...REQUIRED_FIELDS, ...OPTIONAL_FIELDS].forEach((field) => {
         if (columnMapping[field]) {
           mappedRow[field] = getMappedValue(row, field);
         }
       });
-
       return mappedRow;
     });
-
     // Simulate processing with progress
     const interval = setInterval(() => {
       setUploadProgress((prev) => {
@@ -230,17 +203,16 @@ export default function CSVUploadPage() {
       });
     }, 200);
   };
-
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black">
+      <Navigation variant="app" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Import Texts</h1>
-          <p className="text-gray-600 mt-2">
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Import Texts</h1>
+          <p className="text-gray-400 mt-2">
             Upload your CSV file to import leads for direct mail campaigns
           </p>
         </div>
-
         {/* Progress Steps */}
         <div className="mb-8">
           <div className="flex items-center justify-between max-w-3xl">
@@ -251,7 +223,7 @@ export default function CSVUploadPage() {
                 className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
                   step === "upload"
                     ? "border-blue-600 bg-blue-50"
-                    : "border-gray-300 bg-white"
+                    : "border-gray-300 bg-black"
                 }`}
               >
                 1
@@ -266,7 +238,7 @@ export default function CSVUploadPage() {
                 className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
                   step === "mapping"
                     ? "border-blue-600 bg-blue-50"
-                    : "border-gray-300 bg-white"
+                    : "border-gray-300 bg-black"
                 }`}
               >
                 2
@@ -281,7 +253,7 @@ export default function CSVUploadPage() {
                 className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
                   step === "preview"
                     ? "border-blue-600 bg-blue-50"
-                    : "border-gray-300 bg-white"
+                    : "border-gray-300 bg-black"
                 }`}
               >
                 3
@@ -290,7 +262,6 @@ export default function CSVUploadPage() {
             </div>
           </div>
         </div>
-
         <AnimatePresence mode="wait">
           {/* Upload Step */}
           {step === "upload" && (
@@ -298,7 +269,7 @@ export default function CSVUploadPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-white rounded-lg shadow-sm p-8"
+              className="bg-black rounded-lg shadow-sm p-8"
             >
               <div
                 {...getRootProps()}
@@ -338,12 +309,11 @@ export default function CSVUploadPage() {
                   </>
                 )}
               </div>
-
-              <div className="mt-8 bg-gray-50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">
+              <div className="mt-8 bg-black rounded-lg p-6">
+                <h3 className="font-semibold text-white mb-3">
                   Required Fields
                 </h3>
-                <p className="text-sm text-gray-600 mb-3">
+                <p className="text-sm text-gray-400 mb-3">
                   Your CSV should include the following columns:
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -359,26 +329,24 @@ export default function CSVUploadPage() {
               </div>
             </motion.div>
           )}
-
           {/* Mapping Step */}
           {step === "mapping" && csvData && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-white rounded-lg shadow-sm p-8"
+              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <h2 className="text-xl font-semibold mb-6">Map Your Columns</h2>
-
+              <h2 className="text-lg md:text-xl font-semibold mb-6">Map Your Columns</h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-4">
+                  <h3 className="font-medium text-white mb-4">
                     Required Fields
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {REQUIRED_FIELDS.map((field) => (
                       <div key={field} className="flex items-center space-x-3">
-                        <label className="w-32 text-sm font-medium text-gray-700">
+                        <label className="w-32 text-sm font-medium text-gray-300">
                           {field.replace(/([A-Z])/g, " $1").trim()}:
                         </label>
                         <select
@@ -399,15 +367,14 @@ export default function CSVUploadPage() {
                     ))}
                   </div>
                 </div>
-
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-4">
+                  <h3 className="font-medium text-white mb-4">
                     Optional Fields
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {OPTIONAL_FIELDS.map((field) => (
                       <div key={field} className="flex items-center space-x-3">
-                        <label className="w-32 text-sm text-gray-700">
+                        <label className="w-32 text-sm text-gray-300">
                           {field.replace(/([A-Z])/g, " $1").trim()}:
                         </label>
                         <select
@@ -429,11 +396,10 @@ export default function CSVUploadPage() {
                   </div>
                 </div>
               </div>
-
               <div className="mt-8 flex justify-between">
                 <button
                   onClick={() => setStep("upload")}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                 >
                   Back
                 </button>
@@ -446,19 +412,18 @@ export default function CSVUploadPage() {
               </div>
             </motion.div>
           )}
-
           {/* Preview Step */}
           {step === "preview" && csvData && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-white rounded-lg shadow-sm p-8"
+              className="bg-black rounded-lg shadow-sm p-8"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold">Preview Import</h2>
+                <h2 className="text-lg md:text-xl font-semibold">Preview Import</h2>
                 <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-400">
                     {selectedRows.length} of {csvData.rows.length} selected
                   </span>
                   <button
@@ -475,10 +440,9 @@ export default function CSVUploadPage() {
                   </button>
                 </div>
               </div>
-
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-black">
                     <tr>
                       <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         <input
@@ -508,7 +472,7 @@ export default function CSVUploadPage() {
                       )}
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-black divide-y divide-gray-200">
                     {csvData.rows.slice(0, 10).map((row, index) => (
                       <tr
                         key={index}
@@ -546,17 +510,15 @@ export default function CSVUploadPage() {
                   </tbody>
                 </table>
               </div>
-
               {csvData.rows.length > 10 && (
                 <p className="mt-4 text-sm text-gray-500 text-center">
                   Showing first 10 of {csvData.rows.length} leads
                 </p>
               )}
-
               <div className="mt-8 flex justify-between">
                 <button
                   onClick={() => setStep("mapping")}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                 >
                   Back
                 </button>
@@ -570,14 +532,13 @@ export default function CSVUploadPage() {
               </div>
             </motion.div>
           )}
-
           {/* Processing Step */}
           {step === "processing" && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-white rounded-lg shadow-sm p-8"
+              className="bg-black rounded-lg shadow-sm p-8"
             >
               <div className="max-w-md mx-auto text-center">
                 <div className="mb-8">
@@ -600,10 +561,10 @@ export default function CSVUploadPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">
                     Importing Texts...
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     Please wait while we process your data
                   </p>
                 </div>

@@ -1,6 +1,5 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -8,6 +7,7 @@ import { supabase } from "@/lib/supabase";
 import { OFFER_DETAILS, OfferType } from "@/types";
 import Logo from "@/components/Logo";
 
+import Navigation from "@/components/Navigation";
 interface Template {
   id: string;
   name: string;
@@ -17,7 +17,6 @@ interface Template {
   is_default: boolean;
   created_at: string;
 }
-
 export default function TemplatesPage() {
   const router = useRouter();
   const [templates, setTemplates] = useState<Template[]>([]);
@@ -27,11 +26,9 @@ export default function TemplatesPage() {
   );
   const [showEditor, setShowEditor] = useState(false);
   const [editContent, setEditContent] = useState("");
-
   useEffect(() => {
     loadTemplates();
   }, []);
-
   const loadTemplates = async () => {
     const {
       data: { user },
@@ -40,96 +37,49 @@ export default function TemplatesPage() {
       router.push("/auth/login");
       return;
     }
-
     const { data } = await supabase
       .from("enclosed_templates")
       .select("*")
       .order("created_at", { ascending: false });
-
     if (data) {
       setTemplates(data);
     }
     setLoading(false);
   };
-
   const handleSaveTemplate = async () => {
     if (!selectedTemplate) return;
-
     const {
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) return;
-
     await supabase
       .from("enclosed_templates")
       .update({ content: editContent })
       .eq("id", selectedTemplate.id);
-
     setShowEditor(false);
     setSelectedTemplate(null);
     setEditContent("");
     await loadTemplates();
   };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+      <div className="min-h-screen bg-black">
+      <Navigation variant="app" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
       </div>
     );
   }
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Link href="/dashboard" className="flex items-center space-x-2">
-                <Logo size="md" />
-              </Link>
-
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  href="/dashboard"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  href="/campaigns"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  Campaigns
-                </Link>
-                <Link
-                  href="/templates"
-                  className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Templates
-                </Link>
-                <Link
-                  href="/api-keys"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  API Keys
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         {/* Header - Pull Quote Component */}
         <blockquote className="mb-8 border-l-4 border-gray-900 pl-6">
-          <h1 className="text-3xl font-bold text-gray-900">Letter Templates</h1>
-          <cite className="not-italic text-gray-600 text-lg mt-2 block">
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Letter Templates</h1>
+          <cite className="not-italic text-gray-400 text-lg mt-2 block">
             Customize AI-powered templates for each offer type
           </cite>
         </blockquote>
-
         {/* Template Categories - Feature Grid Component */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {(Object.keys(OFFER_DETAILS) as OfferType[]).map((offerType) => {
@@ -139,17 +89,17 @@ export default function TemplatesPage() {
             return (
               <article
                 key={offerType}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-black border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">
+                  <span className="text-xl md:text-2xl">
                     {OFFER_DETAILS[offerType].icon || "📄"}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {OFFER_DETAILS[offerType].title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-400 mb-4">
                   {OFFER_DETAILS[offerType].description}
                 </p>
                 <div className="text-sm text-gray-500">
@@ -160,28 +110,27 @@ export default function TemplatesPage() {
             );
           })}
         </div>
-
         {/* Templates List - Comparison Table Component */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
-            <h2 className="text-lg font-medium text-gray-900">All Templates</h2>
+        <div className="bg-black rounded-lg shadow-sm overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-200 bg-black">
+            <h2 className="text-lg font-medium text-white">All Templates</h2>
           </div>
           <table className="min-w-full">
             <thead>
               <tr className="bg-gray-100 border-b border-gray-200">
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Template Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Offer Type
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Variables
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
@@ -214,12 +163,12 @@ export default function TemplatesPage() {
                 templates.map((template, index) => (
                   <tr
                     key={template.id}
-                    className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    className={index % 2 === 0 ? "bg-black" : "bg-black"}
                   >
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 text-sm font-medium text-white">
                       {template.name}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600">
+                    <td className="px-6 py-4 text-sm text-gray-400">
                       {OFFER_DETAILS[template.offer_type]?.title ||
                         template.offer_type}
                     </td>
@@ -228,13 +177,13 @@ export default function TemplatesPage() {
                         {template.variables.slice(0, 3).map((v) => (
                           <span
                             key={v}
-                            className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                            className="inline-block px-2 py-1 bg-gray-100 text-gray-300 text-xs rounded"
                           >
                             {v}
                           </span>
                         ))}
                         {template.variables.length > 3 && (
-                          <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          <span className="inline-block px-2 py-1 bg-gray-100 text-gray-300 text-xs rounded">
                             +{template.variables.length - 3}
                           </span>
                         )}
@@ -246,7 +195,7 @@ export default function TemplatesPage() {
                           Default
                         </span>
                       ) : (
-                        <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800">
+                        <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-white">
                           Custom
                         </span>
                       )}
@@ -269,38 +218,36 @@ export default function TemplatesPage() {
             </tbody>
           </table>
         </div>
-
         {/* Help Section - Callout Accent Component */}
-        <aside className="mt-8 bg-gray-50 border-l-4 border-gray-900 p-6 rounded-r-lg">
-          <h3 className="text-gray-900 font-semibold mb-2">
+        <aside className="mt-8 bg-black border-l-4 border-gray-900 p-6 rounded-r-lg">
+          <h3 className="text-white font-semibold mb-2">
             Template Variables
           </h3>
-          <p className="text-gray-700 text-sm mb-3">
+          <p className="text-gray-300 text-sm mb-3">
             Use these variables in your templates to personalize each letter:
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-            <code className="bg-white px-2 py-1 rounded text-gray-600">
+            <code className="bg-black px-2 py-1 rounded text-gray-400">
               {"{name}"}
             </code>
-            <code className="bg-white px-2 py-1 rounded text-gray-600">
+            <code className="bg-black px-2 py-1 rounded text-gray-400">
               {"{company}"}
             </code>
-            <code className="bg-white px-2 py-1 rounded text-gray-600">
+            <code className="bg-black px-2 py-1 rounded text-gray-400">
               {"{address}"}
             </code>
-            <code className="bg-white px-2 py-1 rounded text-gray-600">
+            <code className="bg-black px-2 py-1 rounded text-gray-400">
               {"{offer}"}
             </code>
           </div>
         </aside>
       </div>
-
       {/* Edit Modal - Toggle Reveal Component */}
       {showEditor && selectedTemplate && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-            <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-black rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="px-6 py-4 border-b border-gray-200 bg-black">
+              <h2 className="text-lg md:text-xl font-semibold text-white">
                 Edit Template: {selectedTemplate.name}
               </h2>
             </div>
@@ -312,15 +259,15 @@ export default function TemplatesPage() {
                 placeholder="Enter your template content..."
               />
               <details className="mt-4 group">
-                <summary className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 font-medium">
+                <summary className="cursor-pointer text-sm text-gray-400 hover:text-white font-medium">
                   Show available variables
                 </summary>
-                <div className="mt-3 p-4 bg-gray-50 rounded-lg">
+                <div className="mt-3 p-4 bg-black rounded-lg">
                   <div className="flex flex-wrap gap-2">
                     {selectedTemplate.variables.map((v) => (
                       <code
                         key={v}
-                        className="px-2 py-1 bg-white border border-gray-200 rounded text-xs"
+                        className="px-2 py-1 bg-black border border-gray-200 rounded text-xs"
                       >
                         {`{${v}}`}
                       </code>
@@ -329,14 +276,14 @@ export default function TemplatesPage() {
                 </div>
               </details>
             </div>
-            <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex justify-end space-x-3">
+            <div className="px-6 py-4 border-t border-gray-200 bg-black flex justify-end space-x-3">
               <button
                 onClick={() => {
                   setShowEditor(false);
                   setSelectedTemplate(null);
                   setEditContent("");
                 }}
-                className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                className="px-4 py-2 border border-gray-300 text-gray-300 rounded-lg hover:bg-black transition-colors"
               >
                 Cancel
               </button>

@@ -1,70 +1,14 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "Knowledge Base - Enclosed.AI | Documentation & Tutorials",
   description:
     "Browse our comprehensive documentation, tutorials, and best practices guides for Enclosed.AI direct mail marketing platform.",
 };
-
 export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl p-16 text-center mb-16">
@@ -89,11 +33,11 @@ export default function DocsPage() {
                 />
               </svg>
             </div>
-            <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl mb-6 leading-tight">
+            <h1 className="text-5xl font-extrabold text-white sm:text-6xl mb-6 leading-tight">
               Knowledge
               <span className="text-green-600"> Base</span>
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
               Comprehensive documentation, tutorials, and best practices guides
               to help you master direct mail marketing with Enclosed.AI.
             </p>
@@ -119,14 +63,13 @@ export default function DocsPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-700 text-lg font-semibold rounded-xl hover:border-green-600 hover:text-green-600 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-300 text-lg font-semibold rounded-xl hover:border-green-600 hover:text-green-600 transition-all duration-300"
               >
                 Contact Support
               </Link>
             </div>
           </div>
         </div>
-
         {/* Search Bar */}
         <div className="mb-16">
           <div className="max-w-2xl mx-auto">
@@ -149,20 +92,19 @@ export default function DocsPage() {
               <input
                 type="text"
                 placeholder="Search documentation..."
-                className="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
+                className="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-xl leading-5 bg-black placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
               />
             </div>
           </div>
         </div>
-
         {/* Getting Started Section */}
         <div id="getting-started" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Getting Started
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Quick Start Guide */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -179,11 +121,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Quick Start Guide
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Get up and running with Enclosed.AI in under 10 minutes. Learn
                 the basics of creating your first campaign.
               </p>
@@ -197,9 +139,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* Account Setup */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -216,11 +157,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Account Setup
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Complete guide to setting up your account, configuring
                 preferences, and connecting your payment method.
               </p>
@@ -234,9 +175,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* First Campaign */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -253,11 +193,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Creating Your First Campaign
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Step-by-step tutorial on creating, designing, and launching your
                 first direct mail campaign.
               </p>
@@ -273,15 +213,14 @@ export default function DocsPage() {
             </div>
           </div>
         </div>
-
         {/* Feature Guides */}
         <div className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Feature Guides
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* AI Personalization */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -298,11 +237,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   AI Personalization
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Learn how to leverage our AI to create highly personalized
                 content that resonates with your audience and drives results.
               </p>
@@ -316,9 +255,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* Analytics & Reporting */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -335,11 +273,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Analytics & Reporting
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Master our analytics dashboard to track performance, measure ROI,
                 and optimize your campaigns for better results.
               </p>
@@ -353,9 +291,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* Integrations */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -372,11 +309,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Integrations
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Connect Enclosed.AI with your favorite tools and platforms to
                 streamline your workflow and maximize efficiency.
               </p>
@@ -390,9 +327,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* API Documentation */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -409,11 +345,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   API Documentation
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Complete API reference with examples, authentication, and
                 integration guides for developers.
               </p>
@@ -429,15 +365,14 @@ export default function DocsPage() {
             </div>
           </div>
         </div>
-
         {/* Best Practices */}
         <div className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Best Practices
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Design Guidelines */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -454,11 +389,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Design Guidelines
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Learn the principles of effective direct mail design, including
                 layout, typography, and visual hierarchy.
               </p>
@@ -472,9 +407,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* Copywriting Tips */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -491,11 +425,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Copywriting Tips
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Master the art of persuasive copywriting for direct mail
                 campaigns that convert prospects into customers.
               </p>
@@ -509,9 +443,8 @@ export default function DocsPage() {
                 </Link>
               </div>
             </div>
-
             {/* A/B Testing */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -528,11 +461,11 @@ export default function DocsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   A/B Testing
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Learn how to test different elements of your campaigns to
                 optimize performance and maximize ROI.
               </p>
@@ -548,53 +481,51 @@ export default function DocsPage() {
             </div>
           </div>
         </div>
-
         {/* Troubleshooting */}
         <div className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Troubleshooting
           </h2>
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-black rounded-2xl shadow-lg p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Common Issues */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
                   Common Issues
                 </h3>
                 <div className="space-y-4">
                   <div className="border-l-4 border-blue-500 pl-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-white mb-2">
                       Campaign not sending
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-400 text-sm">
                       Check your account balance and payment method
                     </p>
                   </div>
                   <div className="border-l-4 border-green-500 pl-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-white mb-2">
                       Design not rendering correctly
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-400 text-sm">
                       Ensure all images are properly uploaded and accessible
                     </p>
                   </div>
                   <div className="border-l-4 border-yellow-500 pl-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-white mb-2">
                       Analytics not updating
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-400 text-sm">
                       Allow 24-48 hours for data to appear in reports
                     </p>
                   </div>
                 </div>
               </div>
-
               {/* Contact Support */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
                   Need More Help?
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-400 mb-6">
                   Can't find what you're looking for? Our support team is here to
                   help you succeed.
                 </p>
@@ -607,7 +538,7 @@ export default function DocsPage() {
                   </Link>
                   <Link
                     href="/community"
-                    className="block w-full border border-gray-300 text-gray-700 text-center py-3 px-6 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors"
+                    className="block w-full border border-gray-300 text-gray-300 text-center py-3 px-6 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors"
                   >
                     Ask Community
                   </Link>
@@ -616,11 +547,10 @@ export default function DocsPage() {
             </div>
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-green-600 via-emerald-700 to-teal-800 rounded-3xl p-16 text-center text-white">
           <div className="absolute inset-0 z-0 opacity-20">
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-black rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
             <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
             <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
           </div>
@@ -628,14 +558,14 @@ export default function DocsPage() {
             <h2 className="text-4xl font-extrabold mb-6">
               Still Need Help?
             </h2>
-            <p className="text-xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
               Our support team is available 24/7 to help you succeed with
               Enclosed.AI. Get personalized assistance when you need it most.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-green-600 bg-white hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-green-600 bg-black hover:bg-black transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <svg
                   className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300"
@@ -654,7 +584,7 @@ export default function DocsPage() {
               </Link>
               <Link
                 href="/community"
-                className="group inline-flex items-center px-10 py-4 border-2 border-white text-lg font-semibold rounded-full text-white hover:bg-white hover:text-green-600 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+                className="group inline-flex items-center px-10 py-4 border-2 border-white text-lg font-semibold rounded-full text-white hover:bg-black hover:text-green-600 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
               >
                 <svg
                   className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300"
@@ -675,7 +605,6 @@ export default function DocsPage() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -811,4 +740,3 @@ export default function DocsPage() {
     </div>
   );
 }
-

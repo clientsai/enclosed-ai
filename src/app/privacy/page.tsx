@@ -16,34 +16,13 @@ import {
   Badge,
 } from "@/components/ui";
 import Logo from "@/components/Logo";
-
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Content */}
       <Section className="pt-24">
         <Container size="default">
@@ -56,33 +35,27 @@ export default function PrivacyPage() {
               </Text>
               <Text size="sm" color="muted" className="mt-4">Last updated: March 15, 2024</Text>
             </div>
-
             <div className="prose prose-invert max-w-none">
               <H2>Information We Collect</H2>
               <Text color="secondary" className="mb-6">
                 We collect information that you provide directly to us when you create an account, make a purchase, or contact us for support.
               </Text>
-
               <H2>How We Use Your Information</H2>
               <Text color="secondary" className="mb-6">
                 We use the information we collect to provide, maintain, and improve our services, process transactions, and communicate with you.
               </Text>
-
               <H2>Information Sharing</H2>
               <Text color="secondary" className="mb-6">
                 We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.
               </Text>
-
               <H2>Data Security</H2>
               <Text color="secondary" className="mb-6">
                 We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
               </Text>
-
               <H2>Your Rights</H2>
               <Text color="secondary" className="mb-6">
                 You have the right to access, update, or delete your personal information. You may also opt out of certain communications from us.
               </Text>
-
               <H2>Contact Us</H2>
               <Text color="secondary" className="mb-4">
                 If you have any questions about this Privacy Policy, please contact us:
@@ -96,7 +69,6 @@ export default function PrivacyPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5 mt-24">
         <Container>
@@ -107,9 +79,7 @@ export default function PrivacyPage() {
                 Direct mail marketing powered by artificial intelligence
               </Text>
             </div>
-
             <Divider className="my-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

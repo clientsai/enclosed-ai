@@ -18,40 +18,18 @@ import {
   GlowOrb,
   Divider,
 } from "@/components/ui";
-
 export const metadata = {
   title: "About Us - Enclosed.AI | Direct Mail Marketing Platform",
   description:
     "Learn about Enclosed.AI's mission to revolutionize direct mail marketing with AI-powered personalization and seamless campaign management.",
 };
-
 export default function AboutPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about" active>About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
       <Section className="min-h-screen flex items-center justify-center pt-20">
         <Container size="lg">
@@ -84,7 +62,6 @@ export default function AboutPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Mission Section */}
       <Section>
         <Container>
@@ -154,7 +131,6 @@ export default function AboutPage() {
           </Grid>
         </Container>
       </Section>
-
       {/* Story Section */}
       <Section>
         <Container>
@@ -163,7 +139,6 @@ export default function AboutPage() {
               <Badge className="mb-4">Our Journey</Badge>
               <H2 className="mb-4">Our Story</H2>
             </div>
-
             <div className="space-y-12">
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
@@ -184,7 +159,6 @@ export default function AboutPage() {
                   </Text>
                 </Grid>
               </Card>
-
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
                   <div>
@@ -205,7 +179,6 @@ export default function AboutPage() {
                   </Text>
                 </Grid>
               </Card>
-
               <Card glass className="p-8">
                 <Grid cols={2} gap={8} align="center">
                   <div>
@@ -228,7 +201,6 @@ export default function AboutPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Values Section */}
       <Section>
         <Container>
@@ -241,7 +213,6 @@ export default function AboutPage() {
                 serve our customers
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               <Card hover className="p-8">
                 <Flex direction="col" gap={4}>
@@ -269,7 +240,6 @@ export default function AboutPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8">
                 <Flex direction="col" gap={4}>
                   <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
@@ -296,7 +266,6 @@ export default function AboutPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8">
                 <Flex direction="col" gap={4}>
                   <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
@@ -327,7 +296,6 @@ export default function AboutPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Team Preview Section */}
       <Section>
         <Container>
@@ -340,12 +308,11 @@ export default function AboutPage() {
                 united by our passion for revolutionizing direct mail marketing.
               </Text>
             </div>
-
             <Grid cols={4} gap={6}>
               <Card hover className="p-6 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">SM</span>
+                    <span className="text-white text-lg md:text-xl font-bold">SM</span>
                   </div>
                   <div>
                     <H4 className="mb-1">Sarah Mitchell</H4>
@@ -360,11 +327,10 @@ export default function AboutPage() {
                   </div>
                 </Flex>
               </Card>
-
               <Card hover className="p-6 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">DJ</span>
+                    <span className="text-white text-lg md:text-xl font-bold">DJ</span>
                   </div>
                   <div>
                     <H4 className="mb-1">David Johnson</H4>
@@ -378,11 +344,10 @@ export default function AboutPage() {
                   </div>
                 </Flex>
               </Card>
-
               <Card hover className="p-6 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">LC</span>
+                    <span className="text-white text-lg md:text-xl font-bold">LC</span>
                   </div>
                   <div>
                     <H4 className="mb-1">Lisa Chen</H4>
@@ -396,11 +361,10 @@ export default function AboutPage() {
                   </div>
                 </Flex>
               </Card>
-
               <Card hover className="p-6 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">MR</span>
+                    <span className="text-white text-lg md:text-xl font-bold">MR</span>
                   </div>
                   <div>
                     <H4 className="mb-1">Michael Rodriguez</H4>
@@ -415,7 +379,6 @@ export default function AboutPage() {
                 </Flex>
               </Card>
             </Grid>
-
             <div className="text-center">
               <Button variant="ghost" size="lg" href="/team">
                 View Full Team
@@ -424,7 +387,6 @@ export default function AboutPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* CTA Section */}
       <Section>
         <Container>
@@ -446,7 +408,6 @@ export default function AboutPage() {
           </Card>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5 mt-24">
         <Container>
@@ -490,9 +451,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </Grid>
-
             <Divider className="mb-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

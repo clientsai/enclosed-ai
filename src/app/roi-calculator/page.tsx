@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
@@ -17,7 +16,6 @@ import {
   Badge,
   Alert,
 } from "@/components/ui";
-
 export default function ROICalculatorPage() {
   const [inputs, setInputs] = useState({
     mailPieces: 1000,
@@ -29,7 +27,6 @@ export default function ROICalculatorPage() {
     listCosts: 200,
     otherCosts: 0,
   });
-
   const [results, setResults] = useState({
     totalCost: 0,
     totalResponses: 0,
@@ -41,11 +38,9 @@ export default function ROICalculatorPage() {
     costPerConversion: 0,
     breakEvenResponseRate: 0,
   });
-
   useEffect(() => {
     calculateROI();
   }, [inputs]);
-
   const calculateROI = () => {
     const mailCost = inputs.mailPieces * inputs.costPerPiece;
     const totalCost = mailCost + inputs.designCosts + inputs.listCosts + inputs.otherCosts;
@@ -59,7 +54,6 @@ export default function ROICalculatorPage() {
     const breakEvenResponseRate = inputs.averageOrderValue > 0 && inputs.conversionRate > 0
       ? (totalCost / (inputs.mailPieces * (inputs.averageOrderValue * inputs.conversionRate / 100))) * 100
       : 0;
-
     setResults({
       totalCost: Math.round(totalCost),
       totalResponses: Math.round(totalResponses),
@@ -72,7 +66,6 @@ export default function ROICalculatorPage() {
       breakEvenResponseRate: Math.round(breakEvenResponseRate * 100) / 100,
     });
   };
-
   const handleInputChange = (field: string, value: string) => {
     const numValue = parseFloat(value) || 0;
     setInputs(prev => ({
@@ -80,18 +73,15 @@ export default function ROICalculatorPage() {
       [field]: numValue,
     }));
   };
-
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(value);
   };
-
   const formatNumber = (value: number) => {
     return new Intl.NumberFormat('en-US').format(value);
   };
-
   const industryBenchmarks = [
     { industry: "Real Estate", responseRate: "3.0-5.0%", avgOrderValue: "$2,500", notes: "High-value transactions, longer sales cycles" },
     { industry: "Financial Services", responseRate: "2.5-4.0%", avgOrderValue: "$1,200", notes: "Trust-driven, compliance-sensitive" },
@@ -100,61 +90,9 @@ export default function ROICalculatorPage() {
     { industry: "Healthcare", responseRate: "2.8-5.2%", avgOrderValue: "$650", notes: "Regulated, trust-based marketing" },
     { industry: "Automotive", responseRate: "1.8-3.2%", avgOrderValue: "$18,500", notes: "High-value, seasonal variations" },
   ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/roi-calculator"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                ROI Calculator
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex direction="col" gap={6}>
@@ -167,7 +105,6 @@ export default function ROICalculatorPage() {
           </Text>
         </Flex>
       </Section>
-
       {/* Calculator Section */}
       <Section>
         <div className="max-w-6xl mx-auto">
@@ -176,14 +113,13 @@ export default function ROICalculatorPage() {
             <Card className="p-8">
               <Flex direction="col" gap={6}>
                 <H3>Campaign Parameters</H3>
-
                 <div className="space-y-6">
                   {/* Campaign Details */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4">Campaign Details</h4>
+                    <h4 className="font-semibold text-white mb-4">Campaign Details</h4>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Number of Mail Pieces
                         </label>
                         <input
@@ -194,9 +130,8 @@ export default function ROICalculatorPage() {
                           min="1"
                         />
                       </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Cost per Mail Piece ($)
                         </label>
                         <input
@@ -208,9 +143,8 @@ export default function ROICalculatorPage() {
                           min="0"
                         />
                       </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Expected Response Rate (%)
                         </label>
                         <input
@@ -225,13 +159,12 @@ export default function ROICalculatorPage() {
                       </div>
                     </div>
                   </div>
-
                   {/* Revenue Details */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4">Revenue Details</h4>
+                    <h4 className="font-semibold text-white mb-4">Revenue Details</h4>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Average Order Value ($)
                         </label>
                         <input
@@ -243,9 +176,8 @@ export default function ROICalculatorPage() {
                           min="0"
                         />
                       </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Conversion Rate (% of responses that buy)
                         </label>
                         <input
@@ -260,13 +192,12 @@ export default function ROICalculatorPage() {
                       </div>
                     </div>
                   </div>
-
                   {/* Additional Costs */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4">Additional Costs</h4>
+                    <h4 className="font-semibold text-white mb-4">Additional Costs</h4>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Design & Creative Costs ($)
                         </label>
                         <input
@@ -278,9 +209,8 @@ export default function ROICalculatorPage() {
                           min="0"
                         />
                       </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           List Acquisition Costs ($)
                         </label>
                         <input
@@ -292,9 +222,8 @@ export default function ROICalculatorPage() {
                           min="0"
                         />
                       </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Other Costs ($)
                         </label>
                         <input
@@ -311,71 +240,60 @@ export default function ROICalculatorPage() {
                 </div>
               </Flex>
             </Card>
-
             {/* Results Panel */}
             <Card className="p-8">
               <Flex direction="col" gap={6}>
                 <H3>Projected Results</H3>
-
                 {/* Key Metrics */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className="text-2xl font-bold text-gray-900">
+                  <div className="text-center p-4 bg-black rounded-lg">
+                    <div className="text-xl md:text-2xl font-bold text-white">
                       {formatCurrency(results.totalRevenue)}
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">Total Revenue</div>
+                    <div className="text-sm text-gray-400 mt-1">Total Revenue</div>
                   </div>
-
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className="text-2xl font-bold text-gray-900">
+                  <div className="text-center p-4 bg-black rounded-lg">
+                    <div className="text-xl md:text-2xl font-bold text-white">
                       {formatCurrency(results.totalCost)}
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">Total Cost</div>
+                    <div className="text-sm text-gray-400 mt-1">Total Cost</div>
                   </div>
-
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className={`text-2xl font-bold ${results.roi >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  <div className="text-center p-4 bg-black rounded-lg">
+                    <div className={`text-xl md:text-2xl font-bold ${results.roi >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                       {results.roi >= 0 ? '+' : ''}{results.roi}%
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">ROI</div>
+                    <div className="text-sm text-gray-400 mt-1">ROI</div>
                   </div>
-
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className={`text-2xl font-bold ${results.profit >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  <div className="text-center p-4 bg-black rounded-lg">
+                    <div className={`text-xl md:text-2xl font-bold ${results.profit >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                       {formatCurrency(results.profit)}
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">Profit/Loss</div>
+                    <div className="text-sm text-gray-400 mt-1">Profit/Loss</div>
                   </div>
                 </div>
-
                 {/* Detailed Metrics */}
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-700">Expected Responses</span>
+                    <span className="text-gray-300">Expected Responses</span>
                     <span className="font-semibold">{formatNumber(results.totalResponses)}</span>
                   </div>
-
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-700">Expected Conversions</span>
+                    <span className="text-gray-300">Expected Conversions</span>
                     <span className="font-semibold">{formatNumber(results.totalConversions)}</span>
                   </div>
-
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-700">Cost per Response</span>
+                    <span className="text-gray-300">Cost per Response</span>
                     <span className="font-semibold">{formatCurrency(results.costPerResponse)}</span>
                   </div>
-
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-700">Cost per Conversion</span>
+                    <span className="text-gray-300">Cost per Conversion</span>
                     <span className="font-semibold">{formatCurrency(results.costPerConversion)}</span>
                   </div>
-
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-gray-700">Break-even Response Rate</span>
+                    <span className="text-gray-300">Break-even Response Rate</span>
                     <span className="font-semibold">{results.breakEvenResponseRate}%</span>
                   </div>
                 </div>
-
                 {/* ROI Interpretation */}
                 <div className="mt-6">
                   {results.roi >= 300 && (
@@ -404,9 +322,8 @@ export default function ROICalculatorPage() {
           </Grid>
         </div>
       </Section>
-
       {/* Industry Benchmarks */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex direction="col" gap={8}>
           <div className="text-center">
             <H2>Industry Benchmarks</H2>
@@ -414,10 +331,9 @@ export default function ROICalculatorPage() {
               Compare your projections with industry standards to set realistic expectations and identify opportunities for improvement.
             </Text>
           </div>
-
           <div className="overflow-x-auto">
-            <table className="w-full bg-white rounded-lg shadow-sm">
-              <thead className="bg-gray-50">
+            <table className="w-full bg-black rounded-lg shadow-sm">
+              <thead className="bg-black">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Industry
@@ -435,17 +351,17 @@ export default function ROICalculatorPage() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {industryBenchmarks.map((benchmark, index) => (
-                  <tr key={index} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                  <tr key={index} className="hover:bg-black">
+                    <td className="px-6 py-4 whitespace-nowrap font-medium text-white">
                       {benchmark.industry}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-gray-700">
+                    <td className="px-6 py-4 whitespace-nowrap text-gray-300">
                       {benchmark.responseRate}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-gray-700">
+                    <td className="px-6 py-4 whitespace-nowrap text-gray-300">
                       {benchmark.avgOrderValue}
                     </td>
-                    <td className="px-6 py-4 text-gray-700">
+                    <td className="px-6 py-4 text-gray-300">
                       {benchmark.notes}
                     </td>
                   </tr>
@@ -455,7 +371,6 @@ export default function ROICalculatorPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Tips Section */}
       <Section>
         <Flex direction="col" gap={8}>
@@ -465,7 +380,6 @@ export default function ROICalculatorPage() {
               Maximize your direct mail ROI with these proven strategies
             </Text>
           </div>
-
           <Grid cols={3}>
             <Card className="p-6">
               <Flex direction="col" gap={4}>
@@ -485,12 +399,11 @@ export default function ROICalculatorPage() {
                   </svg>
                 </div>
                 <H4>Improve Response Rates</H4>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Use personalization, compelling offers, clear calls-to-action, and professional design to increase response rates by 20-40%.
                 </p>
               </Flex>
             </Card>
-
             <Card className="p-6">
               <Flex direction="col" gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
@@ -509,12 +422,11 @@ export default function ROICalculatorPage() {
                   </svg>
                 </div>
                 <H4>Reduce Costs</H4>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Optimize mail formats, negotiate volume discounts, and use efficient targeting to reduce cost per piece by 15-30%.
                 </p>
               </Flex>
             </Card>
-
             <Card className="p-6">
               <Flex direction="col" gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
@@ -533,7 +445,7 @@ export default function ROICalculatorPage() {
                   </svg>
                 </div>
                 <H4>Increase Conversions</H4>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Streamline your sales process, provide multiple response options, and follow up promptly to boost conversion rates.
                 </p>
               </Flex>
@@ -541,7 +453,6 @@ export default function ROICalculatorPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex direction="col" gap={6}>
@@ -552,16 +463,15 @@ export default function ROICalculatorPage() {
             Start your direct mail campaign with Enclosed.AI and achieve the ROI you've calculated. Our AI-powered platform helps you exceed industry benchmarks.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
               Schedule Consultation
             </Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

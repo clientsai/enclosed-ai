@@ -1,70 +1,14 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "Community Forum - Enclosed.AI | Connect with Users & Get Support",
   description:
     "Join the Enclosed.AI community forum to connect with other users, share tips, get advice, and learn best practices for direct mail marketing.",
 };
-
 export default function CommunityPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-16 text-center mb-16">
@@ -89,11 +33,11 @@ export default function CommunityPage() {
                 />
               </svg>
             </div>
-            <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl mb-6 leading-tight">
+            <h1 className="text-5xl font-extrabold text-white sm:text-6xl mb-6 leading-tight">
               Community
               <span className="text-blue-600"> Forum</span>
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
               Connect with other Enclosed.AI users, share tips, get advice, and
               learn best practices for direct mail marketing success.
             </p>
@@ -119,22 +63,21 @@ export default function CommunityPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-700 text-lg font-semibold rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-300 text-lg font-semibold rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
               >
                 Get Support
               </Link>
             </div>
           </div>
         </div>
-
         {/* Forum Categories */}
         <div id="forum" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Forum Categories
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Getting Started */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -151,11 +94,11 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Getting Started
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 New to Enclosed.AI? Find tutorials, setup guides, and answers to
                 common questions from fellow users.
               </p>
@@ -169,9 +112,8 @@ export default function CommunityPage() {
                 </Link>
               </div>
             </div>
-
             {/* Best Practices */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -188,11 +130,11 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Best Practices
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Share and discover proven strategies, tips, and techniques for
                 maximizing your direct mail marketing results.
               </p>
@@ -206,9 +148,8 @@ export default function CommunityPage() {
                 </Link>
               </div>
             </div>
-
             {/* Feature Requests */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -225,11 +166,11 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Feature Requests
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Suggest new features, vote on ideas, and help shape the future of
                 Enclosed.AI based on your needs.
               </p>
@@ -243,9 +184,8 @@ export default function CommunityPage() {
                 </Link>
               </div>
             </div>
-
             {/* Troubleshooting */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -262,11 +202,11 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Troubleshooting
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Get help with technical issues, bugs, and problems you're
                 experiencing with the platform.
               </p>
@@ -280,9 +220,8 @@ export default function CommunityPage() {
                 </Link>
               </div>
             </div>
-
             {/* Success Stories */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -299,11 +238,11 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   Success Stories
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Share your wins, celebrate achievements, and inspire others with
                 your direct mail marketing success stories.
               </p>
@@ -317,9 +256,8 @@ export default function CommunityPage() {
                 </Link>
               </div>
             </div>
-
             {/* General Discussion */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
                   <svg
@@ -336,11 +274,11 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-white">
                   General Discussion
                 </h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Chat about anything related to direct mail marketing, industry
                 trends, or just connect with the community.
               </p>
@@ -356,13 +294,12 @@ export default function CommunityPage() {
             </div>
           </div>
         </div>
-
         {/* Recent Activity */}
         <div className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Recent Activity
           </h2>
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-black rounded-2xl shadow-lg p-8">
             <div className="space-y-6">
               {/* Sample Post 1 */}
               <div className="border-b border-gray-200 pb-6 last:border-b-0">
@@ -372,15 +309,15 @@ export default function CommunityPage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-white">
                         John Doe
                       </h3>
                       <span className="text-sm text-gray-500">2 hours ago</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h4 className="text-lg font-semibold text-white mb-2">
                       Best practices for A/B testing direct mail campaigns?
                     </h4>
-                    <p className="text-gray-600 mb-3">
+                    <p className="text-gray-400 mb-3">
                       I'm looking to optimize my direct mail campaigns through
                       A/B testing. What are the most effective elements to test
                       and how should I structure my tests for meaningful results?
@@ -393,7 +330,6 @@ export default function CommunityPage() {
                   </div>
                 </div>
               </div>
-
               {/* Sample Post 2 */}
               <div className="border-b border-gray-200 pb-6 last:border-b-0">
                 <div className="flex items-start space-x-4">
@@ -402,15 +338,15 @@ export default function CommunityPage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-white">
                         Sarah Miller
                       </h3>
                       <span className="text-sm text-gray-500">5 hours ago</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h4 className="text-lg font-semibold text-white mb-2">
                       Success: 300% ROI increase with personalized content
                     </h4>
-                    <p className="text-gray-600 mb-3">
+                    <p className="text-gray-400 mb-3">
                       Just wanted to share my recent success! By using
                       Enclosed.AI's personalization features, I increased my ROI
                       by 300% in just 3 months. The key was testing different
@@ -424,7 +360,6 @@ export default function CommunityPage() {
                   </div>
                 </div>
               </div>
-
               {/* Sample Post 3 */}
               <div className="border-b border-gray-200 pb-6 last:border-b-0">
                 <div className="flex items-start space-x-4">
@@ -433,15 +368,15 @@ export default function CommunityPage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-white">
                         Mike Rodriguez
                       </h3>
                       <span className="text-sm text-gray-500">1 day ago</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h4 className="text-lg font-semibold text-white mb-2">
                       Feature Request: Integration with Salesforce
                     </h4>
-                    <p className="text-gray-600 mb-3">
+                    <p className="text-gray-400 mb-3">
                       Would love to see native Salesforce integration for easier
                       lead management and campaign tracking. Anyone else
                       interested in this feature?
@@ -457,11 +392,10 @@ export default function CommunityPage() {
             </div>
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 rounded-3xl p-16 text-center text-white">
           <div className="absolute inset-0 z-0 opacity-20">
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-black rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
             <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
             <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
           </div>
@@ -469,14 +403,14 @@ export default function CommunityPage() {
             <h2 className="text-4xl font-extrabold mb-6">
               Ready to Join the Community?
             </h2>
-            <p className="text-xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
               Connect with fellow marketers, share your experiences, and learn
               from the collective wisdom of our growing community.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 href="/auth/signup"
-                className="group inline-flex items-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-blue-600 bg-white hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-blue-600 bg-black hover:bg-black transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <svg
                   className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300"
@@ -495,7 +429,7 @@ export default function CommunityPage() {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center px-10 py-4 border-2 border-white text-lg font-semibold rounded-full text-white hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+                className="group inline-flex items-center px-10 py-4 border-2 border-white text-lg font-semibold rounded-full text-white hover:bg-black hover:text-blue-600 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
               >
                 <svg
                   className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300"
@@ -516,7 +450,6 @@ export default function CommunityPage() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -652,4 +585,3 @@ export default function CommunityPage() {
     </div>
   );
 }
-

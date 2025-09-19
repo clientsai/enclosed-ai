@@ -13,13 +13,11 @@ import {
   Button,
   Card,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Webinars - Enclosed.AI | Learn Direct Mail Marketing",
   description:
     "Join our expert-led webinars to master AI-powered direct mail marketing. Access live sessions and recorded content to grow your marketing expertise.",
 };
-
 export default function WebinarsPage() {
   const upcomingWebinars = [
     {
@@ -63,7 +61,6 @@ export default function WebinarsPage() {
       featured: false,
     },
   ];
-
   const recordedWebinars = [
     {
       title: "Getting Started with Enclosed.AI: Platform Overview",
@@ -120,7 +117,6 @@ export default function WebinarsPage() {
       description: "Plan and execute successful seasonal campaigns with timing strategies and seasonal messaging techniques.",
     },
   ];
-
   const webinarCategories = [
     { name: "All", count: recordedWebinars.length },
     { name: "Platform", count: 1 },
@@ -128,61 +124,9 @@ export default function WebinarsPage() {
     { name: "Design", count: 1 },
     { name: "Analytics", count: 1 },
   ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/webinars"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Webinars
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex gap={6}>
@@ -203,7 +147,6 @@ export default function WebinarsPage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Upcoming Webinars Section */}
       <Section id="upcoming">
         <Flex gap={8}>
@@ -213,7 +156,6 @@ export default function WebinarsPage() {
               Reserve your spot in our upcoming live sessions. Interact directly with experts, ask questions, and get personalized advice for your specific challenges.
             </Text>
           </div>
-
           <div className="space-y-6">
             {upcomingWebinars.map((webinar, index) => (
               <Card key={index} hover className={`p-8 ${webinar.featured ? 'border-2 border-gray-900' : ''}`}>
@@ -228,42 +170,38 @@ export default function WebinarsPage() {
                                 Featured
                               </Badge>
                             )}
-                            <span className="text-sm text-gray-600">
+                            <span className="text-sm text-gray-400">
                               {webinar.registrations} registered
                             </span>
                           </Flex>
-                          <H1 level={3} className="text-xl">
+                          <H1 level={3} className="text-lg md:text-xl">
                             {webinar.title}
                           </H1>
                         </div>
                       </div>
-
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                         <div>
-                          <span className="font-semibold text-gray-900">Date:</span>
-                          <div className="text-gray-700">{webinar.date}</div>
+                          <span className="font-semibold text-white">Date:</span>
+                          <div className="text-gray-300">{webinar.date}</div>
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-900">Time:</span>
-                          <div className="text-gray-700">{webinar.time}</div>
+                          <span className="font-semibold text-white">Time:</span>
+                          <div className="text-gray-300">{webinar.time}</div>
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-900">Duration:</span>
-                          <div className="text-gray-700">{webinar.duration}</div>
+                          <span className="font-semibold text-white">Duration:</span>
+                          <div className="text-gray-300">{webinar.duration}</div>
                         </div>
                       </div>
-
                       <div className="text-sm">
-                        <span className="font-semibold text-gray-900">Presenter:</span>
-                        <span className="text-gray-700 ml-2">{webinar.presenter}</span>
+                        <span className="font-semibold text-white">Presenter:</span>
+                        <span className="text-gray-300 ml-2">{webinar.presenter}</span>
                       </div>
-
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-gray-300 leading-relaxed">
                         {webinar.description}
                       </p>
                     </Flex>
                   </div>
-
                   <div className="flex flex-col justify-center gap-3 lg:w-48">
                     <Button size="md" className="w-full">
                       Register Free
@@ -278,9 +216,8 @@ export default function WebinarsPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Recorded Webinars Section */}
-      <Section id="recorded" className="bg-gray-50">
+      <Section id="recorded" className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>On-Demand Webinar Library</H1>
@@ -288,7 +225,6 @@ export default function WebinarsPage() {
               Access our comprehensive library of recorded webinars. Learn at your own pace with expert insights available 24/7.
             </Text>
           </div>
-
           <div className="space-y-8">
             <Flex gap={4} className="border-b border-gray-200 pb-2">
               <Button variant="ghost" className="pb-2 border-b-2 border-blue-600">
@@ -304,7 +240,6 @@ export default function WebinarsPage() {
                 Analytics
               </Button>
             </Flex>
-
             <Grid columns={2}>
               {recordedWebinars.map((webinar, index) => (
                       <Card key={index} hover className="p-6">
@@ -313,35 +248,30 @@ export default function WebinarsPage() {
                             <Badge variant="default">
                               {webinar.category}
                             </Badge>
-                            <span className="text-sm text-gray-600">
+                            <span className="text-sm text-gray-400">
                               {webinar.views.toLocaleString()} views
                             </span>
                           </div>
-
                           <H1 level={4} className="text-lg">
                             {webinar.title}
                           </H1>
-
                           <div className="grid grid-cols-2 gap-4 text-sm">
                             <div>
-                              <span className="font-semibold text-gray-900">Date:</span>
-                              <div className="text-gray-700">{webinar.date}</div>
+                              <span className="font-semibold text-white">Date:</span>
+                              <div className="text-gray-300">{webinar.date}</div>
                             </div>
                             <div>
-                              <span className="font-semibold text-gray-900">Duration:</span>
-                              <div className="text-gray-700">{webinar.duration}</div>
+                              <span className="font-semibold text-white">Duration:</span>
+                              <div className="text-gray-300">{webinar.duration}</div>
                             </div>
                           </div>
-
                           <div className="text-sm">
-                            <span className="font-semibold text-gray-900">Presenter:</span>
-                            <span className="text-gray-700 ml-2">{webinar.presenter}</span>
+                            <span className="font-semibold text-white">Presenter:</span>
+                            <span className="text-gray-300 ml-2">{webinar.presenter}</span>
                           </div>
-
-                          <p className="text-gray-700 text-sm leading-relaxed">
+                          <p className="text-gray-300 text-sm leading-relaxed">
                             {webinar.description}
                           </p>
-
                           <Button size="sm" className="w-full mt-auto">
                             Watch Now
                           </Button>
@@ -352,7 +282,6 @@ export default function WebinarsPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Benefits Section */}
       <Section>
         <Flex gap={8}>
@@ -362,7 +291,6 @@ export default function WebinarsPage() {
               Learn from industry experts and join a community of successful direct mail marketers
             </Text>
           </div>
-
           <Grid columns={3}>
             <Card className="p-6 text-center">
               <Flex gap={4}>
@@ -382,12 +310,11 @@ export default function WebinarsPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Expert Knowledge</H1>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Learn from industry professionals with years of direct mail marketing experience and proven track records.
                 </p>
               </Flex>
             </Card>
-
             <Card className="p-6 text-center">
               <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
@@ -406,12 +333,11 @@ export default function WebinarsPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Interactive Learning</H1>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Participate in live Q&A sessions, polls, and discussions with fellow marketers and industry experts.
                 </p>
               </Flex>
             </Card>
-
             <Card className="p-6 text-center">
               <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
@@ -430,7 +356,7 @@ export default function WebinarsPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Actionable Strategies</H1>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Walk away with concrete tactics and frameworks you can implement immediately to improve your campaigns.
                 </p>
               </Flex>
@@ -438,7 +364,6 @@ export default function WebinarsPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex gap={6}>
@@ -449,16 +374,15 @@ export default function WebinarsPage() {
             Join thousands of marketers who have transformed their campaigns through our expert-led training. Register for upcoming webinars or start learning today with our on-demand library.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="#upcoming" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+            <Button as={Link} href="#upcoming" size="lg" className="bg-black text-white hover:bg-gray-100">
               Register for Webinar
             </Button>
-            <Button as={Link} href="/auth/signup" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+            <Button as={Link} href="/auth/signup" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
               Start Free Trial
             </Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

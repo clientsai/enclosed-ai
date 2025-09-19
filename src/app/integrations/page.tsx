@@ -1,91 +1,34 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "Integrations - Enclosed.AI | Connect Your Marketing Flex",
   description:
     "Integrate Enclosed.AI with your existing marketing tools and CRM systems. Seamless connections with Salesforce, HubSpot, Mailchimp, and more.",
 };
-
 export default function IntegrationsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-6">
+          <h1 className="text-4xl font-extrabold text-white sm:text-5xl mb-6">
             Powerful
             <span className="text-blue-600"> Integrations</span>
           </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Connect Enclosed.AI with your existing marketing stack and business
             tools. Seamlessly sync data, automate workflows, and create unified
             marketing experiences.
           </p>
         </div>
-
         {/* CRM Integrations */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
             CRM Integrations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-blue-600"
@@ -101,10 +44,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Salesforce
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Sync contacts, leads, and opportunities directly with
                 Salesforce. Automatically trigger direct mail campaigns based on
                 CRM activities and lead scores.
@@ -122,8 +65,7 @@ export default function IntegrationsPage() {
                 Learn More →
               </Link>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-orange-600"
@@ -139,10 +81,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 HubSpot
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Integrate with HubSpot's marketing automation platform. Create
                 sophisticated workflows that combine email and direct mail for
                 maximum impact.
@@ -160,8 +102,7 @@ export default function IntegrationsPage() {
                 Learn More →
               </Link>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-green-600"
@@ -177,10 +118,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Pipedrive
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Connect with Pipedrive's sales-focused CRM. Automatically send
                 follow-up mail pieces based on deal stages and sales activities.
               </p>
@@ -199,14 +140,13 @@ export default function IntegrationsPage() {
             </div>
           </div>
         </section>
-
         {/* Email Marketing Integrations */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
             Email Marketing Platforms
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-red-600"
@@ -222,10 +162,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Mailchimp
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Sync your Mailchimp audiences with Enclosed.AI for coordinated
                 email and direct mail campaigns that reinforce your message.
               </p>
@@ -242,8 +182,7 @@ export default function IntegrationsPage() {
                 Learn More →
               </Link>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-purple-600"
@@ -259,10 +198,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Constant Contact
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Integrate with Constant Contact to create powerful multi-channel
                 marketing campaigns that reach customers through both digital
                 and physical channels.
@@ -280,8 +219,7 @@ export default function IntegrationsPage() {
                 Learn More →
               </Link>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-blue-600"
@@ -297,10 +235,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 SendGrid
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Connect with SendGrid's email platform to create comprehensive
                 marketing strategies that combine transactional emails with
                 direct mail follow-ups.
@@ -320,14 +258,13 @@ export default function IntegrationsPage() {
             </div>
           </div>
         </section>
-
         {/* Analytics & Tracking */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
             Analytics & Tracking
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-yellow-600"
@@ -343,10 +280,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Google Analytics
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Track the complete customer journey from direct mail to website
                 conversion. Measure ROI and optimize campaigns based on
                 comprehensive analytics data.
@@ -364,8 +301,7 @@ export default function IntegrationsPage() {
                 Learn More →
               </Link>
             </div>
-
-            <div className="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            <div className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
               <div className="h-16 w-16 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="h-8 w-8 text-indigo-600"
@@ -381,10 +317,10 @@ export default function IntegrationsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Mixpanel
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Advanced event tracking and user behavior analysis. Understand
                 how direct mail campaigns influence user actions and engagement
                 patterns.
@@ -404,25 +340,24 @@ export default function IntegrationsPage() {
             </div>
           </div>
         </section>
-
         {/* API & Custom Integrations */}
         <section className="mb-20">
           <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
               API & Custom Integrations
             </h2>
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed text-center">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed text-center">
                 Don't see your preferred tool? Our robust API and custom
                 integration services make it easy to connect Enclosed.AI with
                 any system in your tech stack.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <div className="bg-black rounded-xl p-8">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                     REST API
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-400 mb-6">
                     Full-featured REST API with comprehensive documentation,
                     SDKs, and code examples for all major programming languages.
                   </p>
@@ -434,11 +369,11 @@ export default function IntegrationsPage() {
                     <li>• Rate limiting and authentication</li>
                   </ul>
                 </div>
-                <div className="bg-white rounded-xl p-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <div className="bg-black rounded-xl p-8">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                     Custom Integrations
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-400 mb-6">
                     Our integration specialists can build custom connections to
                     any system, ensuring seamless data flow and optimal
                     performance.
@@ -455,10 +390,9 @@ export default function IntegrationsPage() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Connect Your Tools?
           </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
@@ -468,20 +402,19 @@ export default function IntegrationsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-black hover:bg-black transition-colors"
             >
               Get Integration Help
             </Link>
             <Link
               href="/auth/signup"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors"
+              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-black hover:text-blue-600 transition-colors"
             >
               Start Free Trial
             </Link>
           </div>
         </section>
       </div>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -617,4 +550,3 @@ export default function IntegrationsPage() {
     </div>
   );
 }
-

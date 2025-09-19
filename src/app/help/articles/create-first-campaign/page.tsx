@@ -1,131 +1,16 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "How to Create Your First Campaign - Enclosed.AI Help",
   description:
     "Step-by-step guide to creating and sending your first AI-powered direct mail campaign with Enclosed.AI.",
 };
-
 export default function CreateFirstCampaignPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Breadcrumb */}
-        <nav className="flex mb-8" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <Link
-                href="/help"
-                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600"
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
-                Help Center
-              </Link>
-            </li>
-            <li>
-              <div className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <Link
-                  href="/help"
-                  className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2"
-                >
-                  Articles
-                </Link>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">
-                  Create First Campaign
-                </span>
-              </div>
-            </li>
-          </ol>
-        </nav>
-
         {/* Article Header */}
         <div className="mb-12">
           <div className="flex items-center mb-4">
@@ -152,36 +37,34 @@ export default function CreateFirstCampaignPage() {
               <span className="text-sm text-gray-500">8 min read</span>
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4">
             How to Create Your First Campaign
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
             Step-by-step guide to creating and sending your first AI-powered
             direct mail campaign. Get up and running in minutes.
           </p>
         </div>
-
         {/* Article Content */}
         <div className="prose prose-lg max-w-none">
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-black rounded-2xl shadow-lg p-8 md:p-12">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Prerequisites
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Before creating your first campaign, ensure you have the following
               set up:
             </p>
-            <ul className="list-disc list-inside text-gray-600 mb-8 space-y-2">
+            <ul className="list-disc list-inside text-gray-400 mb-8 space-y-2">
               <li>An active Enclosed.AI account</li>
               <li>Sufficient credits in your account</li>
               <li>A recipient list (CSV file or CRM integration)</li>
               <li>Your business information and return address</li>
             </ul>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 1: Access the Campaign Builder
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Navigate to the Campaigns section in your dashboard and click
               "Create New Campaign." You'll be taken to our intuitive campaign
               builder interface.
@@ -215,48 +98,46 @@ export default function CreateFirstCampaignPage() {
                 </div>
               </div>
             </div>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 2: Choose Your Campaign Type
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Select the type of campaign that best fits your marketing goals:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <div className="bg-black rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Promotional
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-400">
                   Perfect for sales, discounts, and product announcements
                 </p>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <div className="bg-black rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Welcome Series
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-400">
                   Onboard new customers with personalized content
                 </p>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <div className="bg-black rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Follow-up
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-400">
                   Re-engage customers and nurture leads
                 </p>
               </div>
             </div>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 3: Design Your Mail Piece
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Use our AI-powered design tools to create compelling visuals that
               resonate with your audience:
             </p>
-            <ol className="list-decimal list-inside text-gray-600 mb-8 space-y-3">
+            <ol className="list-decimal list-inside text-gray-400 mb-8 space-y-3">
               <li>
                 <strong>Upload your logo and brand assets</strong> - Ensure
                 consistent branding across all materials
@@ -274,34 +155,33 @@ export default function CreateFirstCampaignPage() {
                 for recipients to respond
               </li>
             </ol>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 4: Configure Personalization
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Set up dynamic content that adapts to each recipient using our AI
               personalization features:
             </p>
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg font-semibold text-white mb-4">
                 Personalization Options
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="font-semibold text-white mb-2">
                     Basic Personalization
                   </h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
+                  <ul className="text-sm text-gray-400 space-y-1">
                     <li>• Recipient name and company</li>
                     <li>• Location-based content</li>
                     <li>• Industry-specific messaging</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="font-semibold text-white mb-2">
                     Advanced Personalization
                   </h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
+                  <ul className="text-sm text-gray-400 space-y-1">
                     <li>• Purchase history integration</li>
                     <li>• Behavioral triggers</li>
                     <li>• Custom product recommendations</li>
@@ -309,16 +189,15 @@ export default function CreateFirstCampaignPage() {
                 </div>
               </div>
             </div>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 5: Select Your Audience
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Choose who will receive your campaign by selecting from your
               existing lists or creating a new segment:
             </p>
             <div className="space-y-4 mb-8">
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center p-4 bg-black rounded-lg">
                 <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
                   <svg
                     className="h-4 w-4 text-green-600"
@@ -335,15 +214,15 @@ export default function CreateFirstCampaignPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">
+                  <h4 className="font-semibold text-white">
                     Upload CSV File
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-400">
                     Import your recipient list from a spreadsheet
                   </p>
                 </div>
               </div>
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center p-4 bg-black rounded-lg">
                 <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
                   <svg
                     className="h-4 w-4 text-blue-600"
@@ -360,20 +239,19 @@ export default function CreateFirstCampaignPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">
+                  <h4 className="font-semibold text-white">
                     Connect CRM
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-400">
                     Sync with Salesforce, HubSpot, or other CRM systems
                   </p>
                 </div>
               </div>
             </div>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 6: Preview and Test
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Before launching, preview your campaign and send test versions to
               ensure everything looks perfect:
             </p>
@@ -405,14 +283,13 @@ export default function CreateFirstCampaignPage() {
                 </div>
               </div>
             </div>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Step 7: Launch Your Campaign
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               Once you're satisfied with your campaign, it's time to launch:
             </p>
-            <ol className="list-decimal list-inside text-gray-600 mb-8 space-y-3">
+            <ol className="list-decimal list-inside text-gray-400 mb-8 space-y-3">
               <li>
                 <strong>Set your budget</strong> - Choose how many credits to
                 allocate to this campaign
@@ -430,31 +307,30 @@ export default function CreateFirstCampaignPage() {
                 engagement in real-time
               </li>
             </ol>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
               Next Steps
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               After launching your first campaign, focus on these areas to
               maximize success:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <div className="bg-black rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Monitor Performance
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-400 space-y-1">
                   <li>• Track delivery rates</li>
                   <li>• Monitor response rates</li>
                   <li>• Analyze engagement metrics</li>
                   <li>• Calculate ROI</li>
                 </ul>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <div className="bg-black rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Optimize Future Campaigns
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-400 space-y-1">
                   <li>• A/B test different elements</li>
                   <li>• Refine your targeting</li>
                   <li>• Improve personalization</li>
@@ -462,9 +338,8 @@ export default function CreateFirstCampaignPage() {
                 </ul>
               </div>
             </div>
-
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-8 text-white">
-              <h3 className="text-xl font-bold mb-4">
+              <h3 className="text-lg md:text-xl font-bold mb-4">
                 Need Help Getting Started?
               </h3>
               <p className="mb-6 opacity-90">
@@ -474,13 +349,13 @@ export default function CreateFirstCampaignPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-black text-blue-600 font-semibold rounded-lg hover:bg-black transition-colors"
                 >
                   Contact Support
                 </Link>
                 <Link
                   href="/help/getting-started"
-                  className="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors"
+                  className="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-black hover:text-blue-600 transition-colors"
                 >
                   View Getting Started Guide
                 </Link>
@@ -489,7 +364,6 @@ export default function CreateFirstCampaignPage() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -625,4 +499,3 @@ export default function CreateFirstCampaignPage() {
     </div>
   );
 }
-

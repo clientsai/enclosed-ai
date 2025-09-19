@@ -12,13 +12,11 @@ import {
   Button,
   Card,
 } from "@/components/ui";
-
 export const metadata = {
   title: "E-commerce Use Case - Enclosed.AI | Direct Mail for Online Retail",
   description:
     "Discover how e-commerce brands use Enclosed.AI to drive online sales, recover abandoned carts, and increase customer lifetime value with personalized direct mail.",
 };
-
 export default function EcommerceUseCasePage() {
   const challenges = [
     {
@@ -42,7 +40,6 @@ export default function EcommerceUseCasePage() {
       solution: "Premium direct mail creates brand differentiation and positions your business as high-quality and trustworthy.",
     },
   ];
-
   const useCases = [
     {
       title: "Cart Abandonment Recovery",
@@ -69,7 +66,6 @@ export default function EcommerceUseCasePage() {
       tactics: ["Holiday themes", "Gift guides", "Limited editions", "Time-sensitive offers"],
     },
   ];
-
   const caseStudy = {
     company: "Artisan Home Goods",
     industry: "Home Decor E-commerce",
@@ -88,43 +84,9 @@ export default function EcommerceUseCasePage() {
       company: "Artisan Home Goods",
     },
   };
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Features
-              </Link>
-              <Link href="/use-cases/ecommerce" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                Use Cases
-              </Link>
-              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Pricing
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex gap={6}>
@@ -145,9 +107,8 @@ export default function EcommerceUseCasePage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Challenges Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>E-commerce Marketing Challenges</H1>
@@ -155,7 +116,6 @@ export default function EcommerceUseCasePage() {
               How direct mail solves common online retail marketing problems
             </Text>
           </div>
-
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} className="p-6">
@@ -163,7 +123,7 @@ export default function EcommerceUseCasePage() {
                   <H1 level={4} className="text-lg text-red-600">
                     {challenge.title}
                   </H1>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {challenge.description}
                   </p>
                   <div className="bg-green-50 p-3 rounded-lg">
@@ -177,7 +137,6 @@ export default function EcommerceUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Use Cases */}
       <Section>
         <Flex gap={8}>
@@ -187,23 +146,21 @@ export default function EcommerceUseCasePage() {
               Proven direct mail strategies for online retailers
             </Text>
           </div>
-
           <Grid columns={2}>
             {useCases.map((useCase, index) => (
               <Card key={index} hover className="p-8">
                 <Flex gap={4}>
-                  <H1 level={3} className="text-xl">
+                  <H1 level={3} className="text-lg md:text-xl">
                     {useCase.title}
                   </H1>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {useCase.description}
                   </p>
-
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Tactics:</h4>
+                    <h4 className="font-semibold text-white mb-2">Key Tactics:</h4>
                     <ul className="space-y-1">
                       {useCase.tactics.map((tactic, tacticIndex) => (
-                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-700">
+                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-300">
                           <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
                             <span className="text-blue-600 text-xs font-bold">✓</span>
                           </div>
@@ -212,7 +169,6 @@ export default function EcommerceUseCasePage() {
                       ))}
                     </ul>
                   </div>
-
                   <div className="bg-green-50 p-3 rounded-lg">
                     <p className="text-green-700 font-medium text-sm">
                       Typical Results: {useCase.results}
@@ -224,9 +180,8 @@ export default function EcommerceUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Case Study */}
-      <Section id="case-study" className="bg-gray-50">
+      <Section id="case-study" className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Success Story</H1>
@@ -234,38 +189,36 @@ export default function EcommerceUseCasePage() {
               How Artisan Home Goods increased customer lifetime value by 45%
             </Text>
           </div>
-
           <Card className="p-8 max-w-5xl mx-auto">
             <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">AH</span>
+                  <span className="text-white font-bold text-lg md:text-xl">AH</span>
                 </div>
                 <div>
                   <H1 level={3}>{caseStudy.company}</H1>
-                  <p className="text-gray-600">{caseStudy.industry}</p>
+                  <p className="text-gray-400">{caseStudy.industry}</p>
                 </div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Challenge</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <h4 className="font-semibold text-white mb-2">Challenge</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {caseStudy.challenge}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Solution</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <h4 className="font-semibold text-white mb-2">Solution</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {caseStudy.solution}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Results</h4>
+                  <h4 className="font-semibold text-white mb-2">Results</h4>
                   <div className="space-y-2">
                     {caseStudy.results.map((result, index) => (
                       <div key={index} className="flex justify-between items-center">
-                        <span className="text-sm text-gray-700">{result.metric}:</span>
+                        <span className="text-sm text-gray-300">{result.metric}:</span>
                         <div className="text-right">
                           <div className="font-bold text-green-600">{result.value}</div>
                           <div className="text-xs text-gray-500">{result.comparison}</div>
@@ -275,16 +228,15 @@ export default function EcommerceUseCasePage() {
                   </div>
                 </div>
               </div>
-
-              <Card className="mt-6 p-6 bg-gray-50">
+              <Card className="mt-6 p-6 bg-black">
                 <Flex gap={4}>
-                  <blockquote className="text-gray-700 italic leading-relaxed">
+                  <blockquote className="text-gray-300 italic leading-relaxed">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div className="text-right">
-                    <div className="font-semibold text-gray-900">{caseStudy.testimonial.author}</div>
-                    <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
-                    <div className="text-sm text-gray-600">{caseStudy.testimonial.company}</div>
+                    <div className="font-semibold text-white">{caseStudy.testimonial.author}</div>
+                    <div className="text-sm text-gray-400">{caseStudy.testimonial.role}</div>
+                    <div className="text-sm text-gray-400">{caseStudy.testimonial.company}</div>
                   </div>
                 </Flex>
               </Card>
@@ -292,7 +244,6 @@ export default function EcommerceUseCasePage() {
           </Card>
         </Flex>
       </Section>
-
       {/* Benchmarks */}
       <Section>
         <Flex gap={8}>
@@ -302,32 +253,30 @@ export default function EcommerceUseCasePage() {
               Industry performance standards for e-commerce direct mail
             </Text>
           </div>
-
           <Grid columns={4}>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">3.2%</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">3.2%</H3>
               <Text size="sm" color="muted">Average Response Rate</Text>
               <Text size="xs" className="text-gray-500">E-commerce direct mail</Text>
             </Card>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">$85</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">$85</H3>
               <Text size="sm" color="muted">Cost per Acquisition</Text>
               <Text size="xs" className="text-gray-500">vs $125 digital ads</Text>
             </Card>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">24%</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">24%</H3>
               <Text size="sm" color="muted">Cart Recovery Rate</Text>
               <Text size="xs" className="text-gray-500">with follow-up campaigns</Text>
             </Card>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">450%</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">450%</H3>
               <Text size="sm" color="muted">Return on Ad Spend</Text>
               <Text size="xs" className="text-gray-500">for targeted campaigns</Text>
             </Card>
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex gap={6}>
@@ -338,16 +287,15 @@ export default function EcommerceUseCasePage() {
             Join successful e-commerce brands using Enclosed.AI to complement their digital marketing with high-converting direct mail campaigns.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
               Schedule Demo
             </Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

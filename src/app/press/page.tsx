@@ -13,13 +13,11 @@ import {
   Button,
   Card,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Press - Enclosed.AI | News, Media Kit & Press Releases",
   description:
     "Latest news, press releases, and media resources for Enclosed.AI. Download our media kit, logos, and access press materials for journalists and partners.",
 };
-
 export default function PressPage() {
   const pressReleases = [
     {
@@ -65,7 +63,6 @@ export default function PressPage() {
       featured: false,
     },
   ];
-
   const mediaKit = {
     logos: [
       { name: "Primary Logo", format: "SVG, PNG", description: "Full color logo with text" },
@@ -86,7 +83,6 @@ export default function PressPage() {
       { name: "Customer Case Studies", format: "PDF", description: "Success stories and ROI examples" },
     ],
   };
-
   const coverage = [
     {
       outlet: "TechCrunch",
@@ -124,7 +120,6 @@ export default function PressPage() {
       url: "#",
     },
   ];
-
   const executives = [
     {
       name: "Sarah Chen",
@@ -148,61 +143,9 @@ export default function PressPage() {
       linkedin: "linkedin.com/in/jenniferwalsh",
     },
   ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/press"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Press
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex gap={6}>
@@ -223,9 +166,8 @@ export default function PressPage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Latest News */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Latest Press Releases</H1>
@@ -233,7 +175,6 @@ export default function PressPage() {
               Recent announcements and company updates
             </Text>
           </div>
-
           <div className="space-y-6">
             {pressReleases.map((release, index) => (
               <Card key={index} hover className={`p-8 ${release.featured ? 'border-2 border-gray-900' : ''}`}>
@@ -249,12 +190,12 @@ export default function PressPage() {
                             Featured
                           </Badge>
                         )}
-                        <span className="text-sm text-gray-600">{release.date}</span>
+                        <span className="text-sm text-gray-400">{release.date}</span>
                       </Flex>
-                      <H1 level={3} className="text-xl mb-3">
+                      <H1 level={3} className="text-lg md:text-xl mb-3">
                         {release.title}
                       </H1>
-                      <p className="text-gray-700 leading-relaxed mb-4">
+                      <p className="text-gray-300 leading-relaxed mb-4">
                         {release.content}
                       </p>
                     </div>
@@ -276,7 +217,6 @@ export default function PressPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Media Coverage */}
       <Section>
         <Flex gap={8}>
@@ -286,18 +226,17 @@ export default function PressPage() {
               What industry publications are saying about Enclosed.AI
             </Text>
           </div>
-
           <div className="space-y-4">
             {coverage.map((item, index) => (
               <Card key={index} hover className="p-6">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-2">
-                      <span className="font-semibold text-gray-900">{item.outlet}</span>
+                      <span className="font-semibold text-white">{item.outlet}</span>
                       <Badge variant="success">{item.type}</Badge>
-                      <span className="text-sm text-gray-600">{item.date}</span>
+                      <span className="text-sm text-gray-400">{item.date}</span>
                     </div>
-                    <H1 level={4} className="text-lg text-gray-900">
+                    <H1 level={4} className="text-lg text-white">
                       {item.headline}
                     </H1>
                   </div>
@@ -310,9 +249,8 @@ export default function PressPage() {
           </div>
         </Flex>
       </Section>
-
       {/* Media Kit */}
-      <Section id="media-kit" className="bg-gray-50">
+      <Section id="media-kit" className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Media Kit</H1>
@@ -320,7 +258,6 @@ export default function PressPage() {
               Download logos, photos, and company resources for your stories
             </Text>
           </div>
-
           <Grid columns={3}>
             {/* Logos */}
             <Card className="p-6">
@@ -347,8 +284,8 @@ export default function PressPage() {
                   {mediaKit.logos.map((logo, index) => (
                     <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
                       <div>
-                        <div className="font-medium text-sm text-gray-900">{logo.name}</div>
-                        <div className="text-xs text-gray-600">{logo.description}</div>
+                        <div className="font-medium text-sm text-white">{logo.name}</div>
+                        <div className="text-xs text-gray-400">{logo.description}</div>
                       </div>
                       <span className="text-xs text-gray-500">{logo.format}</span>
                     </div>
@@ -359,7 +296,6 @@ export default function PressPage() {
                 </Button>
               </Flex>
             </Card>
-
             {/* Photos */}
             <Card className="p-6">
               <Flex gap={4}>
@@ -385,8 +321,8 @@ export default function PressPage() {
                   {mediaKit.photos.map((photo, index) => (
                     <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
                       <div>
-                        <div className="font-medium text-sm text-gray-900">{photo.name}</div>
-                        <div className="text-xs text-gray-600">{photo.description}</div>
+                        <div className="font-medium text-sm text-white">{photo.name}</div>
+                        <div className="text-xs text-gray-400">{photo.description}</div>
                       </div>
                       <span className="text-xs text-gray-500">{photo.format}</span>
                     </div>
@@ -397,7 +333,6 @@ export default function PressPage() {
                 </Button>
               </Flex>
             </Card>
-
             {/* Documents */}
             <Card className="p-6">
               <Flex gap={4}>
@@ -423,8 +358,8 @@ export default function PressPage() {
                   {mediaKit.documents.map((doc, index) => (
                     <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
                       <div>
-                        <div className="font-medium text-sm text-gray-900">{doc.name}</div>
-                        <div className="text-xs text-gray-600">{doc.description}</div>
+                        <div className="font-medium text-sm text-white">{doc.name}</div>
+                        <div className="text-xs text-gray-400">{doc.description}</div>
                       </div>
                       <span className="text-xs text-gray-500">{doc.format}</span>
                     </div>
@@ -436,18 +371,16 @@ export default function PressPage() {
               </Flex>
             </Card>
           </Grid>
-
           <div className="text-center">
             <Button size="lg">
               Download Complete Media Kit
             </Button>
-            <p className="text-sm text-gray-600 mt-2">
+            <p className="text-sm text-gray-400 mt-2">
               Includes all logos, photos, documents, and brand guidelines
             </p>
           </div>
         </Flex>
       </Section>
-
       {/* Executive Contacts */}
       <Section>
         <Flex gap={8}>
@@ -457,25 +390,22 @@ export default function PressPage() {
               Connect with our leadership team for interviews and expert commentary
             </Text>
           </div>
-
           <Grid columns={3}>
             {executives.map((exec, index) => (
               <Card key={index} className="p-6">
                 <Flex gap={4}>
                   <div className="text-center">
                     <div className="h-20 w-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-gray-600">
+                      <span className="text-xl md:text-2xl font-bold text-gray-400">
                         {exec.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
                     <H1 level={4}>{exec.name}</H1>
                     <p className="text-blue-600 font-medium text-sm">{exec.title}</p>
                   </div>
-
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {exec.bio}
                   </p>
-
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-sm">
                       <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -500,9 +430,8 @@ export default function PressPage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Press Contact */}
-      <Section id="contact" className="bg-gray-50">
+      <Section id="contact" className="bg-black">
         <div className="max-w-4xl mx-auto">
           <Flex gap={8}>
             <div className="text-center">
@@ -511,73 +440,67 @@ export default function PressPage() {
                 Get in touch with our press team for interviews, quotes, and exclusive access
               </Text>
             </div>
-
             <Grid columns={2}>
               <Card className="p-8">
                 <Flex gap={6}>
                   <div>
                     <H1 level={3}>Media Inquiries</H1>
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-gray-400 mt-2">
                       For press releases, executive interviews, and general media questions
                     </p>
                   </div>
-
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <svg className="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-medium text-gray-900">Email</div>
+                        <div className="font-medium text-white">Email</div>
                         <a href="mailto:press@enclosed.ai" className="text-blue-600 hover:underline">
                           press@enclosed.ai
                         </a>
                       </div>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <svg className="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-medium text-gray-900">Phone</div>
+                        <div className="font-medium text-white">Phone</div>
                         <a href="tel:+1-555-123-4567" className="text-blue-600 hover:underline">
                           +1 (555) 123-4567
                         </a>
                       </div>
                     </div>
-
                     <div className="flex items-start gap-3">
                       <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <svg className="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-medium text-gray-900">Response Time</div>
-                        <div className="text-gray-600">Within 24 hours</div>
+                        <div className="font-medium text-white">Response Time</div>
+                        <div className="text-gray-400">Within 24 hours</div>
                       </div>
                     </div>
                   </div>
                 </Flex>
               </Card>
-
               <Card className="p-8">
                 <Flex gap={6}>
                   <div>
                     <H1 level={3}>Quick Media Request</H1>
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-gray-400 mt-2">
                       Submit your request and we'll get back to you quickly
                     </p>
                   </div>
-
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Your Name *
                       </label>
                       <input
@@ -586,9 +509,8 @@ export default function PressPage() {
                         placeholder="Jane Smith"
                       />
                     </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Publication/Outlet *
                       </label>
                       <input
@@ -597,9 +519,8 @@ export default function PressPage() {
                         placeholder="TechCrunch"
                       />
                     </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -608,9 +529,8 @@ export default function PressPage() {
                         placeholder="jane@techcrunch.com"
                       />
                     </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Request Type
                       </label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
@@ -622,9 +542,8 @@ export default function PressPage() {
                         <option value="other">Other</option>
                       </select>
                     </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
                         Message *
                       </label>
                       <textarea
@@ -634,7 +553,6 @@ export default function PressPage() {
                       />
                     </div>
                   </div>
-
                   <Button size="md" className="w-full">
                     Submit Request
                   </Button>
@@ -644,7 +562,6 @@ export default function PressPage() {
           </Flex>
         </div>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

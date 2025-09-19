@@ -18,40 +18,18 @@ import {
   Divider,
 } from "@/components/ui";
 import Logo from "@/components/Logo";
-
 export const metadata = {
   title: "Security & Compliance - Enterprise-Grade Protection | Enclosed.AI",
   description:
     "Learn about Enclosed.AI's enterprise-grade security measures, data protection, and compliance certifications.",
 };
-
 export default function SecurityPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
       <Section className="min-h-screen flex items-center justify-center pt-20">
         <Container size="lg">
@@ -74,7 +52,6 @@ export default function SecurityPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Security Features */}
       <Section>
         <Container>
@@ -86,7 +63,6 @@ export default function SecurityPage() {
                 Enterprise-grade security features to protect your data and campaigns.
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
@@ -101,7 +77,6 @@ export default function SecurityPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
@@ -115,7 +90,6 @@ export default function SecurityPage() {
                   </Text>
                 </Flex>
               </Card>
-
               <Card hover className="p-8 text-center">
                 <Flex direction="col" gap={4}>
                   <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
@@ -134,7 +108,6 @@ export default function SecurityPage() {
           </Flex>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-white/5 mt-24">
         <Container>
@@ -178,9 +151,7 @@ export default function SecurityPage() {
                 </div>
               ))}
             </Grid>
-
             <Divider className="mb-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

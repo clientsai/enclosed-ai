@@ -3,7 +3,6 @@
  * Minimal, purposeful, with focus on the product
  */
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
@@ -25,12 +24,10 @@ import {
   NavLink,
   GlowOrb,
 } from "@/components/ui";
-
 export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
@@ -42,41 +39,20 @@ export default function Home() {
     };
     checkUser();
   }, [router]);
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-black">
         <div className="spinner" />
       </div>
     );
   }
-
   if (user) return null;
-
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Ambient background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
-
       {/* Navigation */}
-      <Nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="#features">Features</NavLink>
-          <NavLink href="#pricing">Pricing</NavLink>
-          <NavLink href="#about">About</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
       <Section className="min-h-screen flex items-center justify-center pt-20">
         <Container size="lg">
@@ -84,13 +60,11 @@ export default function Home() {
             <Badge variant="accent" className="animate-fade-in">
               AI-Powered Direct Mail
             </Badge>
-
             <H1 className="animate-fade-up max-w-5xl" gradient>
               Direct Mail
               <br />
               Reimagined
             </H1>
-
             <Text
               size="2xl"
               color="secondary"
@@ -100,7 +74,6 @@ export default function Home() {
               Transform your marketing with AI that writes personally to each recipient.
               Every letter, uniquely crafted. Every message, perfectly timed.
             </Text>
-
             <Flex gap={4} className="animate-fade-up animation-delay-200">
               <Button size="lg" href="/auth/signup">
                 Start Free Trial
@@ -110,14 +83,12 @@ export default function Home() {
                 Watch Demo
               </Button>
             </Flex>
-
             <Text size="sm" color="muted" className="animate-fade-in animation-delay-300">
               No credit card required • 14-day free trial • Cancel anytime
             </Text>
           </Flex>
         </Container>
       </Section>
-
       {/* Stats Section */}
       <Section>
         <Container>
@@ -141,7 +112,6 @@ export default function Home() {
           </Grid>
         </Container>
       </Section>
-
       {/* Features Section */}
       <Section id="features">
         <Container>
@@ -153,7 +123,6 @@ export default function Home() {
                 A complete platform designed for simplicity and power
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               {[
                 {
@@ -189,7 +158,7 @@ export default function Home() {
               ].map((feature, i) => (
                 <Card key={i} hover>
                   <div className="text-4xl mb-4">{feature.icon}</div>
-                  <H3 className="text-xl mb-2">{feature.title}</H3>
+                  <H3 className="text-lg md:text-lg md:text-xl mb-2">{feature.title}</H3>
                   <Text color="secondary">{feature.description}</Text>
                 </Card>
               ))}
@@ -197,7 +166,6 @@ export default function Home() {
           </Flex>
         </Container>
       </Section>
-
       {/* How It Works */}
       <Section>
         <Container>
@@ -209,7 +177,6 @@ export default function Home() {
                 Launch campaigns in minutes, not weeks
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               {[
                 {
@@ -232,7 +199,7 @@ export default function Home() {
                   <div className="text-6xl font-bold gradient-text-accent mb-4">
                     {step.step}
                   </div>
-                  <H3 className="text-xl mb-2">{step.title}</H3>
+                  <H3 className="text-lg md:text-lg md:text-xl mb-2">{step.title}</H3>
                   <Text color="secondary">{step.description}</Text>
                 </div>
               ))}
@@ -240,7 +207,6 @@ export default function Home() {
           </Flex>
         </Container>
       </Section>
-
       {/* Testimonial */}
       <Section>
         <Container size="default">
@@ -255,7 +221,6 @@ export default function Home() {
           </Card>
         </Container>
       </Section>
-
       {/* Pricing Preview */}
       <Section id="pricing">
         <Container>
@@ -267,7 +232,6 @@ export default function Home() {
                 Pay only for what you send. No hidden fees.
               </Text>
             </div>
-
             <Grid cols={3} gap={8}>
               {[
                 {
@@ -334,7 +298,6 @@ export default function Home() {
           </Flex>
         </Container>
       </Section>
-
       {/* CTA Section */}
       <Section>
         <Container>
@@ -354,7 +317,6 @@ export default function Home() {
           </Card>
         </Container>
       </Section>
-
       {/* Footer */}
       <footer className="border-t border-gray-900 mt-24">
         <Container>
@@ -398,9 +360,7 @@ export default function Home() {
                 </div>
               ))}
             </Grid>
-
             <Divider className="mb-8" />
-
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.

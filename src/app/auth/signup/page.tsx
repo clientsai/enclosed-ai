@@ -3,7 +3,6 @@
  * Clean, focused onboarding experience
  */
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -24,7 +23,6 @@ import {
   Badge,
   GlowOrb,
 } from "@/components/ui";
-
 export default function SignupPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -35,12 +33,10 @@ export default function SignupPage() {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
     try {
       // Create auth user with metadata
       const { data: authData, error: authError } = await supabase.auth.signUp({
@@ -53,9 +49,7 @@ export default function SignupPage() {
           },
         },
       });
-
       if (authError) throw authError;
-
       // Profile will be created automatically by trigger
       if (authData.user && (formData.name || formData.company)) {
         const { error: profileError } = await supabase
@@ -65,12 +59,10 @@ export default function SignupPage() {
             company: formData.company,
           })
           .eq("auth_id", authData.user.id);
-
         if (profileError) {
           console.log("Profile update note:", profileError);
         }
       }
-
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message);
@@ -78,13 +70,11 @@ export default function SignupPage() {
       setLoading(false);
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-12">
+    <div className="min-h-screen bg-black">
       {/* Background effects */}
       <GlowOrb color="accent" size="lg" className="top-0 -left-32 opacity-10" />
       <GlowOrb color="purple" size="default" className="bottom-0 -right-32 opacity-10" />
-
       <Container size="default">
         <Grid cols={2} gap={8} className="items-center">
           {/* Left side - Benefits */}
@@ -105,7 +95,7 @@ export default function SignupPage() {
                 { icon: "✓", title: "Real-time analytics", desc: "Track ROI instantly" },
               ].map((item, i) => (
                 <Flex key={i} gap={3} align="start">
-                  <span className="text-[var(--success)] text-xl">{item.icon}</span>
+                  <span className="text-[var(--success)] text-lg md:text-lg md:text-xl">{item.icon}</span>
                   <div>
                     <Text weight="semibold">{item.title}</Text>
                     <Text size="sm" color="muted">{item.desc}</Text>
@@ -113,7 +103,6 @@ export default function SignupPage() {
                 </Flex>
               ))}
             </div>
-
             {/* Testimonial */}
             <Card glass className="mt-8 p-6">
               <Text className="italic mb-4">
@@ -128,14 +117,12 @@ export default function SignupPage() {
               </Flex>
             </Card>
           </div>
-
           {/* Right side - Form */}
           <Card glass className="p-8 md:p-12">
             {/* Logo */}
             <Flex justify="center" className="mb-8">
               <Logo size="lg" showText />
             </Flex>
-
             {/* Header */}
             <div className="text-center mb-8">
               <H2 className="mb-3">Create your account</H2>
@@ -143,7 +130,6 @@ export default function SignupPage() {
                 Get started with your 14-day free trial
               </Text>
             </div>
-
             {/* Form */}
             <Form onSubmit={handleSignup}>
               <Grid cols={2} gap={4}>
@@ -157,7 +143,6 @@ export default function SignupPage() {
                     required
                   />
                 </FormGroup>
-
                 <FormGroup>
                   <Input
                     type="text"
@@ -168,7 +153,6 @@ export default function SignupPage() {
                   />
                 </FormGroup>
               </Grid>
-
               <FormGroup>
                 <Input
                   type="email"
@@ -179,7 +163,6 @@ export default function SignupPage() {
                   required
                 />
               </FormGroup>
-
               <FormGroup>
                 <Input
                   type="password"
@@ -193,13 +176,11 @@ export default function SignupPage() {
                   Minimum 6 characters
                 </Text>
               </FormGroup>
-
               {error && (
                 <Alert variant="error" className="mb-6">
                   {error}
                 </Alert>
               )}
-
               <Button
                 type="submit"
                 variant="primary"
@@ -209,7 +190,6 @@ export default function SignupPage() {
               >
                 Create Account
               </Button>
-
               {/* Terms */}
               <Text size="xs" color="muted" className="text-center mt-4">
                 By signing up, you agree to our{" "}
@@ -222,7 +202,6 @@ export default function SignupPage() {
                 </Link>
               </Text>
             </Form>
-
             {/* Sign in link */}
             <div className="text-center mt-8">
               <Text size="sm" color="secondary">

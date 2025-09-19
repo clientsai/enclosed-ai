@@ -1,6 +1,5 @@
 /* UI Component Transformation - Diverse lightweight components with no duplicates per page */
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -10,6 +9,7 @@ import { formatCurrency } from "@/lib/pricing";
 import { generateSalesLetter } from "@/lib/letter-generator";
 import Logo from "@/components/Logo";
 
+import Navigation from "@/components/Navigation";
 export default function CampaignDetailPage({
   params,
 }: {
@@ -23,7 +23,6 @@ export default function CampaignDetailPage({
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [selectedTab, setSelectedTab] = useState("overview");
-
   useEffect(() => {
     const loadCampaign = async () => {
       const {
@@ -33,32 +32,26 @@ export default function CampaignDetailPage({
         router.push("/auth/login");
         return;
       }
-
       // Load campaign
       const { data: campaignData, error: campaignError } = await supabase
         .from("enclosed_campaigns")
         .select("*")
         .eq("id", params.id)
         .single();
-
       if (campaignError || !campaignData) {
         setError("Campaign not found");
         setLoading(false);
         return;
       }
-
       setCampaign(campaignData);
-
       // Load recipients
       const { data: recipientData } = await supabase
         .from("enclosed_recipients")
         .select("*")
         .eq("campaign_id", params.id)
         .limit(100);
-
       if (recipientData) {
         setRecipients(recipientData);
-
         // Generate sample letter
         if (recipientData.length > 0) {
           const sample = await generateSalesLetter(
@@ -68,16 +61,12 @@ export default function CampaignDetailPage({
           setSampleLetter(sample);
         }
       }
-
       setLoading(false);
     };
-
     loadCampaign();
   }, [params.id, router]);
-
   const handleSendCampaign = async () => {
     if (!campaign) return;
-
     if (
       !confirm(
         `Are you sure you want to send this campaign? This will cost ${formatCurrency(campaign.total_cost)}.`,
@@ -85,10 +74,8 @@ export default function CampaignDetailPage({
     ) {
       return;
     }
-
     setSending(true);
     setError("");
-
     try {
       // Check user balance
       const {
@@ -99,21 +86,17 @@ export default function CampaignDetailPage({
         .select("credits_balance")
         .eq("id", user?.id)
         .single();
-
       if (!userData || userData.credits_balance < campaign.total_cost) {
         throw new Error(
           "Insufficient credits. Please add more credits to send this campaign.",
         );
       }
-
       // Update campaign status
       const { error: updateError } = await supabase
         .from("enclosed_campaigns")
         .update({ status: "processing" })
         .eq("id", campaign.id);
-
       if (updateError) throw updateError;
-
       // In a real app, this would trigger a background job
       // For now, we'll just simulate sending
       setTimeout(async () => {
@@ -124,7 +107,6 @@ export default function CampaignDetailPage({
             sent_date: new Date().toISOString(),
           })
           .eq("id", campaign.id);
-
         // Update user balance and stats
         await supabase
           .from("enclosed_users")
@@ -135,18 +117,15 @@ export default function CampaignDetailPage({
             ]),
           })
           .eq("id", user?.id);
-
         // Reload campaign
         const { data: updatedCampaign } = await supabase
           .from("enclosed_campaigns")
           .select("*")
           .eq("id", campaign.id)
           .single();
-
         if (updatedCampaign) {
           setCampaign(updatedCampaign);
         }
-
         setSending(false);
         alert("Campaign sent successfully!");
       }, 3000);
@@ -155,20 +134,19 @@ export default function CampaignDetailPage({
       setSending(false);
     }
   };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen bg-black">
+      <Navigation variant="app" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
   }
-
   if (!campaign) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">Campaign not found</p>
+          <p className="text-gray-400 mb-4">Campaign not found</p>
           <Link href="/dashboard" className="text-blue-600 hover:text-blue-700">
             ← Back to Dashboard
           </Link>
@@ -176,37 +154,15 @@ export default function CampaignDetailPage({
       </div>
     );
   }
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Link href="/dashboard" className="flex items-center space-x-2">
-                <Logo size="md" />
-              </Link>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/dashboard"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                ← Back to Dashboard
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         {/* Campaign Header - Key Bullet Summary Component */}
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+        <div className="bg-black rounded-lg shadow p-6 mb-6">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-4">
+              <h1 className="text-xl md:text-2xl font-bold text-white mb-4">
                 {campaign.name}
               </h1>
               <ul className="space-y-2">
@@ -217,7 +173,7 @@ export default function CampaignDetailPage({
                     className={`ml-2 inline-flex px-3 py-1 text-sm font-semibold rounded-full
                     ${campaign.status === "completed" ? "bg-green-100 text-green-800" : ""}
                     ${campaign.status === "processing" ? "bg-yellow-100 text-yellow-800" : ""}
-                    ${campaign.status === "draft" ? "bg-gray-100 text-gray-800" : ""}
+                    ${campaign.status === "draft" ? "bg-gray-100 text-white" : ""}
                     ${campaign.status === "failed" ? "bg-red-100 text-red-800" : ""}
                   `}
                   >
@@ -228,7 +184,7 @@ export default function CampaignDetailPage({
                 <li className="flex items-center">
                   <span className="text-blue-600 mr-2 font-bold">•</span>
                   <span className="font-medium">Created:</span>
-                  <span className="ml-2 text-gray-600">
+                  <span className="ml-2 text-gray-400">
                     {new Date(campaign.created_at).toLocaleDateString()}
                   </span>
                 </li>
@@ -241,7 +197,6 @@ export default function CampaignDetailPage({
                 </li>
               </ul>
             </div>
-
             {campaign.status === "draft" && (
               <button
                 onClick={handleSendCampaign}
@@ -252,16 +207,14 @@ export default function CampaignDetailPage({
               </button>
             )}
           </div>
-
           {error && (
             <div className="mt-4 bg-red-50 text-red-600 px-4 py-3 rounded-lg border border-red-200">
               {error}
             </div>
           )}
         </div>
-
         {/* Mini Tabs CSS-only Component */}
-        <div className="bg-white rounded-lg shadow mb-6">
+        <div className="bg-black rounded-lg shadow mb-6">
           <div className="p-6">
             <style jsx>{`
               input[type="radio"] {
@@ -290,86 +243,82 @@ export default function CampaignDetailPage({
                 display: none;
               }
             `}</style>
-
             <input type="radio" id="tab-overview" name="tabs" defaultChecked />
             <input type="radio" id="tab-recipients" name="tabs" />
             <input type="radio" id="tab-preview" name="tabs" />
-
             <div className="tab-labels flex border-b mb-6">
               <label
                 htmlFor="tab-overview"
-                className="px-4 py-3 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors font-medium"
+                className="px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors font-medium"
               >
                 Overview
               </label>
               <label
                 htmlFor="tab-recipients"
-                className="px-4 py-3 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors font-medium"
+                className="px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors font-medium"
               >
                 Recipients ({campaign.recipient_count})
               </label>
               <label
                 htmlFor="tab-preview"
-                className="px-4 py-3 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors font-medium"
+                className="px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors font-medium"
               >
                 Letter Preview
               </label>
             </div>
-
             <div className="tab-content">
               {/* Overview Tab - Metric Callouts Component */}
               <div className="content-overview">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  <div className="bg-black rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-white mb-4">
                       Campaign Details
                     </h3>
                     <dl className="space-y-3">
                       <div className="flex justify-between">
-                        <dt className="text-sm text-gray-600">Offer Type</dt>
-                        <dd className="font-medium text-gray-900">
+                        <dt className="text-sm text-gray-400">Offer Type</dt>
+                        <dd className="font-medium text-white">
                           {campaign.offer_type.replace(/_/g, " ")}
                         </dd>
                       </div>
                       <div className="flex justify-between">
-                        <dt className="text-sm text-gray-600">Mail Type</dt>
-                        <dd className="font-medium text-gray-900">
+                        <dt className="text-sm text-gray-400">Mail Type</dt>
+                        <dd className="font-medium text-white">
                           {campaign.mail_type.replace(/_/g, " ")}
                         </dd>
                       </div>
                       <div className="flex justify-between">
-                        <dt className="text-sm text-gray-600">Recipients</dt>
-                        <dd className="font-medium text-gray-900">
+                        <dt className="text-sm text-gray-400">Recipients</dt>
+                        <dd className="font-medium text-white">
                           {campaign.recipient_count}
                         </dd>
                       </div>
                       {campaign.sent_date && (
                         <div className="flex justify-between">
-                          <dt className="text-sm text-gray-600">Sent Date</dt>
-                          <dd className="font-medium text-gray-900">
+                          <dt className="text-sm text-gray-400">Sent Date</dt>
+                          <dd className="font-medium text-white">
                             {new Date(campaign.sent_date).toLocaleString()}
                           </dd>
                         </div>
                       )}
                     </dl>
                   </div>
-
                   <div className="border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    <h3 className="text-lg font-semibold text-white mb-4">
                       Cost Metrics
                     </h3>
                     <div className="space-y-4">
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-blue-600">
+                        <div className="text-2xl md:text-3xl font-bold text-blue-600">
                           {formatCurrency(campaign.cost_per_piece)}
                         </div>
-                        <div className="text-sm text-gray-600">Per Piece</div>
+                        <div className="text-sm text-gray-400">Per Piece</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-green-600">
+                        <div className="text-2xl md:text-3xl font-bold text-green-600">
                           {campaign.recipient_count}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-400">
                           Total Recipients
                         </div>
                       </div>
@@ -377,7 +326,7 @@ export default function CampaignDetailPage({
                         <div className="text-4xl font-bold text-blue-700">
                           {formatCurrency(campaign.total_cost)}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-400">
                           Total Campaign Cost
                         </div>
                       </div>
@@ -385,23 +334,22 @@ export default function CampaignDetailPage({
                   </div>
                 </div>
               </div>
-
               {/* Recipients Tab - Comparison Table Compact Component */}
               <div className="content-recipients">
                 <div className="overflow-x-auto">
                   <table className="min-w-full">
                     <thead>
                       <tr className="bg-gray-100 border-b-2 border-gray-200">
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                           Recipient
                         </th>
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                           Address
                         </th>
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                           Location
                         </th>
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                           Status
                         </th>
                       </tr>
@@ -411,11 +359,11 @@ export default function CampaignDetailPage({
                         <tr
                           key={recipient.id}
                           className={
-                            index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                            index % 2 === 0 ? "bg-black" : "bg-black"
                           }
                         >
                           <td className="px-4 py-3 text-sm">
-                            <div className="font-medium text-gray-900">
+                            <div className="font-medium text-white">
                               {recipient.name}
                             </div>
                             {recipient.company && (
@@ -424,7 +372,7 @@ export default function CampaignDetailPage({
                               </div>
                             )}
                           </td>
-                          <td className="px-4 py-3 text-sm text-gray-600">
+                          <td className="px-4 py-3 text-sm text-gray-400">
                             <div>{recipient.address_line1}</div>
                             {recipient.address_line2 && (
                               <div className="text-xs">
@@ -432,12 +380,12 @@ export default function CampaignDetailPage({
                               </div>
                             )}
                           </td>
-                          <td className="px-4 py-3 text-sm text-gray-600">
+                          <td className="px-4 py-3 text-sm text-gray-400">
                             {recipient.city}, {recipient.state}{" "}
                             {recipient.zip_code}
                           </td>
                           <td className="px-4 py-3">
-                            <span className="inline-flex px-2 py-1 text-xs font-medium rounded bg-gray-200 text-gray-700">
+                            <span className="inline-flex px-2 py-1 text-xs font-medium rounded bg-gray-200 text-gray-300">
                               {recipient.delivery_status || "Pending"}
                             </span>
                           </td>
@@ -455,7 +403,6 @@ export default function CampaignDetailPage({
                   </div>
                 )}
               </div>
-
               {/* Preview Tab - Code Snippet Box Component */}
               <div className="content-preview">
                 <div className="bg-gray-900 rounded-lg p-1">
@@ -489,36 +436,35 @@ export default function CampaignDetailPage({
             </div>
           </div>
         </div>
-
         {/* Footer Actions - Inline Q&A List Component */}
         {campaign.status === "draft" && (
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">
+          <div className="bg-black rounded-lg shadow p-6">
+            <h3 className="font-semibold text-white mb-4">
               Before You Send
             </h3>
             <div className="space-y-3">
               <div>
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-white">
                   Q: Have you reviewed all recipient addresses?
                 </span>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-400 mt-1">
                   Ensure all addresses are valid to maximize delivery rates.
                 </p>
               </div>
               <div>
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-white">
                   Q: Do you have sufficient credits?
                 </span>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-400 mt-1">
                   This campaign requires {formatCurrency(campaign.total_cost)}{" "}
                   in credits.
                 </p>
               </div>
               <div>
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-white">
                   Q: Is your offer message clear?
                 </span>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-400 mt-1">
                   Review the letter preview to ensure your message is
                   compelling.
                 </p>

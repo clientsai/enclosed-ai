@@ -3,7 +3,6 @@
  * Clean, transparent pricing presentation
  */
 "use client";
-
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import Logo from "@/components/Logo";
@@ -25,15 +24,12 @@ import {
   Alert,
   GlowOrb,
 } from "@/components/ui";
-
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
-
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
-
   const handleSubscribe = async (priceId: string, plan: string) => {
     setLoading(plan);
     try {
@@ -46,10 +42,8 @@ export default function PricingPage() {
           metadata: { plan },
         }),
       });
-
       const { sessionId } = await response.json();
       const stripe = await stripePromise;
-
       if (stripe) {
         const { error } = await stripe.redirectToCheckout({ sessionId });
         if (error) console.error(error);
@@ -60,7 +54,6 @@ export default function PricingPage() {
       setLoading(null);
     }
   };
-
   const plans = [
     {
       name: "Starter",
@@ -119,7 +112,6 @@ export default function PricingPage() {
       featured: false,
     },
   ];
-
   const faqs = [
     {
       question: "How does the pricing work?",
@@ -142,33 +134,12 @@ export default function PricingPage() {
       answer: "Yes! All plans come with a 14-day free trial. No credit card required to start. You can test all features and send sample campaigns before subscribing.",
     },
   ];
-
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Background effects */}
       <GlowOrb color="accent" size="lg" className="top-1/4 -right-32 opacity-10" />
       <GlowOrb color="purple" size="default" className="bottom-1/4 -left-32 opacity-10" />
-
       {/* Navigation */}
-      <Nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing" active>Pricing</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-        </Flex>
-        <Flex gap={4}>
-          <Button variant="ghost" size="sm" href="/auth/login">
-            Sign In
-          </Button>
-          <Button variant="primary" size="sm" href="/auth/signup">
-            Get Started
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Hero Section */}
       <Section>
         <Container>
@@ -185,7 +156,6 @@ export default function PricingPage() {
               No hidden fees. No contracts. Pay only for what you send.
               Start with a 14-day free trial.
             </Text>
-
             {/* Billing Toggle */}
             <Flex justify="center" align="center" gap={4}>
               <Text color={billingPeriod === "monthly" ? "primary" : "secondary"}>
@@ -209,7 +179,6 @@ export default function PricingPage() {
               )}
             </Flex>
           </div>
-
           {/* Pricing Cards */}
           <Grid cols={3} gap={8} className="mb-24">
             {plans.map((plan) => (
@@ -230,13 +199,11 @@ export default function PricingPage() {
                     Most Popular
                   </Badge>
                 )}
-
                 <div className="text-center mb-8">
                   <H3 className="mb-2">{plan.name}</H3>
                   <Text color="secondary" size="sm" className="mb-6">
                     {plan.description}
                   </Text>
-
                   {typeof plan.price === "number" ? (
                     <div className="mb-2">
                       <span className="text-5xl font-bold gradient-text-accent">
@@ -251,14 +218,12 @@ export default function PricingPage() {
                       {plan.price}
                     </div>
                   )}
-
                   {billingPeriod === "annual" && typeof plan.price === "number" && (
                     <Text size="sm" color="success">
                       Save ${(plan.price * 12 * 0.2).toFixed(0)} per year
                     </Text>
                   )}
                 </div>
-
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <Flex key={i} gap={3} align="start">
@@ -267,7 +232,6 @@ export default function PricingPage() {
                     </Flex>
                   ))}
                 </div>
-
                 <Button
                   variant={plan.featured ? "primary" : "secondary"}
                   size="lg"
@@ -284,14 +248,12 @@ export default function PricingPage() {
               </Card>
             ))}
           </Grid>
-
           {/* Add-on Section */}
           <div className="text-center mb-24">
             <H2 className="mb-6">Need more letters?</H2>
             <Text size="lg" color="secondary" className="mb-8">
               Add letter bundles to any plan
             </Text>
-
             <Card glass className="max-w-md mx-auto">
               <Flex justify="between" align="center" className="mb-6">
                 <div className="text-left">
@@ -303,7 +265,7 @@ export default function PricingPage() {
                   </Text>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold">$200</div>
+                  <div className="text-xl md:text-xl md:text-2xl font-bold">$200</div>
                   <Text size="sm" color="muted">One-time</Text>
                 </div>
               </Flex>
@@ -317,7 +279,6 @@ export default function PricingPage() {
               </Button>
             </Card>
           </div>
-
           {/* Features Grid */}
           <div className="mb-24">
             <div className="text-center mb-12">
@@ -326,7 +287,6 @@ export default function PricingPage() {
                 All plans include our core features
               </Text>
             </div>
-
             <Grid cols={3} gap={6}>
               {[
                 { icon: "🤖", title: "AI Personalization", desc: "Every letter uniquely written" },
@@ -337,7 +297,7 @@ export default function PricingPage() {
                 { icon: "🔒", title: "Security", desc: "Enterprise-grade protection" },
               ].map((feature, i) => (
                 <Card key={i} glass className="text-center">
-                  <div className="text-3xl mb-3">{feature.icon}</div>
+                  <div className="text-2xl md:text-2xl md:text-3xl mb-3">{feature.icon}</div>
                   <Text weight="semibold" className="mb-2">
                     {feature.title}
                   </Text>
@@ -348,7 +308,6 @@ export default function PricingPage() {
               ))}
             </Grid>
           </div>
-
           {/* FAQ Section */}
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -357,7 +316,6 @@ export default function PricingPage() {
                 Everything you need to know about our pricing
               </Text>
             </div>
-
             <div className="space-y-4">
               {faqs.map((faq, i) => (
                 <details key={i} className="group">
@@ -378,7 +336,6 @@ export default function PricingPage() {
               ))}
             </div>
           </div>
-
           {/* CTA Section */}
           <Section>
             <Card glass className="text-center p-12">

@@ -7,13 +7,11 @@ import {
   H1,
   Text,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Sitemap - Enclosed.AI | Website Navigation & Page Directory",
   description:
     "Complete sitemap of Enclosed.AI website pages including product features, resources, legal pages, and support documentation.",
 };
-
 export default function SitemapPage() {
   const siteMap = {
     "Product": [
@@ -71,40 +69,9 @@ export default function SitemapPage() {
       { name: "Status Page", href: "https://status.enclosed.ai", description: "Real-time service status and uptime" },
     ],
   };
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Features
-              </Link>
-              <Link href="/about" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Sign In
-              </Link>
-              <Link href="/auth/signup" className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors">
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Content */}
       <Section>
         <div className="max-w-6xl mx-auto">
@@ -115,11 +82,10 @@ export default function SitemapPage() {
                 Navigate through all pages and resources available on the Enclosed.AI website. Find exactly what you're looking for.
               </Text>
             </div>
-
             <div className="space-y-12">
               {Object.entries(siteMap).map(([category, pages]) => (
                 <div key={category}>
-                  <H1 level={2} className="text-2xl mb-6 text-gray-900 border-b border-gray-200 pb-2">
+                  <H1 level={2} className="text-xl md:text-2xl mb-6 text-white border-b border-gray-200 pb-2">
                     {category}
                   </H1>
                   <Grid columns={2}>
@@ -129,17 +95,17 @@ export default function SitemapPage() {
                           <div className="flex-1">
                             <Link
                               href={page.href}
-                              className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                              className="text-lg font-medium text-white hover:text-blue-600 transition-colors"
                             >
                               {page.name}
                             </Link>
-                            <p className="text-sm text-gray-600 mt-1">
+                            <p className="text-sm text-gray-400 mt-1">
                               {page.description}
                             </p>
                           </div>
                           <Link
                             href={page.href}
-                            className="ml-4 text-gray-400 hover:text-gray-600 transition-colors"
+                            className="ml-4 text-gray-400 hover:text-gray-400 transition-colors"
                           >
                             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -152,12 +118,11 @@ export default function SitemapPage() {
                 </div>
               ))}
             </div>
-
             {/* Additional Information */}
-            <div className="bg-gray-50 p-8 rounded-lg">
+            <div className="bg-black p-8 rounded-lg">
               <Flex gap={4}>
                 <H1 level={3}>Can't Find What You're Looking For?</H1>
-                <p className="text-gray-700">
+                <p className="text-gray-300">
                   If you can't find a specific page or resource, try using our search function or contact our support team for assistance.
                 </p>
                 <div className="flex gap-4">
@@ -173,7 +138,6 @@ export default function SitemapPage() {
           </Flex>
         </div>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white mt-16">
         <Section>

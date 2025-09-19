@@ -13,13 +13,11 @@ import {
   Card,
   Alert,
 } from "@/components/ui";
-
 export const metadata = {
   title: "Financial Services Use Case - Enclosed.AI | Compliant Direct Mail Marketing",
   description:
     "Discover how financial institutions use Enclosed.AI for compliant direct mail campaigns that build trust, acquire customers, and promote financial products.",
 };
-
 export default function FinancialUseCasePage() {
   const challenges = [
     {
@@ -43,7 +41,6 @@ export default function FinancialUseCasePage() {
       solution: "Precise demographic targeting ensures relevant product offers reach the right audience segments.",
     },
   ];
-
   const useCases = [
     {
       title: "Mortgage & Home Loans",
@@ -70,7 +67,6 @@ export default function FinancialUseCasePage() {
       tactics: ["Industry-specific solutions", "Cash flow tools", "Relationship benefits", "Success stories"],
     },
   ];
-
   const complianceFeatures = [
     "Automated regulatory compliance checks",
     "Pre-approved template library",
@@ -79,7 +75,6 @@ export default function FinancialUseCasePage() {
     "Multi-level approval workflows",
     "Industry-specific guidelines",
   ];
-
   const caseStudy = {
     company: "Community First Bank",
     type: "Regional Bank",
@@ -98,29 +93,9 @@ export default function FinancialUseCasePage() {
       company: "Community First Bank",
     },
   };
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</Link>
-              <Link href="/features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</Link>
-              <Link href="/use-cases/financial" className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Use Cases</Link>
-              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pricing</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sign In</Link>
-              <Button as={Link} href="/auth/signup" size="sm">Get Started</Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex gap={6}>
@@ -135,9 +110,8 @@ export default function FinancialUseCasePage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Challenges Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Financial Marketing Challenges</H1>
@@ -148,7 +122,7 @@ export default function FinancialUseCasePage() {
               <Card key={index} className="p-6">
                 <Flex gap={4}>
                   <H1 level={4} className="text-lg text-red-600">{challenge.title}</H1>
-                  <p className="text-gray-700 leading-relaxed">{challenge.description}</p>
+                  <p className="text-gray-300 leading-relaxed">{challenge.description}</p>
                   <div className="bg-green-50 p-3 rounded-lg">
                     <p className="text-green-700 font-medium text-sm">Solution: {challenge.solution}</p>
                   </div>
@@ -158,7 +132,6 @@ export default function FinancialUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Compliance Features */}
       <Section>
         <Flex gap={8}>
@@ -173,7 +146,7 @@ export default function FinancialUseCasePage() {
                   <div className="h-5 w-5 bg-green-100 rounded-full flex items-center justify-center">
                     <span className="text-green-600 text-xs font-bold">✓</span>
                   </div>
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-gray-300">{feature}</span>
                 </div>
               ))}
             </Grid>
@@ -183,9 +156,8 @@ export default function FinancialUseCasePage() {
           </Alert>
         </Flex>
       </Section>
-
       {/* Use Cases */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Financial Services Campaign Types</H1>
@@ -195,13 +167,13 @@ export default function FinancialUseCasePage() {
             {useCases.map((useCase, index) => (
               <Card key={index} hover className="p-8">
                 <Flex gap={4}>
-                  <H1 level={3} className="text-xl">{useCase.title}</H1>
-                  <p className="text-gray-700 leading-relaxed">{useCase.description}</p>
+                  <H1 level={3} className="text-lg md:text-xl">{useCase.title}</H1>
+                  <p className="text-gray-300 leading-relaxed">{useCase.description}</p>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Tactics:</h4>
+                    <h4 className="font-semibold text-white mb-2">Key Tactics:</h4>
                     <ul className="space-y-1">
                       {useCase.tactics.map((tactic, tacticIndex) => (
-                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-700">
+                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-300">
                           <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
                             <span className="text-blue-600 text-xs font-bold">✓</span>
                           </div>
@@ -219,7 +191,6 @@ export default function FinancialUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Case Study */}
       <Section id="case-study">
         <Flex gap={8}>
@@ -231,28 +202,28 @@ export default function FinancialUseCasePage() {
             <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">CF</span>
+                  <span className="text-white font-bold text-lg md:text-xl">CF</span>
                 </div>
                 <div>
                   <H1 level={3}>{caseStudy.company}</H1>
-                  <p className="text-gray-600">{caseStudy.type}</p>
+                  <p className="text-gray-400">{caseStudy.type}</p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Challenge</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">{caseStudy.challenge}</p>
+                  <h4 className="font-semibold text-white mb-2">Challenge</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">{caseStudy.challenge}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Solution</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">{caseStudy.solution}</p>
+                  <h4 className="font-semibold text-white mb-2">Solution</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">{caseStudy.solution}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Results</h4>
+                  <h4 className="font-semibold text-white mb-2">Results</h4>
                   <div className="space-y-2">
                     {caseStudy.results.map((result, index) => (
                       <div key={index} className="flex justify-between items-center">
-                        <span className="text-sm text-gray-700">{result.metric}:</span>
+                        <span className="text-sm text-gray-300">{result.metric}:</span>
                         <div className="text-right">
                           <div className="font-bold text-green-600">{result.value}</div>
                           <div className="text-xs text-gray-500">{result.comparison}</div>
@@ -262,15 +233,15 @@ export default function FinancialUseCasePage() {
                   </div>
                 </div>
               </div>
-              <Card className="mt-6 p-6 bg-gray-50">
+              <Card className="mt-6 p-6 bg-black">
                 <Flex gap={4}>
-                  <blockquote className="text-gray-700 italic leading-relaxed">
+                  <blockquote className="text-gray-300 italic leading-relaxed">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div className="text-right">
-                    <div className="font-semibold text-gray-900">{caseStudy.testimonial.author}</div>
-                    <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
-                    <div className="text-sm text-gray-600">{caseStudy.testimonial.company}</div>
+                    <div className="font-semibold text-white">{caseStudy.testimonial.author}</div>
+                    <div className="text-sm text-gray-400">{caseStudy.testimonial.role}</div>
+                    <div className="text-sm text-gray-400">{caseStudy.testimonial.company}</div>
                   </div>
                 </Flex>
               </Card>
@@ -278,9 +249,8 @@ export default function FinancialUseCasePage() {
           </Card>
         </Flex>
       </Section>
-
       {/* Benchmarks */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Financial Services Benchmarks</H1>
@@ -288,29 +258,28 @@ export default function FinancialUseCasePage() {
           </div>
           <Grid columns={4}>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">4.8%</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">4.8%</H3>
               <Text size="sm" color="muted">Average Response Rate</Text>
               <Text size="xs" className="text-gray-500">Financial services mail</Text>
             </Card>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">$225</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">$225</H3>
               <Text size="sm" color="muted">Cost per Acquisition</Text>
               <Text size="xs" className="text-gray-500">vs $380 digital ads</Text>
             </Card>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">32%</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">32%</H3>
               <Text size="sm" color="muted">Application Rate</Text>
               <Text size="xs" className="text-gray-500">for pre-qualified offers</Text>
             </Card>
             <Card className="p-6 text-center">
-              <H3 className="text-2xl font-bold text-gray-900">520%</H3>
+              <H3 className="text-xl md:text-2xl font-bold text-white">520%</H3>
               <Text size="sm" color="muted">Return on Investment</Text>
               <Text size="xs" className="text-gray-500">for mortgage campaigns</Text>
             </Card>
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex gap={6}>
@@ -319,12 +288,11 @@ export default function FinancialUseCasePage() {
             Join financial institutions using Enclosed.AI to acquire customers and promote products with confidence in regulatory compliance.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">Start Free Trial</Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">Schedule Demo</Button>
+            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">Start Free Trial</Button>
+            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">Schedule Demo</Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">

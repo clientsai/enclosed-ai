@@ -3,7 +3,6 @@
  * Clean, focused interface for campaign management
  */
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -11,6 +10,8 @@ import { supabase } from "@/lib/supabase";
 import { Campaign, User } from "@/types";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
+
+import Navigation from "@/components/Navigation";
 import {
   Container,
   Section,
@@ -29,7 +30,6 @@ import {
   Spinner,
   Alert,
 } from "@/components/ui";
-
 export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
@@ -41,7 +41,6 @@ export default function Dashboard() {
     responseRate: 0,
   });
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const loadDashboard = async () => {
       const { data: { user: authUser } } = await supabase.auth.getUser();
@@ -49,14 +48,12 @@ export default function Dashboard() {
         router.push("/auth/login");
         return;
       }
-
       // Load user profile
       const { data: userData } = await supabase
         .from("enclosed_users")
         .select("*")
         .eq("id", authUser.id)
         .single();
-
       if (userData) {
         setUser(userData);
         setStats({
@@ -66,7 +63,6 @@ export default function Dashboard() {
           responseRate: 12.4, // Example stat
         });
       }
-
       // Load campaigns
       const { data: campaignData } = await supabase
         .from("enclosed_campaigns")
@@ -74,7 +70,6 @@ export default function Dashboard() {
         .eq("user_id", authUser.id)
         .order("created_at", { ascending: false })
         .limit(5);
-
       if (campaignData) {
         setCampaigns(campaignData);
         const active = campaignData.filter((c) =>
@@ -82,48 +77,24 @@ export default function Dashboard() {
         ).length;
         setStats((prev) => ({ ...prev, activeCampaigns: active }));
       }
-
       setLoading(false);
     };
-
     loadDashboard();
   }, [router]);
-
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push("/");
   };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-black">
         <Spinner size="lg" />
       </div>
     );
   }
-
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <Nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
-        <Logo size="md" />
-        <Flex gap={8} align="center" className="hidden md:flex">
-          <NavLink href="/dashboard" active>Dashboard</NavLink>
-          <NavLink href="/campaigns">Campaigns</NavLink>
-          <NavLink href="/templates">Templates</NavLink>
-          <NavLink href="/api-keys">API</NavLink>
-          <NavLink href="/billing">Billing</NavLink>
-        </Flex>
-        <Flex gap={4} align="center">
-          <Badge variant="accent">
-            {formatCurrency(stats.creditsBalance)} credits
-          </Badge>
-          <Button variant="ghost" size="sm" onClick={handleSignOut}>
-            Sign Out
-          </Button>
-        </Flex>
-      </Nav>
-
       {/* Main Content */}
       <Container size="xl">
         <div className="py-8">
@@ -139,7 +110,6 @@ export default function Dashboard() {
               Here's what's happening with your campaigns today
             </Text>
           </div>
-
           {/* Quick Actions */}
           <Grid cols={3} gap={4} className="mb-12">
             <Button
@@ -148,7 +118,7 @@ export default function Dashboard() {
               href="/campaigns/new"
               className="h-auto py-6 flex-col gap-2"
             >
-              <span className="text-2xl">+</span>
+              <span className="text-xl md:text-2xl">+</span>
               <span>New Campaign</span>
             </Button>
             <Button
@@ -157,7 +127,7 @@ export default function Dashboard() {
               href="/leads/upload"
               className="h-auto py-6 flex-col gap-2"
             >
-              <span className="text-2xl">📤</span>
+              <span className="text-xl md:text-2xl">📤</span>
               <span>Upload Texts</span>
             </Button>
             <Button
@@ -166,11 +136,10 @@ export default function Dashboard() {
               href="/templates"
               className="h-auto py-6 flex-col gap-2"
             >
-              <span className="text-2xl">📝</span>
+              <span className="text-xl md:text-2xl">📝</span>
               <span>Templates</span>
             </Button>
           </Grid>
-
           {/* Stats Grid */}
           <Grid cols={4} gap={6} className="mb-12">
             <Card glass>
@@ -204,7 +173,6 @@ export default function Dashboard() {
               </Link>
             </Card>
           </Grid>
-
           {/* Recent Campaigns */}
           <div>
             <Flex justify="between" align="center" className="mb-6">
@@ -213,7 +181,6 @@ export default function Dashboard() {
                 View All →
               </Button>
             </Flex>
-
             {campaigns.length === 0 ? (
               <Card glass className="text-center py-12">
                 <div className="text-6xl mb-4">📮</div>
@@ -270,7 +237,6 @@ export default function Dashboard() {
               </div>
             )}
           </div>
-
           {/* Performance Chart Placeholder */}
           <div className="mt-12">
             <H3 className="mb-6">Performance Overview</H3>

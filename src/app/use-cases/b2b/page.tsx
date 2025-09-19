@@ -12,13 +12,11 @@ import {
   Button,
   Card,
 } from "@/components/ui";
-
 export const metadata = {
   title: "B2B Use Case - Enclosed.AI | Direct Mail for Business Sales",
   description:
     "Discover how B2B companies use Enclosed.AI to generate leads, nurture prospects, and close more deals with AI-powered direct mail marketing.",
 };
-
 export default function B2BUseCasePage() {
   const challenges = [
     {
@@ -42,7 +40,6 @@ export default function B2BUseCasePage() {
       impact: "Limited access to key decision makers",
     },
   ];
-
   const solutions = [
     {
       title: "Higher Engagement Rates",
@@ -69,7 +66,6 @@ export default function B2BUseCasePage() {
       icon: "🔗",
     },
   ];
-
   const useCaseExamples = [
     {
       title: "Text Generation Campaigns",
@@ -96,7 +92,6 @@ export default function B2BUseCasePage() {
       results: "25% increase in customer lifetime value",
     },
   ];
-
   const caseStudy = {
     company: "TechFlow Solutions",
     industry: "Enterprise Software",
@@ -115,7 +110,6 @@ export default function B2BUseCasePage() {
       company: "TechFlow Solutions",
     },
   };
-
   const implementation = [
     {
       title: "Audience Segmentation",
@@ -138,68 +132,15 @@ export default function B2BUseCasePage() {
       content: "Monitor response rates, lead quality, and ROI. Use unique phone numbers, landing pages, and promo codes to track attribution."
     },
   ];
-
   const benchmarks = [
     { metric: "Average Response Rate", value: "4.2%", industry: "B2B Direct Mail" },
     { metric: "Cost per Text", value: "$180", industry: "Technology Companies" },
     { metric: "Text-to-Customer Rate", value: "12%", industry: "Enterprise Software" },
     { metric: "ROI", value: "420%", industry: "B2B Campaigns" },
   ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Logo size="md" />
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href="/use-cases/b2b"
-                className="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Use Cases
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button as={Link} href="/auth/signup" size="sm">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <Section className="text-center">
         <Flex gap={6}>
@@ -220,9 +161,8 @@ export default function B2BUseCasePage() {
           </Flex>
         </Flex>
       </Section>
-
       {/* Challenges Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>B2B Marketing Challenges</H1>
@@ -230,7 +170,6 @@ export default function B2BUseCasePage() {
               Traditional digital marketing faces increasing obstacles in reaching B2B decision makers
             </Text>
           </div>
-
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} className="p-6">
@@ -238,7 +177,7 @@ export default function B2BUseCasePage() {
                   <H1 level={4} className="text-lg text-red-600">
                     {challenge.title}
                   </H1>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {challenge.description}
                   </p>
                   <p className="text-sm text-red-700 font-medium">
@@ -250,7 +189,6 @@ export default function B2BUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Solutions Section */}
       <Section>
         <Flex gap={8}>
@@ -260,18 +198,17 @@ export default function B2BUseCasePage() {
               Overcome digital marketing challenges with strategic direct mail campaigns
             </Text>
           </div>
-
           <Grid columns={2}>
             {solutions.map((solution, index) => (
               <Card key={index} className="p-6">
                 <Flex gap={4}>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{solution.icon}</span>
+                    <span className="text-xl md:text-2xl">{solution.icon}</span>
                     <H1 level={4} className="text-lg text-green-600">
                       {solution.title}
                     </H1>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {solution.description}
                   </p>
                   <p className="text-sm text-green-700 font-medium">
@@ -283,9 +220,8 @@ export default function B2BUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Use Case Examples */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>B2B Campaign Types</H1>
@@ -293,23 +229,21 @@ export default function B2BUseCasePage() {
               Proven direct mail strategies for different B2B marketing objectives
             </Text>
           </div>
-
           <Grid columns={2}>
             {useCaseExamples.map((useCase, index) => (
               <Card key={index} hover className="p-8">
                 <Flex gap={4}>
-                  <H1 level={3} className="text-xl">
+                  <H1 level={3} className="text-lg md:text-xl">
                     {useCase.title}
                   </H1>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {useCase.description}
                   </p>
-
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Tactics:</h4>
+                    <h4 className="font-semibold text-white mb-2">Key Tactics:</h4>
                     <ul className="space-y-1">
                       {useCase.tactics.map((tactic, tacticIndex) => (
-                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-700">
+                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-300">
                           <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
                             <span className="text-blue-600 text-xs font-bold">✓</span>
                           </div>
@@ -318,7 +252,6 @@ export default function B2BUseCasePage() {
                       ))}
                     </ul>
                   </div>
-
                   <div className="bg-green-50 p-3 rounded-lg">
                     <p className="text-green-700 font-medium text-sm">
                       Typical Results: {useCase.results}
@@ -330,7 +263,6 @@ export default function B2BUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Case Study */}
       <Section id="case-study">
         <Flex gap={8}>
@@ -340,38 +272,36 @@ export default function B2BUseCasePage() {
               How TechFlow Solutions transformed their B2B lead generation
             </Text>
           </div>
-
           <Card className="p-8 max-w-5xl mx-auto">
             <Flex gap={6}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">TF</span>
+                  <span className="text-white font-bold text-lg md:text-xl">TF</span>
                 </div>
                 <div>
                   <H1 level={3}>{caseStudy.company}</H1>
-                  <p className="text-gray-600">{caseStudy.industry}</p>
+                  <p className="text-gray-400">{caseStudy.industry}</p>
                 </div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Challenge</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <h4 className="font-semibold text-white mb-2">Challenge</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {caseStudy.challenge}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Solution</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <h4 className="font-semibold text-white mb-2">Solution</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {caseStudy.solution}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Results</h4>
+                  <h4 className="font-semibold text-white mb-2">Results</h4>
                   <div className="space-y-2">
                     {caseStudy.results.map((result, index) => (
                       <div key={index} className="flex justify-between items-center">
-                        <span className="text-sm text-gray-700">{result.metric}:</span>
+                        <span className="text-sm text-gray-300">{result.metric}:</span>
                         <div className="text-right">
                           <div className="font-bold text-green-600">{result.value}</div>
                           <div className="text-xs text-gray-500">{result.comparison}</div>
@@ -381,16 +311,15 @@ export default function B2BUseCasePage() {
                   </div>
                 </div>
               </div>
-
-              <Card className="mt-6 p-6 bg-gray-50">
+              <Card className="mt-6 p-6 bg-black">
                 <Flex gap={4}>
-                  <blockquote className="text-gray-700 italic leading-relaxed">
+                  <blockquote className="text-gray-300 italic leading-relaxed">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div className="text-right">
-                    <div className="font-semibold text-gray-900">{caseStudy.testimonial.author}</div>
-                    <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
-                    <div className="text-sm text-gray-600">{caseStudy.testimonial.company}</div>
+                    <div className="font-semibold text-white">{caseStudy.testimonial.author}</div>
+                    <div className="text-sm text-gray-400">{caseStudy.testimonial.role}</div>
+                    <div className="text-sm text-gray-400">{caseStudy.testimonial.company}</div>
                   </div>
                 </Flex>
               </Card>
@@ -398,9 +327,8 @@ export default function B2BUseCasePage() {
           </Card>
         </Flex>
       </Section>
-
       {/* Implementation Guide */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Implementation Guide</H1>
@@ -408,7 +336,6 @@ export default function B2BUseCasePage() {
               Follow these steps to launch successful B2B direct mail campaigns
             </Text>
           </div>
-
           <div className="max-w-4xl mx-auto">
             <Flex gap={6}>
               {implementation.map((step, index) => (
@@ -418,8 +345,8 @@ export default function B2BUseCasePage() {
                       <span className="text-white text-sm font-bold">{index + 1}</span>
                     </div>
                     <div>
-                      <H3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</H3>
-                      <Text className="text-gray-700 leading-relaxed">{step.content}</Text>
+                      <H3 className="text-lg font-semibold text-white mb-2">{step.title}</H3>
+                      <Text className="text-gray-300 leading-relaxed">{step.content}</Text>
                     </div>
                   </Flex>
                 </Card>
@@ -428,7 +355,6 @@ export default function B2BUseCasePage() {
           </div>
         </Flex>
       </Section>
-
       {/* Industry Benchmarks */}
       <Section>
         <Flex gap={8}>
@@ -438,11 +364,10 @@ export default function B2BUseCasePage() {
               Industry performance standards to guide your campaign expectations
             </Text>
           </div>
-
           <Grid columns={4}>
             {benchmarks.map((benchmark, index) => (
               <Card key={index} className="p-6 text-center">
-                <H3 className="text-2xl font-bold text-gray-900">{benchmark.value}</H3>
+                <H3 className="text-xl md:text-2xl font-bold text-white">{benchmark.value}</H3>
                 <Text size="sm" color="muted">{benchmark.metric}</Text>
                 <Text size="xs" className="text-gray-500">{benchmark.industry}</Text>
               </Card>
@@ -450,9 +375,8 @@ export default function B2BUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* Related Use Cases */}
-      <Section className="bg-gray-50">
+      <Section className="bg-black">
         <Flex gap={8}>
           <div className="text-center">
             <H1 level={2}>Explore Other Use Cases</H1>
@@ -460,7 +384,6 @@ export default function B2BUseCasePage() {
               Discover how different industries leverage direct mail marketing
             </Text>
           </div>
-
           <Grid columns={3}>
             <Card hover className="p-6">
               <Flex gap={4}>
@@ -468,7 +391,7 @@ export default function B2BUseCasePage() {
                   <span className="text-white text-lg">🏠</span>
                 </div>
                 <H1 level={4}>Real Estate</H1>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   Generate leads, nurture prospects, and close more property deals with targeted direct mail campaigns.
                 </p>
                 <Button as={Link} href="/use-cases/real-estate" variant="ghost" size="sm" className="w-full mt-auto">
@@ -476,14 +399,13 @@ export default function B2BUseCasePage() {
                 </Button>
               </Flex>
             </Card>
-
             <Card hover className="p-6">
               <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">🛒</span>
                 </div>
                 <H1 level={4}>E-commerce</H1>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   Drive online sales, recover abandoned carts, and increase customer lifetime value with personalized mail.
                 </p>
                 <Button as={Link} href="/use-cases/ecommerce" variant="ghost" size="sm" className="w-full mt-auto">
@@ -491,14 +413,13 @@ export default function B2BUseCasePage() {
                 </Button>
               </Flex>
             </Card>
-
             <Card hover className="p-6">
               <Flex gap={4}>
                 <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">💰</span>
                 </div>
                 <H1 level={4}>Financial Services</H1>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   Build trust, acquire customers, and promote financial products with compliant direct mail strategies.
                 </p>
                 <Button as={Link} href="/use-cases/financial" variant="ghost" size="sm" className="w-full mt-auto">
@@ -509,7 +430,6 @@ export default function B2BUseCasePage() {
           </Grid>
         </Flex>
       </Section>
-
       {/* CTA Section */}
       <Section className="bg-gray-900 text-white text-center">
         <Flex gap={6}>
@@ -520,16 +440,15 @@ export default function B2BUseCasePage() {
             Join hundreds of B2B companies using Enclosed.AI to reach decision makers, generate qualified leads, and accelerate sales cycles with AI-powered direct mail.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
               Schedule Demo
             </Button>
           </Flex>
         </Flex>
       </Section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <Section className="border-b border-gray-800">
