@@ -62,9 +62,9 @@ export default function CampaignsPage() {
   };
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div >
         <Navigation variant="app" />
-        <div className="flex items-center justify-center h-screen">
+        <div >
           <Spinner size="lg" />
         </div>
       </div>
@@ -82,46 +82,46 @@ export default function CampaignsPage() {
     ),
   };
   return (
-    <div className="min-h-screen">
+    <div >
       {/* Navigation */}
       <Container size="xl">
-        <div className="py-8">
+        <div >
           {/* Header */}
-          <div className="mb-12">
-            <Flex justify="between" align="start" className="mb-4">
+          <div >
+            <Flex justify="between" align="start" >
               <div>
-                <H1 className="mb-4">Campaigns</H1>
+                <H1 >Campaigns</H1>
                 <Text size="lg" color="secondary">
                   Manage and track all your direct mail campaigns
                 </Text>
               </div>
               <Button variant="primary" size="lg" href="/campaigns/new">
-                <span className="mr-2">+</span>
+                <span >+</span>
                 Create Campaign
               </Button>
             </Flex>
           </div>
           {/* Stats Cards */}
-          <Grid cols={4} gap={6} className="mb-12">
+          <Grid cols={4} gap={6} >
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Total Campaigns</Text>
+              <Text size="sm" color="muted" >Total Campaigns</Text>
               <H2>{stats.total}</H2>
             </Card>
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Active</Text>
-              <H2 className="gradient-text-accent">{stats.active}</H2>
+              <Text size="sm" color="muted" >Active</Text>
+              <H2 >{stats.active}</H2>
             </Card>
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Completed</Text>
-              <H2 className="gradient-text">{stats.completed}</H2>
+              <Text size="sm" color="muted" >Completed</Text>
+              <H2 >{stats.completed}</H2>
             </Card>
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Total Spent</Text>
+              <Text size="sm" color="muted" >Total Spent</Text>
               <H2>{formatCurrency(stats.totalSpent)}</H2>
             </Card>
           </Grid>
           {/* Filters */}
-          <Flex justify="between" className="mb-8">
+          <Flex justify="between" >
             <Flex gap={2}>
               {["all", "draft", "processing", "scheduled", "completed", "failed"].map((status) => (
                 <Button
@@ -137,7 +137,6 @@ export default function CampaignsPage() {
             <Select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-48"
             >
               <option value="created_at">Newest First</option>
               <option value="name">Name</option>
@@ -147,10 +146,10 @@ export default function CampaignsPage() {
           </Flex>
           {/* Campaigns List */}
           {campaigns.length === 0 ? (
-            <Card glass className="text-center py-16">
-              <div className="text-6xl mb-4">📭</div>
-              <H3 className="mb-2">No campaigns found</H3>
-              <Text color="secondary" className="mb-6">
+            <Card glass >
+              <div >📭</div>
+              <H3 >No campaigns found</H3>
+              <Text color="secondary" >
                 {filter !== "all"
                   ? `No ${filter} campaigns yet`
                   : "Create your first campaign to get started"}
@@ -162,11 +161,11 @@ export default function CampaignsPage() {
           ) : (
             <Grid cols={1} gap={4}>
               {campaigns.map((campaign) => (
-                <Card key={campaign.id} hover className="p-6">
+                <Card key={campaign.id} hover >
                   <Flex justify="between" align="start">
-                    <div className="flex-1">
-                      <Flex gap={3} align="center" className="mb-3">
-                        <H3 className="text-lg md:text-lg md:text-xl">{campaign.name}</H3>
+                    <div >
+                      <Flex gap={3} align="center" >
+                        <H3 >{campaign.name}</H3>
                         <Badge
                           variant={
                             campaign.status === "completed" ? "success" :
@@ -178,7 +177,7 @@ export default function CampaignsPage() {
                           {campaign.status}
                         </Badge>
                       </Flex>
-                      <Grid cols={4} gap={4} className="mb-4">
+                      <Grid cols={4} gap={4} >
                         <div>
                           <Text size="sm" color="muted">Recipients</Text>
                           <Text weight="semibold">{campaign.recipient_count.toLocaleString()}</Text>
@@ -204,10 +203,10 @@ export default function CampaignsPage() {
                       {campaign.status === "completed" && (
                         <Flex gap={6}>
                           <Text size="sm">
-                            <span className="text-[var(--success)]">✓</span> Delivered: {campaign.sent_count || 0}
+                            <span >✓</span> Delivered: {campaign.sent_count || 0}
                           </Text>
                           <Text size="sm">
-                            <span className="text-[var(--accent)]">📊</span> Response Rate: 12.4%
+                            <span >📊</span> Response Rate: 12.4%
                           </Text>
                         </Flex>
                       )}

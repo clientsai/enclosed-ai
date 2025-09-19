@@ -22,80 +22,80 @@ export const metadata = {
 };
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Ambient background effects */}
-      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
-      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       {/* Navigation */}
       {/* Content */}
-      <Section className="pt-24">
+      <Section >
         <Container size="default">
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Legal</Badge>
-              <H1 className="mb-4" gradient>Terms of Service</H1>
-              <Text size="xl" color="secondary" className="max-w-2xl mx-auto">
+            <div >
+              <Badge >Legal</Badge>
+              <H1  gradient>Terms of Service</H1>
+              <Text size="xl" color="secondary" >
                 These terms govern your use of Enclosed.AI and our AI-powered direct mail services.
               </Text>
-              <Text size="sm" color="muted" className="mt-4">Last updated: March 15, 2024</Text>
+              <Text size="sm" color="muted" >Last updated: March 15, 2024</Text>
             </div>
-            <div className="prose prose-invert max-w-none">
+            <div >
               <H2>Acceptance of Terms</H2>
-              <Text color="secondary" className="mb-6">
+              <Text color="secondary" >
                 By accessing or using our services, you agree to be bound by these Terms of Service and all applicable laws and regulations.
               </Text>
               <H2>Service Description</H2>
-              <Text color="secondary" className="mb-6">
+              <Text color="secondary" >
                 Enclosed.AI provides AI-powered direct mail marketing services, including content generation, printing, and delivery services.
               </Text>
               <H2>User Responsibilities</H2>
-              <Text color="secondary" className="mb-6">
+              <Text color="secondary" >
                 You are responsible for providing accurate recipient information and ensuring compliance with all applicable marketing laws and regulations.
               </Text>
               <H2>Payment Terms</H2>
-              <Text color="secondary" className="mb-6">
+              <Text color="secondary" >
                 Payment is due upon placing an order. We accept major credit cards and other payment methods as specified on our platform.
               </Text>
               <H2>Limitation of Liability</H2>
-              <Text color="secondary" className="mb-6">
+              <Text color="secondary" >
                 Our liability is limited to the amount paid for the specific service. We are not liable for indirect, incidental, or consequential damages.
               </Text>
               <H2>Contact Us</H2>
-              <Text color="secondary" className="mb-4">
+              <Text color="secondary" >
                 If you have any questions about these Terms of Service, please contact us:
               </Text>
-              <ul className="space-y-2 mb-6">
-                <li><Text><span className="font-semibold text-white">Email:</span> legal@enclosed.ai</Text></li>
-                <li><Text><span className="font-semibold text-white">Address:</span> 123 Innovation Drive, San Francisco, CA 94105</Text></li>
-                <li><Text><span className="font-semibold text-white">Phone:</span> +1 (555) 123-4567</Text></li>
+              <ul >
+                <li><Text><span >Email:</span> legal@enclosed.ai</Text></li>
+                <li><Text><span >Address:</span> 123 Innovation Drive, San Francisco, CA 94105</Text></li>
+                <li><Text><span >Phone:</span> +1 (555) 123-4567</Text></li>
               </ul>
             </div>
           </Flex>
         </Container>
       </Section>
       {/* Footer */}
-      <footer className="border-t border-white/5 mt-24">
+      <footer >
         <Container>
-          <div className="py-12">
-            <div className="text-center">
-              <Logo showText size="sm" className="mb-4" />
+          <div >
+            <div >
+              <Logo showText size="sm"  />
               <Text size="sm" color="muted">
                 Direct mail marketing powered by artificial intelligence
               </Text>
             </div>
-            <Divider className="my-8" />
+            <Divider  />
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>
               <Flex gap={6}>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Privacy
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Terms
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Cookies
                 </Text>
               </Flex>

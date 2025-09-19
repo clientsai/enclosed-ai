@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
 import Navigation from "@/components/Navigation";
 interface Campaign {
   name: string;
@@ -168,20 +167,20 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
     router.push("/campaigns");
   };
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       <Navigation variant="app" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-white">Create Campaign</h1>
-          <p className="text-gray-400 mt-2">
+      <div >
+        <div >
+          <h1 >Create Campaign</h1>
+          <p >
             Set up your personalized direct mail campaign
           </p>
         </div>
         {/* Progress Steps */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between max-w-4xl">
+        <div >
+          <div >
             {["details", "leads", "preview", "confirm"].map((s, index) => (
-              <div key={s} className="flex items-center">
+              <div key={s} >
                 <div
                   className={`flex items-center ${step === s ? "text-blue-600" : "text-gray-400"}`}
                 >
@@ -194,10 +193,10 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                   >
                     {index + 1}
                   </div>
-                  <span className="ml-2 font-medium capitalize">{s}</span>
+                  <span >{s}</span>
                 </div>
                 {index < 3 && (
-                  <div className="w-20 h-0.5 bg-gray-300 mx-4"></div>
+                  <div ></div>
                 )}
               </div>
             ))}
@@ -210,12 +209,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <h2 className="text-lg md:text-xl font-semibold mb-6">Campaign Details</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <h2 >Campaign Details</h2>
+              <div >
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label >
                     Campaign Name
                   </label>
                   <input
@@ -224,12 +222,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("name", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Q1 Real Estate Campaign"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label >
                     Your Company Name
                   </label>
                   <input
@@ -238,12 +235,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("companyName", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enclosed AI"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label >
                     Sender Name
                   </label>
                   <input
@@ -252,12 +248,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("senderName", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="John Smith, CEO"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label >
                     Industry
                   </label>
                   <input
@@ -266,12 +261,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("industry", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Real Estate"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label >
                     Offer Name
                   </label>
                   <input
@@ -280,12 +274,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("offerName", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Free Home Valuation"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label >
                     Text Magnet
                   </label>
                   <input
@@ -294,12 +287,11 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("leadMagnetName", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Home Seller's Guide"
                   />
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                <div >
+                  <label >
                     Offer Description
                   </label>
                   <textarea
@@ -307,13 +299,12 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("offerDescription", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     rows={3}
                     placeholder="Describe your offer and its benefits..."
                   />
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                <div >
+                  <label >
                     Business Description
                   </label>
                   <textarea
@@ -324,13 +315,12 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                         e.target.value,
                       )
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     rows={3}
                     placeholder="Describe your business and what makes it unique..."
                   />
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                <div >
+                  <label >
                     Target Audience
                   </label>
                   <input
@@ -339,15 +329,13 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     onChange={(e) =>
                       handleCampaignChange("targetAudience", e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Homeowners looking to sell in the next 6 months"
                   />
                 </div>
               </div>
-              <div className="mt-8 flex justify-end">
+              <div >
                 <button
                   onClick={() => setStep("leads")}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Next: Select Texts
                 </button>
@@ -360,39 +348,35 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-lg md:text-xl font-semibold">Select Texts</h2>
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-400">
+              <div >
+                <h2 >Select Texts</h2>
+                <div >
+                  <span >
                     {selectedTexts.length} of {leads.length} selected
                   </span>
                   <button
                     onClick={selectAllTexts}
-                    className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Select All
                   </button>
                   <button
                     onClick={deselectAllTexts}
-                    className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Deselect All
                   </button>
                   <Link
                     href="/leads/upload"
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
                   >
                     Import CSV
                   </Link>
                 </div>
               </div>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-black">
+              <div >
+                <table >
+                  <thead >
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         <input
                           type="checkbox"
                           checked={selectedTexts.length === leads.length}
@@ -401,21 +385,20 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                               ? deselectAllTexts()
                               : selectAllTexts()
                           }
-                          className="rounded border-gray-300"
                         />
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         Name
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         Company
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         Location
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-black divide-y divide-gray-200">
+                  <tbody >
                     {leads.map((lead) => (
                       <tr
                         key={lead.id}
@@ -423,21 +406,20 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                           selectedTexts.includes(lead.id) ? "bg-blue-50" : ""
                         }
                       >
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td >
                           <input
                             type="checkbox"
                             checked={selectedTexts.includes(lead.id)}
                             onChange={() => handleTextSelection(lead.id)}
-                            className="rounded border-gray-300"
                           />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td >
                           {lead.firstName} {lead.lastName}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td >
                           {lead.company}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td >
                           {lead.city}, {lead.state}
                         </td>
                       </tr>
@@ -445,10 +427,9 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                   </tbody>
                 </table>
               </div>
-              <div className="mt-8 flex justify-between">
+              <div >
                 <button
                   onClick={() => setStep("details")}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                 >
                   Back
                 </button>
@@ -461,7 +442,6 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                     generatePreview();
                     setStep("preview");
                   }}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Generate Preview
                 </button>
@@ -474,56 +454,51 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <h2 className="text-lg md:text-xl font-semibold mb-6">Preview Letter</h2>
+              <h2 >Preview Letter</h2>
               {isGenerating ? (
-                <div className="text-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                  <p className="text-gray-400">
+                <div >
+                  <div ></div>
+                  <p >
                     Generating personalized letter...
                   </p>
                 </div>
               ) : (
                 <>
-                  <div className="bg-black rounded-lg p-6 mb-6">
-                    <p className="text-sm text-gray-400 mb-2">
+                  <div >
+                    <p >
                       Preview for: {leads[0]?.firstName} {leads[0]?.lastName}
                     </p>
-                    <div className="bg-black rounded border border-gray-200 p-8 font-serif">
-                      <pre className="whitespace-pre-wrap text-sm leading-relaxed">
+                    <div >
+                      <pre >
                         {previewLetter}
                       </pre>
                     </div>
                   </div>
-                  <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <div >
+                    <label >
                       Custom Instructions (Optional)
                     </label>
                     <textarea
                       value={customPrompt}
                       onChange={(e) => setCustomPrompt(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       rows={3}
                       placeholder="Add any specific instructions for letter generation..."
                     />
                     <button
                       onClick={generatePreview}
-                      className="mt-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
                     >
                       Regenerate Preview
                     </button>
                   </div>
-                  <div className="mt-8 flex justify-between">
+                  <div >
                     <button
                       onClick={() => setStep("leads")}
-                      className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                     >
                       Back
                     </button>
                     <button
                       onClick={() => setStep("confirm")}
-                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                     >
                       Review & Send
                     </button>
@@ -538,72 +513,70 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <h2 className="text-lg md:text-xl font-semibold mb-6">Review & Confirm</h2>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-                <h3 className="font-semibold text-blue-900 mb-4">
+              <h2 >Review & Confirm</h2>
+              <div >
+                <h3 >
                   Campaign Summary
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div >
                   <div>
-                    <span className="text-gray-400">Campaign Name:</span>
-                    <span className="ml-2 font-medium">{campaign.name}</span>
+                    <span >Campaign Name:</span>
+                    <span >{campaign.name}</span>
                   </div>
                   <div>
-                    <span className="text-gray-400">Recipients:</span>
-                    <span className="ml-2 font-medium">
+                    <span >Recipients:</span>
+                    <span >
                       {selectedTexts.length} leads
                     </span>
                   </div>
                   <div>
-                    <span className="text-gray-400">Offer:</span>
-                    <span className="ml-2 font-medium">
+                    <span >Offer:</span>
+                    <span >
                       {campaign.offerName}
                     </span>
                   </div>
                   <div>
-                    <span className="text-gray-400">Credits Required:</span>
-                    <span className="ml-2 font-medium">
+                    <span >Credits Required:</span>
+                    <span >
                       {selectedTexts.length * 2}
                     </span>
                   </div>
                 </div>
               </div>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
-                <h3 className="font-semibold text-green-900 mb-2">
+              <div >
+                <h3 >
                   Mailing Credits
                 </h3>
-                <p className="text-sm text-gray-400 mb-2">
+                <p >
                   Available Credits:{" "}
-                  <span className="font-bold">{mailingCredits}</span>
+                  <span >{mailingCredits}</span>
                 </p>
-                <p className="text-sm text-gray-400">
+                <p >
                   After Campaign:{" "}
-                  <span className="font-bold">
+                  <span >
                     {mailingCredits - selectedTexts.length * 2}
                   </span>
                 </p>
                 {mailingCredits < selectedTexts.length * 2 && (
-                  <div className="mt-4 p-3 bg-red-100 border border-red-200 rounded">
-                    <p className="text-sm text-red-800">
+                  <div >
+                    <p >
                       Insufficient credits! You need{" "}
                       {selectedTexts.length * 2 - mailingCredits} more credits.
                     </p>
                     <Link
                       href="/pricing"
-                      className="text-sm text-red-900 underline"
                     >
                       Purchase more credits
                     </Link>
                   </div>
                 )}
               </div>
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
-                <h3 className="font-semibold text-yellow-900 mb-2">
+              <div >
+                <h3 >
                   Important
                 </h3>
-                <ul className="text-sm text-gray-400 space-y-1">
+                <ul >
                   <li>
                     • Letters will be printed and mailed within 24-48 hours
                   </li>
@@ -612,17 +585,15 @@ P.S. I'll also include our exclusive guide "${campaign.leadMagnetName || "Busine
                   <li>• This action cannot be undone once confirmed</li>
                 </ul>
               </div>
-              <div className="mt-8 flex justify-between">
+              <div >
                 <button
                   onClick={() => setStep("preview")}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                 >
                   Back
                 </button>
                 <button
                   onClick={handleSendCampaign}
                   disabled={mailingCredits < selectedTexts.length * 2}
-                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Send Campaign ({selectedTexts.length} Letters)
                 </button>

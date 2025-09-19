@@ -19,22 +19,22 @@ export const metadata = {
 };
 export default function ResourcesPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
       {/* Hero */}
-      <Section className="bg-black">
-        <Flex direction="col" gap={8} align="center" className="text-center">
+      <Section >
+        <Flex direction="col" gap={8} align="center" >
           <Badge>Learning Center</Badge>
-          <H1 className="max-w-4xl">
+          <H1 >
             Everything You Need to Master
-            <span className="block">AI-Powered Direct Mail</span>
+            <span >AI-Powered Direct Mail</span>
           </H1>
-          <Text size="xl" className="max-w-3xl">
+          <Text size="xl" >
             From beginner guides to advanced strategies, our comprehensive resource library helps you
             maximize ROI at every stage of your direct mail journey. Access proven templates, real-world
             case studies, expert webinars, and powerful tools—all designed to make you successful.
           </Text>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div >
             <Badge>500+ Resources</Badge>
             <Badge>50+ Templates</Badge>
             <Badge>100+ Case Studies</Badge>
@@ -45,50 +45,50 @@ export default function ResourcesPage() {
       {/* Quick Links */}
       <Section>
         <Grid cols={4}>
-          <Card hover className="text-center">
+          <Card hover >
             <Flex direction="col" gap={4}>
-              <div className="h-12 w-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto">
-                <span className="text-lg md:text-xl">📚</span>
+              <div >
+                <span >📚</span>
               </div>
               <H4>Getting Started</H4>
-              <p className="text-sm text-gray-400">New to AI direct mail? Start here</p>
-              <Link href="/help/getting-started" className="text-white font-medium hover:text-gray-300">
+              <p >New to AI direct mail? Start here</p>
+              <Link href="/help/getting-started" >
                 Begin Learning →
               </Link>
             </Flex>
           </Card>
-          <Card hover className="text-center">
+          <Card hover >
             <Flex direction="col" gap={4}>
-              <div className="h-12 w-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto">
-                <span className="text-lg md:text-xl">📝</span>
+              <div >
+                <span >📝</span>
               </div>
               <H4>Templates</H4>
-              <p className="text-sm text-gray-400">Ready-to-use campaign templates</p>
-              <Link href="/templates" className="text-white font-medium hover:text-gray-300">
+              <p >Ready-to-use campaign templates</p>
+              <Link href="/templates" >
                 Browse Templates →
               </Link>
             </Flex>
           </Card>
-          <Card hover className="text-center">
+          <Card hover >
             <Flex direction="col" gap={4}>
-              <div className="h-12 w-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto">
-                <span className="text-lg md:text-xl">🎥</span>
+              <div >
+                <span >🎥</span>
               </div>
               <H4>Webinars</H4>
-              <p className="text-sm text-gray-400">Live and recorded expert sessions</p>
-              <Link href="/webinars" className="text-white font-medium hover:text-gray-300">
+              <p >Live and recorded expert sessions</p>
+              <Link href="/webinars" >
                 Watch Webinars →
               </Link>
             </Flex>
           </Card>
-          <Card hover className="text-center">
+          <Card hover >
             <Flex direction="col" gap={4}>
-              <div className="h-12 w-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto">
-                <span className="text-lg md:text-xl">📊</span>
+              <div >
+                <span >📊</span>
               </div>
               <H4>Case Studies</H4>
-              <p className="text-sm text-gray-400">Real success stories and results</p>
-              <Link href="/case-studies" className="text-white font-medium hover:text-gray-300">
+              <p >Real success stories and results</p>
+              <Link href="/case-studies" >
                 Read Studies →
               </Link>
             </Flex>
@@ -96,12 +96,12 @@ export default function ResourcesPage() {
         </Grid>
       </Section>
       {/* Featured Guides */}
-      <Section className="bg-black">
+      <Section >
         <Flex direction="col" gap={12}>
-          <div className="text-center">
+          <div >
             <Badge>Featured Guides</Badge>
             <H2>Master Every Aspect of AI Direct Mail</H2>
-            <Text size="lg" className="mt-4 max-w-3xl mx-auto">
+            <Text size="lg" >
               In-depth guides written by experts to help you succeed at every stage
             </Text>
           </div>
@@ -110,17 +110,17 @@ export default function ResourcesPage() {
               <Flex direction="col" gap={4}>
                 <Badge>Beginner</Badge>
                 <H4>Complete Guide to AI Personalization</H4>
-                <p className="text-gray-400">
+                <p >
                   Learn how artificial intelligence transforms generic mail into hyper-personalized
                   messages that convert. This comprehensive guide covers data requirements, AI training,
                   personalization strategies, and best practices for maximum impact.
                 </p>
-                <div className="flex items-center gap-4 text-sm text-gray-500">
+                <div >
                   <span>45 min read</span>
                   <span>•</span>
                   <span>12,000 reads</span>
                 </div>
-                <Link href="/guides/ai-personalization" className="text-white font-medium">
+                <Link href="/guides/ai-personalization" >
                   Read Guide →
                 </Link>
               </Flex>
@@ -129,17 +129,17 @@ export default function ResourcesPage() {
               <Flex direction="col" gap={4}>
                 <Badge>Intermediate</Badge>
                 <H4>Data-Driven Campaign Optimization</H4>
-                <p className="text-gray-400">
+                <p >
                   Discover how to use analytics and A/B testing to continuously improve your campaigns.
                   Learn to identify winning messages, optimize send times, segment audiences effectively,
                   and scale successful campaigns for maximum ROI.
                 </p>
-                <div className="flex items-center gap-4 text-sm text-gray-500">
+                <div >
                   <span>30 min read</span>
                   <span>•</span>
                   <span>8,500 reads</span>
                 </div>
-                <Link href="/guides/campaign-optimization" className="text-white font-medium">
+                <Link href="/guides/campaign-optimization" >
                   Read Guide →
                 </Link>
               </Flex>
@@ -148,17 +148,17 @@ export default function ResourcesPage() {
               <Flex direction="col" gap={4}>
                 <Badge>Advanced</Badge>
                 <H4>Enterprise Direct Mail at Scale</H4>
-                <p className="text-gray-400">
+                <p >
                   Scale your direct mail operations from thousands to millions of pieces while maintaining
                   personalization and quality. Learn automation strategies, API integration, multi-channel
                   orchestration, and enterprise best practices.
                 </p>
-                <div className="flex items-center gap-4 text-sm text-gray-500">
+                <div >
                   <span>60 min read</span>
                   <span>•</span>
                   <span>5,200 reads</span>
                 </div>
-                <Link href="/guides/enterprise-scale" className="text-white font-medium">
+                <Link href="/guides/enterprise-scale" >
                   Read Guide →
                 </Link>
               </Flex>
@@ -169,40 +169,40 @@ export default function ResourcesPage() {
       {/* Industry Playbooks */}
       <Section>
         <Flex direction="col" gap={12}>
-          <div className="text-center">
+          <div >
             <Badge>Industry Playbooks</Badge>
             <H2>Proven Strategies for Your Industry</H2>
-            <Text size="lg" className="mt-4 max-w-3xl mx-auto">
+            <Text size="lg" >
               Industry-specific playbooks with strategies, templates, and benchmarks tailored to your business
             </Text>
           </div>
           <Grid cols={2}>
             <Card hover>
               <Flex direction="col" gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <span>🏢</span>
                   </div>
                   <H4>B2B Sales & Marketing</H4>
                 </div>
-                <p className="text-gray-400">
+                <p >
                   Account-based marketing strategies for reaching decision-makers. Learn how to break through
                   digital noise, personalize at the account level, time campaigns with sales outreach, and
                   measure pipeline impact. Includes templates for C-suite outreach, meeting requests, and
                   follow-up sequences.
                 </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">15 proven templates</span>
+                <ul >
+                  <li >
+                    <span >✓</span>
+                    <span >15 proven templates</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Industry benchmarks</span>
+                  <li >
+                    <span >✓</span>
+                    <span >Industry benchmarks</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Integration guides</span>
+                  <li >
+                    <span >✓</span>
+                    <span >Integration guides</span>
                   </li>
                 </ul>
                 <Button as={Link} href="/playbooks/b2b" variant="ghost">
@@ -212,29 +212,29 @@ export default function ResourcesPage() {
             </Card>
             <Card hover>
               <Flex direction="col" gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <span>🏠</span>
                   </div>
                   <H4>Real Estate</H4>
                 </div>
-                <p className="text-gray-400">
+                <p >
                   Generate more listings and buyers with targeted neighborhood campaigns. Master farming
                   strategies, just-listed/just-sold campaigns, expired listing outreach, and FSBO conversion.
                   Includes market update templates, valuation offers, and seasonal campaign calendars.
                 </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">20 listing templates</span>
+                <ul >
+                  <li >
+                    <span >✓</span>
+                    <span >20 listing templates</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Farming strategies</span>
+                  <li >
+                    <span >✓</span>
+                    <span >Farming strategies</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">ROI calculators</span>
+                  <li >
+                    <span >✓</span>
+                    <span >ROI calculators</span>
                   </li>
                 </ul>
                 <Button as={Link} href="/playbooks/real-estate" variant="ghost">
@@ -244,29 +244,29 @@ export default function ResourcesPage() {
             </Card>
             <Card hover>
               <Flex direction="col" gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <span>🛒</span>
                   </div>
                   <H4>E-commerce & Retail</H4>
                 </div>
-                <p className="text-gray-400">
+                <p >
                   Drive repeat purchases and win back dormant customers with personalized offers. Learn
                   cart abandonment recovery, VIP customer programs, seasonal promotions, and product
                   launch strategies. Includes offer templates, loyalty programs, and lifecycle campaigns.
                 </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">25 offer templates</span>
+                <ul >
+                  <li >
+                    <span >✓</span>
+                    <span >25 offer templates</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Segmentation guides</span>
+                  <li >
+                    <span >✓</span>
+                    <span >Segmentation guides</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">LTV optimization</span>
+                  <li >
+                    <span >✓</span>
+                    <span >LTV optimization</span>
                   </li>
                 </ul>
                 <Button as={Link} href="/playbooks/ecommerce" variant="ghost">
@@ -276,29 +276,29 @@ export default function ResourcesPage() {
             </Card>
             <Card hover>
               <Flex direction="col" gap={4}>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <span>💰</span>
                   </div>
                   <H4>Financial Services</H4>
                 </div>
-                <p className="text-gray-400">
+                <p >
                   Acquire new customers and deepen relationships with compliant, personalized campaigns.
                   Master life-event targeting, cross-sell strategies, refinance campaigns, and wealth
                   management outreach. Includes compliance guidelines and regulated industry best practices.
                 </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Compliance toolkit</span>
+                <ul >
+                  <li >
+                    <span >✓</span>
+                    <span >Compliance toolkit</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Life-event triggers</span>
+                  <li >
+                    <span >✓</span>
+                    <span >Life-event triggers</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">✓</span>
-                    <span className="text-gray-400">Product templates</span>
+                  <li >
+                    <span >✓</span>
+                    <span >Product templates</span>
                   </li>
                 </ul>
                 <Button as={Link} href="/playbooks/financial" variant="ghost">
@@ -310,23 +310,23 @@ export default function ResourcesPage() {
         </Flex>
       </Section>
       {/* Tools & Calculators */}
-      <Section className="bg-black">
+      <Section >
         <Flex direction="col" gap={12}>
-          <div className="text-center">
+          <div >
             <Badge>Interactive Tools</Badge>
             <H2>Powerful Tools to Plan and Optimize</H2>
-            <Text size="lg" className="mt-4 max-w-3xl mx-auto">
+            <Text size="lg" >
               Free tools to help you calculate ROI, plan campaigns, and make data-driven decisions
             </Text>
           </div>
           <Grid cols={3}>
-            <Card hover className="text-center">
+            <Card hover >
               <Flex direction="col" gap={4}>
-                <div className="h-16 w-16 bg-gray-900 text-white rounded-2xl flex items-center justify-center mx-auto text-xl md:text-2xl font-bold">
+                <div >
                   ROI
                 </div>
                 <H4>ROI Calculator</H4>
-                <p className="text-gray-400">
+                <p >
                   Calculate your expected return on investment based on your industry, list size,
                   and average order value. See how AI personalization impacts your bottom line.
                 </p>
@@ -335,13 +335,13 @@ export default function ResourcesPage() {
                 </Button>
               </Flex>
             </Card>
-            <Card hover className="text-center">
+            <Card hover >
               <Flex direction="col" gap={4}>
-                <div className="h-16 w-16 bg-gray-900 text-white rounded-2xl flex items-center justify-center mx-auto text-xl md:text-2xl font-bold">
+                <div >
                   A/B
                 </div>
                 <H4>A/B Test Calculator</H4>
-                <p className="text-gray-400">
+                <p >
                   Determine statistical significance and sample sizes for your direct mail tests.
                   Make confident decisions based on data, not guesswork.
                 </p>
@@ -350,13 +350,13 @@ export default function ResourcesPage() {
                 </Button>
               </Flex>
             </Card>
-            <Card hover className="text-center">
+            <Card hover >
               <Flex direction="col" gap={4}>
-                <div className="h-16 w-16 bg-gray-900 text-white rounded-2xl flex items-center justify-center mx-auto text-xl md:text-2xl font-bold">
+                <div >
                   $$$
                 </div>
                 <H4>Budget Planner</H4>
-                <p className="text-gray-400">
+                <p >
                   Plan your direct mail budget across campaigns, segments, and time periods.
                   Optimize spend allocation for maximum impact.
                 </p>
@@ -371,10 +371,10 @@ export default function ResourcesPage() {
       {/* Latest Content */}
       <Section>
         <Flex direction="col" gap={12}>
-          <div className="text-center">
+          <div >
             <Badge>Fresh Content</Badge>
             <H2>Latest Resources</H2>
-            <Text size="lg" className="mt-4 max-w-3xl mx-auto">
+            <Text size="lg" >
               Stay updated with new guides, templates, and insights added weekly
             </Text>
           </div>
@@ -425,13 +425,13 @@ export default function ResourcesPage() {
             ].map((item, index) => (
               <Card hover key={index}>
                 <Flex direction="col" gap={3}>
-                  <div className="flex items-center justify-between">
+                  <div >
                     <Badge>{item.type}</Badge>
-                    <span className="text-sm text-gray-500">{item.date}</span>
+                    <span >{item.date}</span>
                   </div>
                   <H4>{item.title}</H4>
-                  <p className="text-gray-400 text-sm">{item.description}</p>
-                  <Link href={item.link} className="text-white font-medium hover:text-gray-300">
+                  <p >{item.description}</p>
+                  <Link href={item.link} >
                     Read more →
                   </Link>
                 </Flex>
@@ -441,35 +441,34 @@ export default function ResourcesPage() {
         </Flex>
       </Section>
       {/* Newsletter CTA */}
-      <Section className="bg-gray-900 text-white">
-        <Flex direction="col" gap={8} align="center" className="text-center">
-          <H2 className="text-white">
+      <Section >
+        <Flex direction="col" gap={8} align="center" >
+          <H2 >
             Get Weekly Direct Mail Insights
           </H2>
-          <Text size="xl" className="text-gray-300 max-w-2xl">
+          <Text size="xl" >
             Join 25,000+ marketers receiving exclusive tips, templates, and case studies every week.
             Unsubscribe anytime.
           </Text>
-          <form className="flex gap-4 max-w-md w-full">
+          <form >
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg bg-black text-white placeholder-gray-500"
               required
             />
-            <Button type="submit" className="bg-black text-white hover:bg-gray-100">
+            <Button type="submit" >
               Subscribe
             </Button>
           </form>
-          <p className="text-sm text-gray-400">
+          <p >
             By subscribing, you agree to our Privacy Policy and consent to receive updates.
           </p>
         </Flex>
       </Section>
       {/* Footer */}
-      <footer className="bg-black border-t border-gray-100">
+      <footer >
         <Section>
-          <div className="border-t border-gray-100 pt-8 text-center text-sm text-gray-400">
+          <div >
             <p>© 2024 Enclosed.AI. All rights reserved.</p>
           </div>
         </Section>

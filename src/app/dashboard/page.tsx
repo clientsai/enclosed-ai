@@ -10,7 +10,6 @@ import { supabase } from "@/lib/supabase";
 import { Campaign, User } from "@/types";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
-
 import Navigation from "@/components/Navigation";
 import {
   Container,
@@ -87,23 +86,23 @@ export default function Dashboard() {
   };
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div >
         <Spinner size="lg" />
       </div>
     );
   }
   return (
-    <div className="min-h-screen">
+    <div >
       {/* Navigation */}
       {/* Main Content */}
       <Container size="xl">
-        <div className="py-8">
+        <div >
           {/* Welcome Section */}
-          <div className="mb-12">
-            <Text size="sm" color="muted" className="mb-2">
+          <div >
+            <Text size="sm" color="muted" >
               Welcome back
             </Text>
-            <H1 className="mb-4">
+            <H1 >
               {user?.name || "Dashboard"}
             </H1>
             <Text size="lg" color="secondary">
@@ -111,63 +110,60 @@ export default function Dashboard() {
             </Text>
           </div>
           {/* Quick Actions */}
-          <Grid cols={3} gap={4} className="mb-12">
+          <Grid cols={3} gap={4} >
             <Button
               variant="primary"
               size="lg"
               href="/campaigns/new"
-              className="h-auto py-6 flex-col gap-2"
             >
-              <span className="text-xl md:text-2xl">+</span>
+              <span >+</span>
               <span>New Campaign</span>
             </Button>
             <Button
               variant="secondary"
               size="lg"
               href="/leads/upload"
-              className="h-auto py-6 flex-col gap-2"
             >
-              <span className="text-xl md:text-2xl">📤</span>
+              <span >📤</span>
               <span>Upload Texts</span>
             </Button>
             <Button
               variant="secondary"
               size="lg"
               href="/templates"
-              className="h-auto py-6 flex-col gap-2"
             >
-              <span className="text-xl md:text-2xl">📝</span>
+              <span >📝</span>
               <span>Templates</span>
             </Button>
           </Grid>
           {/* Stats Grid */}
-          <Grid cols={4} gap={6} className="mb-12">
+          <Grid cols={4} gap={6} >
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Total Sent</Text>
-              <H2 className="gradient-text-accent">{stats.totalSent.toLocaleString()}</H2>
-              <Text size="sm" color="secondary" className="mt-1">
-                <span className="text-[var(--success)]">↑ 12%</span> from last month
+              <Text size="sm" color="muted" >Total Sent</Text>
+              <H2 >{stats.totalSent.toLocaleString()}</H2>
+              <Text size="sm" color="secondary" >
+                <span >↑ 12%</span> from last month
               </Text>
             </Card>
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Active Campaigns</Text>
-              <H2 className="gradient-text">{stats.activeCampaigns}</H2>
-              <Text size="sm" color="secondary" className="mt-1">
+              <Text size="sm" color="muted" >Active Campaigns</Text>
+              <H2 >{stats.activeCampaigns}</H2>
+              <Text size="sm" color="secondary" >
                 {stats.activeCampaigns === 0 ? "Create your first campaign" : "Currently running"}
               </Text>
             </Card>
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Response Rate</Text>
-              <H2 className="gradient-text-accent">{stats.responseRate}%</H2>
-              <Text size="sm" color="secondary" className="mt-1">
-                <span className="text-[var(--success)]">↑ 3.2%</span> above average
+              <Text size="sm" color="muted" >Response Rate</Text>
+              <H2 >{stats.responseRate}%</H2>
+              <Text size="sm" color="secondary" >
+                <span >↑ 3.2%</span> above average
               </Text>
             </Card>
             <Card glass>
-              <Text size="sm" color="muted" className="mb-2">Credits Balance</Text>
-              <H2 className="gradient-text">{formatCurrency(stats.creditsBalance)}</H2>
+              <Text size="sm" color="muted" >Credits Balance</Text>
+              <H2 >{formatCurrency(stats.creditsBalance)}</H2>
               <Link href="/billing">
-                <Text size="sm" color="accent" className="mt-1 hover:underline">
+                <Text size="sm" color="accent" >
                   Add more credits →
                 </Text>
               </Link>
@@ -175,17 +171,17 @@ export default function Dashboard() {
           </Grid>
           {/* Recent Campaigns */}
           <div>
-            <Flex justify="between" align="center" className="mb-6">
+            <Flex justify="between" align="center" >
               <H3>Recent Campaigns</H3>
               <Button variant="ghost" size="sm" href="/campaigns">
                 View All →
               </Button>
             </Flex>
             {campaigns.length === 0 ? (
-              <Card glass className="text-center py-12">
-                <div className="text-6xl mb-4">📮</div>
-                <H3 className="mb-2">No campaigns yet</H3>
-                <Text color="secondary" className="mb-6">
+              <Card glass >
+                <div >📮</div>
+                <H3 >No campaigns yet</H3>
+                <Text color="secondary" >
                   Create your first campaign to start sending personalized direct mail
                 </Text>
                 <Button variant="primary" href="/campaigns/new">
@@ -193,13 +189,13 @@ export default function Dashboard() {
                 </Button>
               </Card>
             ) : (
-              <div className="space-y-4">
+              <div >
                 {campaigns.map((campaign) => (
-                  <Card key={campaign.id} hover className="p-4">
+                  <Card key={campaign.id} hover >
                     <Flex justify="between" align="center">
                       <Flex gap={4} align="center">
                         <div>
-                          <Flex gap={2} align="center" className="mb-1">
+                          <Flex gap={2} align="center" >
                             <Text weight="semibold">{campaign.name}</Text>
                             <Badge
                               variant={
@@ -238,9 +234,9 @@ export default function Dashboard() {
             )}
           </div>
           {/* Performance Chart Placeholder */}
-          <div className="mt-12">
-            <H3 className="mb-6">Performance Overview</H3>
-            <Card glass className="h-64 flex items-center justify-center">
+          <div >
+            <H3 >Performance Overview</H3>
+            <Card glass >
               <Text color="muted">Chart visualization coming soon</Text>
             </Card>
           </div>

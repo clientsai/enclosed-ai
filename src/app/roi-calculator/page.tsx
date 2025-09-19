@@ -91,47 +91,46 @@ export default function ROICalculatorPage() {
     { industry: "Automotive", responseRate: "1.8-3.2%", avgOrderValue: "$18,500", notes: "High-value, seasonal variations" },
   ];
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
       {/* Hero Section */}
-      <Section className="text-center">
+      <Section >
         <Flex direction="col" gap={6}>
           <Badge>Free Calculator</Badge>
           <H1>
             Calculate Your Direct Mail ROI
           </H1>
-          <Text size="lg" className="max-w-3xl mx-auto">
+          <Text size="lg" >
             Make data-driven decisions about your direct mail campaigns. Our comprehensive ROI calculator helps you estimate costs, responses, and returns before you invest. Input your campaign parameters below and see projected results instantly.
           </Text>
         </Flex>
       </Section>
       {/* Calculator Section */}
       <Section>
-        <div className="max-w-6xl mx-auto">
-          <Grid cols={2} className="gap-8">
+        <div >
+          <Grid cols={2} >
             {/* Input Panel */}
-            <Card className="p-8">
+            <Card >
               <Flex direction="col" gap={6}>
                 <H3>Campaign Parameters</H3>
-                <div className="space-y-6">
+                <div >
                   {/* Campaign Details */}
                   <div>
-                    <h4 className="font-semibold text-white mb-4">Campaign Details</h4>
-                    <div className="space-y-4">
+                    <h4 >Campaign Details</h4>
+                    <div >
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Number of Mail Pieces
                         </label>
                         <input
                           type="number"
                           value={inputs.mailPieces}
                           onChange={(e) => handleInputChange('mailPieces', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="1"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Cost per Mail Piece ($)
                         </label>
                         <input
@@ -139,12 +138,11 @@ export default function ROICalculatorPage() {
                           step="0.01"
                           value={inputs.costPerPiece}
                           onChange={(e) => handleInputChange('costPerPiece', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Expected Response Rate (%)
                         </label>
                         <input
@@ -152,7 +150,6 @@ export default function ROICalculatorPage() {
                           step="0.1"
                           value={inputs.responseRate}
                           onChange={(e) => handleInputChange('responseRate', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                           max="100"
                         />
@@ -161,10 +158,10 @@ export default function ROICalculatorPage() {
                   </div>
                   {/* Revenue Details */}
                   <div>
-                    <h4 className="font-semibold text-white mb-4">Revenue Details</h4>
-                    <div className="space-y-4">
+                    <h4 >Revenue Details</h4>
+                    <div >
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Average Order Value ($)
                         </label>
                         <input
@@ -172,12 +169,11 @@ export default function ROICalculatorPage() {
                           step="0.01"
                           value={inputs.averageOrderValue}
                           onChange={(e) => handleInputChange('averageOrderValue', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Conversion Rate (% of responses that buy)
                         </label>
                         <input
@@ -185,7 +181,6 @@ export default function ROICalculatorPage() {
                           step="0.1"
                           value={inputs.conversionRate}
                           onChange={(e) => handleInputChange('conversionRate', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                           max="100"
                         />
@@ -194,10 +189,10 @@ export default function ROICalculatorPage() {
                   </div>
                   {/* Additional Costs */}
                   <div>
-                    <h4 className="font-semibold text-white mb-4">Additional Costs</h4>
-                    <div className="space-y-4">
+                    <h4 >Additional Costs</h4>
+                    <div >
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Design & Creative Costs ($)
                         </label>
                         <input
@@ -205,12 +200,11 @@ export default function ROICalculatorPage() {
                           step="0.01"
                           value={inputs.designCosts}
                           onChange={(e) => handleInputChange('designCosts', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           List Acquisition Costs ($)
                         </label>
                         <input
@@ -218,12 +212,11 @@ export default function ROICalculatorPage() {
                           step="0.01"
                           value={inputs.listCosts}
                           onChange={(e) => handleInputChange('listCosts', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label >
                           Other Costs ($)
                         </label>
                         <input
@@ -231,7 +224,6 @@ export default function ROICalculatorPage() {
                           step="0.01"
                           value={inputs.otherCosts}
                           onChange={(e) => handleInputChange('otherCosts', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           min="0"
                         />
                       </div>
@@ -241,61 +233,61 @@ export default function ROICalculatorPage() {
               </Flex>
             </Card>
             {/* Results Panel */}
-            <Card className="p-8">
+            <Card >
               <Flex direction="col" gap={6}>
                 <H3>Projected Results</H3>
                 {/* Key Metrics */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-black rounded-lg">
-                    <div className="text-xl md:text-2xl font-bold text-white">
+                <div >
+                  <div >
+                    <div >
                       {formatCurrency(results.totalRevenue)}
                     </div>
-                    <div className="text-sm text-gray-400 mt-1">Total Revenue</div>
+                    <div >Total Revenue</div>
                   </div>
-                  <div className="text-center p-4 bg-black rounded-lg">
-                    <div className="text-xl md:text-2xl font-bold text-white">
+                  <div >
+                    <div >
                       {formatCurrency(results.totalCost)}
                     </div>
-                    <div className="text-sm text-gray-400 mt-1">Total Cost</div>
+                    <div >Total Cost</div>
                   </div>
-                  <div className="text-center p-4 bg-black rounded-lg">
+                  <div >
                     <div className={`text-xl md:text-2xl font-bold ${results.roi >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                       {results.roi >= 0 ? '+' : ''}{results.roi}%
                     </div>
-                    <div className="text-sm text-gray-400 mt-1">ROI</div>
+                    <div >ROI</div>
                   </div>
-                  <div className="text-center p-4 bg-black rounded-lg">
+                  <div >
                     <div className={`text-xl md:text-2xl font-bold ${results.profit >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                       {formatCurrency(results.profit)}
                     </div>
-                    <div className="text-sm text-gray-400 mt-1">Profit/Loss</div>
+                    <div >Profit/Loss</div>
                   </div>
                 </div>
                 {/* Detailed Metrics */}
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-300">Expected Responses</span>
-                    <span className="font-semibold">{formatNumber(results.totalResponses)}</span>
+                <div >
+                  <div >
+                    <span >Expected Responses</span>
+                    <span >{formatNumber(results.totalResponses)}</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-300">Expected Conversions</span>
-                    <span className="font-semibold">{formatNumber(results.totalConversions)}</span>
+                  <div >
+                    <span >Expected Conversions</span>
+                    <span >{formatNumber(results.totalConversions)}</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-300">Cost per Response</span>
-                    <span className="font-semibold">{formatCurrency(results.costPerResponse)}</span>
+                  <div >
+                    <span >Cost per Response</span>
+                    <span >{formatCurrency(results.costPerResponse)}</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-300">Cost per Conversion</span>
-                    <span className="font-semibold">{formatCurrency(results.costPerConversion)}</span>
+                  <div >
+                    <span >Cost per Conversion</span>
+                    <span >{formatCurrency(results.costPerConversion)}</span>
                   </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-gray-300">Break-even Response Rate</span>
-                    <span className="font-semibold">{results.breakEvenResponseRate}%</span>
+                  <div >
+                    <span >Break-even Response Rate</span>
+                    <span >{results.breakEvenResponseRate}%</span>
                   </div>
                 </div>
                 {/* ROI Interpretation */}
-                <div className="mt-6">
+                <div >
                   {results.roi >= 300 && (
                     <Alert variant="success">
                       <strong>Excellent ROI!</strong> This campaign shows strong potential for profitability with a {results.roi}% return.
@@ -323,45 +315,45 @@ export default function ROICalculatorPage() {
         </div>
       </Section>
       {/* Industry Benchmarks */}
-      <Section className="bg-black">
+      <Section >
         <Flex direction="col" gap={8}>
-          <div className="text-center">
+          <div >
             <H2>Industry Benchmarks</H2>
-            <Text size="lg" className="max-w-3xl mx-auto">
+            <Text size="lg" >
               Compare your projections with industry standards to set realistic expectations and identify opportunities for improvement.
             </Text>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full bg-black rounded-lg shadow-sm">
-              <thead className="bg-black">
+          <div >
+            <table >
+              <thead >
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th >
                     Industry
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th >
                     Response Rate
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th >
                     Avg Order Value
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th >
                     Notes
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody >
                 {industryBenchmarks.map((benchmark, index) => (
-                  <tr key={index} className="hover:bg-black">
-                    <td className="px-6 py-4 whitespace-nowrap font-medium text-white">
+                  <tr key={index} >
+                    <td >
                       {benchmark.industry}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-gray-300">
+                    <td >
                       {benchmark.responseRate}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-gray-300">
+                    <td >
                       {benchmark.avgOrderValue}
                     </td>
-                    <td className="px-6 py-4 text-gray-300">
+                    <td >
                       {benchmark.notes}
                     </td>
                   </tr>
@@ -374,18 +366,17 @@ export default function ROICalculatorPage() {
       {/* Tips Section */}
       <Section>
         <Flex direction="col" gap={8}>
-          <div className="text-center">
+          <div >
             <H2>Optimization Tips</H2>
-            <Text size="lg" className="max-w-3xl mx-auto">
+            <Text size="lg" >
               Maximize your direct mail ROI with these proven strategies
             </Text>
           </div>
           <Grid cols={3}>
-            <Card className="p-6">
+            <Card >
               <Flex direction="col" gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -399,16 +390,15 @@ export default function ROICalculatorPage() {
                   </svg>
                 </div>
                 <H4>Improve Response Rates</H4>
-                <p className="text-gray-300 leading-relaxed">
+                <p >
                   Use personalization, compelling offers, clear calls-to-action, and professional design to increase response rates by 20-40%.
                 </p>
               </Flex>
             </Card>
-            <Card className="p-6">
+            <Card >
               <Flex direction="col" gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -422,16 +412,15 @@ export default function ROICalculatorPage() {
                   </svg>
                 </div>
                 <H4>Reduce Costs</H4>
-                <p className="text-gray-300 leading-relaxed">
+                <p >
                   Optimize mail formats, negotiate volume discounts, and use efficient targeting to reduce cost per piece by 15-30%.
                 </p>
               </Flex>
             </Card>
-            <Card className="p-6">
+            <Card >
               <Flex direction="col" gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -445,7 +434,7 @@ export default function ROICalculatorPage() {
                   </svg>
                 </div>
                 <H4>Increase Conversions</H4>
-                <p className="text-gray-300 leading-relaxed">
+                <p >
                   Streamline your sales process, provide multiple response options, and follow up promptly to boost conversion rates.
                 </p>
               </Flex>
@@ -454,93 +443,92 @@ export default function ROICalculatorPage() {
         </Flex>
       </Section>
       {/* CTA Section */}
-      <Section className="bg-gray-900 text-white text-center">
+      <Section >
         <Flex direction="col" gap={6}>
-          <H2 className="text-white">
+          <H2 >
             Ready to Launch Your Campaign?
           </H2>
-          <Text size="lg" className="text-gray-300 max-w-3xl mx-auto">
+          <Text size="lg" >
             Start your direct mail campaign with Enclosed.AI and achieve the ROI you've calculated. Our AI-powered platform helps you exceed industry benchmarks.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">
+            <Button as={Link} href="/auth/signup" size="lg" >
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" >
               Schedule Consultation
             </Button>
           </Flex>
         </Flex>
       </Section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <Section className="border-b border-gray-800">
+      <footer >
+        <Section >
           <Grid cols={4}>
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
+              <h3 >Product</h3>
               <Flex direction="col" gap={2}>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/features" >
                   Features
                 </Link>
-                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/pricing" >
                   Pricing
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/integrations" >
                   Integrations
                 </Link>
-                <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/roi-calculator" >
                   ROI Calculator
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
+              <h3 >Company</h3>
               <Flex direction="col" gap={2}>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/about" >
                   About Us
                 </Link>
-                <Link href="/team" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/team" >
                   Team
                 </Link>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/careers" >
                   Careers
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/contact" >
                   Contact
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
+              <h3 >Support</h3>
               <Flex direction="col" gap={2}>
-                <Link href="/help" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/help" >
                   Help Center
                 </Link>
-                <Link href="/faq" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/faq" >
                   FAQ
                 </Link>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/privacy" >
                   Privacy Policy
                 </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/terms" >
                   Terms of Service
                 </Link>
               </Flex>
             </div>
           </Grid>
         </Section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-gray-400">
+        <div >
           <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
         </div>
       </footer>

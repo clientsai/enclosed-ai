@@ -120,16 +120,16 @@ export default function PartnersPage() {
     },
   ];
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
       {/* Hero Section */}
-      <Section className="text-center">
+      <Section >
         <Flex gap={6}>
           <Badge>Partnership Ecosystem</Badge>
           <H1 level={1}>
             Build the Future of Direct Mail Marketing Together
           </H1>
-          <Text className="max-w-3xl mx-auto">
+          <Text >
             Join our growing ecosystem of technology partners, resellers, and agencies. Whether you're looking to integrate with our platform, resell our services, or build custom solutions for your clients, we provide the tools, support, and opportunities you need to succeed.
           </Text>
           <Flex gap={4} justify="center">
@@ -143,20 +143,20 @@ export default function PartnersPage() {
         </Flex>
       </Section>
       {/* Partner Stats */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Partner Success by the Numbers</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Our partners see real results when they join the Enclosed.AI ecosystem
             </Text>
           </div>
           <Grid columns={4}>
             {partnerStats.map((stat, index) => (
-              <Card key={index} className="p-6 text-center">
-                <H3 className="text-xl md:text-2xl font-bold text-white">{stat.value}</H3>
+              <Card key={index} >
+                <H3 >{stat.value}</H3>
                 <Text size="sm" color="muted">{stat.label}</Text>
-                <Text size="xs" className="text-gray-500">{stat.delta}</Text>
+                <Text size="xs" >{stat.delta}</Text>
               </Card>
             ))}
           </Grid>
@@ -165,51 +165,51 @@ export default function PartnersPage() {
       {/* Integration Partners */}
       <Section id="integrations">
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Technology Integration Partners</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Seamlessly connect Enclosed.AI with your existing marketing stack through our certified integration partners
             </Text>
           </div>
           <Grid columns={3}>
             {techPartners.map((partner, index) => (
-              <Card key={index} hover className="p-6">
+              <Card key={index} hover >
                 <Flex gap={4}>
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <span className="text-sm font-semibold text-gray-400">
+                  <div >
+                    <div >
+                      <div >
+                        <span >
                           {partner.name.charAt(0)}
                         </span>
                       </div>
                       <div>
-                        <H1 level={4} className="text-lg">
+                        <H1 level={4} >
                           {partner.name}
                         </H1>
-                        <span className="text-sm text-gray-400">{partner.category}</span>
+                        <span >{partner.category}</span>
                       </div>
                     </div>
                     <Badge variant={partner.tier === "Premier" ? "default" : "success"}>
                       {partner.tier}
                     </Badge>
                   </div>
-                  <p className="text-gray-300 leading-relaxed text-sm">
+                  <p >
                     {partner.description}
                   </p>
                   <div>
-                    <h5 className="font-semibold text-white mb-2 text-sm">Key Features:</h5>
-                    <ul className="space-y-1">
+                    <h5 >Key Features:</h5>
+                    <ul >
                       {partner.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
-                          <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
-                            <span className="text-blue-600 text-xs font-bold">✓</span>
+                        <li key={featureIndex} >
+                          <div >
+                            <span >✓</span>
                           </div>
                           {feature}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <Button size="sm" variant="ghost" className="w-full mt-auto">
+                  <Button size="sm" variant="ghost" >
                     Learn More
                   </Button>
                 </Flex>
@@ -219,22 +219,21 @@ export default function PartnersPage() {
         </Flex>
       </Section>
       {/* Partner Types */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Partnership Opportunities</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Choose the partnership model that aligns with your business goals and capabilities
             </Text>
           </div>
           <Grid columns={3}>
             {/* Technology Partners */}
-            <Card className="p-8">
+            <Card >
               <Flex gap={6}>
-                <div className="text-center">
-                  <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div >
+                  <div >
                     <svg
-                      className="h-8 w-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -248,35 +247,34 @@ export default function PartnersPage() {
                     </svg>
                   </div>
                   <H1 level={3}>Technology Partners</H1>
-                  <p className="text-gray-400 mt-2">
+                  <p >
                     Build native integrations and enhance your platform's capabilities
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-3">Benefits Include:</h4>
-                  <ul className="space-y-2">
+                  <h4 >Benefits Include:</h4>
+                  <ul >
                     {partnerBenefits.technology.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
-                        <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                          <span className="text-blue-600 text-xs font-bold">✓</span>
+                      <li key={index} >
+                        <div >
+                          <span >✓</span>
                         </div>
                         {benefit}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <Button as={Link} href="#apply" className="w-full">
+                <Button as={Link} href="#apply" >
                   Apply Now
                 </Button>
               </Flex>
             </Card>
             {/* Reseller Partners */}
-            <Card className="p-8">
+            <Card >
               <Flex gap={6}>
-                <div className="text-center">
-                  <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div >
+                  <div >
                     <svg
-                      className="h-8 w-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -290,35 +288,34 @@ export default function PartnersPage() {
                     </svg>
                   </div>
                   <H1 level={3}>Reseller Partners</H1>
-                  <p className="text-gray-400 mt-2">
+                  <p >
                     Sell Enclosed.AI services and earn competitive commissions
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-3">Benefits Include:</h4>
-                  <ul className="space-y-2">
+                  <h4 >Benefits Include:</h4>
+                  <ul >
                     {partnerBenefits.reseller.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
-                        <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                          <span className="text-blue-600 text-xs font-bold">✓</span>
+                      <li key={index} >
+                        <div >
+                          <span >✓</span>
                         </div>
                         {benefit}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <Button as={Link} href="#apply" className="w-full">
+                <Button as={Link} href="#apply" >
                   Apply Now
                 </Button>
               </Flex>
             </Card>
             {/* Agency Partners */}
-            <Card className="p-8">
+            <Card >
               <Flex gap={6}>
-                <div className="text-center">
-                  <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div >
+                  <div >
                     <svg
-                      className="h-8 w-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -332,24 +329,24 @@ export default function PartnersPage() {
                     </svg>
                   </div>
                   <H1 level={3}>Agency Partners</H1>
-                  <p className="text-gray-400 mt-2">
+                  <p >
                     Offer direct mail services to your clients with white-label options
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-3">Benefits Include:</h4>
-                  <ul className="space-y-2">
+                  <h4 >Benefits Include:</h4>
+                  <ul >
                     {partnerBenefits.agency.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
-                        <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                          <span className="text-blue-600 text-xs font-bold">✓</span>
+                      <li key={index} >
+                        <div >
+                          <span >✓</span>
                         </div>
                         {benefit}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <Button as={Link} href="#apply" className="w-full">
+                <Button as={Link} href="#apply" >
                   Apply Now
                 </Button>
               </Flex>
@@ -360,55 +357,54 @@ export default function PartnersPage() {
       {/* Application Process */}
       <Section id="apply">
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>How to Become a Partner</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Our streamlined application process gets you up and running quickly
             </Text>
           </div>
-          <div className="max-w-4xl mx-auto">
+          <div >
             <Flex gap={6}>
               {applicationSteps.map((step, index) => (
-                <Card key={index} className="p-6">
+                <Card key={index} >
                   <Flex gap={4}>
-                    <div className="h-8 w-8 bg-gray-900 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">{index + 1}</span>
+                    <div >
+                      <span >{index + 1}</span>
                     </div>
                     <div>
-                      <H3 className="text-lg font-semibold text-white mb-2">{step.title}</H3>
-                      <Text className="text-gray-300 leading-relaxed">{step.content}</Text>
+                      <H3 >{step.title}</H3>
+                      <Text >{step.content}</Text>
                     </div>
                   </Flex>
                 </Card>
               ))}
             </Flex>
           </div>
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8">
+          <div >
+            <Card >
               <Flex gap={6}>
-                <div className="text-center">
+                <div >
                   <H1 level={3}>Ready to Apply?</H1>
-                  <p className="text-gray-400 mt-2">
+                  <p >
                     Tell us about your company and partnership interests
                   </p>
                 </div>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div >
+                  <div >
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Company Name *
                       </label>
                       <input
                         type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Your Company"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Partnership Type *
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                      <select >
                         <option value="">Select Partnership Type</option>
                         <option value="technology">Technology Integration</option>
                         <option value="reseller">Reseller</option>
@@ -416,43 +412,40 @@ export default function PartnersPage() {
                       </select>
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div >
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Your Name *
                       </label>
                       <input
                         type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="John Smith"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Email Address *
                       </label>
                       <input
                         type="email"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="john@company.com"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label >
                       Tell us about your integration or partnership goals *
                     </label>
                     <textarea
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Describe your integration plans, target market, or how you plan to work with Enclosed.AI..."
                     />
                   </div>
                 </div>
-                <Button size="lg" className="w-full">
+                <Button size="lg" >
                   Submit Application
                 </Button>
-                <p className="text-sm text-gray-400 text-center">
+                <p >
                   Our partnership team will review your application and respond within 2 business days.
                 </p>
               </Flex>
@@ -461,20 +454,19 @@ export default function PartnersPage() {
         </Flex>
       </Section>
       {/* Support Section */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Partner Support & Resources</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               We provide comprehensive support to ensure your success as a partner
             </Text>
           </div>
           <Grid columns={3}>
-            <Card className="p-6 text-center">
+            <Card >
               <Flex gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -488,16 +480,15 @@ export default function PartnersPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Technical Documentation</H1>
-                <p className="text-gray-300 leading-relaxed">
+                <p >
                   Comprehensive API documentation, SDKs, and integration guides to get you started quickly.
                 </p>
               </Flex>
             </Card>
-            <Card className="p-6 text-center">
+            <Card >
               <Flex gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -511,16 +502,15 @@ export default function PartnersPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Dedicated Support</H1>
-                <p className="text-gray-300 leading-relaxed">
+                <p >
                   Access to our partner success team for technical support, account management, and strategic guidance.
                 </p>
               </Flex>
             </Card>
-            <Card className="p-6 text-center">
+            <Card >
               <Flex gap={4}>
-                <div className="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -534,7 +524,7 @@ export default function PartnersPage() {
                   </svg>
                 </div>
                 <H1 level={4}>Marketing Resources</H1>
-                <p className="text-gray-300 leading-relaxed">
+                <p >
                   Co-branded materials, case studies, sales tools, and marketing support to help you promote our partnership.
                 </p>
               </Flex>
@@ -543,93 +533,92 @@ export default function PartnersPage() {
         </Flex>
       </Section>
       {/* CTA Section */}
-      <Section className="bg-gray-900 text-white text-center">
+      <Section >
         <Flex gap={6}>
-          <H1 level={2} className="text-white">
+          <H1 level={2} >
             Ready to Partner with Enclosed.AI?
           </H1>
-          <Text className="text-gray-300 max-w-3xl mx-auto">
+          <Text >
             Join our ecosystem of successful partners and unlock new revenue opportunities while providing innovative direct mail solutions to your customers.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="#apply" size="lg" className="bg-black text-white hover:bg-gray-100">
+            <Button as={Link} href="#apply" size="lg" >
               Become a Partner
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" >
               Contact Partnership Team
             </Button>
           </Flex>
         </Flex>
       </Section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <Section className="border-b border-gray-800">
+      <footer >
+        <Section >
           <Grid columns={4}>
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
+              <h3 >Product</h3>
               <Flex gap={2}>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/features" >
                   Features
                 </Link>
-                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/pricing" >
                   Pricing
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/integrations" >
                   Integrations
                 </Link>
-                <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/roi-calculator" >
                   ROI Calculator
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
+              <h3 >Company</h3>
               <Flex gap={2}>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/about" >
                   About Us
                 </Link>
-                <Link href="/team" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/team" >
                   Team
                 </Link>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/careers" >
                   Careers
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/contact" >
                   Contact
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Partners</h3>
+              <h3 >Partners</h3>
               <Flex gap={2}>
-                <Link href="/partners" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/partners" >
                   Become a Partner
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/integrations" >
                   Integrations
                 </Link>
-                <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/press" >
                   Press Kit
                 </Link>
-                <Link href="/resources" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/resources" >
                   Resources
                 </Link>
               </Flex>
             </div>
           </Grid>
         </Section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-gray-400">
+        <div >
           <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
         </div>
       </footer>

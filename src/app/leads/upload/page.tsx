@@ -3,7 +3,6 @@ import { useState, useCallback, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import Papa from "papaparse";
 import { motion, AnimatePresence } from "framer-motion";
-
 import Navigation from "@/components/Navigation";
 interface CSVData {
   headers: string[];
@@ -204,18 +203,18 @@ export default function CSVUploadPage() {
     }, 200);
   };
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       <Navigation variant="app" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-white">Import Texts</h1>
-          <p className="text-gray-400 mt-2">
+      <div >
+        <div >
+          <h1 >Import Texts</h1>
+          <p >
             Upload your CSV file to import leads for direct mail campaigns
           </p>
         </div>
         {/* Progress Steps */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between max-w-3xl">
+        <div >
+          <div >
             <div
               className={`flex items-center ${step === "upload" ? "text-blue-600" : "text-gray-400"}`}
             >
@@ -228,9 +227,9 @@ export default function CSVUploadPage() {
               >
                 1
               </div>
-              <span className="ml-2 font-medium">Upload</span>
+              <span >Upload</span>
             </div>
-            <div className="flex-1 h-0.5 bg-gray-300 mx-4"></div>
+            <div ></div>
             <div
               className={`flex items-center ${step === "mapping" ? "text-blue-600" : "text-gray-400"}`}
             >
@@ -243,9 +242,9 @@ export default function CSVUploadPage() {
               >
                 2
               </div>
-              <span className="ml-2 font-medium">Map Columns</span>
+              <span >Map Columns</span>
             </div>
-            <div className="flex-1 h-0.5 bg-gray-300 mx-4"></div>
+            <div ></div>
             <div
               className={`flex items-center ${step === "preview" ? "text-blue-600" : "text-gray-400"}`}
             >
@@ -258,7 +257,7 @@ export default function CSVUploadPage() {
               >
                 3
               </div>
-              <span className="ml-2 font-medium">Preview</span>
+              <span >Preview</span>
             </div>
           </div>
         </div>
@@ -269,7 +268,6 @@ export default function CSVUploadPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
               <div
                 {...getRootProps()}
@@ -281,7 +279,6 @@ export default function CSVUploadPage() {
               >
                 <input {...getInputProps()} />
                 <svg
-                  className="mx-auto h-12 w-12 text-gray-400 mb-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -294,33 +291,33 @@ export default function CSVUploadPage() {
                   />
                 </svg>
                 {isDragActive ? (
-                  <p className="text-lg">Drop the CSV file here...</p>
+                  <p >Drop the CSV file here...</p>
                 ) : (
                   <>
-                    <p className="text-lg mb-2">
+                    <p >
                       Drag & drop your CSV file here
                     </p>
-                    <p className="text-sm text-gray-500">
+                    <p >
                       or click to select a file
                     </p>
-                    <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button >
                       Choose File
                     </button>
                   </>
                 )}
               </div>
-              <div className="mt-8 bg-black rounded-lg p-6">
-                <h3 className="font-semibold text-white mb-3">
+              <div >
+                <h3 >
                   Required Fields
                 </h3>
-                <p className="text-sm text-gray-400 mb-3">
+                <p >
                   Your CSV should include the following columns:
                 </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div >
                   {REQUIRED_FIELDS.map((field) => (
-                    <div key={field} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
-                      <span className="text-sm">
+                    <div key={field} >
+                      <span ></span>
+                      <span >
                         {field.replace(/([A-Z])/g, " $1").trim()}
                       </span>
                     </div>
@@ -335,18 +332,17 @@ export default function CSVUploadPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <h2 className="text-lg md:text-xl font-semibold mb-6">Map Your Columns</h2>
-              <div className="space-y-6">
+              <h2 >Map Your Columns</h2>
+              <div >
                 <div>
-                  <h3 className="font-medium text-white mb-4">
+                  <h3 >
                     Required Fields
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div >
                     {REQUIRED_FIELDS.map((field) => (
-                      <div key={field} className="flex items-center space-x-3">
-                        <label className="w-32 text-sm font-medium text-gray-300">
+                      <div key={field} >
+                        <label >
                           {field.replace(/([A-Z])/g, " $1").trim()}:
                         </label>
                         <select
@@ -354,7 +350,6 @@ export default function CSVUploadPage() {
                           onChange={(e) =>
                             handleMappingChange(field, e.target.value)
                           }
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                           <option value="">-- Select Column --</option>
                           {csvData.headers.map((header) => (
@@ -368,13 +363,13 @@ export default function CSVUploadPage() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-medium text-white mb-4">
+                  <h3 >
                     Optional Fields
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div >
                     {OPTIONAL_FIELDS.map((field) => (
-                      <div key={field} className="flex items-center space-x-3">
-                        <label className="w-32 text-sm text-gray-300">
+                      <div key={field} >
+                        <label >
                           {field.replace(/([A-Z])/g, " $1").trim()}:
                         </label>
                         <select
@@ -382,7 +377,6 @@ export default function CSVUploadPage() {
                           onChange={(e) =>
                             handleMappingChange(field, e.target.value)
                           }
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                           <option value="">-- Select Column --</option>
                           {csvData.headers.map((header) => (
@@ -396,16 +390,14 @@ export default function CSVUploadPage() {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 flex justify-between">
+              <div >
                 <button
                   onClick={() => setStep("upload")}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                 >
                   Back
                 </button>
                 <button
                   onClick={handlePreview}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Preview Import
                 </button>
@@ -418,33 +410,30 @@ export default function CSVUploadPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-lg md:text-xl font-semibold">Preview Import</h2>
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-400">
+              <div >
+                <h2 >Preview Import</h2>
+                <div >
+                  <span >
                     {selectedRows.length} of {csvData.rows.length} selected
                   </span>
                   <button
                     onClick={selectAllRows}
-                    className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Select All
                   </button>
                   <button
                     onClick={deselectAllRows}
-                    className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Deselect All
                   </button>
                 </div>
               </div>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-black">
+              <div >
+                <table >
+                  <thead >
                     <tr>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         <input
                           type="checkbox"
                           checked={selectedRows.length === csvData.rows.length}
@@ -453,26 +442,25 @@ export default function CSVUploadPage() {
                               ? deselectAllRows()
                               : selectAllRows()
                           }
-                          className="rounded border-gray-300"
                         />
                       </th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         Name
                       </th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         Address
                       </th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th >
                         Citye ZIP
                       </th>
                       {columnMapping.company && (
-                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th >
                           Company
                         </th>
                       )}
                     </tr>
                   </thead>
-                  <tbody className="bg-black divide-y divide-gray-200">
+                  <tbody >
                     {csvData.rows.slice(0, 10).map((row, index) => (
                       <tr
                         key={index}
@@ -480,28 +468,27 @@ export default function CSVUploadPage() {
                           selectedRows.includes(index) ? "bg-blue-50" : ""
                         }
                       >
-                        <td className="px-3 py-3">
+                        <td >
                           <input
                             type="checkbox"
                             checked={selectedRows.includes(index)}
                             onChange={() => toggleRowSelection(index)}
-                            className="rounded border-gray-300"
                           />
                         </td>
-                        <td className="px-3 py-3 text-sm">
+                        <td >
                           {getMappedValue(row, "firstName")}{" "}
                           {getMappedValue(row, "lastName")}
                         </td>
-                        <td className="px-3 py-3 text-sm">
+                        <td >
                           {getMappedValue(row, "address")}
                         </td>
-                        <td className="px-3 py-3 text-sm">
+                        <td >
                           {getMappedValue(row, "city")},{" "}
                           {getMappedValue(row, "state")}{" "}
                           {getMappedValue(row, "zipCode")}
                         </td>
                         {columnMapping.company && (
-                          <td className="px-3 py-3 text-sm">
+                          <td >
                             {getMappedValue(row, "company")}
                           </td>
                         )}
@@ -511,21 +498,19 @@ export default function CSVUploadPage() {
                 </table>
               </div>
               {csvData.rows.length > 10 && (
-                <p className="mt-4 text-sm text-gray-500 text-center">
+                <p >
                   Showing first 10 of {csvData.rows.length} leads
                 </p>
               )}
-              <div className="mt-8 flex justify-between">
+              <div >
                 <button
                   onClick={() => setStep("mapping")}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-black transition-colors"
                 >
                   Back
                 </button>
                 <button
                   onClick={handleProcessData}
                   disabled={selectedRows.length === 0}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Import {selectedRows.length} Texts
                 </button>
@@ -538,17 +523,14 @@ export default function CSVUploadPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-black rounded-lg shadow-sm p-8"
             >
-              <div className="max-w-md mx-auto text-center">
-                <div className="mb-8">
+              <div >
+                <div >
                   <svg
-                    className="w-16 h-16 text-blue-600 mx-auto mb-4 animate-spin"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
                     <circle
-                      className="opacity-25"
                       cx="12"
                       cy="12"
                       r="10"
@@ -556,25 +538,23 @@ export default function CSVUploadPage() {
                       strokeWidth="4"
                     ></circle>
                     <path
-                      className="opacity-75"
                       fill="currentColor"
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">
+                  <h3 >
                     Importing Texts...
                   </h3>
-                  <p className="text-gray-400">
+                  <p >
                     Please wait while we process your data
                   </p>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+                <div >
                   <div
-                    className="bg-blue-600 h-3 rounded-full transition-all duration-300"
                     style={{ width: `${uploadProgress}%` }}
                   ></div>
                 </div>
-                <p className="text-sm text-gray-500">
+                <p >
                   {uploadProgress}% Complete
                 </p>
               </div>

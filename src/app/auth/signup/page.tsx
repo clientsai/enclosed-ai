@@ -71,23 +71,23 @@ export default function SignupPage() {
     }
   };
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Background effects */}
-      <GlowOrb color="accent" size="lg" className="top-0 -left-32 opacity-10" />
-      <GlowOrb color="purple" size="default" className="bottom-0 -right-32 opacity-10" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       <Container size="default">
-        <Grid cols={2} gap={8} className="items-center">
+        <Grid cols={2} gap={8} >
           {/* Left side - Benefits */}
-          <div className="hidden lg:block">
-            <Badge variant="accent" className="mb-6">
+          <div >
+            <Badge variant="accent" >
               Join 5,000+ Companies
             </Badge>
-            <H2 className="mb-6">
+            <H2 >
               Start sending smarter
               <br />
-              <span className="gradient-text-accent">direct mail today</span>
+              <span >direct mail today</span>
             </H2>
-            <div className="space-y-4">
+            <div >
               {[
                 { icon: "✓", title: "14-day free trial", desc: "No credit card required" },
                 { icon: "✓", title: "AI-powered personalization", desc: "Unique letters for each recipient" },
@@ -95,7 +95,7 @@ export default function SignupPage() {
                 { icon: "✓", title: "Real-time analytics", desc: "Track ROI instantly" },
               ].map((item, i) => (
                 <Flex key={i} gap={3} align="start">
-                  <span className="text-[var(--success)] text-lg md:text-lg md:text-xl">{item.icon}</span>
+                  <span >{item.icon}</span>
                   <div>
                     <Text weight="semibold">{item.title}</Text>
                     <Text size="sm" color="muted">{item.desc}</Text>
@@ -104,12 +104,12 @@ export default function SignupPage() {
               ))}
             </div>
             {/* Testimonial */}
-            <Card glass className="mt-8 p-6">
-              <Text className="italic mb-4">
+            <Card glass >
+              <Text >
                 "The AI personalization is incredible. Our response rates went from 0.5% to 12% overnight."
               </Text>
               <Flex align="center" gap={3}>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-purple-500" />
+                <div  />
                 <div>
                   <Text weight="semibold" size="sm">Michael Torres</Text>
                   <Text size="xs" color="muted">CEO, SaaS Ventures</Text>
@@ -118,14 +118,14 @@ export default function SignupPage() {
             </Card>
           </div>
           {/* Right side - Form */}
-          <Card glass className="p-8 md:p-12">
+          <Card glass >
             {/* Logo */}
-            <Flex justify="center" className="mb-8">
+            <Flex justify="center" >
               <Logo size="lg" showText />
             </Flex>
             {/* Header */}
-            <div className="text-center mb-8">
-              <H2 className="mb-3">Create your account</H2>
+            <div >
+              <H2 >Create your account</H2>
               <Text color="secondary">
                 Get started with your 14-day free trial
               </Text>
@@ -172,12 +172,12 @@ export default function SignupPage() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   required
                 />
-                <Text size="xs" color="muted" className="mt-1">
+                <Text size="xs" color="muted" >
                   Minimum 6 characters
                 </Text>
               </FormGroup>
               {error && (
-                <Alert variant="error" className="mb-6">
+                <Alert variant="error" >
                   {error}
                 </Alert>
               )}
@@ -185,29 +185,28 @@ export default function SignupPage() {
                 type="submit"
                 variant="primary"
                 size="lg"
-                className="w-full"
                 loading={loading}
               >
                 Create Account
               </Button>
               {/* Terms */}
-              <Text size="xs" color="muted" className="text-center mt-4">
+              <Text size="xs" color="muted" >
                 By signing up, you agree to our{" "}
-                <Link href="/terms" className="text-[var(--accent)] hover:underline">
+                <Link href="/terms" >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy" className="text-[var(--accent)] hover:underline">
+                <Link href="/privacy" >
                   Privacy Policy
                 </Link>
               </Text>
             </Form>
             {/* Sign in link */}
-            <div className="text-center mt-8">
+            <div >
               <Text size="sm" color="secondary">
                 Already have an account?{" "}
                 <Link href="/auth/login">
-                  <span className="text-[var(--accent)] hover:underline">
+                  <span >
                     Sign in
                   </span>
                 </Link>

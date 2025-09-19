@@ -84,75 +84,74 @@ export default function ApiKeysPage() {
   };
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div >
       <Navigation variant="app" />
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div ></div>
       </div>
     );
   }
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       <Navigation variant="app" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      <div >
         {/* Header - Badge Header Component */}
-        <div className="mb-8">
-          <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full mb-3 uppercase tracking-wide">
+        <div >
+          <span >
             Developer Tools
           </span>
-          <div className="flex justify-between items-start">
+          <div >
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-white">API Keys</h1>
-              <p className="mt-2 text-gray-400">
+              <h1 >API Keys</h1>
+              <p >
                 Manage API keys for Clients.AI integration
               </p>
             </div>
             <button
               onClick={() => setShowNewKeyModal(true)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Generate New Key
             </button>
           </div>
         </div>
         {/* API Documentation - Numbered Steps Component */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8">
-          <h3 className="font-semibold text-white mb-4">
+        <div >
+          <h3 >
             Quick Start Guide
           </h3>
-          <ol className="space-y-3">
-            <li className="flex">
-              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">
+          <ol >
+            <li >
+              <span >
                 1
               </span>
               <div>
-                <div className="font-medium text-white">
+                <div >
                   Generate an API key
                 </div>
-                <div className="text-sm text-gray-400">
+                <div >
                   Click "Generate New Key" and give it a descriptive name
                 </div>
               </div>
             </li>
-            <li className="flex">
-              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">
+            <li >
+              <span >
                 2
               </span>
               <div>
-                <div className="font-medium text-white">
+                <div >
                   Configure your application
                 </div>
-                <div className="text-sm text-gray-400">
+                <div >
                   Add the API key to your environment variables
                 </div>
               </div>
             </li>
-            <li className="flex">
-              <span className="flex-shrink-0 w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium mr-3">
+            <li >
+              <span >
                 3
               </span>
               <div>
-                <div className="font-medium text-white">Make API calls</div>
-                <div className="text-sm text-gray-400">
+                <div >Make API calls</div>
+                <div >
                   Use the endpoints below to interact with Enclosed.AI
                 </div>
               </div>
@@ -160,60 +159,59 @@ export default function ApiKeysPage() {
           </ol>
         </div>
         {/* API Endpoints - KBD Keys Component */}
-        <div className="bg-black rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
-          <h3 className="font-semibold text-white mb-4">
+        <div >
+          <h3 >
             Available Endpoints
           </h3>
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-white bg-gray-100 border border-gray-300 rounded">
+          <div >
+            <div >
+              <kbd >
                 POST
               </kbd>
-              <code className="text-sm text-gray-300">/api/v1/campaigns</code>
-              <span className="text-sm text-gray-500">
+              <code >/api/v1/campaigns</code>
+              <span >
                 - Create a new campaign
               </span>
             </div>
-            <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-white bg-gray-100 border border-gray-300 rounded">
+            <div >
+              <kbd >
                 GET
               </kbd>
-              <code className="text-sm text-gray-300">/api/v1/campaigns</code>
-              <span className="text-sm text-gray-500">
+              <code >/api/v1/campaigns</code>
+              <span >
                 - List all campaigns
               </span>
             </div>
-            <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-white bg-gray-100 border border-gray-300 rounded">
+            <div >
+              <kbd >
                 GET
               </kbd>
-              <code className="text-sm text-gray-300">
+              <code >
                 /api/v1/campaigns/{"{id}"}
               </code>
-              <span className="text-sm text-gray-500">
+              <span >
                 - Get campaign details
               </span>
             </div>
-            <div className="flex items-center space-x-2">
-              <kbd className="px-2 py-1 text-xs font-semibold text-white bg-gray-100 border border-gray-300 rounded">
+            <div >
+              <kbd >
                 POST
               </kbd>
-              <code className="text-sm text-gray-300">
+              <code >
                 /api/v1/campaigns/{"{id}"}/send
               </code>
-              <span className="text-sm text-gray-500">- Send a campaign</span>
+              <span >- Send a campaign</span>
             </div>
           </div>
         </div>
         {/* API Keys List - Bordered List Component */}
-        <div className="bg-black rounded-lg shadow-sm">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-medium text-white">Your API Keys</h2>
+        <div >
+          <div >
+            <h2 >Your API Keys</h2>
           </div>
           {apiKeys.length === 0 ? (
-            <div className="text-center py-12">
+            <div >
               <svg
-                className="mx-auto h-12 w-12 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -225,25 +223,23 @@ export default function ApiKeysPage() {
                   d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
                 />
               </svg>
-              <p className="mt-4 text-gray-400">No API keys yet</p>
+              <p >No API keys yet</p>
               <button
                 onClick={() => setShowNewKeyModal(true)}
-                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Generate your first key
               </button>
             </div>
           ) : (
-            <ul className="divide-y divide-gray-200">
+            <ul >
               {apiKeys.map((key) => (
                 <li
                   key={key.id}
-                  className="px-6 py-4 hover:bg-black transition-colors"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-3">
-                        <h3 className="text-sm font-semibold text-white">
+                  <div >
+                    <div >
+                      <div >
+                        <h3 >
                           {key.name}
                         </h3>
                         <button
@@ -257,13 +253,13 @@ export default function ApiKeysPage() {
                           {key.is_active ? "Active" : "Inactive"}
                         </button>
                       </div>
-                      <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-                        <span className="font-mono bg-gray-100 px-2 py-1 rounded">
+                      <div >
+                        <span >
                           {key.api_key.substring(0, 12)}...
                         </span>
                         {key.webhook_url && (
-                          <span className="flex items-center">
-                            <span className="text-gray-400 mr-1">→</span>
+                          <span >
+                            <span >→</span>
                             {key.webhook_url}
                           </span>
                         )}
@@ -277,7 +273,6 @@ export default function ApiKeysPage() {
                     </div>
                     <button
                       onClick={() => handleDeleteKey(key.id)}
-                      className="ml-4 text-red-600 hover:text-red-700 text-sm font-medium transition-colors"
                     >
                       Delete
                     </button>
@@ -288,13 +283,12 @@ export default function ApiKeysPage() {
           )}
         </div>
         {/* Footer Info - Inset Note Component */}
-        <div className="mt-8 relative">
-          <div className="absolute inset-x-0 top-1/2 border-t border-gray-200"></div>
-          <div className="relative flex justify-center">
-            <div className="bg-black px-4">
-              <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 inline-flex items-center space-x-2">
+        <div >
+          <div ></div>
+          <div >
+            <div >
+              <div >
                 <svg
-                  className="h-4 w-4 text-amber-600"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -304,7 +298,7 @@ export default function ApiKeysPage() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-sm text-amber-800">
+                <span >
                   Keep your API keys secure and never commit them to version
                   control
                 </span>
@@ -315,14 +309,14 @@ export default function ApiKeysPage() {
       </div>
       {/* New Key Modal - Toggle Reveal Component */}
       {showNewKeyModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-black rounded-lg max-w-md w-full p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4">Generate API Key</h2>
+        <div >
+          <div >
+            <h2 >Generate API Key</h2>
             {!generatedKey ? (
               <>
-                <div className="space-y-4">
+                <div >
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-1">
+                    <label >
                       Name
                     </label>
                     <input
@@ -331,16 +325,15 @@ export default function ApiKeysPage() {
                       onChange={(e) =>
                         setNewKeyData({ ...newKeyData, name: e.target.value })
                       }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Clients.AI Integration"
                     />
                   </div>
-                  <details className="group">
-                    <summary className="cursor-pointer text-sm text-blue-600 hover:text-blue-700 font-medium">
+                  <details >
+                    <summary >
                       Advanced Options
                     </summary>
-                    <div className="mt-3">
-                      <label className="block text-sm font-medium text-gray-300 mb-1">
+                    <div >
+                      <label >
                         Webhook URL
                       </label>
                       <input
@@ -352,29 +345,26 @@ export default function ApiKeysPage() {
                             webhook_url: e.target.value,
                           })
                         }
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="https://clients.ai/webhooks/enclosed"
                       />
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p >
                         Optional: Receive event notifications at this URL
                       </p>
                     </div>
                   </details>
                 </div>
-                <div className="mt-6 flex justify-end space-x-3">
+                <div >
                   <button
                     onClick={() => {
                       setShowNewKeyModal(false);
                       setNewKeyData({ name: "", webhook_url: "" });
                     }}
-                    className="px-4 py-2 border border-gray-300 text-gray-300 rounded-lg hover:bg-black transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleCreateKey}
                     disabled={!newKeyData.name}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
                   >
                     Generate
                   </button>
@@ -382,10 +372,9 @@ export default function ApiKeysPage() {
               </>
             ) : (
               <>
-                <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
-                  <div className="flex items-start space-x-3">
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-green-600 mt-0.5"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -395,21 +384,20 @@ export default function ApiKeysPage() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <div className="flex-1">
-                      <p className="text-green-900 font-medium">
+                    <div >
+                      <p >
                         API Key Generated Successfully!
                       </p>
-                      <p className="text-sm text-green-700 mt-1">
+                      <p >
                         Copy this key now. You won't be able to see it again.
                       </p>
                     </div>
                   </div>
-                  <div className="mt-3 bg-black rounded p-3 font-mono text-xs break-all border border-green-200">
+                  <div >
                     {generatedKey}
                   </div>
                   <button
                     onClick={() => navigator.clipboard.writeText(generatedKey)}
-                    className="mt-3 w-full px-3 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors"
                   >
                     Copy to Clipboard
                   </button>
@@ -420,7 +408,6 @@ export default function ApiKeysPage() {
                     setGeneratedKey("");
                     setNewKeyData({ name: "", webhook_url: "" });
                   }}
-                  className="mt-4 w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                 >
                   Done
                 </button>

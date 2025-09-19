@@ -25,26 +25,25 @@ export const metadata = {
 };
 export default function SecurityPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Ambient background effects */}
-      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
-      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       {/* Navigation */}
       {/* Hero Section */}
-      <Section className="min-h-screen flex items-center justify-center pt-20">
+      <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} className="text-center">
-            <Badge variant="accent" className="animate-fade-in">
+          <Flex direction="col" align="center" gap={8} >
+            <Badge variant="accent" >
               Enterprise-Grade Security
             </Badge>
-            <H1 className="animate-fade-up max-w-5xl" gradient>
+            <H1  gradient>
               Security & Compliance
             </H1>
             <Text
               size="2xl"
               color="secondary"
               weight="light"
-              className="animate-fade-up animation-delay-100 max-w-3xl"
             >
               Your data security is our top priority. We implement industry-leading
               security measures to protect your information and ensure compliance.
@@ -56,18 +55,18 @@ export default function SecurityPage() {
       <Section>
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Protection</Badge>
-              <H2 className="mb-4">Security Features</H2>
-              <Text size="xl" color="secondary" className="max-w-3xl mx-auto">
+            <div >
+              <Badge >Protection</Badge>
+              <H2 >Security Features</H2>
+              <Text size="xl" color="secondary" >
                 Enterprise-grade security features to protect your data and campaigns.
               </Text>
             </div>
             <Grid cols={3} gap={8}>
-              <Card hover className="p-8 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
-                    <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div >
+                    <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </div>
@@ -77,10 +76,10 @@ export default function SecurityPage() {
                   </Text>
                 </Flex>
               </Card>
-              <Card hover className="p-8 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
-                    <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div >
+                    <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
@@ -90,10 +89,10 @@ export default function SecurityPage() {
                   </Text>
                 </Flex>
               </Card>
-              <Card hover className="p-8 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center mx-auto">
-                    <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div >
+                    <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
@@ -109,12 +108,12 @@ export default function SecurityPage() {
         </Container>
       </Section>
       {/* Footer */}
-      <footer className="border-t border-white/5 mt-24">
+      <footer >
         <Container>
-          <div className="py-12">
-            <Grid cols={5} gap={8} className="mb-12">
+          <div >
+            <Grid cols={5} gap={8} >
               <div>
-                <Logo showText size="sm" className="mb-4" />
+                <Logo showText size="sm"  />
                 <Text size="sm" color="muted">
                   Direct mail marketing powered by artificial intelligence
                 </Text>
@@ -138,12 +137,12 @@ export default function SecurityPage() {
                 },
               ].map((col, i) => (
                 <div key={i}>
-                  <Text weight="semibold" className="mb-4">
+                  <Text weight="semibold" >
                     {col.title}
                   </Text>
-                  <div className="space-y-2">
+                  <div >
                     {col.links.map((link, j) => (
-                      <Text key={j} size="sm" color="muted" className="block hover:text-white transition-colors cursor-pointer">
+                      <Text key={j} size="sm" color="muted" >
                         {link}
                       </Text>
                     ))}
@@ -151,19 +150,19 @@ export default function SecurityPage() {
                 </div>
               ))}
             </Grid>
-            <Divider className="mb-8" />
+            <Divider  />
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>
               <Flex gap={6}>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Twitter
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   LinkedIn
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   GitHub
                 </Text>
               </Flex>

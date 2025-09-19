@@ -144,16 +144,16 @@ export default function PressPage() {
     },
   ];
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
       {/* Hero Section */}
-      <Section className="text-center">
+      <Section >
         <Flex gap={6}>
           <Badge>Press Center</Badge>
           <H1 level={1}>
             Latest News & Media Resources
           </H1>
-          <Text className="max-w-3xl mx-auto">
+          <Text >
             Stay up to date with Enclosed.AI's latest announcements, product updates, and industry insights. Access our comprehensive media kit and connect with our press team for interviews and exclusive stories.
           </Text>
           <Flex gap={4} justify="center">
@@ -167,40 +167,40 @@ export default function PressPage() {
         </Flex>
       </Section>
       {/* Latest News */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Latest Press Releases</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Recent announcements and company updates
             </Text>
           </div>
-          <div className="space-y-6">
+          <div >
             {pressReleases.map((release, index) => (
               <Card key={index} hover className={`p-8 ${release.featured ? 'border-2 border-gray-900' : ''}`}>
                 <Flex gap={4}>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <Flex gap={3} className="mb-3">
+                  <div >
+                    <div >
+                      <Flex gap={3} >
                         <Badge variant={release.featured ? "default" : "success"}>
                           {release.category}
                         </Badge>
                         {release.featured && (
-                          <Badge variant="default" className="bg-gray-900 text-white">
+                          <Badge variant="default" >
                             Featured
                           </Badge>
                         )}
-                        <span className="text-sm text-gray-400">{release.date}</span>
+                        <span >{release.date}</span>
                       </Flex>
-                      <H1 level={3} className="text-lg md:text-xl mb-3">
+                      <H1 level={3} >
                         {release.title}
                       </H1>
-                      <p className="text-gray-300 leading-relaxed mb-4">
+                      <p >
                         {release.content}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div >
                     <Button size="sm">
                       Read Full Release
                     </Button>
@@ -220,23 +220,23 @@ export default function PressPage() {
       {/* Media Coverage */}
       <Section>
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Media Coverage</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               What industry publications are saying about Enclosed.AI
             </Text>
           </div>
-          <div className="space-y-4">
+          <div >
             {coverage.map((item, index) => (
-              <Card key={index} hover className="p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-2">
-                      <span className="font-semibold text-white">{item.outlet}</span>
+              <Card key={index} hover >
+                <div >
+                  <div >
+                    <div >
+                      <span >{item.outlet}</span>
                       <Badge variant="success">{item.type}</Badge>
-                      <span className="text-sm text-gray-400">{item.date}</span>
+                      <span >{item.date}</span>
                     </div>
-                    <H1 level={4} className="text-lg text-white">
+                    <H1 level={4} >
                       {item.headline}
                     </H1>
                   </div>
@@ -250,22 +250,21 @@ export default function PressPage() {
         </Flex>
       </Section>
       {/* Media Kit */}
-      <Section id="media-kit" className="bg-black">
+      <Section id="media-kit" >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Media Kit</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Download logos, photos, and company resources for your stories
             </Text>
           </div>
           <Grid columns={3}>
             {/* Logos */}
-            <Card className="p-6">
+            <Card >
               <Flex gap={4}>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="h-10 w-10 bg-gray-900 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -280,29 +279,28 @@ export default function PressPage() {
                   </div>
                   <H1 level={4}>Logos & Brand Assets</H1>
                 </div>
-                <div className="space-y-3">
+                <div >
                   {mediaKit.logos.map((logo, index) => (
-                    <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                    <div key={index} >
                       <div>
-                        <div className="font-medium text-sm text-white">{logo.name}</div>
-                        <div className="text-xs text-gray-400">{logo.description}</div>
+                        <div >{logo.name}</div>
+                        <div >{logo.description}</div>
                       </div>
-                      <span className="text-xs text-gray-500">{logo.format}</span>
+                      <span >{logo.format}</span>
                     </div>
                   ))}
                 </div>
-                <Button size="sm" className="w-full">
+                <Button size="sm" >
                   Download All Logos
                 </Button>
               </Flex>
             </Card>
             {/* Photos */}
-            <Card className="p-6">
+            <Card >
               <Flex gap={4}>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="h-10 w-10 bg-gray-900 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -317,29 +315,28 @@ export default function PressPage() {
                   </div>
                   <H1 level={4}>Photos & Screenshots</H1>
                 </div>
-                <div className="space-y-3">
+                <div >
                   {mediaKit.photos.map((photo, index) => (
-                    <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                    <div key={index} >
                       <div>
-                        <div className="font-medium text-sm text-white">{photo.name}</div>
-                        <div className="text-xs text-gray-400">{photo.description}</div>
+                        <div >{photo.name}</div>
+                        <div >{photo.description}</div>
                       </div>
-                      <span className="text-xs text-gray-500">{photo.format}</span>
+                      <span >{photo.format}</span>
                     </div>
                   ))}
                 </div>
-                <Button size="sm" className="w-full">
+                <Button size="sm" >
                   Download All Photos
                 </Button>
               </Flex>
             </Card>
             {/* Documents */}
-            <Card className="p-6">
+            <Card >
               <Flex gap={4}>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="h-10 w-10 bg-gray-900 rounded-lg flex items-center justify-center">
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -354,28 +351,28 @@ export default function PressPage() {
                   </div>
                   <H1 level={4}>Documents & Reports</H1>
                 </div>
-                <div className="space-y-3">
+                <div >
                   {mediaKit.documents.map((doc, index) => (
-                    <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                    <div key={index} >
                       <div>
-                        <div className="font-medium text-sm text-white">{doc.name}</div>
-                        <div className="text-xs text-gray-400">{doc.description}</div>
+                        <div >{doc.name}</div>
+                        <div >{doc.description}</div>
                       </div>
-                      <span className="text-xs text-gray-500">{doc.format}</span>
+                      <span >{doc.format}</span>
                     </div>
                   ))}
                 </div>
-                <Button size="sm" className="w-full">
+                <Button size="sm" >
                   Download All Documents
                 </Button>
               </Flex>
             </Card>
           </Grid>
-          <div className="text-center">
+          <div >
             <Button size="lg">
               Download Complete Media Kit
             </Button>
-            <p className="text-sm text-gray-400 mt-2">
+            <p >
               Includes all logos, photos, documents, and brand guidelines
             </p>
           </div>
@@ -384,42 +381,42 @@ export default function PressPage() {
       {/* Executive Contacts */}
       <Section>
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Executive Team</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Connect with our leadership team for interviews and expert commentary
             </Text>
           </div>
           <Grid columns={3}>
             {executives.map((exec, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} >
                 <Flex gap={4}>
-                  <div className="text-center">
-                    <div className="h-20 w-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-xl md:text-2xl font-bold text-gray-400">
+                  <div >
+                    <div >
+                      <span >
                         {exec.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
                     <H1 level={4}>{exec.name}</H1>
-                    <p className="text-blue-600 font-medium text-sm">{exec.title}</p>
+                    <p >{exec.title}</p>
                   </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p >
                     {exec.bio}
                   </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div >
+                    <div >
+                      <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      <a href={`mailto:${exec.email}`} className="text-blue-600 hover:underline">
+                      <a href={`mailto:${exec.email}`} >
                         {exec.email}
                       </a>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <svg className="h-4 w-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                    <div >
+                      <svg  fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                       </svg>
-                      <a href={`https://${exec.linkedin}`} className="text-blue-600 hover:underline">
+                      <a href={`https://${exec.linkedin}`} >
                         LinkedIn
                       </a>
                     </div>
@@ -431,109 +428,106 @@ export default function PressPage() {
         </Flex>
       </Section>
       {/* Press Contact */}
-      <Section id="contact" className="bg-black">
-        <div className="max-w-4xl mx-auto">
+      <Section id="contact" >
+        <div >
           <Flex gap={8}>
-            <div className="text-center">
+            <div >
               <H1 level={2}>Press Contact</H1>
-              <Text className="max-w-3xl mx-auto">
+              <Text >
                 Get in touch with our press team for interviews, quotes, and exclusive access
               </Text>
             </div>
             <Grid columns={2}>
-              <Card className="p-8">
+              <Card >
                 <Flex gap={6}>
                   <div>
                     <H1 level={3}>Media Inquiries</H1>
-                    <p className="text-gray-400 mt-2">
+                    <p >
                       For press releases, executive interviews, and general media questions
                     </p>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div >
+                    <div >
+                      <div >
+                        <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-medium text-white">Email</div>
-                        <a href="mailto:press@enclosed.ai" className="text-blue-600 hover:underline">
+                        <div >Email</div>
+                        <a href="mailto:press@enclosed.ai" >
                           press@enclosed.ai
                         </a>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div >
+                      <div >
+                        <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-medium text-white">Phone</div>
-                        <a href="tel:+1-555-123-4567" className="text-blue-600 hover:underline">
+                        <div >Phone</div>
+                        <a href="tel:+1-555-123-4567" >
                           +1 (555) 123-4567
                         </a>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div >
+                      <div >
+                        <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-medium text-white">Response Time</div>
-                        <div className="text-gray-400">Within 24 hours</div>
+                        <div >Response Time</div>
+                        <div >Within 24 hours</div>
                       </div>
                     </div>
                   </div>
                 </Flex>
               </Card>
-              <Card className="p-8">
+              <Card >
                 <Flex gap={6}>
                   <div>
                     <H1 level={3}>Quick Media Request</H1>
-                    <p className="text-gray-400 mt-2">
+                    <p >
                       Submit your request and we'll get back to you quickly
                     </p>
                   </div>
-                  <div className="space-y-4">
+                  <div >
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Your Name *
                       </label>
                       <input
                         type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Jane Smith"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Publication/Outlet *
                       </label>
                       <input
                         type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="TechCrunch"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Email Address *
                       </label>
                       <input
                         type="email"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="jane@techcrunch.com"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Request Type
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                      <select >
                         <option value="">Select request type</option>
                         <option value="interview">Executive Interview</option>
                         <option value="quote">Expert Quote</option>
@@ -543,17 +537,16 @@ export default function PressPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label >
                         Message *
                       </label>
                       <textarea
                         rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tell us about your story and what you need..."
                       />
                     </div>
                   </div>
-                  <Button size="md" className="w-full">
+                  <Button size="md" >
                     Submit Request
                   </Button>
                 </Flex>
@@ -563,74 +556,73 @@ export default function PressPage() {
         </div>
       </Section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <Section className="border-b border-gray-800">
+      <footer >
+        <Section >
           <Grid columns={4}>
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
+              <h3 >Product</h3>
               <Flex gap={2}>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/features" >
                   Features
                 </Link>
-                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/pricing" >
                   Pricing
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/integrations" >
                   Integrations
                 </Link>
-                <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/roi-calculator" >
                   ROI Calculator
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
+              <h3 >Company</h3>
               <Flex gap={2}>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/about" >
                   About Us
                 </Link>
-                <Link href="/team" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/team" >
                   Team
                 </Link>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/careers" >
                   Careers
                 </Link>
-                <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/press" >
                   Press
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Resources</h3>
+              <h3 >Resources</h3>
               <Flex gap={2}>
-                <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/press" >
                   Press Center
                 </Link>
-                <Link href="/webinars" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/webinars" >
                   Webinars
                 </Link>
-                <Link href="/partners" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/partners" >
                   Partners
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/contact" >
                   Contact
                 </Link>
               </Flex>
             </div>
           </Grid>
         </Section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-gray-400">
+        <div >
           <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
         </div>
       </footer>

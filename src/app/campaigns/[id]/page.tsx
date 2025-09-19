@@ -8,7 +8,6 @@ import { Campaign, Recipient } from "@/types";
 import { formatCurrency } from "@/lib/pricing";
 import { generateSalesLetter } from "@/lib/letter-generator";
 import Logo from "@/components/Logo";
-
 import Navigation from "@/components/Navigation";
 export default function CampaignDetailPage({
   params,
@@ -136,18 +135,18 @@ export default function CampaignDetailPage({
   };
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div >
       <Navigation variant="app" />
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div ></div>
       </div>
     );
   }
   if (!campaign) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-gray-400 mb-4">Campaign not found</p>
-          <Link href="/dashboard" className="text-blue-600 hover:text-blue-700">
+      <div >
+        <div >
+          <p >Campaign not found</p>
+          <Link href="/dashboard" >
             ← Back to Dashboard
           </Link>
         </div>
@@ -155,20 +154,20 @@ export default function CampaignDetailPage({
     );
   }
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      <div >
         {/* Campaign Header - Key Bullet Summary Component */}
-        <div className="bg-black rounded-lg shadow p-6 mb-6">
-          <div className="flex justify-between items-start">
+        <div >
+          <div >
             <div>
-              <h1 className="text-xl md:text-2xl font-bold text-white mb-4">
+              <h1 >
                 {campaign.name}
               </h1>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2 font-bold">•</span>
-                  <span className="font-medium">Status:</span>
+              <ul >
+                <li >
+                  <span >•</span>
+                  <span >Status:</span>
                   <span
                     className={`ml-2 inline-flex px-3 py-1 text-sm font-semibold rounded-full
                     ${campaign.status === "completed" ? "bg-green-100 text-green-800" : ""}
@@ -181,17 +180,17 @@ export default function CampaignDetailPage({
                       campaign.status.slice(1)}
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2 font-bold">•</span>
-                  <span className="font-medium">Created:</span>
-                  <span className="ml-2 text-gray-400">
+                <li >
+                  <span >•</span>
+                  <span >Created:</span>
+                  <span >
                     {new Date(campaign.created_at).toLocaleDateString()}
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2 font-bold">•</span>
-                  <span className="font-medium">Total Cost:</span>
-                  <span className="ml-2 text-blue-600 font-semibold">
+                <li >
+                  <span >•</span>
+                  <span >Total Cost:</span>
+                  <span >
                     {formatCurrency(campaign.total_cost)}
                   </span>
                 </li>
@@ -201,132 +200,101 @@ export default function CampaignDetailPage({
               <button
                 onClick={handleSendCampaign}
                 disabled={sending}
-                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
               >
                 {sending ? "Sending..." : "Send Campaign"}
               </button>
             )}
           </div>
           {error && (
-            <div className="mt-4 bg-red-50 text-red-600 px-4 py-3 rounded-lg border border-red-200">
+            <div >
               {error}
             </div>
           )}
         </div>
         {/* Mini Tabs CSS-only Component */}
-        <div className="bg-black rounded-lg shadow mb-6">
-          <div className="p-6">
-            <style jsx>{`
-              input[type="radio"] {
-                display: none;
-              }
-              input#tab-overview:checked ~ .tab-content .content-overview {
-                display: block;
-              }
-              input#tab-recipients:checked ~ .tab-content .content-recipients {
-                display: block;
-              }
-              input#tab-preview:checked ~ .tab-content .content-preview {
-                display: block;
-              }
-              input#tab-overview:checked
-                ~ .tab-labels
-                label[for="tab-overview"],
-              input#tab-recipients:checked
-                ~ .tab-labels
-                label[for="tab-recipients"],
-              input#tab-preview:checked ~ .tab-labels label[for="tab-preview"] {
-                border-bottom: 2px solid #3b82f6;
-                color: #3b82f6;
-              }
-              .tab-content > div {
-                display: none;
-              }
-            `}</style>
+        <div >
+          <div >
             <input type="radio" id="tab-overview" name="tabs" defaultChecked />
             <input type="radio" id="tab-recipients" name="tabs" />
             <input type="radio" id="tab-preview" name="tabs" />
-            <div className="tab-labels flex border-b mb-6">
+            <div >
               <label
                 htmlFor="tab-overview"
-                className="px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors font-medium"
               >
                 Overview
               </label>
               <label
                 htmlFor="tab-recipients"
-                className="px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors font-medium"
               >
                 Recipients ({campaign.recipient_count})
               </label>
               <label
                 htmlFor="tab-preview"
-                className="px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors font-medium"
               >
                 Letter Preview
               </label>
             </div>
-            <div className="tab-content">
+            <div >
               {/* Overview Tab - Metric Callouts Component */}
-              <div className="content-overview">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-black rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-white mb-4">
+              <div >
+                <div >
+                  <div >
+                    <h3 >
                       Campaign Details
                     </h3>
-                    <dl className="space-y-3">
-                      <div className="flex justify-between">
-                        <dt className="text-sm text-gray-400">Offer Type</dt>
-                        <dd className="font-medium text-white">
+                    <dl >
+                      <div >
+                        <dt >Offer Type</dt>
+                        <dd >
                           {campaign.offer_type.replace(/_/g, " ")}
                         </dd>
                       </div>
-                      <div className="flex justify-between">
-                        <dt className="text-sm text-gray-400">Mail Type</dt>
-                        <dd className="font-medium text-white">
+                      <div >
+                        <dt >Mail Type</dt>
+                        <dd >
                           {campaign.mail_type.replace(/_/g, " ")}
                         </dd>
                       </div>
-                      <div className="flex justify-between">
-                        <dt className="text-sm text-gray-400">Recipients</dt>
-                        <dd className="font-medium text-white">
+                      <div >
+                        <dt >Recipients</dt>
+                        <dd >
                           {campaign.recipient_count}
                         </dd>
                       </div>
                       {campaign.sent_date && (
-                        <div className="flex justify-between">
-                          <dt className="text-sm text-gray-400">Sent Date</dt>
-                          <dd className="font-medium text-white">
+                        <div >
+                          <dt >Sent Date</dt>
+                          <dd >
                             {new Date(campaign.sent_date).toLocaleString()}
                           </dd>
                         </div>
                       )}
                     </dl>
                   </div>
-                  <div className="border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
-                    <h3 className="text-lg font-semibold text-white mb-4">
+                  <div >
+                    <h3 >
                       Cost Metrics
                     </h3>
-                    <div className="space-y-4">
-                      <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-blue-600">
+                    <div >
+                      <div >
+                        <div >
                           {formatCurrency(campaign.cost_per_piece)}
                         </div>
-                        <div className="text-sm text-gray-400">Per Piece</div>
+                        <div >Per Piece</div>
                       </div>
-                      <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-green-600">
+                      <div >
+                        <div >
                           {campaign.recipient_count}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div >
                           Total Recipients
                         </div>
                       </div>
-                      <div className="border-t-2 border-blue-200 pt-4 text-center">
-                        <div className="text-4xl font-bold text-blue-700">
+                      <div >
+                        <div >
                           {formatCurrency(campaign.total_cost)}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div >
                           Total Campaign Cost
                         </div>
                       </div>
@@ -335,21 +303,21 @@ export default function CampaignDetailPage({
                 </div>
               </div>
               {/* Recipients Tab - Comparison Table Compact Component */}
-              <div className="content-recipients">
-                <div className="overflow-x-auto">
-                  <table className="min-w-full">
+              <div >
+                <div >
+                  <table >
                     <thead>
-                      <tr className="bg-gray-100 border-b-2 border-gray-200">
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                      <tr >
+                        <th >
                           Recipient
                         </th>
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                        <th >
                           Address
                         </th>
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                        <th >
                           Location
                         </th>
-                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                        <th >
                           Status
                         </th>
                       </tr>
@@ -362,30 +330,30 @@ export default function CampaignDetailPage({
                             index % 2 === 0 ? "bg-black" : "bg-black"
                           }
                         >
-                          <td className="px-4 py-3 text-sm">
-                            <div className="font-medium text-white">
+                          <td >
+                            <div >
                               {recipient.name}
                             </div>
                             {recipient.company && (
-                              <div className="text-xs text-gray-500">
+                              <div >
                                 {recipient.company}
                               </div>
                             )}
                           </td>
-                          <td className="px-4 py-3 text-sm text-gray-400">
+                          <td >
                             <div>{recipient.address_line1}</div>
                             {recipient.address_line2 && (
-                              <div className="text-xs">
+                              <div >
                                 {recipient.address_line2}
                               </div>
                             )}
                           </td>
-                          <td className="px-4 py-3 text-sm text-gray-400">
+                          <td >
                             {recipient.city}, {recipient.state}{" "}
                             {recipient.zip_code}
                           </td>
-                          <td className="px-4 py-3">
-                            <span className="inline-flex px-2 py-1 text-xs font-medium rounded bg-gray-200 text-gray-300">
+                          <td >
+                            <span >
                               {recipient.delivery_status || "Pending"}
                             </span>
                           </td>
@@ -395,8 +363,8 @@ export default function CampaignDetailPage({
                   </table>
                 </div>
                 {recipients.length > 20 && (
-                  <div className="mt-4 bg-blue-50 border-l-4 border-blue-400 p-4">
-                    <p className="text-sm text-blue-800">
+                  <div >
+                    <p >
                       Showing first 20 of {recipients.length} recipients. Full
                       list available for export.
                     </p>
@@ -404,29 +372,28 @@ export default function CampaignDetailPage({
                 )}
               </div>
               {/* Preview Tab - Code Snippet Box Component */}
-              <div className="content-preview">
-                <div className="bg-gray-900 rounded-lg p-1">
-                  <div className="flex items-center justify-between px-4 py-2 bg-gray-800 rounded-t-lg">
-                    <span className="text-gray-400 text-sm font-medium">
+              <div >
+                <div >
+                  <div >
+                    <span >
                       Letter Preview
                     </span>
                     <button
                       onClick={() =>
                         navigator.clipboard.writeText(sampleLetter)
                       }
-                      className="text-gray-400 hover:text-white text-sm transition-colors"
                     >
                       Copy
                     </button>
                   </div>
-                  <div className="p-6 overflow-x-auto">
-                    <pre className="text-gray-300 text-sm font-mono leading-relaxed">
+                  <div >
+                    <pre >
                       {sampleLetter || "Loading preview..."}
                     </pre>
                   </div>
                 </div>
-                <div className="mt-4 bg-amber-50 border-l-4 border-amber-400 p-4">
-                  <p className="text-sm text-amber-800">
+                <div >
+                  <p >
                     <strong>Note:</strong> This is a sample preview. Each
                     recipient will receive a personalized version with their
                     specific information.
@@ -438,33 +405,33 @@ export default function CampaignDetailPage({
         </div>
         {/* Footer Actions - Inline Q&A List Component */}
         {campaign.status === "draft" && (
-          <div className="bg-black rounded-lg shadow p-6">
-            <h3 className="font-semibold text-white mb-4">
+          <div >
+            <h3 >
               Before You Send
             </h3>
-            <div className="space-y-3">
+            <div >
               <div>
-                <span className="font-medium text-white">
+                <span >
                   Q: Have you reviewed all recipient addresses?
                 </span>
-                <p className="text-sm text-gray-400 mt-1">
+                <p >
                   Ensure all addresses are valid to maximize delivery rates.
                 </p>
               </div>
               <div>
-                <span className="font-medium text-white">
+                <span >
                   Q: Do you have sufficient credits?
                 </span>
-                <p className="text-sm text-gray-400 mt-1">
+                <p >
                   This campaign requires {formatCurrency(campaign.total_cost)}{" "}
                   in credits.
                 </p>
               </div>
               <div>
-                <span className="font-medium text-white">
+                <span >
                   Q: Is your offer message clear?
                 </span>
-                <p className="text-sm text-gray-400 mt-1">
+                <p >
                   Review the letter preview to ensure your message is
                   compelling.
                 </p>

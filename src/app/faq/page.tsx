@@ -24,41 +24,39 @@ export const metadata = {
 };
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Ambient background effects */}
-      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
-      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       {/* Navigation */}
       {/* Hero Section */}
-      <Section className="min-h-screen flex items-center justify-center pt-20">
+      <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} className="text-center">
-            <Badge variant="accent" className="animate-fade-in">
+          <Flex direction="col" align="center" gap={8} >
+            <Badge variant="accent" >
               Quick Answers • 24/7 Support • Expert Help
             </Badge>
-            <H1 className="animate-fade-up max-w-5xl" gradient>
+            <H1  gradient>
               Frequently Asked Questions
             </H1>
             <Text
               size="2xl"
               color="secondary"
               weight="light"
-              className="animate-fade-up animation-delay-100 max-w-4xl"
             >
               Find answers to common questions about our AI-powered direct mail
               marketing platform. Can't find what you're looking for?{" "}
               <Link
                 href="/contact"
-                className="text-[var(--accent)] hover:underline font-semibold"
               >
                 Contact our support team
               </Link>
               .
             </Text>
-            <Flex gap={4} className="animate-fade-up animation-delay-200">
+            <Flex gap={4} >
               <Button size="lg" href="#faq-content">
                 Browse Questions
-                <span className="ml-2">→</span>
+                <span >→</span>
               </Button>
               <Button variant="secondary" size="lg" href="/contact">
                 Ask a Question
@@ -73,10 +71,9 @@ export default function FAQPage() {
           <Flex direction="col" gap={16}>
           {/* Getting Started */}
           <div>
-            <Flex align="center" gap={4} className="mb-8">
-              <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+            <Flex align="center" gap={4} >
+              <div >
                 <svg
-                  className="h-6 w-6 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -92,17 +89,16 @@ export default function FAQPage() {
               <H2>Getting Started</H2>
             </Flex>
             <Flex direction="col" gap={6}>
-              <Card glass className="p-6">
-                <H3 className="mb-4">How do I get started with Enclosed.AI?</H3>
-                <Text color="secondary" className="mb-4">
+              <Card glass >
+                <H3 >How do I get started with Enclosed.AI?</H3>
+                <Text color="secondary" >
                   Getting started with Enclosed.AI is simple and takes just
                   a few minutes:
                 </Text>
-                <ol className="list-decimal list-inside space-y-2 mb-4">
+                <ol >
                   <li><Text>Sign up for a free account at{" "}
                     <Link
                       href="/auth/signup"
-                      className="text-[var(--accent)] hover:underline font-semibold"
                     >
                       enclosed.ai/signup
                     </Link></Text>
@@ -119,19 +115,19 @@ export default function FAQPage() {
                   required.
                 </Text>
               </Card>
-              <Card glass className="p-6">
-                <H3 className="mb-4">What file formats do you accept for recipient lists?</H3>
-                <Text color="secondary" className="mb-4">
+              <Card glass >
+                <H3 >What file formats do you accept for recipient lists?</H3>
+                <Text color="secondary" >
                   We accept CSV files with the following required columns:
                 </Text>
-                <ul className="list-disc list-inside space-y-1 mb-4">
-                  <li><Text><span className="font-semibold text-white">First Name</span> - Recipient's first name</Text></li>
-                  <li><Text><span className="font-semibold text-white">Last Name</span> - Recipient's last name</Text></li>
-                  <li><Text><span className="font-semibold text-white">Address</span> - Complete mailing address</Text></li>
-                  <li><Text><span className="font-semibold text-white">City</span> - City name</Text></li>
-                  <li><Text><span className="font-semibold text-white">State</span> - State or province</Text></li>
-                  <li><Text><span className="font-semibold text-white">ZIP Code</span> - Postal code</Text></li>
-                  <li><Text><span className="font-semibold text-white">Email</span> - Email address (optional, for tracking)</Text></li>
+                <ul >
+                  <li><Text><span >First Name</span> - Recipient's first name</Text></li>
+                  <li><Text><span >Last Name</span> - Recipient's last name</Text></li>
+                  <li><Text><span >Address</span> - Complete mailing address</Text></li>
+                  <li><Text><span >City</span> - City name</Text></li>
+                  <li><Text><span >State</span> - State or province</Text></li>
+                  <li><Text><span >ZIP Code</span> - Postal code</Text></li>
+                  <li><Text><span >Email</span> - Email address (optional, for tracking)</Text></li>
                 </ul>
                 <Text color="secondary">
                   Additional columns like company, phone number, or custom
@@ -140,9 +136,9 @@ export default function FAQPage() {
                   addresses and flag any that need correction before sending.
                 </Text>
               </Card>
-              <Card glass className="p-6">
-                <H3 className="mb-4">Is there a minimum order size?</H3>
-                <Text color="secondary" className="mb-4">
+              <Card glass >
+                <H3 >Is there a minimum order size?</H3>
+                <Text color="secondary" >
                   Yes, our minimum order size is 100 letters. This ensures
                   we can provide competitive pricing while maintaining high
                   quality standards. However, we don't require any long-term
@@ -164,9 +160,9 @@ export default function FAQPage() {
       {/* Still Have Questions CTA */}
       <Section>
         <Container>
-          <Card glass className="text-center p-12">
-            <H2 className="mb-4">Still Have Questions?</H2>
-            <Text size="xl" color="secondary" className="mb-8 max-w-3xl mx-auto">
+          <Card glass >
+            <H2 >Still Have Questions?</H2>
+            <Text size="xl" color="secondary" >
               Can't find the answer you're looking for? Our support team is here
               to help you succeed with your direct mail campaigns.
             </Text>
@@ -182,12 +178,12 @@ export default function FAQPage() {
         </Container>
       </Section>
       {/* Footer */}
-      <footer className="border-t border-white/5 mt-24">
+      <footer >
         <Container>
-          <div className="py-12">
-            <Grid cols={5} gap={8} className="mb-12">
+          <div >
+            <Grid cols={5} gap={8} >
               <div>
-                <Logo showText size="sm" className="mb-4" />
+                <Logo showText size="sm"  />
                 <Text size="sm" color="muted">
                   Direct mail marketing powered by artificial intelligence
                 </Text>
@@ -211,12 +207,12 @@ export default function FAQPage() {
                 },
               ].map((col, i) => (
                 <div key={i}>
-                  <Text weight="semibold" className="mb-4">
+                  <Text weight="semibold" >
                     {col.title}
                   </Text>
-                  <div className="space-y-2">
+                  <div >
                     {col.links.map((link, j) => (
-                      <Text key={j} size="sm" color="muted" className="block hover:text-white transition-colors cursor-pointer">
+                      <Text key={j} size="sm" color="muted" >
                         {link}
                       </Text>
                     ))}
@@ -224,19 +220,19 @@ export default function FAQPage() {
                 </div>
               ))}
             </Grid>
-            <Divider className="mb-8" />
+            <Divider  />
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>
               <Flex gap={6}>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Twitter
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   LinkedIn
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   GitHub
                 </Text>
               </Flex>

@@ -135,24 +135,24 @@ export default function PricingPage() {
     },
   ];
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Background effects */}
-      <GlowOrb color="accent" size="lg" className="top-1/4 -right-32 opacity-10" />
-      <GlowOrb color="purple" size="default" className="bottom-1/4 -left-32 opacity-10" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       {/* Navigation */}
       {/* Hero Section */}
       <Section>
         <Container>
-          <div className="text-center mb-12">
-            <Badge variant="accent" className="mb-6">
+          <div >
+            <Badge variant="accent" >
               Simple, Transparent Pricing
             </Badge>
-            <H1 className="mb-6" gradient>
+            <H1  gradient>
               Pricing that scales
               <br />
               with your business
             </H1>
-            <Text size="xl" color="secondary" className="max-w-3xl mx-auto mb-8">
+            <Text size="xl" color="secondary" >
               No hidden fees. No contracts. Pay only for what you send.
               Start with a 14-day free trial.
             </Text>
@@ -163,10 +163,9 @@ export default function PricingPage() {
               </Text>
               <button
                 onClick={() => setBillingPeriod(billingPeriod === "monthly" ? "annual" : "monthly")}
-                className="relative w-14 h-7 bg-gray-800 rounded-full transition-colors"
               >
                 <div
-                  className={`absolute top-1 w-5 h-5 bg-[var(--accent)] rounded-full transition-transform ${
+                  className={`absolute top-1 w-5 h-5 bg-[] rounded-full transition-transform ${
                     billingPeriod === "annual" ? "translate-x-7" : "translate-x-1"
                   }`}
                 />
@@ -180,13 +179,13 @@ export default function PricingPage() {
             </Flex>
           </div>
           {/* Pricing Cards */}
-          <Grid cols={3} gap={8} className="mb-24">
+          <Grid cols={3} gap={8} >
             {plans.map((plan) => (
               <Card
                 key={plan.name}
                 className={`relative ${
                   plan.featured
-                    ? "border-[var(--accent)] scale-105 shadow-2xl"
+                    ? "border-[] scale-105 shadow-2xl"
                     : ""
                 }`}
                 glass={!plan.featured}
@@ -194,27 +193,26 @@ export default function PricingPage() {
                 {plan.featured && (
                   <Badge
                     variant="accent"
-                    className="absolute -top-3 left-1/2 -translate-x-1/2"
                   >
                     Most Popular
                   </Badge>
                 )}
-                <div className="text-center mb-8">
-                  <H3 className="mb-2">{plan.name}</H3>
-                  <Text color="secondary" size="sm" className="mb-6">
+                <div >
+                  <H3 >{plan.name}</H3>
+                  <Text color="secondary" size="sm" >
                     {plan.description}
                   </Text>
                   {typeof plan.price === "number" ? (
-                    <div className="mb-2">
-                      <span className="text-5xl font-bold gradient-text-accent">
+                    <div >
+                      <span >
                         ${plan.price}
                       </span>
-                      <Text color="muted" className="inline">
+                      <Text color="muted" >
                         {plan.period}
                       </Text>
                     </div>
                   ) : (
-                    <div className="text-5xl font-bold gradient-text mb-2">
+                    <div >
                       {plan.price}
                     </div>
                   )}
@@ -224,10 +222,10 @@ export default function PricingPage() {
                     </Text>
                   )}
                 </div>
-                <div className="space-y-3 mb-8">
+                <div >
                   {plan.features.map((feature, i) => (
                     <Flex key={i} gap={3} align="start">
-                      <span className="text-[var(--success)] mt-0.5">✓</span>
+                      <span >✓</span>
                       <Text size="sm">{feature}</Text>
                     </Flex>
                   ))}
@@ -235,7 +233,6 @@ export default function PricingPage() {
                 <Button
                   variant={plan.featured ? "primary" : "secondary"}
                   size="lg"
-                  className="w-full"
                   onClick={() =>
                     plan.name === "Enterprise"
                       ? window.location.href = "/contact"
@@ -249,29 +246,28 @@ export default function PricingPage() {
             ))}
           </Grid>
           {/* Add-on Section */}
-          <div className="text-center mb-24">
-            <H2 className="mb-6">Need more letters?</H2>
-            <Text size="lg" color="secondary" className="mb-8">
+          <div >
+            <H2 >Need more letters?</H2>
+            <Text size="lg" color="secondary" >
               Add letter bundles to any plan
             </Text>
-            <Card glass className="max-w-md mx-auto">
-              <Flex justify="between" align="center" className="mb-6">
-                <div className="text-left">
-                  <Text weight="semibold" className="mb-1">
+            <Card glass >
+              <Flex justify="between" align="center" >
+                <div >
+                  <Text weight="semibold" >
                     Letter Bundle
                   </Text>
                   <Text size="sm" color="secondary">
                     100 additional letters
                   </Text>
                 </div>
-                <div className="text-right">
-                  <div className="text-xl md:text-xl md:text-2xl font-bold">$200</div>
+                <div >
+                  <div >$200</div>
                   <Text size="sm" color="muted">One-time</Text>
                 </div>
               </Flex>
               <Button
                 variant="primary"
-                className="w-full"
                 onClick={() => handleSubscribe("price_1S8NhRCXLbEz3Hk6YZXjkAgY", "addon")}
                 loading={loading === "addon"}
               >
@@ -280,9 +276,9 @@ export default function PricingPage() {
             </Card>
           </div>
           {/* Features Grid */}
-          <div className="mb-24">
-            <div className="text-center mb-12">
-              <H2 className="mb-4">Everything included</H2>
+          <div >
+            <div >
+              <H2 >Everything included</H2>
               <Text size="lg" color="secondary">
                 All plans include our core features
               </Text>
@@ -296,9 +292,9 @@ export default function PricingPage() {
                 { icon: "🚀", title: "Fast Delivery", desc: "First-class mail included" },
                 { icon: "🔒", title: "Security", desc: "Enterprise-grade protection" },
               ].map((feature, i) => (
-                <Card key={i} glass className="text-center">
-                  <div className="text-2xl md:text-2xl md:text-3xl mb-3">{feature.icon}</div>
-                  <Text weight="semibold" className="mb-2">
+                <Card key={i} glass >
+                  <div >{feature.icon}</div>
+                  <Text weight="semibold" >
                     {feature.title}
                   </Text>
                   <Text size="sm" color="secondary">
@@ -309,27 +305,27 @@ export default function PricingPage() {
             </Grid>
           </div>
           {/* FAQ Section */}
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <H2 className="mb-4">Frequently asked questions</H2>
+          <div >
+            <div >
+              <H2 >Frequently asked questions</H2>
               <Text size="lg" color="secondary">
                 Everything you need to know about our pricing
               </Text>
             </div>
-            <div className="space-y-4">
+            <div >
               {faqs.map((faq, i) => (
-                <details key={i} className="group">
-                  <summary className="cursor-pointer list-none">
-                    <Card glass className="p-4 hover:border-gray-700 transition-colors">
+                <details key={i} >
+                  <summary >
+                    <Card glass >
                       <Flex justify="between" align="center">
                         <Text weight="semibold">{faq.question}</Text>
-                        <span className="text-gray-500 group-open:rotate-180 transition-transform">
+                        <span >
                           ↓
                         </span>
                       </Flex>
                     </Card>
                   </summary>
-                  <Card className="mt-2 p-4 ml-4 border-l-2 border-[var(--accent)]">
+                  <Card >
                     <Text color="secondary">{faq.answer}</Text>
                   </Card>
                 </details>
@@ -338,9 +334,9 @@ export default function PricingPage() {
           </div>
           {/* CTA Section */}
           <Section>
-            <Card glass className="text-center p-12">
-              <H2 className="mb-4">Ready to get started?</H2>
-              <Text size="xl" color="secondary" className="mb-8 max-w-2xl mx-auto">
+            <Card glass >
+              <H2 >Ready to get started?</H2>
+              <Text size="xl" color="secondary" >
                 Join thousands of businesses using AI-powered direct mail to drive exceptional results.
               </Text>
               <Flex gap={4} justify="center">

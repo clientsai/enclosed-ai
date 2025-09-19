@@ -7,16 +7,15 @@ export const metadata = {
 };
 export default function ManagingRecipientListsPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div >
         {/* Breadcrumb */}
         {/* Article Header */}
-        <div className="mb-12">
-          <div className="flex items-center mb-4">
-            <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+        <div >
+          <div >
+            <div >
               <svg
-                className="h-5 w-5 text-orange-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -30,44 +29,44 @@ export default function ManagingRecipientListsPage() {
               </svg>
             </div>
             <div>
-              <span className="text-sm text-orange-600 font-semibold">
+              <span >
                 Data Management
               </span>
-              <span className="text-sm text-gray-500 mx-2">•</span>
-              <span className="text-sm text-gray-500">10 min read</span>
+              <span >•</span>
+              <span >10 min read</span>
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 >
             Managing Recipient Lists
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
+          <p >
             Tips for organizing, segmenting, and maintaining high-quality
             recipient lists that drive campaign success.
           </p>
         </div>
         {/* Article Content */}
-        <div className="prose prose-lg max-w-none">
-          <div className="bg-black rounded-2xl shadow-lg p-8 md:p-12">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+        <div >
+          <div >
+            <h2 >
               The Foundation of Successful Campaigns
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Your recipient list is the foundation of every successful direct
               mail campaign. A well-managed, high-quality list can make the
               difference between a campaign that generates significant ROI and
               one that falls flat. Here's how to build and maintain lists that
               drive results.
             </p>
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div >
+              <h3 >
                 Why List Quality Matters
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div >
                 <div>
-                  <h4 className="font-semibold text-white mb-2">
+                  <h4 >
                     Performance Impact
                   </h4>
-                  <ul className="text-sm text-gray-400 space-y-1">
+                  <ul >
                     <li>• Higher response rates</li>
                     <li>• Lower bounce rates</li>
                     <li>• Better deliverability</li>
@@ -75,10 +74,10 @@ export default function ManagingRecipientListsPage() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-2">
+                  <h4 >
                     Cost Benefits
                   </h4>
-                  <ul className="text-sm text-gray-400 space-y-1">
+                  <ul >
                     <li>• Reduced waste</li>
                     <li>• Lower postage costs</li>
                     <li>• Fewer undeliverables</li>
@@ -87,23 +86,23 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 >
               Building High-Quality Lists
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Start with the right data collection and validation processes to
               ensure your lists are accurate and up-to-date:
             </p>
-            <div className="space-y-6 mb-8">
-              <div className="border-l-4 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
+            <div >
+              <div >
+                <h3 >
                   Data Collection Best Practices
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p >
                   Collect data through multiple channels and ensure you have
                   permission to use it for marketing purposes.
                 </p>
-                <ul className="text-sm text-gray-400 space-y-1">
+                <ul >
                   <li>• Website opt-ins and lead magnets</li>
                   <li>• Trade shows and events</li>
                   <li>• Referral programs</li>
@@ -111,20 +110,20 @@ export default function ManagingRecipientListsPage() {
                   <li>• Customer service interactions</li>
                 </ul>
               </div>
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
+              <div >
+                <h3 >
                   Data Validation and Cleaning
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p >
                   Regularly clean and validate your data to maintain list quality
                   and compliance.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div >
                   <div>
-                    <h4 className="font-semibold text-white mb-2">
+                    <h4 >
                       Validation Checks
                     </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
+                    <ul >
                       <li>• Address verification</li>
                       <li>• Email format validation</li>
                       <li>• Phone number formatting</li>
@@ -132,10 +131,10 @@ export default function ManagingRecipientListsPage() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">
+                    <h4 >
                       Cleaning Processes
                     </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
+                    <ul >
                       <li>• Remove inactive contacts</li>
                       <li>• Update outdated information</li>
                       <li>• Standardize formatting</li>
@@ -145,36 +144,36 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 >
               Segmentation Strategies
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Effective segmentation allows you to send targeted messages to the
               right people at the right time. Here are proven segmentation
               strategies:
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div >
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">
+                <h3 >
                   Demographic Segmentation
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                <div >
+                  <div >
+                    <h4 >
                       Basic Demographics
                     </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
+                    <ul >
                       <li>• Age and gender</li>
                       <li>• Geographic location</li>
                       <li>• Income level</li>
                       <li>• Education level</li>
                     </ul>
                   </div>
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                  <div >
+                    <h4 >
                       Professional Demographics
                     </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
+                    <ul >
                       <li>• Job title and industry</li>
                       <li>• Company size</li>
                       <li>• Years of experience</li>
@@ -184,26 +183,26 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">
+                <h3 >
                   Behavioral Segmentation
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                <div >
+                  <div >
+                    <h4 >
                       Engagement Behavior
                     </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
+                    <ul >
                       <li>• Response history</li>
                       <li>• Purchase patterns</li>
                       <li>• Website activity</li>
                       <li>• Email engagement</li>
                     </ul>
                   </div>
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                  <div >
+                    <h4 >
                       Lifecycle Stage
                     </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
+                    <ul >
                       <li>• New prospects</li>
                       <li>• Active customers</li>
                       <li>• At-risk customers</li>
@@ -213,28 +212,28 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 >
               List Organization and Management
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Keep your lists organized and manageable with these proven
               strategies:
             </p>
-            <div className="space-y-6 mb-8">
-              <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-blue-900 mb-4">
+            <div >
+              <div >
+                <h3 >
                   Naming Conventions
                 </h3>
-                <p className="text-blue-800 mb-4">
+                <p >
                   Use consistent naming conventions to make lists easy to find
                   and manage:
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div >
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-2">
+                    <h4 >
                       List Naming Format
                     </h4>
-                    <ul className="text-sm text-blue-800 space-y-1">
+                    <ul >
                       <li>• [Source]_[Segment]_[Date]</li>
                       <li>• Example: Website_Texts_Q1_2024</li>
                       <li>• Example: TradeShow_Prospects_Jan</li>
@@ -242,10 +241,10 @@ export default function ManagingRecipientListsPage() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-2">
+                    <h4 >
                       Tagging System
                     </h4>
-                    <ul className="text-sm text-blue-800 space-y-1">
+                    <ul >
                       <li>• Use descriptive tags</li>
                       <li>• Include campaign types</li>
                       <li>• Add source information</li>
@@ -254,20 +253,20 @@ export default function ManagingRecipientListsPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-green-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-green-900 mb-4">
+              <div >
+                <h3 >
                   Regular Maintenance Schedule
                 </h3>
-                <p className="text-green-800 mb-4">
+                <p >
                   Establish a regular maintenance schedule to keep your lists
                   clean and up-to-date:
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div >
                   <div>
-                    <h4 className="font-semibold text-green-900 mb-2">
+                    <h4 >
                       Weekly Tasks
                     </h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                    <ul >
                       <li>• Remove hard bounces</li>
                       <li>• Update opt-out requests</li>
                       <li>• Check for duplicates</li>
@@ -275,10 +274,10 @@ export default function ManagingRecipientListsPage() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-green-900 mb-2">
+                    <h4 >
                       Monthly Tasks
                     </h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                    <ul >
                       <li>• Full data validation</li>
                       <li>• Segment performance review</li>
                       <li>• List growth analysis</li>
@@ -288,18 +287,17 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 >
               Data Privacy and Compliance
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Ensure your list management practices comply with privacy
               regulations and respect recipient preferences:
             </p>
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-3 w-3 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -313,19 +311,18 @@ export default function ManagingRecipientListsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">
+                  <h4 >
                     Obtain Proper Consent
                   </h4>
-                  <p className="text-sm text-gray-400">
+                  <p >
                     Ensure you have explicit permission to send marketing
                     communications to each recipient.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+              <div >
+                <div >
                   <svg
-                    className="h-3 w-3 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -339,19 +336,18 @@ export default function ManagingRecipientListsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">
+                  <h4 >
                     Honor Opt-Out Requests
                   </h4>
-                  <p className="text-sm text-gray-400">
+                  <p >
                     Immediately remove recipients who request to be removed from
                     your lists.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+              <div >
+                <div >
                   <svg
-                    className="h-3 w-3 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -365,19 +361,18 @@ export default function ManagingRecipientListsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">
+                  <h4 >
                     Secure Data Storage
                   </h4>
-                  <p className="text-sm text-gray-400">
+                  <p >
                     Use secure, encrypted storage for all recipient data and
                     implement access controls.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+              <div >
+                <div >
                   <svg
-                    className="h-3 w-3 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -391,51 +386,51 @@ export default function ManagingRecipientListsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">
+                  <h4 >
                     Regular Compliance Audits
                   </h4>
-                  <p className="text-sm text-gray-400">
+                  <p >
                     Conduct regular audits to ensure compliance with GDPR, CAN-SPAM,
                     and other relevant regulations.
                   </p>
                 </div>
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 >
               List Growth Strategies
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Continuously grow your lists with high-quality, engaged recipients:
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div >
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">
+                <h3 >
                   Organic Growth
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                <div >
+                  <div >
+                    <h4 >
                       Content Marketing
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p >
                       Create valuable content that encourages people to opt-in
                       to your lists.
                     </p>
                   </div>
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                  <div >
+                    <h4 >
                       Referral Programs
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p >
                       Incentivize existing customers to refer others to your
                       business.
                     </p>
                   </div>
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                  <div >
+                    <h4 >
                       Social Media
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p >
                       Use social media to drive traffic to your opt-in forms
                       and landing pages.
                     </p>
@@ -443,33 +438,33 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">
+                <h3 >
                   Paid Acquisition
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                <div >
+                  <div >
+                    <h4 >
                       Text Magnets
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p >
                       Offer valuable resources in exchange for contact
                       information.
                     </p>
                   </div>
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                  <div >
+                    <h4 >
                       Partner Lists
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p >
                       Partner with complementary businesses to exchange or
                       rent lists.
                     </p>
                   </div>
-                  <div className="bg-black rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">
+                  <div >
+                    <h4 >
                       List Rental
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p >
                       Rent targeted lists from reputable providers for
                       specific campaigns.
                     </p>
@@ -477,30 +472,30 @@ export default function ManagingRecipientListsPage() {
                 </div>
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 >
               Measuring List Performance
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p >
               Track key metrics to measure the health and performance of your
               recipient lists:
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-blue-900 mb-3">
+            <div >
+              <div >
+                <h3 >
                   Quality Metrics
                 </h3>
-                <ul className="space-y-2 text-sm text-blue-800">
+                <ul >
                   <li>• Delivery rate (target: 95%+)</li>
                   <li>• Bounce rate (target: &lt;5%)</li>
                   <li>• Unsubscribe rate (target: &lt;2%)</li>
                   <li>• Data completeness score</li>
                 </ul>
               </div>
-              <div className="bg-green-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-green-900 mb-3">
+              <div >
+                <h3 >
                   Engagement Metrics
                 </h3>
-                <ul className="space-y-2 text-sm text-green-800">
+                <ul >
                   <li>• Response rate by segment</li>
                   <li>• Conversion rate by source</li>
                   <li>• Customer lifetime value</li>
@@ -508,24 +503,22 @@ export default function ManagingRecipientListsPage() {
                 </ul>
               </div>
             </div>
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg p-8 text-white">
-              <h3 className="text-lg md:text-xl font-bold mb-4">
+            <div >
+              <h3 >
                 Ready to Optimize Your Lists?
               </h3>
-              <p className="mb-6 opacity-90">
+              <p >
                 Start implementing these list management best practices to
                 improve your campaign performance and ROI.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div >
                 <Link
                   href="/campaigns/new"
-                  className="inline-flex items-center px-6 py-3 bg-black text-orange-600 font-semibold rounded-lg hover:bg-black transition-colors"
                 >
                   Create Your First Campaign
                 </Link>
                 <Link
                   href="/help/campaigns"
-                  className="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-black hover:text-orange-600 transition-colors"
                 >
                   Learn About Campaigns
                 </Link>
@@ -535,27 +528,25 @@ export default function ManagingRecipientListsPage() {
         </div>
       </div>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer >
+        <div >
+          <div >
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Product</h3>
+              <ul >
                 <li>
                   <Link
                     href="/features"
-                    className="hover:text-white transition-colors"
                   >
                     Features
                   </Link>
@@ -563,7 +554,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/pricing"
-                    className="hover:text-white transition-colors"
                   >
                     Pricing
                   </Link>
@@ -571,7 +561,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/integrations"
-                    className="hover:text-white transition-colors"
                   >
                     Integrations
                   </Link>
@@ -579,7 +568,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/api"
-                    className="hover:text-white transition-colors"
                   >
                     API
                   </Link>
@@ -587,12 +575,11 @@ export default function ManagingRecipientListsPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Company</h3>
+              <ul >
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-white transition-colors"
                   >
                     About Us
                   </Link>
@@ -600,7 +587,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/team"
-                    className="hover:text-white transition-colors"
                   >
                     Team
                   </Link>
@@ -608,7 +594,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/careers"
-                    className="hover:text-white transition-colors"
                   >
                     Careers
                   </Link>
@@ -616,7 +601,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-white transition-colors"
                   >
                     Contact
                   </Link>
@@ -624,12 +608,11 @@ export default function ManagingRecipientListsPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Support</h3>
+              <ul >
                 <li>
                   <Link
                     href="/help"
-                    className="hover:text-white transition-colors"
                   >
                     Help Center
                   </Link>
@@ -637,7 +620,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/faq"
-                    className="hover:text-white transition-colors"
                   >
                     FAQ
                   </Link>
@@ -645,7 +627,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/community"
-                    className="hover:text-white transition-colors"
                   >
                     Community
                   </Link>
@@ -653,7 +634,6 @@ export default function ManagingRecipientListsPage() {
                 <li>
                   <Link
                     href="/privacy"
-                    className="hover:text-white transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -661,7 +641,7 @@ export default function ManagingRecipientListsPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+          <div >
             <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
           </div>
         </div>

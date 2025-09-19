@@ -7,30 +7,28 @@ export const metadata = {
 };
 export default function HelpPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div >
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-white sm:text-5xl mb-6">
+        <div >
+          <h1 >
             Help
-            <span className="text-blue-600"> Center</span>
+            <span > Center</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p >
             Find answers, tutorials, and resources to help you succeed with
             Enclosed.AI's direct mail marketing platform.
           </p>
         </div>
         {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-16">
-          <div className="relative">
+        <div >
+          <div >
             <input
               type="text"
               placeholder="Search for help articles, tutorials, or FAQs..."
-              className="w-full px-6 py-4 pl-12 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
             />
             <svg
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -45,18 +43,16 @@ export default function HelpPage() {
           </div>
         </div>
         {/* Quick Help Categories */}
-        <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+        <section >
+          <h2 >
             Quick Help
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div >
             <Link
               href="/help/getting-started"
-              className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow"
             >
-              <div className="h-16 w-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div >
                 <svg
-                  className="h-8 w-8 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -69,20 +65,18 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 >
                 Getting Started
               </h3>
-              <p className="text-gray-400 text-sm">
+              <p >
                 Learn the basics and create your first campaign
               </p>
             </Link>
             <Link
               href="/help/campaigns"
-              className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow"
             >
-              <div className="h-16 w-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div >
                 <svg
-                  className="h-8 w-8 text-green-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -95,20 +89,18 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 >
                 Campaigns
               </h3>
-              <p className="text-gray-400 text-sm">
+              <p >
                 Create, manage, and optimize your campaigns
               </p>
             </Link>
             <Link
               href="/help/analytics"
-              className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow"
             >
-              <div className="h-16 w-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div >
                 <svg
-                  className="h-8 w-8 text-purple-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -121,20 +113,18 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 >
                 Analytics
               </h3>
-              <p className="text-gray-400 text-sm">
+              <p >
                 Track performance and measure success
               </p>
             </Link>
             <Link
               href="/help/billing"
-              className="bg-black rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow"
             >
-              <div className="h-16 w-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div >
                 <svg
-                  className="h-8 w-8 text-orange-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -147,27 +137,26 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 >
                 Billing
               </h3>
-              <p className="text-gray-400 text-sm">
+              <p >
                 Manage payments and account settings
               </p>
             </Link>
           </div>
         </section>
         {/* Popular Articles */}
-        <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+        <section >
+          <h2 >
             Popular Articles
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-black rounded-lg shadow-sm border border-gray-200 p-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
+          <div >
+            <div >
+              <div >
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-blue-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -181,29 +170,27 @@ export default function HelpPage() {
                     </svg>
                   </div>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div >
+                  <h3 >
                     How to Create Your First Campaign
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     Step-by-step guide to creating and sending your first
                     AI-powered direct mail campaign.
                   </p>
                   <Link
                     href="/help/articles/create-first-campaign"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     Read Article →
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="bg-black rounded-lg shadow-sm border border-gray-200 p-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center">
+            <div >
+              <div >
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-green-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -217,29 +204,27 @@ export default function HelpPage() {
                     </svg>
                   </div>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div >
+                  <h3 >
                     Understanding AI Personalization
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     Learn how our AI creates personalized content for each
                     recipient in your campaigns.
                   </p>
                   <Link
                     href="/help/articles/ai-personalization"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     Read Article →
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="bg-black rounded-lg shadow-sm border border-gray-200 p-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="h-10 w-10 bg-purple-100 rounded-lg flex items-center justify-center">
+            <div >
+              <div >
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-purple-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -253,29 +238,27 @@ export default function HelpPage() {
                     </svg>
                   </div>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div >
+                  <h3 >
                     Optimizing Campaign Performance
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     Best practices for improving response rates and maximizing
                     ROI on your campaigns.
                   </p>
                   <Link
                     href="/help/articles/optimize-campaign-performance"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     Read Article →
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="bg-black rounded-lg shadow-sm border border-gray-200 p-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="h-10 w-10 bg-orange-100 rounded-lg flex items-center justify-center">
+            <div >
+              <div >
+                <div >
+                  <div >
                     <svg
-                      className="h-5 w-5 text-orange-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -289,17 +272,16 @@ export default function HelpPage() {
                     </svg>
                   </div>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div >
+                  <h3 >
                     Managing Recipient Lists
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     Tips for organizing, segmenting, and maintaining
                     high-quality recipient lists.
                   </p>
                   <Link
                     href="/help/articles/managing-recipient-lists"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     Read Article →
                   </Link>
@@ -309,18 +291,16 @@ export default function HelpPage() {
           </div>
         </section>
         {/* Additional Resources */}
-        <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+        <section >
+          <h2 >
             Additional Resources
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div >
             <Link
               href="/docs"
-              className="group bg-black rounded-xl shadow-sm p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div >
                 <svg
-                  className="h-6 w-6 text-green-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -333,23 +313,21 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-3">
+              <h3 >
                 Knowledge Base
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p >
                 Comprehensive documentation, tutorials, and best practices guides.
               </p>
-              <span className="text-green-600 font-semibold group-hover:text-green-700">
+              <span >
                 Browse Docs →
               </span>
             </Link>
             <Link
               href="/community"
-              className="group bg-black rounded-xl shadow-sm p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div >
                 <svg
-                  className="h-6 w-6 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -362,23 +340,21 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-3">
+              <h3 >
                 Community Forum
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p >
                 Connect with other users, share tips, and get advice from the community.
               </p>
-              <span className="text-blue-600 font-semibold group-hover:text-blue-700">
+              <span >
                 Join Community →
               </span>
             </Link>
             <Link
               href="/demo"
-              className="group bg-black rounded-xl shadow-sm p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div >
                 <svg
-                  className="h-6 w-6 text-purple-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -391,35 +367,33 @@ export default function HelpPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-3">
+              <h3 >
                 Schedule Demo
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p >
                 Book a personalized demo to see how Enclosed.AI can work for your business.
               </p>
-              <span className="text-purple-600 font-semibold group-hover:text-purple-700">
+              <span >
                 Book Demo →
               </span>
             </Link>
           </div>
         </section>
         {/* Contact Support */}
-        <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Still Need Help?</h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+        <section >
+          <h2 >Still Need Help?</h2>
+          <p >
             Can't find what you're looking for? Our support team is here to help
             you succeed with your direct mail campaigns.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div >
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-black hover:bg-black transition-colors"
             >
               Contact Support
             </Link>
             <Link
               href="/faq"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-black hover:text-blue-600 transition-colors"
             >
               View FAQ
             </Link>
@@ -427,27 +401,25 @@ export default function HelpPage() {
         </section>
       </div>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer >
+        <div >
+          <div >
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Product</h3>
+              <ul >
                 <li>
                   <Link
                     href="/features"
-                    className="hover:text-white transition-colors"
                   >
                     Features
                   </Link>
@@ -455,7 +427,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/pricing"
-                    className="hover:text-white transition-colors"
                   >
                     Pricing
                   </Link>
@@ -463,7 +434,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/integrations"
-                    className="hover:text-white transition-colors"
                   >
                     Integrations
                   </Link>
@@ -471,7 +441,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/api"
-                    className="hover:text-white transition-colors"
                   >
                     API
                   </Link>
@@ -479,12 +448,11 @@ export default function HelpPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Company</h3>
+              <ul >
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-white transition-colors"
                   >
                     About Us
                   </Link>
@@ -492,7 +460,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/team"
-                    className="hover:text-white transition-colors"
                   >
                     Team
                   </Link>
@@ -500,7 +467,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/careers"
-                    className="hover:text-white transition-colors"
                   >
                     Careers
                   </Link>
@@ -508,7 +474,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-white transition-colors"
                   >
                     Contact
                   </Link>
@@ -516,12 +481,11 @@ export default function HelpPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Support</h3>
+              <ul >
                 <li>
                   <Link
                     href="/help"
-                    className="hover:text-white transition-colors"
                   >
                     Help Center
                   </Link>
@@ -529,7 +493,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/faq"
-                    className="hover:text-white transition-colors"
                   >
                     FAQ
                   </Link>
@@ -537,7 +500,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/privacy"
-                    className="hover:text-white transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -545,7 +507,6 @@ export default function HelpPage() {
                 <li>
                   <Link
                     href="/terms"
-                    className="hover:text-white transition-colors"
                   >
                     Terms of Service
                   </Link>
@@ -553,7 +514,7 @@ export default function HelpPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+          <div >
             <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
           </div>
         </div>

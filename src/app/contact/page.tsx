@@ -27,16 +27,16 @@ export const metadata = {
 };
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-black">
-      <GlowOrb className="top-20 left-10" color="accent" size="lg" />
-      <GlowOrb className="bottom-20 right-10" color="purple" size="default" />
+    <div >
+      <GlowOrb  color="accent" size="lg" />
+      <GlowOrb  color="purple" size="default" />
       {/* Header */}
       {/* Hero Section */}
-      <Section className="text-center py-24">
+      <Section >
         <Flex direction="col" gap={6} align="center">
           <Badge variant="accent">We're here to help • 24/7 Support • Quick Response</Badge>
           <H1 gradient>Get in Touch</H1>
-          <Text size="xl" color="secondary" className="max-w-4xl leading-relaxed">
+          <Text size="xl" color="secondary" >
             Have questions about our platform? Need help with your campaigns?
             We're here to help you succeed with direct mail marketing.
           </Text>
@@ -51,15 +51,14 @@ export default function ContactPage() {
         </Flex>
       </Section>
       {/* Main Contact Section */}
-      <Section className="py-24">
+      <Section >
         <Grid cols={2} gap={8}>
           {/* Contact Form */}
-          <Card glass className="p-8">
+          <Card glass >
             <Flex direction="col" gap={6}>
               <Flex align="center" gap={4}>
-                <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -74,7 +73,7 @@ export default function ContactPage() {
                 </div>
                 <H2>Send us a message</H2>
               </Flex>
-              <Form id="contact-form" className="space-y-6">
+              <Form id="contact-form" >
                 <Grid cols={2} gap={6}>
                   <Input
                     label="First Name"
@@ -112,7 +111,7 @@ export default function ContactPage() {
                   rows={6}
                   name="message"
                 />
-                <Button type="submit" className="w-full">
+                <Button type="submit" >
                   Send Message
                 </Button>
               </Form>
@@ -120,12 +119,11 @@ export default function ContactPage() {
           </Card>
           {/* Contact Information */}
           <Flex direction="col" gap={6}>
-            <Card glass className="p-8">
+            <Card glass >
               <Flex direction="col" gap={6}>
                 <Flex align="center" gap={4}>
-                  <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                  <div >
                     <svg
-                      className="h-6 w-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -148,9 +146,8 @@ export default function ContactPage() {
                 </Flex>
                 <Flex direction="col" gap={6}>
                   <Flex align="start" gap={4}>
-                    <div className="h-12 w-12 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div >
                       <svg
-                        className="h-6 w-6 text-gray-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -164,22 +161,20 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <Flex direction="col">
-                      <H3 className="mb-1">Email Support</H3>
-                      <Text color="secondary" className="mb-2">
+                      <H3 >Email Support</H3>
+                      <Text color="secondary" >
                         Get help with your account and campaigns
                       </Text>
                       <a
                         href="mailto:support@enclosed.ai"
-                        className="text-[var(--accent)] hover:text-[var(--accent)] font-medium"
                       >
                         support@enclosed.ai
                       </a>
                     </Flex>
                   </Flex>
                   <Flex align="start" gap={4}>
-                    <div className="h-12 w-12 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div >
                       <svg
-                        className="h-6 w-6 text-gray-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -193,22 +188,20 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <Flex direction="col">
-                      <H3 className="mb-1">Phone Support</H3>
-                      <Text color="secondary" className="mb-2">
+                      <H3 >Phone Support</H3>
+                      <Text color="secondary" >
                         Speak directly with our team
                       </Text>
                       <a
                         href="tel:+1-555-123-4567"
-                        className="text-[var(--accent)] hover:text-[var(--accent)] font-medium"
                       >
                         +1 (555) 123-4567
                       </a>
                     </Flex>
                   </Flex>
                   <Flex align="start" gap={4}>
-                    <div className="h-12 w-12 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div >
                       <svg
-                        className="h-6 w-6 text-gray-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -228,11 +221,11 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <Flex direction="col">
-                      <H3 className="mb-1">Office Address</H3>
-                      <Text color="secondary" className="mb-2">
+                      <H3 >Office Address</H3>
+                      <Text color="secondary" >
                         Visit our headquarters
                       </Text>
-                      <address className="text-gray-300 not-italic">
+                      <address >
                         123 Innovation Drive<br />
                         San Francisco, CA 94105<br />
                         United States
@@ -242,12 +235,11 @@ export default function ContactPage() {
                 </Flex>
               </Flex>
             </Card>
-            <Card glass className="p-6">
+            <Card glass >
               <Flex direction="col" gap={4}>
                 <Flex align="center" gap={3}>
-                  <div className="h-10 w-10 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                  <div >
                     <svg
-                      className="h-5 w-5 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -282,20 +274,19 @@ export default function ContactPage() {
         </Grid>
       </Section>
       {/* Additional Contact Options */}
-      <Section className="py-24">
+      <Section >
         <Flex direction="col" gap={8}>
-          <div className="text-center">
+          <div >
             <H2>Other Ways to Connect</H2>
-            <Text size="lg" color="secondary" className="max-w-3xl mx-auto mt-4">
+            <Text size="lg" color="secondary" >
               Explore additional ways to get help and connect with our community
             </Text>
           </div>
           <Grid cols={3} gap={6}>
-            <Card glass hover className="p-8 text-center">
+            <Card glass hover >
               <Flex direction="col" gap={4} align="center">
-                <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-8 w-8 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -309,7 +300,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <H3>Community Forum</H3>
-                <Text color="secondary" className="text-center">
+                <Text color="secondary" >
                   Connect with other users, share tips, and get advice from the
                   Enclosed.AI community.
                 </Text>
@@ -318,11 +309,10 @@ export default function ContactPage() {
                 </Button>
               </Flex>
             </Card>
-            <Card glass hover className="p-8 text-center">
+            <Card glass hover >
               <Flex direction="col" gap={4} align="center">
-                <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-8 w-8 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -336,7 +326,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <H3>Knowledge Base</H3>
-                <Text color="secondary" className="text-center">
+                <Text color="secondary" >
                   Browse our comprehensive documentation, tutorials, and best
                   practices guides.
                 </Text>
@@ -345,11 +335,10 @@ export default function ContactPage() {
                 </Button>
               </Flex>
             </Card>
-            <Card glass hover className="p-8 text-center">
+            <Card glass hover >
               <Flex direction="col" gap={4} align="center">
-                <div className="h-16 w-16 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                <div >
                   <svg
-                    className="h-8 w-8 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -363,7 +352,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <H3>Schedule a Demo</H3>
-                <Text color="secondary" className="text-center">
+                <Text color="secondary" >
                   Book a personalized demo to see how Enclosed.AI can work for
                   your business.
                 </Text>
@@ -376,74 +365,73 @@ export default function ContactPage() {
         </Flex>
       </Section>
       {/* Footer */}
-      <footer className="border-t border-gray-800">
-        <Section className="py-12">
+      <footer >
+        <Section >
           <Grid cols={4} gap={8}>
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="mb-4"
               />
               <Text size="sm" color="muted">
                 Direct mail marketing powered by artificial intelligence
               </Text>
             </div>
             <div>
-              <Text weight="semibold" className="mb-4">Product</Text>
+              <Text weight="semibold" >Product</Text>
               <Flex direction="col" gap={2}>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/features" >
                   Features
                 </Link>
-                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/pricing" >
                   Pricing
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/integrations" >
                   Integrations
                 </Link>
-                <Link href="/api" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/api" >
                   API
                 </Link>
               </Flex>
             </div>
             <div>
-              <Text weight="semibold" className="mb-4">Company</Text>
+              <Text weight="semibold" >Company</Text>
               <Flex direction="col" gap={2}>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/about" >
                   About Us
                 </Link>
-                <Link href="/team" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/team" >
                   Team
                 </Link>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/careers" >
                   Careers
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/contact" >
                   Contact
                 </Link>
               </Flex>
             </div>
             <div>
-              <Text weight="semibold" className="mb-4">Support</Text>
+              <Text weight="semibold" >Support</Text>
               <Flex direction="col" gap={2}>
-                <Link href="/help" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/help" >
                   Help Center
                 </Link>
-                <Link href="/faq" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/faq" >
                   FAQ
                 </Link>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/privacy" >
                   Privacy Policy
                 </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/terms" >
                   Terms of Service
                 </Link>
               </Flex>
             </div>
           </Grid>
         </Section>
-        <Container className="py-8 text-center border-t border-gray-800">
+        <Container >
           <Text size="sm" color="muted">&copy; 2024 Enclosed.AI. All rights reserved.</Text>
         </Container>
       </footer>

@@ -70,44 +70,42 @@ export default function SitemapPage() {
     ],
   };
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
       {/* Content */}
       <Section>
-        <div className="max-w-6xl mx-auto">
+        <div >
           <Flex gap={8}>
-            <div className="text-center">
+            <div >
               <H1 level={1}>Sitemap</H1>
-              <Text className="max-w-2xl mx-auto">
+              <Text >
                 Navigate through all pages and resources available on the Enclosed.AI website. Find exactly what you're looking for.
               </Text>
             </div>
-            <div className="space-y-12">
+            <div >
               {Object.entries(siteMap).map(([category, pages]) => (
                 <div key={category}>
-                  <H1 level={2} className="text-xl md:text-2xl mb-6 text-white border-b border-gray-200 pb-2">
+                  <H1 level={2} >
                     {category}
                   </H1>
                   <Grid columns={2}>
                     {pages.map((page) => (
-                      <div key={page.href} className="py-3 border-b border-gray-100 last:border-b-0">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
+                      <div key={page.href} >
+                        <div >
+                          <div >
                             <Link
                               href={page.href}
-                              className="text-lg font-medium text-white hover:text-blue-600 transition-colors"
                             >
                               {page.name}
                             </Link>
-                            <p className="text-sm text-gray-400 mt-1">
+                            <p >
                               {page.description}
                             </p>
                           </div>
                           <Link
                             href={page.href}
-                            className="ml-4 text-gray-400 hover:text-gray-400 transition-colors"
                           >
-                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                           </Link>
@@ -119,17 +117,17 @@ export default function SitemapPage() {
               ))}
             </div>
             {/* Additional Information */}
-            <div className="bg-black p-8 rounded-lg">
+            <div >
               <Flex gap={4}>
                 <H1 level={3}>Can't Find What You're Looking For?</H1>
-                <p className="text-gray-300">
+                <p >
                   If you can't find a specific page or resource, try using our search function or contact our support team for assistance.
                 </p>
-                <div className="flex gap-4">
-                  <Link href="/help" className="text-blue-600 hover:text-blue-700 font-medium">
+                <div >
+                  <Link href="/help" >
                     Visit Help Center →
                   </Link>
-                  <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/contact" >
                     Contact Support →
                   </Link>
                 </div>
@@ -139,11 +137,11 @@ export default function SitemapPage() {
         </div>
       </Section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-16">
+      <footer >
         <Section>
-          <div className="text-center">
-            <Logo size="md" showText={true} linkToHome={false} className="text-white [&>div>span]:text-white mb-4" />
-            <p className="text-gray-400 text-sm">
+          <div >
+            <Logo size="md" showText={true} linkToHome={false}  />
+            <p >
               Direct mail marketing powered by artificial intelligence
             </p>
           </div>

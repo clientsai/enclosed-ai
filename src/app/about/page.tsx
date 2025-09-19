@@ -25,35 +25,34 @@ export const metadata = {
 };
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Ambient background effects */}
-      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
-      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       {/* Navigation */}
       {/* Hero Section */}
-      <Section className="min-h-screen flex items-center justify-center pt-20">
+      <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} className="text-center">
-            <Badge variant="accent" className="animate-fade-in">
+          <Flex direction="col" align="center" gap={8} >
+            <Badge variant="accent" >
               Trusted by 500+ businesses worldwide
             </Badge>
-            <H1 className="animate-fade-up max-w-5xl" gradient>
+            <H1  gradient>
               Revolutionizing Direct Mail with Artificial Intelligence
             </H1>
             <Text
               size="2xl"
               color="secondary"
               weight="light"
-              className="animate-fade-up animation-delay-100 max-w-4xl"
             >
               We're on a mission to transform how businesses connect with their
               customers through intelligent, personalized direct mail campaigns
               that deliver real results.
             </Text>
-            <Flex gap={4} className="animate-fade-up animation-delay-200">
+            <Flex gap={4} >
               <Button size="lg" href="/auth/signup">
                 Start Your Journey
-                <span className="ml-2">→</span>
+                <span >→</span>
               </Button>
               <Button variant="secondary" size="lg" href="/contact">
                 Learn More
@@ -86,8 +85,8 @@ export default function AboutPage() {
                   that was previously only available to enterprise companies
                   with massive marketing budgets.
                 </Text>
-                <Card glass className="p-6">
-                  <Text weight="medium" className="italic mb-4">
+                <Card glass >
+                  <Text weight="medium" >
                     "We're not just sending mail – we're creating meaningful
                     connections between businesses and their customers, one
                     personalized letter at a time."
@@ -98,30 +97,30 @@ export default function AboutPage() {
                 </Card>
               </Flex>
             </Flex>
-            <div className="relative">
-              <Card glass className="p-8">
+            <div >
+              <Card glass >
                 <Grid cols={2} gap={6}>
-                  <div className="text-center">
-                    <H2 className="gradient-text-accent">10,000+</H2>
-                    <Text size="lg" weight="medium" className="mt-2">
+                  <div >
+                    <H2 >10,000+</H2>
+                    <Text size="lg" weight="medium" >
                       Letters Sent
                     </Text>
                   </div>
-                  <div className="text-center">
-                    <H2 className="gradient-text-accent">95%</H2>
-                    <Text size="lg" weight="medium" className="mt-2">
+                  <div >
+                    <H2 >95%</H2>
+                    <Text size="lg" weight="medium" >
                       Delivery Rate
                     </Text>
                   </div>
-                  <div className="text-center">
-                    <H2 className="gradient-text-accent">3.2x</H2>
-                    <Text size="lg" weight="medium" className="mt-2">
+                  <div >
+                    <H2 >3.2x</H2>
+                    <Text size="lg" weight="medium" >
                       Higher Response
                     </Text>
                   </div>
-                  <div className="text-center">
-                    <H2 className="gradient-text-accent">500+</H2>
-                    <Text size="lg" weight="medium" className="mt-2">
+                  <div >
+                    <H2 >500+</H2>
+                    <Text size="lg" weight="medium" >
                       Happy Customers
                     </Text>
                   </div>
@@ -135,18 +134,18 @@ export default function AboutPage() {
       <Section>
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Our Journey</Badge>
-              <H2 className="mb-4">Our Story</H2>
+            <div >
+              <Badge >Our Journey</Badge>
+              <H2 >Our Story</H2>
             </div>
-            <div className="space-y-12">
-              <Card glass className="p-8">
+            <div >
+              <Card glass >
                 <Grid cols={2} gap={8} align="center">
                   <div>
-                    <div className="text-6xl font-bold gradient-text-accent mb-4">
+                    <div >
                       2022
                     </div>
-                    <H3 className="mb-4">The Problem</H3>
+                    <H3 >The Problem</H3>
                   </div>
                   <Text color="secondary">
                     Our founding team, comprised of marketing veterans and AI
@@ -159,13 +158,13 @@ export default function AboutPage() {
                   </Text>
                 </Grid>
               </Card>
-              <Card glass className="p-8">
+              <Card glass >
                 <Grid cols={2} gap={8} align="center">
                   <div>
-                    <div className="text-6xl font-bold gradient-text-accent mb-4">
+                    <div >
                       2023
                     </div>
-                    <H3 className="mb-4">The Solution</H3>
+                    <H3 >The Solution</H3>
                   </div>
                   <Text color="secondary">
                     We set out to solve this by combining cutting-edge AI
@@ -179,13 +178,13 @@ export default function AboutPage() {
                   </Text>
                 </Grid>
               </Card>
-              <Card glass className="p-8">
+              <Card glass >
                 <Grid cols={2} gap={8} align="center">
                   <div>
-                    <div className="text-6xl font-bold gradient-text-accent mb-4">
+                    <div >
                       2024
                     </div>
-                    <H3 className="mb-4">The Impact</H3>
+                    <H3 >The Impact</H3>
                   </div>
                   <Text color="secondary">
                     Today, Enclosed.AI serves businesses across industries,
@@ -205,20 +204,19 @@ export default function AboutPage() {
       <Section>
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Our Values</Badge>
-              <H2 className="mb-4">Our Values</H2>
-              <Text size="xl" color="secondary" className="max-w-3xl mx-auto">
+            <div >
+              <Badge >Our Values</Badge>
+              <H2 >Our Values</H2>
+              <Text size="xl" color="secondary" >
                 These core principles guide everything we do and shape how we
                 serve our customers
               </Text>
             </div>
             <Grid cols={3} gap={8}>
-              <Card hover className="p-8">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                  <div >
                     <svg
-                      className="h-6 w-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -240,11 +238,10 @@ export default function AboutPage() {
                   </Text>
                 </Flex>
               </Card>
-              <Card hover className="p-8">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                  <div >
                     <svg
-                      className="h-6 w-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -266,11 +263,10 @@ export default function AboutPage() {
                   </Text>
                 </Flex>
               </Card>
-              <Card hover className="p-8">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="h-12 w-12 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                  <div >
                     <svg
-                      className="h-6 w-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -300,23 +296,23 @@ export default function AboutPage() {
       <Section>
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Our Team</Badge>
-              <H2 className="mb-4">Meet Our Team</H2>
-              <Text size="xl" color="secondary" className="max-w-3xl mx-auto">
+            <div >
+              <Badge >Our Team</Badge>
+              <H2 >Meet Our Team</H2>
+              <Text size="xl" color="secondary" >
                 We're a diverse group of marketers, engineers, and AI specialists
                 united by our passion for revolutionizing direct mail marketing.
               </Text>
             </div>
             <Grid cols={4} gap={6}>
-              <Card hover className="p-6 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-lg md:text-xl font-bold">SM</span>
+                  <div >
+                    <span >SM</span>
                   </div>
                   <div>
-                    <H4 className="mb-1">Sarah Mitchell</H4>
-                    <Text size="sm" color="accent" weight="semibold" className="mb-3">
+                    <H4 >Sarah Mitchell</H4>
+                    <Text size="sm" color="accent" weight="semibold" >
                       CEO & Co-Founder
                     </Text>
                     <Text size="sm" color="secondary">
@@ -327,14 +323,14 @@ export default function AboutPage() {
                   </div>
                 </Flex>
               </Card>
-              <Card hover className="p-6 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-lg md:text-xl font-bold">DJ</span>
+                  <div >
+                    <span >DJ</span>
                   </div>
                   <div>
-                    <H4 className="mb-1">David Johnson</H4>
-                    <Text size="sm" color="accent" weight="semibold" className="mb-3">
+                    <H4 >David Johnson</H4>
+                    <Text size="sm" color="accent" weight="semibold" >
                       CTO & Co-Founder
                     </Text>
                     <Text size="sm" color="secondary">
@@ -344,14 +340,14 @@ export default function AboutPage() {
                   </div>
                 </Flex>
               </Card>
-              <Card hover className="p-6 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-lg md:text-xl font-bold">LC</span>
+                  <div >
+                    <span >LC</span>
                   </div>
                   <div>
-                    <H4 className="mb-1">Lisa Chen</H4>
-                    <Text size="sm" color="accent" weight="semibold" className="mb-3">
+                    <H4 >Lisa Chen</H4>
+                    <Text size="sm" color="accent" weight="semibold" >
                       Head of Product
                     </Text>
                     <Text size="sm" color="secondary">
@@ -361,14 +357,14 @@ export default function AboutPage() {
                   </div>
                 </Flex>
               </Card>
-              <Card hover className="p-6 text-center">
+              <Card hover >
                 <Flex direction="col" gap={4}>
-                  <div className="w-20 h-20 bg-[var(--accent)] rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-white text-lg md:text-xl font-bold">MR</span>
+                  <div >
+                    <span >MR</span>
                   </div>
                   <div>
-                    <H4 className="mb-1">Michael Rodriguez</H4>
-                    <Text size="sm" color="accent" weight="semibold" className="mb-3">
+                    <H4 >Michael Rodriguez</H4>
+                    <Text size="sm" color="accent" weight="semibold" >
                       Head of Engineering
                     </Text>
                     <Text size="sm" color="secondary">
@@ -379,7 +375,7 @@ export default function AboutPage() {
                 </Flex>
               </Card>
             </Grid>
-            <div className="text-center">
+            <div >
               <Button variant="ghost" size="lg" href="/team">
                 View Full Team
               </Button>
@@ -390,9 +386,9 @@ export default function AboutPage() {
       {/* CTA Section */}
       <Section>
         <Container>
-          <Card glass className="text-center p-12">
-            <H2 className="mb-4">Ready to Transform Your Direct Mail?</H2>
-            <Text size="xl" color="secondary" className="mb-8 max-w-3xl mx-auto">
+          <Card glass >
+            <H2 >Ready to Transform Your Direct Mail?</H2>
+            <Text size="xl" color="secondary" >
               Join hundreds of businesses already using Enclosed.AI to create more
               effective, personalized direct mail campaigns that drive real
               results.
@@ -409,12 +405,12 @@ export default function AboutPage() {
         </Container>
       </Section>
       {/* Footer */}
-      <footer className="border-t border-white/5 mt-24">
+      <footer >
         <Container>
-          <div className="py-12">
-            <Grid cols={5} gap={8} className="mb-12">
+          <div >
+            <Grid cols={5} gap={8} >
               <div>
-                <Logo showText size="sm" className="mb-4" />
+                <Logo showText size="sm"  />
                 <Text size="sm" color="muted">
                   Direct mail marketing powered by artificial intelligence
                 </Text>
@@ -438,12 +434,12 @@ export default function AboutPage() {
                 },
               ].map((col, i) => (
                 <div key={i}>
-                  <Text weight="semibold" className="mb-4">
+                  <Text weight="semibold" >
                     {col.title}
                   </Text>
-                  <div className="space-y-2">
+                  <div >
                     {col.links.map((link, j) => (
-                      <Text key={j} size="sm" color="muted" className="block hover:text-white transition-colors cursor-pointer">
+                      <Text key={j} size="sm" color="muted" >
                         {link}
                       </Text>
                     ))}
@@ -451,19 +447,19 @@ export default function AboutPage() {
                 </div>
               ))}
             </Grid>
-            <Divider className="mb-8" />
+            <Divider  />
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>
               <Flex gap={6}>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Twitter
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   LinkedIn
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   GitHub
                 </Text>
               </Flex>

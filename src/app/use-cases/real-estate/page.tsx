@@ -140,16 +140,16 @@ export default function RealEstateUseCasePage() {
     { metric: "ROI", value: "680%", industry: "Real Estate Campaigns" },
   ];
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
       {/* Hero Section */}
-      <Section className="text-center">
+      <Section >
         <Flex gap={6}>
           <Badge>Real Estate Use Case</Badge>
           <H1 level={1}>
             Generate More Real Estate Texts with Direct Mail
           </H1>
-          <Text className="max-w-3xl mx-auto">
+          <Text >
             Build trust, establish local expertise, and generate high-quality leads with personalized direct mail campaigns tailored for real estate professionals. Stand out in competitive markets and grow your business.
           </Text>
           <Flex gap={4} justify="center">
@@ -163,25 +163,25 @@ export default function RealEstateUseCasePage() {
         </Flex>
       </Section>
       {/* Challenges Section */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Real Estate Marketing Challenges</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Common obstacles facing real estate professionals in today's competitive market
             </Text>
           </div>
           <Grid columns={2}>
             {challenges.map((challenge, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} >
                 <Flex gap={4}>
-                  <H1 level={4} className="text-lg text-red-600">
+                  <H1 level={4} >
                     {challenge.title}
                   </H1>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p >
                     {challenge.description}
                   </p>
-                  <p className="text-sm text-red-700 font-medium">
+                  <p >
                     Impact: {challenge.impact}
                   </p>
                 </Flex>
@@ -193,26 +193,26 @@ export default function RealEstateUseCasePage() {
       {/* Solutions Section */}
       <Section>
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Direct Mail Solutions for Real Estate</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Proven strategies to overcome marketing challenges and grow your real estate business
             </Text>
           </div>
           <Grid columns={2}>
             {solutions.map((solution, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} >
                 <Flex gap={4}>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xl md:text-2xl">{solution.icon}</span>
-                    <H1 level={4} className="text-lg text-green-600">
+                  <div >
+                    <span >{solution.icon}</span>
+                    <H1 level={4} >
                       {solution.title}
                     </H1>
                   </div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p >
                     {solution.description}
                   </p>
-                  <p className="text-sm text-green-700 font-medium">
+                  <p >
                     Benefit: {solution.benefit}
                   </p>
                 </Flex>
@@ -222,39 +222,39 @@ export default function RealEstateUseCasePage() {
         </Flex>
       </Section>
       {/* Use Case Examples */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Real Estate Campaign Types</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Effective direct mail strategies for different real estate objectives
             </Text>
           </div>
           <Grid columns={2}>
             {useCaseExamples.map((useCase, index) => (
-              <Card key={index} hover className="p-8">
+              <Card key={index} hover >
                 <Flex gap={4}>
-                  <H1 level={3} className="text-lg md:text-xl">
+                  <H1 level={3} >
                     {useCase.title}
                   </H1>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p >
                     {useCase.description}
                   </p>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">Key Tactics:</h4>
-                    <ul className="space-y-1">
+                    <h4 >Key Tactics:</h4>
+                    <ul >
                       {useCase.tactics.map((tactic, tacticIndex) => (
-                        <li key={tacticIndex} className="flex items-center gap-2 text-sm text-gray-300">
-                          <div className="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
-                            <span className="text-blue-600 text-xs font-bold">✓</span>
+                        <li key={tacticIndex} >
+                          <div >
+                            <span >✓</span>
                           </div>
                           {tactic}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="bg-green-50 p-3 rounded-lg">
-                    <p className="text-green-700 font-medium text-sm">
+                  <div >
+                    <p >
                       Typical Results: {useCase.results}
                     </p>
                   </div>
@@ -267,57 +267,57 @@ export default function RealEstateUseCasePage() {
       {/* Case Study */}
       <Section id="case-study">
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Success Story</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               How Maria Santos built her real estate business with direct mail
             </Text>
           </div>
-          <Card className="p-8 max-w-5xl mx-auto">
+          <Card >
             <Flex gap={6}>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-16 w-16 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg md:text-xl">MS</span>
+              <div >
+                <div >
+                  <span >MS</span>
                 </div>
                 <div>
                   <H1 level={3}>{caseStudy.agent}</H1>
-                  <p className="text-gray-400">{caseStudy.company} • {caseStudy.market}</p>
+                  <p >{caseStudy.company} • {caseStudy.market}</p>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div >
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Challenge</h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <h4 >Challenge</h4>
+                  <p >
                     {caseStudy.challenge}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Solution</h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <h4 >Solution</h4>
+                  <p >
                     {caseStudy.solution}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Results</h4>
-                  <div className="space-y-2">
+                  <h4 >Results</h4>
+                  <div >
                     {caseStudy.results.map((result, index) => (
-                      <div key={index} className="flex justify-between items-center">
-                        <span className="text-sm text-gray-300">{result.metric}:</span>
-                        <div className="text-right">
-                          <div className="font-bold text-green-600">{result.value}</div>
-                          <div className="text-xs text-gray-500">{result.comparison}</div>
+                      <div key={index} >
+                        <span >{result.metric}:</span>
+                        <div >
+                          <div >{result.value}</div>
+                          <div >{result.comparison}</div>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-              <Card glass className="mt-6 p-6">
-                <blockquote className="text-gray-300 italic leading-relaxed mb-4">
+              <Card glass >
+                <blockquote >
                   "{caseStudy.testimonial.quote}"
                 </blockquote>
-                <div className="text-right">
-                  <div className="font-semibold">{caseStudy.testimonial.author}</div>
+                <div >
+                  <div >{caseStudy.testimonial.author}</div>
                   <Text size="sm" color="muted">{caseStudy.testimonial.role}</Text>
                   <Text size="sm" color="muted">{caseStudy.testimonial.company}</Text>
                 </div>
@@ -327,24 +327,24 @@ export default function RealEstateUseCasePage() {
         </Flex>
       </Section>
       {/* Implementation Guide */}
-      <Section className="bg-black">
+      <Section >
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Implementation Guide</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Steps to launch successful real estate direct mail campaigns
             </Text>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-4">
+          <div >
+            <div >
               {implementation.map((step, index) => (
-                <Card key={index} glass className="p-6">
+                <Card key={index} glass >
                   <Flex gap={4} align="start">
-                    <div className="h-10 w-10 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-semibold">{index + 1}</span>
+                    <div >
+                      <span >{index + 1}</span>
                     </div>
                     <div>
-                      <H3 className="text-lg mb-2">{step.title}</H3>
+                      <H3 >{step.title}</H3>
                       <Text color="secondary">{step.content}</Text>
                     </div>
                   </Flex>
@@ -357,17 +357,17 @@ export default function RealEstateUseCasePage() {
       {/* Industry Benchmarks */}
       <Section>
         <Flex gap={8}>
-          <div className="text-center">
+          <div >
             <H1 level={2}>Real Estate Direct Mail Benchmarks</H1>
-            <Text className="max-w-3xl mx-auto">
+            <Text >
               Industry performance standards for real estate marketing
             </Text>
           </div>
           <Grid columns={4}>
             {benchmarks.map((benchmark, index) => (
-              <Card key={index} glass className="p-6 text-center">
-                <H3 className="text-xl md:text-2xl font-bold gradient-text-accent mb-2">{benchmark.value}</H3>
-                <Text size="sm" color="secondary" className="mb-1">{benchmark.metric}</Text>
+              <Card key={index} glass >
+                <H3 >{benchmark.value}</H3>
+                <Text size="sm" color="secondary" >{benchmark.metric}</Text>
                 <Text size="xs" color="muted">{benchmark.industry}</Text>
               </Card>
             ))}
@@ -375,93 +375,92 @@ export default function RealEstateUseCasePage() {
         </Flex>
       </Section>
       {/* CTA Section */}
-      <Section className="bg-gray-900 text-white text-center">
+      <Section >
         <Flex gap={6}>
-          <H1 level={2} className="text-white">
+          <H1 level={2} >
             Ready to Grow Your Real Estate Business?
           </H1>
-          <Text className="text-gray-300 max-w-3xl mx-auto">
+          <Text >
             Join thousands of real estate professionals using Enclosed.AI to generate leads, build relationships, and close more deals with targeted direct mail campaigns.
           </Text>
           <Flex gap={4} justify="center">
-            <Button as={Link} href="/auth/signup" size="lg" className="bg-black text-white hover:bg-gray-100">
+            <Button as={Link} href="/auth/signup" size="lg" >
               Start Free Trial
             </Button>
-            <Button as={Link} href="/contact" variant="ghost" size="lg" className="border-white text-white hover:bg-black hover:text-white">
+            <Button as={Link} href="/contact" variant="ghost" size="lg" >
               Schedule Demo
             </Button>
           </Flex>
         </Flex>
       </Section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <Section className="border-b border-gray-800">
+      <footer >
+        <Section >
           <Grid columns={4}>
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Use Cases</h3>
+              <h3 >Use Cases</h3>
               <Flex gap={2}>
-                <Link href="/use-cases/b2b" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/use-cases/b2b" >
                   B2B Sales
                 </Link>
-                <Link href="/use-cases/real-estate" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/use-cases/real-estate" >
                   Real Estate
                 </Link>
-                <Link href="/use-cases/ecommerce" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/use-cases/ecommerce" >
                   E-commerce
                 </Link>
-                <Link href="/use-cases/financial" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/use-cases/financial" >
                   Financial Services
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
+              <h3 >Product</h3>
               <Flex gap={2}>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/features" >
                   Features
                 </Link>
-                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/pricing" >
                   Pricing
                 </Link>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/integrations" >
                   Integrations
                 </Link>
-                <Link href="/roi-calculator" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/roi-calculator" >
                   ROI Calculator
                 </Link>
               </Flex>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
+              <h3 >Company</h3>
               <Flex gap={2}>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/about" >
                   About Us
                 </Link>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/careers" >
                   Careers
                 </Link>
-                <Link href="/press" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/press" >
                   Press
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/contact" >
                   Contact
                 </Link>
               </Flex>
             </div>
           </Grid>
         </Section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-gray-400">
+        <div >
           <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
         </div>
       </footer>

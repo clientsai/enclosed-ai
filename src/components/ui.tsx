@@ -3,21 +3,16 @@
  * Minimal, purposeful, and beautifully crafted
  * Each component serves a single purpose with absolute clarity
  */
-
 "use client";
-
 import React, { ReactNode, ElementType, ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes, SelectHTMLAttributes, FormHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-
 type HeadingProps = {
   children: ReactNode;
   className?: string;
   gradient?: boolean;
 } & HTMLAttributes<HTMLHeadingElement>;
-
 /* === LAYOUT COMPONENTS === */
-
 export const Container = ({
   children,
   className,
@@ -35,14 +30,12 @@ export const Container = ({
     xl: "max-w-7xl",
     full: "max-w-full"
   };
-
   return (
     <div className={cn("container mx-auto px-6 md:px-8", sizes[size], className)} {...props}>
       {children}
     </div>
   );
 };
-
 export const Section = ({
   children,
   className,
@@ -55,7 +48,6 @@ export const Section = ({
     <Container>{children}</Container>
   </section>
 );
-
 export const Grid = ({
   children,
   className,
@@ -76,21 +68,18 @@ export const Grid = ({
     5: "grid-cols-1 md:grid-cols-2 lg:grid-cols-5",
     6: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
   };
-
   const gapClass = {
     2: "gap-2",
     4: "gap-4",
     6: "gap-6",
     8: "gap-8"
   };
-
   return (
     <div className={cn("grid", colsClass[cols], gapClass[gap], className)} {...props}>
       {children}
     </div>
   );
 };
-
 export const Flex = ({
   children,
   className,
@@ -136,9 +125,7 @@ export const Flex = ({
     </div>
   );
 };
-
 /* === TYPOGRAPHY === */
-
 export const H1 = ({
   children,
   className,
@@ -160,7 +147,6 @@ export const H1 = ({
     {children}
   </h1>
 );
-
 export const H2 = ({
   children,
   className,
@@ -173,7 +159,6 @@ export const H2 = ({
     {children}
   </h2>
 );
-
 export const H3 = ({
   children,
   className,
@@ -186,7 +171,6 @@ export const H3 = ({
     {children}
   </h3>
 );
-
 export const H4 = ({ children, className = "", gradient = false, ...props }: HeadingProps) => (
   <h4
     className={cn(
@@ -199,7 +183,6 @@ export const H4 = ({ children, className = "", gradient = false, ...props }: Hea
     {children}
   </h4>
 );
-
 export const Text = ({
   children,
   className,
@@ -222,14 +205,12 @@ export const Text = ({
     xl: "text-xl",
     "2xl": "text-2xl"
   };
-
   const colors = {
     primary: "text-white",
     secondary: "text-gray-300",
     muted: "text-gray-500",
-    accent: "text-[var(--accent)]"
+    accent: "text-[]"
   };
-
   const weights = {
     light: "font-light",
     regular: "font-normal",
@@ -237,7 +218,6 @@ export const Text = ({
     semibold: "font-semibold",
     bold: "font-bold"
   };
-
   return (
     <p
       className={cn(
@@ -253,9 +233,7 @@ export const Text = ({
     </p>
   );
 };
-
 /* === INTERACTIVE COMPONENTS === */
-
 export const Button = ({
   children,
   className,
@@ -277,22 +255,18 @@ export const Button = ({
   icon?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>) => {
   const Component = href ? Link : as;
-
   const variants = {
     primary: "btn-primary",
     secondary: "btn-secondary",
     ghost: "btn-ghost",
-    danger: "bg-[var(--error)] hover:bg-red-600 text-white"
+    danger: "bg-[] hover:bg-red-600 text-white"
   };
-
   const sizes = {
     sm: "btn-sm",
     default: "btn",
     lg: "btn-lg"
   };
-
   const buttonProps = href ? { href } : props;
-
   return (
     <Component
       className={cn(
@@ -305,15 +279,14 @@ export const Button = ({
       {...buttonProps}
     >
       {loading ? (
-        <div className="spinner w-5 h-5 mr-2" />
+        <div  />
       ) : icon ? (
-        <span className="mr-2">{icon}</span>
+        <span >{icon}</span>
       ) : null}
       {children}
     </Component>
   );
 };
-
 export const Input = ({
   className,
   label,
@@ -323,20 +296,19 @@ export const Input = ({
   label?: string;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => (
-  <div className="w-full">
-    {label && <label className="label">{label}</label>}
+  <div >
+    {label && <label >{label}</label>}
     <input
       className={cn(
         "input",
-        error && "border-[var(--error)]",
+        error && "border-[]",
         className
       )}
       {...props}
     />
-    {error && <Text size="sm" color="muted" className="mt-1 text-[var(--error)]">{error}</Text>}
+    {error && <Text size="sm" color="muted" >{error}</Text>}
   </div>
 );
-
 export const Textarea = ({
   className,
   label,
@@ -346,20 +318,19 @@ export const Textarea = ({
   label?: string;
   error?: string;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>) => (
-  <div className="w-full">
-    {label && <label className="label">{label}</label>}
+  <div >
+    {label && <label >{label}</label>}
     <textarea
       className={cn(
         "input min-h-[120px] resize-none",
-        error && "border-[var(--error)]",
+        error && "border-[]",
         className
       )}
       {...props}
     />
-    {error && <Text size="sm" color="muted" className="mt-1 text-[var(--error)]">{error}</Text>}
+    {error && <Text size="sm" color="muted" >{error}</Text>}
   </div>
 );
-
 export const Select = ({
   className,
   label,
@@ -371,24 +342,22 @@ export const Select = ({
   error?: string;
   children: ReactNode;
 } & SelectHTMLAttributes<HTMLSelectElement>) => (
-  <div className="w-full">
-    {label && <label className="label">{label}</label>}
+  <div >
+    {label && <label >{label}</label>}
     <select
       className={cn(
         "input appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDJMNiA3TDExIDIiIHN0cm9rZT0iIzk5OTk5OSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+')] bg-[right_1rem_center] bg-no-repeat",
-        error && "border-[var(--error)]",
+        error && "border-[]",
         className
       )}
       {...props}
     >
       {children}
     </select>
-    {error && <Text size="sm" color="muted" className="mt-1 text-[var(--error)]">{error}</Text>}
+    {error && <Text size="sm" color="muted" >{error}</Text>}
   </div>
 );
-
 /* === DISPLAY COMPONENTS === */
-
 export const Card = ({
   children,
   className,
@@ -415,7 +384,6 @@ export const Card = ({
     {children}
   </div>
 );
-
 export const Badge = ({
   children,
   className,
@@ -429,18 +397,16 @@ export const Badge = ({
   const variants = {
     default: "badge",
     accent: "badge-accent",
-    success: "bg-[var(--success)] bg-opacity-20 text-[var(--success)] border-[var(--success)]",
-    warning: "bg-[var(--warning)] bg-opacity-20 text-[var(--warning)] border-[var(--warning)]",
-    error: "bg-[var(--error)] bg-opacity-20 text-[var(--error)] border-[var(--error)]"
+    success: "bg-[] bg-opacity-20 text-[] border-[]",
+    warning: "bg-[] bg-opacity-20 text-[] border-[]",
+    error: "bg-[] bg-opacity-20 text-[] border-[]"
   };
-
   return (
     <span className={cn(variants[variant], className)} {...props}>
       {children}
     </span>
   );
 };
-
 export const Divider = ({
   className,
   orientation = "horizontal",
@@ -459,9 +425,7 @@ export const Divider = ({
     {...props}
   />
 );
-
 /* === FEEDBACK COMPONENTS === */
-
 export const Spinner = ({
   className,
   size = "default",
@@ -475,12 +439,10 @@ export const Spinner = ({
     default: "w-8 h-8",
     lg: "w-12 h-12"
   };
-
   return (
     <div className={cn("spinner", sizes[size], className)} {...props} />
   );
 };
-
 export const Alert = ({
   children,
   className,
@@ -492,12 +454,11 @@ export const Alert = ({
   variant?: "info" | "success" | "warning" | "error";
 } & HTMLAttributes<HTMLDivElement>) => {
   const variants = {
-    info: "bg-[var(--accent)] bg-opacity-10 border-[var(--accent)] text-[var(--accent)]",
-    success: "bg-[var(--success)] bg-opacity-10 border-[var(--success)] text-[var(--success)]",
-    warning: "bg-[var(--warning)] bg-opacity-10 border-[var(--warning)] text-[var(--warning)]",
-    error: "bg-[var(--error)] bg-opacity-10 border-[var(--error)] text-[var(--error)]"
+    info: "bg-[] bg-opacity-10 border-[] text-[]",
+    success: "bg-[] bg-opacity-10 border-[] text-[]",
+    warning: "bg-[] bg-opacity-10 border-[] text-[]",
+    error: "bg-[] bg-opacity-10 border-[] text-[]"
   };
-
   return (
     <div
       className={cn(
@@ -511,9 +472,7 @@ export const Alert = ({
     </div>
   );
 };
-
 /* === NAVIGATION === */
-
 export const Nav = ({
   children,
   className,
@@ -530,7 +489,6 @@ export const Nav = ({
     </Container>
   </nav>
 );
-
 export const NavLink = ({
   children,
   className,
@@ -555,9 +513,7 @@ export const NavLink = ({
     {children}
   </Link>
 );
-
 /* === FORM === */
-
 export const Form = ({
   children,
   className,
@@ -576,7 +532,6 @@ export const Form = ({
     {children}
   </form>
 );
-
 export const FormGroup = ({
   children,
   className,
@@ -589,7 +544,6 @@ export const FormGroup = ({
     {children}
   </div>
 );
-
 export const Checkbox = ({
   className,
   label,
@@ -599,23 +553,21 @@ export const Checkbox = ({
   label?: string;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => (
-  <div className="flex items-center space-x-2">
+  <div >
     <input
       type="checkbox"
       className={cn(
-        "w-4 h-4 rounded border border-gray-700 bg-gray-800 text-[var(--accent)] focus:ring-[var(--accent)] focus:ring-2",
-        error && "border-[var(--error)]",
+        "w-4 h-4 rounded border border-gray-700 bg-gray-800 text-[] focus:ring-[] focus:ring-2",
+        error && "border-[]",
         className
       )}
       {...props}
     />
-    {label && <label className="text-sm text-gray-300">{label}</label>}
-    {error && <Text size="sm" color="muted" className="mt-1 text-[var(--error)]">{error}</Text>}
+    {label && <label >{label}</label>}
+    {error && <Text size="sm" color="muted" >{error}</Text>}
   </div>
 );
-
 /* === SPECIAL EFFECTS === */
-
 export const GlowOrb = ({
   className,
   color = "accent",
@@ -627,17 +579,15 @@ export const GlowOrb = ({
   size?: "sm" | "default" | "lg";
 } & HTMLAttributes<HTMLDivElement>) => {
   const colors = {
-    accent: "bg-[var(--accent)]",
+    accent: "bg-[]",
     white: "bg-white",
     purple: "bg-purple-500"
   };
-
   const sizes = {
     sm: "w-32 h-32",
     default: "w-64 h-64",
     lg: "w-96 h-96"
   };
-
   return (
     <div
       className={cn(
@@ -650,7 +600,6 @@ export const GlowOrb = ({
     />
   );
 };
-
 export const Noise = ({
   className,
   opacity = 0.02,

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { OFFER_DETAILS, OfferType } from "@/types";
 import Logo from "@/components/Logo";
-
 import Navigation from "@/components/Navigation";
 interface Template {
   id: string;
@@ -63,25 +62,25 @@ export default function TemplatesPage() {
   };
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div >
       <Navigation variant="app" />
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+      <div ></div>
       </div>
     );
   }
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      <div >
         {/* Header - Pull Quote Component */}
-        <blockquote className="mb-8 border-l-4 border-gray-900 pl-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-white">Letter Templates</h1>
-          <cite className="not-italic text-gray-400 text-lg mt-2 block">
+        <blockquote >
+          <h1 >Letter Templates</h1>
+          <cite >
             Customize AI-powered templates for each offer type
           </cite>
         </blockquote>
         {/* Template Categories - Feature Grid Component */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div >
           {(Object.keys(OFFER_DETAILS) as OfferType[]).map((offerType) => {
             const offerTemplates = templates.filter(
               (t) => t.offer_type === offerType,
@@ -89,20 +88,19 @@ export default function TemplatesPage() {
             return (
               <article
                 key={offerType}
-                className="bg-black border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-xl md:text-2xl">
+                <div >
+                  <span >
                     {OFFER_DETAILS[offerType].icon || "📄"}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 >
                   {OFFER_DETAILS[offerType].title}
                 </h3>
-                <p className="text-sm text-gray-400 mb-4">
+                <p >
                   {OFFER_DETAILS[offerType].description}
                 </p>
-                <div className="text-sm text-gray-500">
+                <div >
                   {offerTemplates.length} template
                   {offerTemplates.length !== 1 ? "s" : ""}
                 </div>
@@ -111,26 +109,26 @@ export default function TemplatesPage() {
           })}
         </div>
         {/* Templates List - Comparison Table Component */}
-        <div className="bg-black rounded-lg shadow-sm overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200 bg-black">
-            <h2 className="text-lg font-medium text-white">All Templates</h2>
+        <div >
+          <div >
+            <h2 >All Templates</h2>
           </div>
-          <table className="min-w-full">
+          <table >
             <thead>
-              <tr className="bg-gray-100 border-b border-gray-200">
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <tr >
+                <th >
                   Template Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th >
                   Offer Type
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th >
                   Variables
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th >
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th >
                   Actions
                 </th>
               </tr>
@@ -140,10 +138,8 @@ export default function TemplatesPage() {
                 <tr>
                   <td
                     colSpan={5}
-                    className="px-6 py-12 text-center text-gray-500"
                   >
                     <svg
-                      className="mx-auto h-12 w-12 text-gray-400 mb-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -165,49 +161,47 @@ export default function TemplatesPage() {
                     key={template.id}
                     className={index % 2 === 0 ? "bg-black" : "bg-black"}
                   >
-                    <td className="px-6 py-4 text-sm font-medium text-white">
+                    <td >
                       {template.name}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-400">
+                    <td >
                       {OFFER_DETAILS[template.offer_type]?.title ||
                         template.offer_type}
                     </td>
-                    <td className="px-6 py-4">
-                      <div className="flex flex-wrap gap-1">
+                    <td >
+                      <div >
                         {template.variables.slice(0, 3).map((v) => (
                           <span
                             key={v}
-                            className="inline-block px-2 py-1 bg-gray-100 text-gray-300 text-xs rounded"
                           >
                             {v}
                           </span>
                         ))}
                         {template.variables.length > 3 && (
-                          <span className="inline-block px-2 py-1 bg-gray-100 text-gray-300 text-xs rounded">
+                          <span >
                             +{template.variables.length - 3}
                           </span>
                         )}
                       </div>
                     </td>
-                    <td className="px-6 py-4">
+                    <td >
                       {template.is_default ? (
-                        <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
+                        <span >
                           Default
                         </span>
                       ) : (
-                        <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-white">
+                        <span >
                           Custom
                         </span>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-sm">
+                    <td >
                       <button
                         onClick={() => {
                           setSelectedTemplate(template);
                           setEditContent(template.content);
                           setShowEditor(true);
                         }}
-                        className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
                       >
                         Edit
                       </button>
@@ -219,24 +213,24 @@ export default function TemplatesPage() {
           </table>
         </div>
         {/* Help Section - Callout Accent Component */}
-        <aside className="mt-8 bg-black border-l-4 border-gray-900 p-6 rounded-r-lg">
-          <h3 className="text-white font-semibold mb-2">
+        <aside >
+          <h3 >
             Template Variables
           </h3>
-          <p className="text-gray-300 text-sm mb-3">
+          <p >
             Use these variables in your templates to personalize each letter:
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-            <code className="bg-black px-2 py-1 rounded text-gray-400">
+          <div >
+            <code >
               {"{name}"}
             </code>
-            <code className="bg-black px-2 py-1 rounded text-gray-400">
+            <code >
               {"{company}"}
             </code>
-            <code className="bg-black px-2 py-1 rounded text-gray-400">
+            <code >
               {"{address}"}
             </code>
-            <code className="bg-black px-2 py-1 rounded text-gray-400">
+            <code >
               {"{offer}"}
             </code>
           </div>
@@ -244,30 +238,28 @@ export default function TemplatesPage() {
       </div>
       {/* Edit Modal - Toggle Reveal Component */}
       {showEditor && selectedTemplate && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-black rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-            <div className="px-6 py-4 border-b border-gray-200 bg-black">
-              <h2 className="text-lg md:text-xl font-semibold text-white">
+        <div >
+          <div >
+            <div >
+              <h2 >
                 Edit Template: {selectedTemplate.name}
               </h2>
             </div>
-            <div className="flex-1 p-6 overflow-y-auto">
+            <div >
               <textarea
                 value={editContent}
                 onChange={(e) => setEditContent(e.target.value)}
-                className="w-full h-96 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent font-mono text-sm"
                 placeholder="Enter your template content..."
               />
-              <details className="mt-4 group">
-                <summary className="cursor-pointer text-sm text-gray-400 hover:text-white font-medium">
+              <details >
+                <summary >
                   Show available variables
                 </summary>
-                <div className="mt-3 p-4 bg-black rounded-lg">
-                  <div className="flex flex-wrap gap-2">
+                <div >
+                  <div >
                     {selectedTemplate.variables.map((v) => (
                       <code
                         key={v}
-                        className="px-2 py-1 bg-black border border-gray-200 rounded text-xs"
                       >
                         {`{${v}}`}
                       </code>
@@ -276,20 +268,18 @@ export default function TemplatesPage() {
                 </div>
               </details>
             </div>
-            <div className="px-6 py-4 border-t border-gray-200 bg-black flex justify-end space-x-3">
+            <div >
               <button
                 onClick={() => {
                   setShowEditor(false);
                   setSelectedTemplate(null);
                   setEditContent("");
                 }}
-                className="px-4 py-2 border border-gray-300 text-gray-300 rounded-lg hover:bg-black transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSaveTemplate}
-                className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
               >
                 Save Template
               </button>

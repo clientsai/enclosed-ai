@@ -1,15 +1,12 @@
 "use client";
-
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-
 interface LogoProps {
   size?: "sm" | "md" | "lg";
   showText?: boolean;
   linkToHome?: boolean;
   className?: string;
 }
-
 export default function Logo({
   size = "md",
   showText = true,
@@ -21,22 +18,19 @@ export default function Logo({
     md: { icon: "w-10 h-10", text: "text-2xl" },
     lg: { icon: "w-12 h-12", text: "text-3xl" },
   };
-
   const LogoContent = () => (
     <div className={cn("flex items-center gap-3", className)}>
       {/* Minimalist geometric logo - inspired by Apple's simplicity */}
       <div className={cn("relative", sizes[size].icon)}>
         {/* Outer ring with gradient */}
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] opacity-20 blur-xl" />
-
+        <div  />
         {/* Main shape */}
-        <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] p-[1px]">
-          <div className="w-full h-full rounded-xl bg-black flex items-center justify-center">
+        <div >
+          <div >
             {/* Inner icon - envelope with AI dot */}
             <svg
               viewBox="0 0 24 24"
               fill="none"
-              className="w-2/3 h-2/3"
             >
               {/* Envelope */}
               <path
@@ -45,7 +39,6 @@ export default function Logo({
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-white"
               />
               {/* AI dot */}
               <circle
@@ -53,13 +46,11 @@ export default function Logo({
                 cy="6"
                 r="2"
                 fill="currentColor"
-                className="text-[var(--accent)]"
               />
             </svg>
           </div>
         </div>
       </div>
-
       {showText && (
         <span
           className={cn(
@@ -72,14 +63,12 @@ export default function Logo({
       )}
     </div>
   );
-
   if (linkToHome) {
     return (
-      <Link href="/" className="inline-flex hover:opacity-90 transition-opacity">
+      <Link href="/" >
         <LogoContent />
       </Link>
     );
   }
-
   return <LogoContent />;
 }

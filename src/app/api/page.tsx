@@ -7,34 +7,34 @@ export const metadata = {
 };
 export default function APIPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div >
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-white sm:text-5xl mb-6">
+        <div >
+          <h1 >
             Developer
-            <span className="text-blue-600"> API</span>
+            <span > API</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p >
             Integrate Enclosed.AI's powerful direct mail capabilities into your
             applications with our comprehensive REST API. Build amazing
             experiences with our developer-friendly tools.
           </p>
         </div>
         {/* Quick Start */}
-        <section className="mb-20">
-          <div className="bg-black rounded-2xl shadow-lg p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+        <section >
+          <div >
+            <h2 >
               Quick Start
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div >
               <div>
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-6">
+                <h3 >
                   Get Your API Key
                 </h3>
-                <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                  <pre className="text-green-400 text-sm overflow-x-auto">
+                <div >
+                  <pre >
                     {`curl -X POST https://api.enclosed.ai/v1/auth/token \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -43,23 +43,22 @@ export default function APIPage() {
   }'`}
                   </pre>
                 </div>
-                <p className="text-gray-400 mb-6">
+                <p >
                   Get your API key from the dashboard or use our authentication
                   endpoint to generate a token programmatically.
                 </p>
                 <Link
                   href="/auth/signup"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Get API Key
                 </Link>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-6">
+                <h3 >
                   Send Your First Campaign
                 </h3>
-                <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                  <pre className="text-green-400 text-sm overflow-x-auto">
+                <div >
+                  <pre >
                     {`curl -X POST https://api.enclosed.ai/v1/campaigns \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
@@ -79,7 +78,7 @@ export default function APIPage() {
   }'`}
                   </pre>
                 </div>
-                <p className="text-gray-400">
+                <p >
                   Create and send your first AI-powered direct mail campaign
                   with just a few lines of code.
                 </p>
@@ -88,15 +87,14 @@ export default function APIPage() {
           </div>
         </section>
         {/* API Features */}
-        <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+        <section >
+          <h2 >
             API Features
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="h-16 w-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+          <div >
+            <div >
+              <div >
                 <svg
-                  className="h-8 w-8 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -109,18 +107,17 @@ export default function APIPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <h3 >
                 RESTful Design
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p >
                 Clean, intuitive REST API following industry best practices.
                 Easy to understand and integrate with any programming language.
               </p>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="h-16 w-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <div >
+              <div >
                 <svg
-                  className="h-8 w-8 text-green-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -133,18 +130,17 @@ export default function APIPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <h3 >
                 Comprehensive Documentation
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p >
                 Detailed documentation with interactive examples, code samples,
                 and SDKs for all major programming languages.
               </p>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="h-16 w-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <div >
+              <div >
                 <svg
-                  className="h-8 w-8 text-purple-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -157,18 +153,17 @@ export default function APIPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <h3 >
                 Real-time Webhooks
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p >
                 Get instant notifications about campaign status, delivery
                 updates, and performance metrics through webhooks.
               </p>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="h-16 w-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <div >
+              <div >
                 <svg
-                  className="h-8 w-8 text-orange-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -181,19 +176,18 @@ export default function APIPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <h3 >
                 Rate Limiting
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p >
                 Generous rate limits with clear headers and automatic retry
                 logic. Scale your applications without worrying about API
                 constraints.
               </p>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="h-16 w-16 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <div >
+              <div >
                 <svg
-                  className="h-8 w-8 text-teal-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -206,18 +200,17 @@ export default function APIPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <h3 >
                 Analytics & Reporting
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p >
                 Access detailed campaign analytics, performance metrics, and ROI
                 data through our comprehensive reporting endpoints.
               </p>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="h-16 w-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <div >
+              <div >
                 <svg
-                  className="h-8 w-8 text-pink-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -230,10 +223,10 @@ export default function APIPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <h3 >
                 Developer Support
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p >
                 Dedicated developer support team, community forums, and
                 comprehensive troubleshooting guides to help you succeed.
               </p>
@@ -241,59 +234,55 @@ export default function APIPage() {
           </div>
         </section>
         {/* SDKs */}
-        <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+        <section >
+          <h2 >
             Official SDKs
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="text-4xl mb-4">🐍</div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+          <div >
+            <div >
+              <div >🐍</div>
+              <h3 >
                 Python
               </h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p >
                 pip install enclosed-ai
               </p>
               <Link
                 href="#"
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
               >
                 View Docs →
               </Link>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="text-4xl mb-4">🟢</div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+            <div >
+              <div >🟢</div>
+              <h3 >
                 Node.js
               </h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p >
                 npm install @enclosed-ai/sdk
               </p>
               <Link
                 href="#"
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
               >
                 View Docs →
               </Link>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="text-4xl mb-4">☕</div>
-              <h3 className="text-lg font-semibold text-white mb-2">Java</h3>
-              <p className="text-gray-400 text-sm mb-4">Maven/Gradle support</p>
+            <div >
+              <div >☕</div>
+              <h3 >Java</h3>
+              <p >Maven/Gradle support</p>
               <Link
                 href="#"
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
               >
                 View Docs →
               </Link>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8 text-center">
-              <div className="text-4xl mb-4">🔷</div>
-              <h3 className="text-lg font-semibold text-white mb-2">C#</h3>
-              <p className="text-gray-400 text-sm mb-4">NuGet package</p>
+            <div >
+              <div >🔷</div>
+              <h3 >C#</h3>
+              <p >NuGet package</p>
               <Link
                 href="#"
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
               >
                 View Docs →
               </Link>
@@ -301,17 +290,17 @@ export default function APIPage() {
           </div>
         </section>
         {/* Code Examples */}
-        <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+        <section >
+          <h2 >
             Code Examples
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-black rounded-xl shadow-sm p-8">
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-6">
+          <div >
+            <div >
+              <h3 >
                 Create a Campaign
               </h3>
-              <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                <pre className="text-green-400 text-sm overflow-x-auto">
+              <div >
+                <pre >
                   {`import { EnclosedAI } from '@enclosed-ai/sdk';
 const client = new EnclosedAI('your-api-key');
 const campaign = await client.campaigns.create({
@@ -336,17 +325,17 @@ const campaign = await client.campaigns.create({
 console.log('Campaign created:', campaign.id);`}
                 </pre>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p >
                 Create and configure a new direct mail campaign with AI-powered
                 personalization.
               </p>
             </div>
-            <div className="bg-black rounded-xl shadow-sm p-8">
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-6">
+            <div >
+              <h3 >
                 Track Performance
               </h3>
-              <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                <pre className="text-green-400 text-sm overflow-x-auto">
+              <div >
+                <pre >
                   {`import { EnclosedAI } from '@enclosed-ai/sdk';
 const client = new EnclosedAI('your-api-key');
 // Get campaign analytics
@@ -360,7 +349,7 @@ client.webhooks.on('campaign.delivered', (data) => {
 });`}
                 </pre>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p >
                 Monitor campaign performance and receive real-time updates
                 through our analytics API.
               </p>
@@ -368,55 +357,52 @@ client.webhooks.on('campaign.delivered', (data) => {
           </div>
         </section>
         {/* API Reference */}
-        <section className="mb-20">
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+        <section >
+          <div >
+            <h2 >
               API Reference
             </h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-gray-300 mb-8 text-center">
+            <div >
+              <p >
                 Explore our complete API reference with interactive examples and
                 detailed documentation for every endpoint.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-black rounded-xl p-6 text-center">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+              <div >
+                <div >
+                  <h3 >
                     Authentication
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     API keys, tokens, and security
                   </p>
                   <Link
                     href="#"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     View Docs →
                   </Link>
                 </div>
-                <div className="bg-black rounded-xl p-6 text-center">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div >
+                  <h3 >
                     Campaigns
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     Create, manage, and track campaigns
                   </p>
                   <Link
                     href="#"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     View Docs →
                   </Link>
                 </div>
-                <div className="bg-black rounded-xl p-6 text-center">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div >
+                  <h3 >
                     Analytics
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p >
                     Performance metrics and reporting
                   </p>
                   <Link
                     href="#"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                   >
                     View Docs →
                   </Link>
@@ -426,23 +412,21 @@ client.webhooks.on('campaign.delivered', (data) => {
           </div>
         </section>
         {/* CTA Section */}
-        <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Start Building?</h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+        <section >
+          <h2 >Ready to Start Building?</h2>
+          <p >
             Get your API key and start integrating Enclosed.AI into your
             applications today. Join thousands of developers building the future
             of direct mail marketing.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div >
             <Link
               href="/auth/signup"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-blue-600 bg-black hover:bg-black transition-colors"
             >
               Get API Key
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-black hover:text-blue-600 transition-colors"
             >
               Developer Support
             </Link>
@@ -450,27 +434,25 @@ client.webhooks.on('campaign.delivered', (data) => {
         </section>
       </div>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer >
+        <div >
+          <div >
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Product</h3>
+              <ul >
                 <li>
                   <Link
                     href="/features"
-                    className="hover:text-white transition-colors"
                   >
                     Features
                   </Link>
@@ -478,7 +460,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/pricing"
-                    className="hover:text-white transition-colors"
                   >
                     Pricing
                   </Link>
@@ -486,7 +467,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/integrations"
-                    className="hover:text-white transition-colors"
                   >
                     Integrations
                   </Link>
@@ -494,7 +474,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/api"
-                    className="hover:text-white transition-colors"
                   >
                     API
                   </Link>
@@ -502,12 +481,11 @@ client.webhooks.on('campaign.delivered', (data) => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Company</h3>
+              <ul >
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-white transition-colors"
                   >
                     About Us
                   </Link>
@@ -515,7 +493,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/team"
-                    className="hover:text-white transition-colors"
                   >
                     Team
                   </Link>
@@ -523,7 +500,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/careers"
-                    className="hover:text-white transition-colors"
                   >
                     Careers
                   </Link>
@@ -531,7 +507,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-white transition-colors"
                   >
                     Contact
                   </Link>
@@ -539,12 +514,11 @@ client.webhooks.on('campaign.delivered', (data) => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Support</h3>
+              <ul >
                 <li>
                   <Link
                     href="/help"
-                    className="hover:text-white transition-colors"
                   >
                     Help Center
                   </Link>
@@ -552,7 +526,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/faq"
-                    className="hover:text-white transition-colors"
                   >
                     FAQ
                   </Link>
@@ -560,7 +533,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/privacy"
-                    className="hover:text-white transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -568,7 +540,6 @@ client.webhooks.on('campaign.delivered', (data) => {
                 <li>
                   <Link
                     href="/terms"
-                    className="hover:text-white transition-colors"
                   >
                     Terms of Service
                   </Link>
@@ -576,7 +547,7 @@ client.webhooks.on('campaign.delivered', (data) => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+          <div >
             <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
           </div>
         </div>

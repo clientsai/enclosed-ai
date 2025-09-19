@@ -8,7 +8,6 @@ import { useDropzone } from "react-dropzone";
 import Logo from "@/components/Logo";
 import { letterTemplates, applyVariables } from "@/lib/letter-templates";
 import Papa from "papaparse";
-
 import Navigation from "@/components/Navigation";
 export default function NewCampaignPage() {
   const router = useRouter();
@@ -239,21 +238,21 @@ export default function NewCampaignPage() {
     }
   };
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div >
         {/* Title */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-white">
+        <div >
+          <h1 >
             Create New Campaign
           </h1>
-          <p className="text-gray-400 mt-2">
+          <p >
             Set up your direct mail campaign in just a few simple steps
           </p>
         </div>
         {/* Progress Steps */}
-        <div className="mb-8 bg-black rounded-lg shadow-sm p-6">
-          <div className="flex justify-between">
+        <div >
+          <div >
             {[
               { num: 1, label: "Template" },
               { num: 2, label: "Upload CSV" },
@@ -261,7 +260,7 @@ export default function NewCampaignPage() {
               { num: 4, label: "Preview" },
               { num: 5, label: "Confirm" },
             ].map(({ num, label }) => (
-              <div key={num} className="flex items-center">
+              <div key={num} >
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors
                   ${step >= num ? "bg-blue-600 border-blue-600 text-white" : "border-gray-300 text-gray-500 bg-black"}`}
@@ -279,17 +278,17 @@ export default function NewCampaignPage() {
           </div>
         </div>
         {error && (
-          <div className="mb-6 bg-red-50 text-red-600 px-4 py-3 rounded-lg border border-red-200">
+          <div >
             {error}
           </div>
         )}
         {/* Step 1: Campaign Info & Template Selection */}
         {step === 1 && (
-          <div className="bg-black rounded-lg shadow p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-6">Campaign Details & Template</h2>
-            <div className="space-y-6">
+          <div >
+            <h2 >Campaign Details & Template</h2>
+            <div >
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label >
                   Campaign Name
                 </label>
                 <input
@@ -298,12 +297,11 @@ export default function NewCampaignPage() {
                   onChange={(e) =>
                     setCampaignData({ ...campaignData, name: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Q1 Direct Mail Campaign"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label >
                   Description (Optional)
                 </label>
                 <textarea
@@ -311,16 +309,15 @@ export default function NewCampaignPage() {
                   onChange={(e) =>
                     setCampaignData({ ...campaignData, description: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   rows={3}
                   placeholder="Describe your campaign goals..."
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-4">
+                <label >
                   Select Letter Template
                 </label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div >
                   {letterTemplates.map((template) => (
                     <div
                       key={template.id}
@@ -333,9 +330,9 @@ export default function NewCampaignPage() {
                           : "border-gray-300 hover:border-gray-400"
                       }`}
                     >
-                      <div className="font-semibold text-white">{template.name}</div>
-                      <div className="text-sm text-gray-400 mt-1">{template.description}</div>
-                      <div className="mt-2">
+                      <div >{template.name}</div>
+                      <div >{template.description}</div>
+                      <div >
                         <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${
                           template.category === 'sales' ? 'bg-green-100 text-green-700' :
                           template.category === 'marketing' ? 'bg-purple-100 text-purple-700' :
@@ -351,7 +348,6 @@ export default function NewCampaignPage() {
               </div>
               <button
                 onClick={handleStep1Submit}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
               >
                 Continue to Upload CSV
               </button>
@@ -360,8 +356,8 @@ export default function NewCampaignPage() {
         )}
         {/* Step 2: Upload CSV */}
         {step === 2 && (
-          <div className="bg-black rounded-lg shadow p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-6">Upload Your Mailing List</h2>
+          <div >
+            <h2 >Upload Your Mailing List</h2>
             <div
               {...getRootProps()}
               className={`border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors ${
@@ -373,49 +369,47 @@ export default function NewCampaignPage() {
               <input {...getInputProps()} />
               {campaignData.csvFile ? (
                 <div>
-                  <div className="text-green-600 text-5xl mb-4">✓</div>
-                  <p className="text-white font-medium">
+                  <div >✓</div>
+                  <p >
                     {campaignData.csvFile.name}
                   </p>
-                  <p className="text-gray-400 mt-2">
+                  <p >
                     {campaignData.letterCount} recipients found
                   </p>
-                  <p className="text-sm text-blue-600 mt-4">
+                  <p >
                     Click to upload a different file
                   </p>
                 </div>
               ) : (
                 <div>
-                  <div className="text-gray-400 text-5xl mb-4">📁</div>
-                  <p className="text-gray-300 font-medium">
+                  <div >📁</div>
+                  <p >
                     {isDragActive
                       ? "Drop your CSV file here"
                       : "Drag & drop your CSV file here"}
                   </p>
-                  <p className="text-gray-500 text-sm mt-2">
+                  <p >
                     or click to select from your computer
                   </p>
                 </div>
               )}
             </div>
             {campaignData.csvFile && (
-              <div className="mt-6 bg-black rounded-lg p-4">
-                <h3 className="font-medium text-white mb-2">CSV Preview</h3>
-                <div className="text-sm text-gray-400">
+              <div >
+                <h3 >CSV Preview</h3>
+                <div >
                   <p>Columns detected: {campaignData.csvHeaders.join(", ")}</p>
                 </div>
               </div>
             )}
-            <div className="flex gap-4 mt-6">
+            <div >
               <button
                 onClick={() => setStep(1)}
-                className="flex-1 px-4 py-3 border border-gray-300 text-gray-300 rounded-lg hover:bg-black"
               >
                 Back
               </button>
               <button
                 onClick={handleStep2Submit}
-                className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700"
               >
                 Continue to Map Fields
               </button>
@@ -424,22 +418,22 @@ export default function NewCampaignPage() {
         )}
         {/* Step 3: Map Fields */}
         {step === 3 && selectedTemplate && (
-          <div className="bg-black rounded-lg shadow p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-6">Map CSV Columns to Template Fields</h2>
-            <div className="mb-4 p-4 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-900">
+          <div >
+            <h2 >Map CSV Columns to Template Fields</h2>
+            <div >
+              <p >
                 Map your CSV columns to the template variables. Required fields are marked with *
               </p>
             </div>
-            <div className="space-y-4">
+            <div >
               {selectedTemplate.variables.map((variable) => {
                 const isRequired = ['RECIPIENT_NAME', 'ADDRESS', 'CITY', 'STATE', 'ZIP_CODE'].includes(variable);
                 return (
-                  <div key={variable} className="grid grid-cols-2 gap-4 items-center">
+                  <div key={variable} >
                     <div>
-                      <label className="block text-sm font-medium text-gray-300">
+                      <label >
                         {variable.replace(/_/g, ' ')}
-                        {isRequired && <span className="text-red-500 ml-1">*</span>}
+                        {isRequired && <span >*</span>}
                       </label>
                     </div>
                     <select
@@ -453,7 +447,6 @@ export default function NewCampaignPage() {
                           },
                         });
                       }}
-                      className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">-- Select Column --</option>
                       {campaignData.csvHeaders.map((header) => (
@@ -466,16 +459,14 @@ export default function NewCampaignPage() {
                 );
               })}
             </div>
-            <div className="flex gap-4 mt-6">
+            <div >
               <button
                 onClick={() => setStep(2)}
-                className="flex-1 px-4 py-3 border border-gray-300 text-gray-300 rounded-lg hover:bg-black"
               >
                 Back
               </button>
               <button
                 onClick={handleStep3Submit}
-                className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700"
               >
                 Generate Preview
               </button>
@@ -484,26 +475,24 @@ export default function NewCampaignPage() {
         )}
         {/* Step 4: Preview */}
         {step === 4 && (
-          <div className="bg-black rounded-lg shadow p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-6">Preview Your Letter</h2>
-            <div className="mb-4 p-4 bg-yellow-50 rounded-lg">
-              <p className="text-sm text-yellow-900">
+          <div >
+            <h2 >Preview Your Letter</h2>
+            <div >
+              <p >
                 This is how your letter will look using data from the first row of your CSV
               </p>
             </div>
-            <div className="bg-black rounded-lg p-6 font-mono text-sm whitespace-pre-line">
+            <div >
               {campaignData.sampleLetter}
             </div>
-            <div className="flex gap-4 mt-6">
+            <div >
               <button
                 onClick={() => setStep(3)}
-                className="flex-1 px-4 py-3 border border-gray-300 text-gray-300 rounded-lg hover:bg-black"
               >
                 Back to Mapping
               </button>
               <button
                 onClick={() => setStep(5)}
-                className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700"
               >
                 Review & Launch
               </button>
@@ -512,50 +501,48 @@ export default function NewCampaignPage() {
         )}
         {/* Step 5: Confirm */}
         {step === 5 && (
-          <div className="bg-black rounded-lg shadow p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-6">Review & Launch Campaign</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-black rounded-lg">
-                <h3 className="font-medium text-white mb-2">Campaign Summary</h3>
-                <dl className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <dt className="text-gray-400">Campaign Name:</dt>
-                    <dd className="font-medium">{campaignData.name}</dd>
+          <div >
+            <h2 >Review & Launch Campaign</h2>
+            <div >
+              <div >
+                <h3 >Campaign Summary</h3>
+                <dl >
+                  <div >
+                    <dt >Campaign Name:</dt>
+                    <dd >{campaignData.name}</dd>
                   </div>
-                  <div className="flex justify-between">
-                    <dt className="text-gray-400">Template:</dt>
-                    <dd className="font-medium">{selectedTemplate?.name}</dd>
+                  <div >
+                    <dt >Template:</dt>
+                    <dd >{selectedTemplate?.name}</dd>
                   </div>
-                  <div className="flex justify-between">
-                    <dt className="text-gray-400">Recipients:</dt>
-                    <dd className="font-medium">{campaignData.letterCount}</dd>
+                  <div >
+                    <dt >Recipients:</dt>
+                    <dd >{campaignData.letterCount}</dd>
                   </div>
-                  <div className="flex justify-between">
-                    <dt className="text-gray-400">Cost per Letter:</dt>
-                    <dd className="font-medium">$2.00</dd>
+                  <div >
+                    <dt >Cost per Letter:</dt>
+                    <dd >$2.00</dd>
                   </div>
-                  <div className="flex justify-between text-lg font-semibold">
-                    <dt className="text-white">Total Cost:</dt>
-                    <dd className="text-blue-600">${(campaignData.letterCount * 2).toFixed(2)}</dd>
+                  <div >
+                    <dt >Total Cost:</dt>
+                    <dd >${(campaignData.letterCount * 2).toFixed(2)}</dd>
                   </div>
                 </dl>
               </div>
-              <div className="p-4 bg-blue-50 rounded-lg">
-                <p className="text-sm text-blue-900">
+              <div >
+                <p >
                   By launching this campaign, you agree to the charges above. Letters will be printed and mailed within 2 business days.
                 </p>
               </div>
-              <div className="flex gap-4">
+              <div >
                 <button
                   onClick={() => setStep(4)}
-                  className="flex-1 px-4 py-3 border border-gray-300 text-gray-300 rounded-lg hover:bg-black"
                 >
                   Back
                 </button>
                 <button
                   onClick={handleCreateCampaign}
                   disabled={loading}
-                  className="flex-1 bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                   {loading ? "Creating Campaign..." : "Launch Campaign"}
                 </button>

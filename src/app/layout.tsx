@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Enclosed.AI - Direct Mail Marketing Platform",
   description:
@@ -37,7 +34,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,9 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased bg-black text-white`}>
-        <div className="min-h-screen flex flex-col">
+        <div >
           <Navigation variant="landing" />
-          <main className="flex-grow pt-16">
+          <main >
             {children}
           </main>
           <Footer variant="landing" />

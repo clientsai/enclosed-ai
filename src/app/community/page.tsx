@@ -7,20 +7,19 @@ export const metadata = {
 };
 export default function CommunityPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div >
         {/* Hero Section */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-16 text-center mb-16">
-          <div className="absolute inset-0 z-0 opacity-30">
-            <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div >
+          <div >
+            <div ></div>
+            <div ></div>
+            <div ></div>
           </div>
-          <div className="relative z-10">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-8">
+          <div >
+            <div >
               <svg
-                className="h-10 w-10 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -33,22 +32,20 @@ export default function CommunityPage() {
                 />
               </svg>
             </div>
-            <h1 className="text-5xl font-extrabold text-white sm:text-6xl mb-6 leading-tight">
+            <h1 >
               Community
-              <span className="text-blue-600"> Forum</span>
+              <span > Forum</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+            <p >
               Connect with other Enclosed.AI users, share tips, get advice, and
               learn best practices for direct mail marketing success.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div >
               <Link
                 href="#forum"
-                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Browse Discussions
                 <svg
-                  className="ml-2 h-5 w-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -63,7 +60,6 @@ export default function CommunityPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-300 text-lg font-semibold rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
               >
                 Get Support
               </Link>
@@ -71,17 +67,16 @@ export default function CommunityPage() {
           </div>
         </div>
         {/* Forum Categories */}
-        <div id="forum" className="mb-16">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+        <div id="forum" >
+          <h2 >
             Forum Categories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div >
             {/* Getting Started */}
-            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -94,30 +89,28 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 >
                   Getting Started
                 </h3>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p >
                 New to Enclosed.AI? Find tutorials, setup guides, and answers to
                 common questions from fellow users.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">24 topics</span>
+              <div >
+                <span >24 topics</span>
                 <Link
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   View Posts →
                 </Link>
               </div>
             </div>
             {/* Best Practices */}
-            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -130,30 +123,28 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 >
                   Best Practices
                 </h3>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p >
                 Share and discover proven strategies, tips, and techniques for
                 maximizing your direct mail marketing results.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">18 topics</span>
+              <div >
+                <span >18 topics</span>
                 <Link
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   View Posts →
                 </Link>
               </div>
             </div>
             {/* Feature Requests */}
-            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -166,30 +157,28 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 >
                   Feature Requests
                 </h3>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p >
                 Suggest new features, vote on ideas, and help shape the future of
                 Enclosed.AI based on your needs.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">12 topics</span>
+              <div >
+                <span >12 topics</span>
                 <Link
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   View Posts →
                 </Link>
               </div>
             </div>
             {/* Troubleshooting */}
-            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -202,30 +191,28 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 >
                   Troubleshooting
                 </h3>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p >
                 Get help with technical issues, bugs, and problems you're
                 experiencing with the platform.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">8 topics</span>
+              <div >
+                <span >8 topics</span>
                 <Link
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   View Posts →
                 </Link>
               </div>
             </div>
             {/* Success Stories */}
-            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -238,30 +225,28 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 >
                   Success Stories
                 </h3>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p >
                 Share your wins, celebrate achievements, and inspire others with
                 your direct mail marketing success stories.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">15 topics</span>
+              <div >
+                <span >15 topics</span>
                 <Link
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   View Posts →
                 </Link>
               </div>
             </div>
             {/* General Discussion */}
-            <div className="group bg-black rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
+            <div >
+              <div >
+                <div >
                   <svg
-                    className="h-6 w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -274,19 +259,18 @@ export default function CommunityPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 >
                   General Discussion
                 </h3>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p >
                 Chat about anything related to direct mail marketing, industry
                 trends, or just connect with the community.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">32 topics</span>
+              <div >
+                <span >32 topics</span>
                 <Link
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   View Posts →
                 </Link>
@@ -295,96 +279,96 @@ export default function CommunityPage() {
           </div>
         </div>
         {/* Recent Activity */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+        <div >
+          <h2 >
             Recent Activity
           </h2>
-          <div className="bg-black rounded-2xl shadow-lg p-8">
-            <div className="space-y-6">
+          <div >
+            <div >
               {/* Sample Post 1 */}
-              <div className="border-b border-gray-200 pb-6 last:border-b-0">
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">JD</span>
+              <div >
+                <div >
+                  <div >
+                    <span >JD</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <h3 className="font-semibold text-white">
+                  <div >
+                    <div >
+                      <h3 >
                         John Doe
                       </h3>
-                      <span className="text-sm text-gray-500">2 hours ago</span>
+                      <span >2 hours ago</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">
+                    <h4 >
                       Best practices for A/B testing direct mail campaigns?
                     </h4>
-                    <p className="text-gray-400 mb-3">
+                    <p >
                       I'm looking to optimize my direct mail campaigns through
                       A/B testing. What are the most effective elements to test
                       and how should I structure my tests for meaningful results?
                     </p>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
+                    <div >
                       <span>5 replies</span>
                       <span>12 likes</span>
-                      <span className="text-blue-600">Getting Started</span>
+                      <span >Getting Started</span>
                     </div>
                   </div>
                 </div>
               </div>
               {/* Sample Post 2 */}
-              <div className="border-b border-gray-200 pb-6 last:border-b-0">
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">SM</span>
+              <div >
+                <div >
+                  <div >
+                    <span >SM</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <h3 className="font-semibold text-white">
+                  <div >
+                    <div >
+                      <h3 >
                         Sarah Miller
                       </h3>
-                      <span className="text-sm text-gray-500">5 hours ago</span>
+                      <span >5 hours ago</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">
+                    <h4 >
                       Success: 300% ROI increase with personalized content
                     </h4>
-                    <p className="text-gray-400 mb-3">
+                    <p >
                       Just wanted to share my recent success! By using
                       Enclosed.AI's personalization features, I increased my ROI
                       by 300% in just 3 months. The key was testing different
                       personalization levels...
                     </p>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
+                    <div >
                       <span>8 replies</span>
                       <span>24 likes</span>
-                      <span className="text-pink-600">Success Stories</span>
+                      <span >Success Stories</span>
                     </div>
                   </div>
                 </div>
               </div>
               {/* Sample Post 3 */}
-              <div className="border-b border-gray-200 pb-6 last:border-b-0">
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">MR</span>
+              <div >
+                <div >
+                  <div >
+                    <span >MR</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <h3 className="font-semibold text-white">
+                  <div >
+                    <div >
+                      <h3 >
                         Mike Rodriguez
                       </h3>
-                      <span className="text-sm text-gray-500">1 day ago</span>
+                      <span >1 day ago</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">
+                    <h4 >
                       Feature Request: Integration with Salesforce
                     </h4>
-                    <p className="text-gray-400 mb-3">
+                    <p >
                       Would love to see native Salesforce integration for easier
                       lead management and campaign tracking. Anyone else
                       interested in this feature?
                     </p>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
+                    <div >
                       <span>12 replies</span>
                       <span>18 likes</span>
-                      <span className="text-purple-600">Feature Requests</span>
+                      <span >Feature Requests</span>
                     </div>
                   </div>
                 </div>
@@ -393,27 +377,25 @@ export default function CommunityPage() {
           </div>
         </div>
         {/* CTA Section */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 rounded-3xl p-16 text-center text-white">
-          <div className="absolute inset-0 z-0 opacity-20">
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-black rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-            <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        <div >
+          <div >
+            <div ></div>
+            <div ></div>
+            <div ></div>
           </div>
-          <div className="relative z-10">
-            <h2 className="text-4xl font-extrabold mb-6">
+          <div >
+            <h2 >
               Ready to Join the Community?
             </h2>
-            <p className="text-lg md:text-xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+            <p >
               Connect with fellow marketers, share your experiences, and learn
               from the collective wisdom of our growing community.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div >
               <Link
                 href="/auth/signup"
-                className="group inline-flex items-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-blue-600 bg-black hover:bg-black transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <svg
-                  className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -429,10 +411,8 @@ export default function CommunityPage() {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center px-10 py-4 border-2 border-white text-lg font-semibold rounded-full text-white hover:bg-black hover:text-blue-600 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
               >
                 <svg
-                  className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -451,27 +431,25 @@ export default function CommunityPage() {
         </div>
       </div>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer >
+        <div >
+          <div >
             <div>
               <Logo
                 size="md"
                 showText={true}
                 linkToHome={false}
-                className="text-white [&>div>span]:text-white mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p >
                 Direct mail marketing powered by artificial intelligence
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Product</h3>
+              <ul >
                 <li>
                   <Link
                     href="/features"
-                    className="hover:text-white transition-colors"
                   >
                     Features
                   </Link>
@@ -479,7 +457,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/pricing"
-                    className="hover:text-white transition-colors"
                   >
                     Pricing
                   </Link>
@@ -487,7 +464,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/integrations"
-                    className="hover:text-white transition-colors"
                   >
                     Integrations
                   </Link>
@@ -495,7 +471,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/api"
-                    className="hover:text-white transition-colors"
                   >
                     API
                   </Link>
@@ -503,12 +478,11 @@ export default function CommunityPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Company</h3>
+              <ul >
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-white transition-colors"
                   >
                     About Us
                   </Link>
@@ -516,7 +490,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/team"
-                    className="hover:text-white transition-colors"
                   >
                     Team
                   </Link>
@@ -524,7 +497,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/careers"
-                    className="hover:text-white transition-colors"
                   >
                     Careers
                   </Link>
@@ -532,7 +504,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-white transition-colors"
                   >
                     Contact
                   </Link>
@@ -540,12 +511,11 @@ export default function CommunityPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 >Support</h3>
+              <ul >
                 <li>
                   <Link
                     href="/help"
-                    className="hover:text-white transition-colors"
                   >
                     Help Center
                   </Link>
@@ -553,7 +523,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/faq"
-                    className="hover:text-white transition-colors"
                   >
                     FAQ
                   </Link>
@@ -561,7 +530,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/community"
-                    className="hover:text-white transition-colors"
                   >
                     Community
                   </Link>
@@ -569,7 +537,6 @@ export default function CommunityPage() {
                 <li>
                   <Link
                     href="/privacy"
-                    className="hover:text-white transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -577,7 +544,7 @@ export default function CommunityPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+          <div >
             <p>&copy; 2024 Enclosed.AI. All rights reserved.</p>
           </div>
         </div>

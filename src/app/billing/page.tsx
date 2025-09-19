@@ -6,7 +6,6 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
-
 import Navigation from "@/components/Navigation";
 interface Transaction {
   id: string;
@@ -113,32 +112,32 @@ export default function BillingPage() {
   };
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div >
       <Navigation variant="app" />
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div ></div>
       </div>
     );
   }
   return (
-    <div className="min-h-screen bg-black">
+    <div >
       {/* Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      <div >
         {/* Header - Highlight Row Component */}
-        <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="flex items-center space-x-3">
-            <span className="text-2xl md:text-3xl">💰</span>
+        <div >
+          <div >
+            <span >💰</span>
             <div>
-              <div className="font-semibold text-white">Current Balance</div>
-              <div className="text-xl md:text-2xl font-bold text-green-600">
+              <div >Current Balance</div>
+              <div >
                 {formatCurrency(user?.credits_balance || 0)}
               </div>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <span className="text-2xl md:text-3xl">📊</span>
+          <div >
+            <span >📊</span>
             <div>
-              <div className="font-semibold text-white">Total Spent</div>
-              <div className="text-xl md:text-2xl font-bold text-gray-300">
+              <div >Total Spent</div>
+              <div >
                 {formatCurrency(
                   transactions
                     .filter((t) => t.type === "debit")
@@ -147,22 +146,22 @@ export default function BillingPage() {
               </div>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <span className="text-2xl md:text-3xl">✉️</span>
+          <div >
+            <span >✉️</span>
             <div>
-              <div className="font-semibold text-white">Letters Sent</div>
-              <div className="text-xl md:text-2xl font-bold text-blue-600">
+              <div >Letters Sent</div>
+              <div >
                 {user?.total_pieces_sent || 0}
               </div>
             </div>
           </div>
         </div>
         {/* Credit Packages - Card Row Emphasis Component */}
-        <div className="mb-8">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+        <div >
+          <h2 >
             Purchase Credits
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div >
             {creditPackages.map((pkg, index) => (
               <article
                 key={pkg.id}
@@ -174,26 +173,26 @@ export default function BillingPage() {
                 onClick={() => setSelectedPackage(pkg.id)}
               >
                 {index === 2 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <div >
+                    <span >
                       MOST POPULAR
                     </span>
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 >
                   {pkg.name}
                 </h3>
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                <div >
                   ${pkg.price}
                 </div>
-                <div className="text-sm text-gray-400 mb-4">
+                <div >
                   {pkg.credits.toLocaleString()} credits
                 </div>
-                <div className="text-xs text-gray-500 mb-4">
+                <div >
                   ${(pkg.price / pkg.credits).toFixed(3)} per letter
                 </div>
                 {pkg.savings > 0 && (
-                  <div className="bg-green-50 text-green-700 px-2 py-1 rounded text-xs font-medium">
+                  <div >
                     Save ${pkg.savings}
                   </div>
                 )}
@@ -215,19 +214,19 @@ export default function BillingPage() {
           </div>
         </div>
         {/* Transaction History - Timeline Vertical Component */}
-        <div className="bg-black rounded-lg shadow-sm p-6">
-          <h2 className="text-lg md:text-xl font-semibold text-white mb-6">
+        <div >
+          <h2 >
             Transaction History
           </h2>
-          <div className="space-y-4">
+          <div >
             {transactions.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">
+              <p >
                 No transactions yet
               </p>
             ) : (
               transactions.map((transaction, index) => (
-                <div key={transaction.id} className="flex items-start">
-                  <div className="flex-shrink-0">
+                <div key={transaction.id} >
+                  <div >
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center ${
                         transaction.type === "credit"
@@ -237,7 +236,6 @@ export default function BillingPage() {
                     >
                       {transaction.type === "credit" ? (
                         <svg
-                          className="w-5 h-5 text-green-600"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -251,7 +249,6 @@ export default function BillingPage() {
                         </svg>
                       ) : (
                         <svg
-                          className="w-5 h-5 text-red-600"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -266,16 +263,16 @@ export default function BillingPage() {
                       )}
                     </div>
                     {index < transactions.length - 1 && (
-                      <div className="w-0.5 h-16 bg-gray-200 mx-auto mt-2"></div>
+                      <div ></div>
                     )}
                   </div>
-                  <div className="ml-4 flex-1">
-                    <div className="flex items-start justify-between">
+                  <div >
+                    <div >
                       <div>
-                        <p className="font-medium text-white">
+                        <p >
                           {transaction.description}
                         </p>
-                        <p className="text-sm text-gray-500 mt-1">
+                        <p >
                           {new Date(
                             transaction.created_at,
                           ).toLocaleDateString()}{" "}
@@ -287,7 +284,6 @@ export default function BillingPage() {
                         {transaction.campaign_id && (
                           <Link
                             href={`/campaigns/${transaction.campaign_id}`}
-                            className="text-sm text-blue-600 hover:text-blue-700 mt-1 inline-block"
                           >
                             View campaign →
                           </Link>
@@ -311,10 +307,9 @@ export default function BillingPage() {
           </div>
         </div>
         {/* Info Section - Inset Note Component */}
-        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <div className="flex items-start space-x-3">
+        <div >
+          <div >
             <svg
-              className="h-5 w-5 text-blue-600 mt-0.5"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -324,8 +319,8 @@ export default function BillingPage() {
                 clipRule="evenodd"
               />
             </svg>
-            <div className="text-sm text-blue-800">
-              <p className="font-medium mb-1">How credits work</p>
+            <div >
+              <p >How credits work</p>
               <p>
                 Each credit equals $1 and covers the full cost of sending one
                 letter including AI generation, printing, and postage. Bulk

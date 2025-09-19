@@ -41,26 +41,26 @@ export default function Home() {
   }, [router]);
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
-        <div className="spinner" />
+      <div >
+        <div  />
       </div>
     );
   }
   if (user) return null;
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div >
       {/* Ambient background effects */}
-      <GlowOrb color="accent" size="lg" className="top-1/4 -left-32" />
-      <GlowOrb color="purple" size="default" className="bottom-1/4 right-0" />
+      <GlowOrb color="accent" size="lg"  />
+      <GlowOrb color="purple" size="default"  />
       {/* Navigation */}
       {/* Hero Section */}
-      <Section className="min-h-screen flex items-center justify-center pt-20">
+      <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} className="text-center">
-            <Badge variant="accent" className="animate-fade-in">
+          <Flex direction="col" align="center" gap={8} >
+            <Badge variant="accent" >
               AI-Powered Direct Mail
             </Badge>
-            <H1 className="animate-fade-up max-w-5xl" gradient>
+            <H1  gradient>
               Direct Mail
               <br />
               Reimagined
@@ -69,21 +69,20 @@ export default function Home() {
               size="2xl"
               color="secondary"
               weight="light"
-              className="animate-fade-up animation-delay-100 max-w-3xl"
             >
               Transform your marketing with AI that writes personally to each recipient.
               Every letter, uniquely crafted. Every message, perfectly timed.
             </Text>
-            <Flex gap={4} className="animate-fade-up animation-delay-200">
+            <Flex gap={4} >
               <Button size="lg" href="/auth/signup">
                 Start Free Trial
-                <span className="ml-2">→</span>
+                <span >→</span>
               </Button>
               <Button variant="secondary" size="lg" href="#demo">
                 Watch Demo
               </Button>
             </Flex>
-            <Text size="sm" color="muted" className="animate-fade-in animation-delay-300">
+            <Text size="sm" color="muted" >
               No credit card required • 14-day free trial • Cancel anytime
             </Text>
           </Flex>
@@ -99,12 +98,12 @@ export default function Home() {
               { value: "5,000+", label: "Active Users", subtext: "Growing every day" },
               { value: "10M+", label: "Letters Sent", subtext: "And counting" },
             ].map((stat, i) => (
-              <Card key={i} glass className="text-center hover:scale-105 transition-transform">
-                <H2 className="gradient-text-accent">{stat.value}</H2>
-                <Text size="lg" weight="medium" className="mt-2">
+              <Card key={i} glass >
+                <H2 >{stat.value}</H2>
+                <Text size="lg" weight="medium" >
                   {stat.label}
                 </Text>
-                <Text size="sm" color="muted" className="mt-1">
+                <Text size="sm" color="muted" >
                   {stat.subtext}
                 </Text>
               </Card>
@@ -116,10 +115,10 @@ export default function Home() {
       <Section id="features">
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Features</Badge>
-              <H2 className="mb-4">Everything you need</H2>
-              <Text size="xl" color="secondary" className="max-w-2xl mx-auto">
+            <div >
+              <Badge >Features</Badge>
+              <H2 >Everything you need</H2>
+              <Text size="xl" color="secondary" >
                 A complete platform designed for simplicity and power
               </Text>
             </div>
@@ -157,8 +156,8 @@ export default function Home() {
                 },
               ].map((feature, i) => (
                 <Card key={i} hover>
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <H3 className="text-lg md:text-lg md:text-xl mb-2">{feature.title}</H3>
+                  <div >{feature.icon}</div>
+                  <H3 >{feature.title}</H3>
                   <Text color="secondary">{feature.description}</Text>
                 </Card>
               ))}
@@ -170,10 +169,10 @@ export default function Home() {
       <Section>
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Process</Badge>
-              <H2 className="mb-4">Simple as 1-2-3</H2>
-              <Text size="xl" color="secondary" className="max-w-2xl mx-auto">
+            <div >
+              <Badge >Process</Badge>
+              <H2 >Simple as 1-2-3</H2>
+              <Text size="xl" color="secondary" >
                 Launch campaigns in minutes, not weeks
               </Text>
             </div>
@@ -195,11 +194,11 @@ export default function Home() {
                   description: "Printing, mailing, and tracking - all automated",
                 },
               ].map((step, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-6xl font-bold gradient-text-accent mb-4">
+                <div key={i} >
+                  <div >
                     {step.step}
                   </div>
-                  <H3 className="text-lg md:text-lg md:text-xl mb-2">{step.title}</H3>
+                  <H3 >{step.title}</H3>
                   <Text color="secondary">{step.description}</Text>
                 </div>
               ))}
@@ -210,12 +209,12 @@ export default function Home() {
       {/* Testimonial */}
       <Section>
         <Container size="default">
-          <Card glass className="text-center p-12">
-            <Text size="2xl" weight="light" className="mb-6 italic">
+          <Card glass >
+            <Text size="2xl" weight="light" >
               "Enclosed.AI transformed our direct mail from a cost center to our most
               profitable channel. Response rates went from 0.5% to 12%."
             </Text>
-            <Divider className="w-24 mx-auto my-6" />
+            <Divider  />
             <Text weight="semibold">Sarah Chen</Text>
             <Text size="sm" color="muted">VP Marketing, TechStart Inc.</Text>
           </Card>
@@ -225,10 +224,10 @@ export default function Home() {
       <Section id="pricing">
         <Container>
           <Flex direction="col" gap={12}>
-            <div className="text-center">
-              <Badge className="mb-4">Pricing</Badge>
-              <H2 className="mb-4">Simple, transparent pricing</H2>
-              <Text size="xl" color="secondary" className="max-w-2xl mx-auto">
+            <div >
+              <Badge >Pricing</Badge>
+              <H2 >Simple, transparent pricing</H2>
+              <Text size="xl" color="secondary" >
                 Pay only for what you send. No hidden fees.
               </Text>
             </div>
@@ -261,33 +260,32 @@ export default function Home() {
               ].map((plan, i) => (
                 <Card
                   key={i}
-                  className={plan.featured ? "border-[var(--accent)] relative" : ""}
+                  className={plan.featured ? "border-[] relative" : ""}
                 >
                   {plan.featured && (
-                    <Badge variant="accent" className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <Badge variant="accent" >
                       Recommended
                     </Badge>
                   )}
-                  <div className="text-center mb-6">
-                    <Text weight="semibold" className="mb-4">
+                  <div >
+                    <Text weight="semibold" >
                       {plan.name}
                     </Text>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-4xl font-bold">{plan.price}</span>
+                    <div >
+                      <span >{plan.price}</span>
                       <Text color="muted">{plan.period}</Text>
                     </div>
                   </div>
-                  <div className="space-y-3 mb-6">
+                  <div >
                     {plan.features.map((feature, j) => (
                       <Flex key={j} gap={2} align="center">
-                        <span className="text-[var(--success)]">✓</span>
+                        <span >✓</span>
                         <Text size="sm">{feature}</Text>
                       </Flex>
                     ))}
                   </div>
                   <Button
                     variant={plan.featured ? "primary" : "secondary"}
-                    className="w-full"
                     href="/pricing"
                   >
                     {plan.cta}
@@ -301,9 +299,9 @@ export default function Home() {
       {/* CTA Section */}
       <Section>
         <Container>
-          <Card glass className="text-center p-12">
-            <H2 className="mb-4">Ready to transform your direct mail?</H2>
-            <Text size="xl" color="secondary" className="mb-8 max-w-2xl mx-auto">
+          <Card glass >
+            <H2 >Ready to transform your direct mail?</H2>
+            <Text size="xl" color="secondary" >
               Join thousands of businesses getting exceptional results with AI-powered direct mail.
             </Text>
             <Flex gap={4} justify="center">
@@ -318,12 +316,12 @@ export default function Home() {
         </Container>
       </Section>
       {/* Footer */}
-      <footer className="border-t border-gray-900 mt-24">
+      <footer >
         <Container>
-          <div className="py-12">
-            <Grid cols={5} gap={8} className="mb-12">
+          <div >
+            <Grid cols={5} gap={8} >
               <div>
-                <Logo showText size="sm" className="mb-4" />
+                <Logo showText size="sm"  />
                 <Text size="sm" color="muted">
                   AI-powered direct mail that delivers exceptional ROI.
                 </Text>
@@ -347,12 +345,12 @@ export default function Home() {
                 },
               ].map((col, i) => (
                 <div key={i}>
-                  <Text weight="semibold" className="mb-4">
+                  <Text weight="semibold" >
                     {col.title}
                   </Text>
-                  <div className="space-y-2">
+                  <div >
                     {col.links.map((link, j) => (
-                      <Text key={j} size="sm" color="muted" className="block hover:text-white transition-colors cursor-pointer">
+                      <Text key={j} size="sm" color="muted" >
                         {link}
                       </Text>
                     ))}
@@ -360,19 +358,19 @@ export default function Home() {
                 </div>
               ))}
             </Grid>
-            <Divider className="mb-8" />
+            <Divider  />
             <Flex justify="between" align="center">
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>
               <Flex gap={6}>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   Twitter
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   LinkedIn
                 </Text>
-                <Text size="sm" color="muted" className="hover:text-white transition-colors cursor-pointer">
+                <Text size="sm" color="muted" >
                   GitHub
                 </Text>
               </Flex>
