@@ -4,15 +4,14 @@ import {
   Section,
   Grid,
   Flex,
-  Flex,
   Badge,
   H1,
+  H2,
+  H3,
   Text,
   Button,
   Card,
-  Stat,
-  Testimonial,
-  Callout,
+  Alert,
 } from "@/components/ui";
 
 export const metadata = {
@@ -179,9 +178,9 @@ export default function FinancialUseCasePage() {
               ))}
             </Grid>
           </Card>
-          <Callout intent="info" className="max-w-4xl mx-auto">
+          <Alert className="max-w-4xl mx-auto">
             <strong>Compliance Guarantee:</strong> Our platform includes built-in checks for CFPB, FDIC, and state banking regulations. All templates are pre-reviewed by financial compliance experts.
-          </Callout>
+          </Alert>
         </Flex>
       </Section>
 
@@ -263,7 +262,18 @@ export default function FinancialUseCasePage() {
                   </div>
                 </div>
               </div>
-              <Testimonial quote={caseStudy.testimonial.quote} author={caseStudy.testimonial.author} role={caseStudy.testimonial.role} company={caseStudy.testimonial.company} className="mt-6" />
+              <Card className="mt-6 p-6 bg-gray-50">
+                <Flex gap={4}>
+                  <blockquote className="text-gray-700 italic leading-relaxed">
+                    "{caseStudy.testimonial.quote}"
+                  </blockquote>
+                  <div className="text-right">
+                    <div className="font-semibold text-gray-900">{caseStudy.testimonial.author}</div>
+                    <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
+                    <div className="text-sm text-gray-600">{caseStudy.testimonial.company}</div>
+                  </div>
+                </Flex>
+              </Card>
             </Flex>
           </Card>
         </Flex>
@@ -277,10 +287,26 @@ export default function FinancialUseCasePage() {
             <Text className="max-w-3xl mx-auto">Industry performance standards for financial direct mail</Text>
           </div>
           <Grid columns={4}>
-            <Stat value="4.8%" label="Average Response Rate" delta="Financial services mail" />
-            <Stat value="$225" label="Cost per Acquisition" delta="vs $380 digital ads" />
-            <Stat value="32%" label="Application Rate" delta="for pre-qualified offers" />
-            <Stat value="520%" label="Return on Investment" delta="for mortgage campaigns" />
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">4.8%</H3>
+              <Text size="sm" color="muted">Average Response Rate</Text>
+              <Text size="xs" className="text-gray-500">Financial services mail</Text>
+            </Card>
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">$225</H3>
+              <Text size="sm" color="muted">Cost per Acquisition</Text>
+              <Text size="xs" className="text-gray-500">vs $380 digital ads</Text>
+            </Card>
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">32%</H3>
+              <Text size="sm" color="muted">Application Rate</Text>
+              <Text size="xs" className="text-gray-500">for pre-qualified offers</Text>
+            </Card>
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">520%</H3>
+              <Text size="sm" color="muted">Return on Investment</Text>
+              <Text size="xs" className="text-gray-500">for mortgage campaigns</Text>
+            </Card>
           </Grid>
         </Flex>
       </Section>

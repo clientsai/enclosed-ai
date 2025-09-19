@@ -2,19 +2,15 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import {
   Section,
-  
   Grid,
-  Flex,
   Flex,
   Badge,
   H1,
-  Text,
+  H2,
+  H3,
   Text,
   Button,
   Card,
-  Stat,
-  Testimonial,
-  Steps,
 } from "@/components/ui";
 
 export const metadata = {
@@ -386,13 +382,18 @@ export default function B2BUseCasePage() {
                 </div>
               </div>
 
-              <Testimonial
-                quote={caseStudy.testimonial.quote}
-                author={caseStudy.testimonial.author}
-                role={caseStudy.testimonial.role}
-                company={caseStudy.testimonial.company}
-                className="mt-6"
-              />
+              <Card className="mt-6 p-6 bg-gray-50">
+                <Flex gap={4}>
+                  <blockquote className="text-gray-700 italic leading-relaxed">
+                    "{caseStudy.testimonial.quote}"
+                  </blockquote>
+                  <div className="text-right">
+                    <div className="font-semibold text-gray-900">{caseStudy.testimonial.author}</div>
+                    <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
+                    <div className="text-sm text-gray-600">{caseStudy.testimonial.company}</div>
+                  </div>
+                </Flex>
+              </Card>
             </Flex>
           </Card>
         </Flex>
@@ -409,7 +410,21 @@ export default function B2BUseCasePage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Steps items={implementation} />
+            <Flex gap={6}>
+              {implementation.map((step, index) => (
+                <Card key={index} className="p-6">
+                  <Flex gap={4}>
+                    <div className="h-8 w-8 bg-gray-900 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">{index + 1}</span>
+                    </div>
+                    <div>
+                      <H3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</H3>
+                      <Text className="text-gray-700 leading-relaxed">{step.content}</Text>
+                    </div>
+                  </Flex>
+                </Card>
+              ))}
+            </Flex>
           </div>
         </Flex>
       </Section>
@@ -426,12 +441,11 @@ export default function B2BUseCasePage() {
 
           <Grid columns={4}>
             {benchmarks.map((benchmark, index) => (
-              <Stat
-                key={index}
-                value={benchmark.value}
-                label={benchmark.metric}
-                delta={benchmark.industry}
-              />
+              <Card key={index} className="p-6 text-center">
+                <H3 className="text-2xl font-bold text-gray-900">{benchmark.value}</H3>
+                <Text size="sm" color="muted">{benchmark.metric}</Text>
+                <Text size="xs" className="text-gray-500">{benchmark.industry}</Text>
+              </Card>
             ))}
           </Grid>
         </Flex>

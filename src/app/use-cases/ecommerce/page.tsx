@@ -4,14 +4,13 @@ import {
   Section,
   Grid,
   Flex,
-  Flex,
   Badge,
   H1,
+  H2,
+  H3,
   Text,
   Button,
   Card,
-  Stat,
-  Testimonial,
 } from "@/components/ui";
 
 export const metadata = {
@@ -277,13 +276,18 @@ export default function EcommerceUseCasePage() {
                 </div>
               </div>
 
-              <Testimonial
-                quote={caseStudy.testimonial.quote}
-                author={caseStudy.testimonial.author}
-                role={caseStudy.testimonial.role}
-                company={caseStudy.testimonial.company}
-                className="mt-6"
-              />
+              <Card className="mt-6 p-6 bg-gray-50">
+                <Flex gap={4}>
+                  <blockquote className="text-gray-700 italic leading-relaxed">
+                    "{caseStudy.testimonial.quote}"
+                  </blockquote>
+                  <div className="text-right">
+                    <div className="font-semibold text-gray-900">{caseStudy.testimonial.author}</div>
+                    <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
+                    <div className="text-sm text-gray-600">{caseStudy.testimonial.company}</div>
+                  </div>
+                </Flex>
+              </Card>
             </Flex>
           </Card>
         </Flex>
@@ -300,10 +304,26 @@ export default function EcommerceUseCasePage() {
           </div>
 
           <Grid columns={4}>
-            <Stat value="3.2%" label="Average Response Rate" delta="E-commerce direct mail" />
-            <Stat value="$85" label="Cost per Acquisition" delta="vs $125 digital ads" />
-            <Stat value="24%" label="Cart Recovery Rate" delta="with follow-up campaigns" />
-            <Stat value="450%" label="Return on Ad Spend" delta="for targeted campaigns" />
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">3.2%</H3>
+              <Text size="sm" color="muted">Average Response Rate</Text>
+              <Text size="xs" className="text-gray-500">E-commerce direct mail</Text>
+            </Card>
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">$85</H3>
+              <Text size="sm" color="muted">Cost per Acquisition</Text>
+              <Text size="xs" className="text-gray-500">vs $125 digital ads</Text>
+            </Card>
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">24%</H3>
+              <Text size="sm" color="muted">Cart Recovery Rate</Text>
+              <Text size="xs" className="text-gray-500">with follow-up campaigns</Text>
+            </Card>
+            <Card className="p-6 text-center">
+              <H3 className="text-2xl font-bold text-gray-900">450%</H3>
+              <Text size="sm" color="muted">Return on Ad Spend</Text>
+              <Text size="xs" className="text-gray-500">for targeted campaigns</Text>
+            </Card>
           </Grid>
         </Flex>
       </Section>

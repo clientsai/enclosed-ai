@@ -12,7 +12,6 @@ import {
   Text,
   Button,
   Card,
-  Tabs,
 } from "@/components/ui";
 
 export const metadata = {
@@ -290,13 +289,24 @@ export default function WebinarsPage() {
             </Text>
           </div>
 
-          <Tabs
-            items={[
-              {
-                label: "All Webinars",
-                content: (
-                  <Grid columns={2}>
-                    {recordedWebinars.map((webinar, index) => (
+          <div className="space-y-8">
+            <Flex gap={4} className="border-b border-gray-200 pb-2">
+              <Button variant="ghost" className="pb-2 border-b-2 border-blue-600">
+                All Webinars
+              </Button>
+              <Button variant="ghost" className="pb-2">
+                Strategy
+              </Button>
+              <Button variant="ghost" className="pb-2">
+                Design
+              </Button>
+              <Button variant="ghost" className="pb-2">
+                Analytics
+              </Button>
+            </Flex>
+
+            <Grid columns={2}>
+              {recordedWebinars.map((webinar, index) => (
                       <Card key={index} hover className="p-6">
                         <Flex gap={4}>
                           <div className="flex items-start justify-between">
@@ -338,113 +348,8 @@ export default function WebinarsPage() {
                         </Flex>
                       </Card>
                     ))}
-                  </Grid>
-                ),
-              },
-              {
-                label: "Strategy",
-                content: (
-                  <Grid columns={2}>
-                    {recordedWebinars
-                      .filter(webinar => webinar.category === "Strategy")
-                      .map((webinar, index) => (
-                        <Card key={index} hover className="p-6">
-                          <Flex gap={4}>
-                            <div className="flex items-start justify-between">
-                              <Badge variant="default">
-                                {webinar.category}
-                              </Badge>
-                              <span className="text-sm text-gray-600">
-                                {webinar.views.toLocaleString()} views
-                              </span>
-                            </div>
-
-                            <H1 level={4} className="text-lg">
-                              {webinar.title}
-                            </H1>
-
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <span className="font-semibold text-gray-900">Date:</span>
-                                <div className="text-gray-700">{webinar.date}</div>
-                              </div>
-                              <div>
-                                <span className="font-semibold text-gray-900">Duration:</span>
-                                <div className="text-gray-700">{webinar.duration}</div>
-                              </div>
-                            </div>
-
-                            <div className="text-sm">
-                              <span className="font-semibold text-gray-900">Presenter:</span>
-                              <span className="text-gray-700 ml-2">{webinar.presenter}</span>
-                            </div>
-
-                            <p className="text-gray-700 text-sm leading-relaxed">
-                              {webinar.description}
-                            </p>
-
-                            <Button size="sm" className="w-full mt-auto">
-                              Watch Now
-                            </Button>
-                          </Flex>
-                        </Card>
-                      ))}
-                  </Grid>
-                ),
-              },
-              {
-                label: "Platform",
-                content: (
-                  <Grid columns={2}>
-                    {recordedWebinars
-                      .filter(webinar => webinar.category === "Platform")
-                      .map((webinar, index) => (
-                        <Card key={index} hover className="p-6">
-                          <Flex gap={4}>
-                            <div className="flex items-start justify-between">
-                              <Badge variant="default">
-                                {webinar.category}
-                              </Badge>
-                              <span className="text-sm text-gray-600">
-                                {webinar.views.toLocaleString()} views
-                              </span>
-                            </div>
-
-                            <H1 level={4} className="text-lg">
-                              {webinar.title}
-                            </H1>
-
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <span className="font-semibold text-gray-900">Date:</span>
-                                <div className="text-gray-700">{webinar.date}</div>
-                              </div>
-                              <div>
-                                <span className="font-semibold text-gray-900">Duration:</span>
-                                <div className="text-gray-700">{webinar.duration}</div>
-                              </div>
-                            </div>
-
-                            <div className="text-sm">
-                              <span className="font-semibold text-gray-900">Presenter:</span>
-                              <span className="text-gray-700 ml-2">{webinar.presenter}</span>
-                            </div>
-
-                            <p className="text-gray-700 text-sm leading-relaxed">
-                              {webinar.description}
-                            </p>
-
-                            <Button size="sm" className="w-full mt-auto">
-                              Watch Now
-                            </Button>
-                          </Flex>
-                        </Card>
-                      ))}
-                  </Grid>
-                ),
-              },
-            ]}
-          />
+            </Grid>
+          </div>
         </Flex>
       </Section>
 

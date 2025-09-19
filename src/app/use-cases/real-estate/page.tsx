@@ -6,6 +6,8 @@ import {
   Flex,
   Badge,
   H1,
+  H2,
+  H3,
   Text,
   Button,
   Card,
@@ -381,13 +383,16 @@ export default function RealEstateUseCasePage() {
                 </div>
               </div>
 
-              <Testimonial
-                quote={caseStudy.testimonial.quote}
-                author={caseStudy.testimonial.author}
-                role={caseStudy.testimonial.role}
-                company={caseStudy.testimonial.company}
-                className="mt-6"
-              />
+              <Card glass className="mt-6 p-6">
+                <blockquote className="text-gray-300 italic leading-relaxed mb-4">
+                  "{caseStudy.testimonial.quote}"
+                </blockquote>
+                <div className="text-right">
+                  <div className="font-semibold">{caseStudy.testimonial.author}</div>
+                  <Text size="sm" color="muted">{caseStudy.testimonial.role}</Text>
+                  <Text size="sm" color="muted">{caseStudy.testimonial.company}</Text>
+                </div>
+              </Card>
             </Flex>
           </Card>
         </Flex>
@@ -404,7 +409,21 @@ export default function RealEstateUseCasePage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Steps items={implementation} />
+            <div className="space-y-4">
+              {implementation.map((step, index) => (
+                <Card key={index} glass className="p-6">
+                  <Flex gap={4} align="start">
+                    <div className="h-10 w-10 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-semibold">{index + 1}</span>
+                    </div>
+                    <div>
+                      <H3 className="text-lg mb-2">{step.title}</H3>
+                      <Text color="secondary">{step.content}</Text>
+                    </div>
+                  </Flex>
+                </Card>
+              ))}
+            </div>
           </div>
         </Flex>
       </Section>
@@ -421,12 +440,11 @@ export default function RealEstateUseCasePage() {
 
           <Grid columns={4}>
             {benchmarks.map((benchmark, index) => (
-              <Stat
-                key={index}
-                value={benchmark.value}
-                label={benchmark.metric}
-                delta={benchmark.industry}
-              />
+              <Card key={index} glass className="p-6 text-center">
+                <H3 className="text-2xl font-bold gradient-text-accent mb-2">{benchmark.value}</H3>
+                <Text size="sm" color="secondary" className="mb-1">{benchmark.metric}</Text>
+                <Text size="xs" color="muted">{benchmark.industry}</Text>
+              </Card>
             ))}
           </Grid>
         </Flex>

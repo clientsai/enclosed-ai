@@ -212,12 +212,11 @@ export default function PartnersPage() {
 
           <Grid columns={4}>
             {partnerStats.map((stat, index) => (
-              <Stat
-                key={index}
-                value={stat.value}
-                label={stat.label}
-                delta={stat.delta}
-              />
+              <Card key={index} className="p-6 text-center">
+                <H3 className="text-2xl font-bold text-gray-900">{stat.value}</H3>
+                <Text size="sm" color="muted">{stat.label}</Text>
+                <Text size="xs" className="text-gray-500">{stat.delta}</Text>
+              </Card>
             ))}
           </Grid>
         </Flex>
@@ -444,7 +443,21 @@ export default function PartnersPage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Steps items={applicationSteps} />
+            <Flex gap={6}>
+              {applicationSteps.map((step, index) => (
+                <Card key={index} className="p-6">
+                  <Flex gap={4}>
+                    <div className="h-8 w-8 bg-gray-900 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">{index + 1}</span>
+                    </div>
+                    <div>
+                      <H3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</H3>
+                      <Text className="text-gray-700 leading-relaxed">{step.content}</Text>
+                    </div>
+                  </Flex>
+                </Card>
+              ))}
+            </Flex>
           </div>
 
           <div className="max-w-2xl mx-auto">
