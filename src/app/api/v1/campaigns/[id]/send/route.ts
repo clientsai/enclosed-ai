@@ -27,7 +27,7 @@ async function verifyApiKey(request: NextRequest) {
 // POST /api/v1/campaigns/:id/send - Send campaign
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const client = await verifyApiKey(request);
@@ -38,6 +38,7 @@ export async function POST(
       );
     }
 
+    const { id } = await params;
     const body = await request.json();
     const { test_mode = false, scheduled_date } = body;
 
@@ -47,7 +48,7 @@ export async function POST(
     const { data: campaign, error: campaignError } = await supabase
       .from('enclosed_campaigns')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', client.user_id)
       .single();
 
@@ -87,7 +88,7 @@ export async function POST(
           status: 'scheduled',
           scheduled_date: scheduled_date,
         })
-        .eq('id', params.id);
+        .eq('id', id);
 
       return NextResponse.json({
         message: 'Campaign scheduled successfully',
@@ -99,13 +100,13 @@ export async function POST(
     await supabase
       .from('enclosed_campaigns')
       .update({ status: 'processing' })
-      .eq('id', params.id);
+      .eq('id', id);
 
     // Get recipients
     const { data: recipients, error: recipientsError } = await supabase
       .from('enclosed_recipients')
       .select('*')
-      .eq('campaign_id', params.id);
+      .eq('campaign_id', id);
 
     if (recipientsError || !recipients || recipients.length === 0) {
       throw new Error('No recipients found for campaign');
@@ -200,7 +201,7 @@ export async function POST(
         status: finalStatus,
         sent_date: new Date().toISOString(),
       })
-      .eq('id', params.id);
+      .eq('id', id);
 
     // Deduct credits from user balance (only for successful sends)
     const costPerPiece = campaign.cost_per_piece;
@@ -241,10 +242,11 @@ export async function POST(
 
     // Update campaign status to failed
     const supabase = await createServerSupabaseClient();
+    const { id } = await params;
     await supabase
       .from('enclosed_campaigns')
       .update({ status: 'failed' })
-      .eq('id', params.id);
+      .eq('id', id);
 
     return NextResponse.json(
       { error: error.message || 'Failed to send campaign' },

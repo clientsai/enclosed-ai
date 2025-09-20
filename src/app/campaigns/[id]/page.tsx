@@ -12,7 +12,7 @@ import Navigation from "@/components/Navigation";
 export default function CampaignDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const router = useRouter();
   const [campaign, setCampaign] = useState<Campaign | null>(null);
@@ -24,6 +24,7 @@ export default function CampaignDetailPage({
   const [selectedTab, setSelectedTab] = useState("overview");
   useEffect(() => {
     const loadCampaign = async () => {
+      const { id } = await params;
       const {
         data: { user },
       } = await supabase.auth.getUser();
@@ -35,7 +36,7 @@ export default function CampaignDetailPage({
       const { data: campaignData, error: campaignError } = await supabase
         .from("enclosed_campaigns")
         .select("*")
-        .eq("id", params.id)
+        .eq("id", id)
         .single();
       if (campaignError || !campaignData) {
         setError("Campaign not found");
@@ -47,7 +48,7 @@ export default function CampaignDetailPage({
       const { data: recipientData } = await supabase
         .from("enclosed_recipients")
         .select("*")
-        .eq("campaign_id", params.id)
+        .eq("campaign_id", id)
         .limit(100);
       if (recipientData) {
         setRecipients(recipientData);
@@ -63,7 +64,7 @@ export default function CampaignDetailPage({
       setLoading(false);
     };
     loadCampaign();
-  }, [params.id, router]);
+  }, [params, router]);
   const handleSendCampaign = async () => {
     if (!campaign) return;
     if (

@@ -25,7 +25,7 @@ async function verifyApiKey(request: NextRequest) {
 // GET /api/v1/campaigns/:id - Get campaign details
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const client = await verifyApiKey(request);
@@ -36,6 +36,7 @@ export async function GET(
       );
     }
 
+    const { id } = await params;
     const supabase = await createServerSupabaseClient();
     const { data: campaign, error } = await supabase
       .from('enclosed_campaigns')
@@ -43,7 +44,7 @@ export async function GET(
         *,
         recipients:enclosed_recipients(count)
       `)
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', client.user_id)
       .single();
 
@@ -66,7 +67,7 @@ export async function GET(
 // PATCH /api/v1/campaigns/:id - Update campaign
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const client = await verifyApiKey(request);
@@ -77,6 +78,7 @@ export async function PATCH(
       );
     }
 
+    const { id } = await params;
     const body = await request.json();
     const supabase = await createServerSupabaseClient();
 
@@ -93,7 +95,7 @@ export async function PATCH(
     const { data: campaign, error } = await supabase
       .from('enclosed_campaigns')
       .update(updates)
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', client.user_id)
       .select()
       .single();
@@ -117,7 +119,7 @@ export async function PATCH(
 // DELETE /api/v1/campaigns/:id - Delete campaign
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const client = await verifyApiKey(request);
@@ -128,13 +130,14 @@ export async function DELETE(
       );
     }
 
+    const { id } = await params;
     const supabase = await createServerSupabaseClient();
 
     // Only allow deleting draft campaigns
     const { data: campaign } = await supabase
       .from('enclosed_campaigns')
       .select('status')
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', client.user_id)
       .single();
 
@@ -155,7 +158,7 @@ export async function DELETE(
     const { error } = await supabase
       .from('enclosed_campaigns')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', client.user_id);
 
     if (error) throw error;
