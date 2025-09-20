@@ -51,7 +51,7 @@ export interface Recipient {
   state: string;
   zip_code: string;
   country: string;
-  custom_variables: Record<string, any>;
+  custom_variables: Record<string, unknown>;
   personalized_content?: string;
   mail_provider_id?: string;
   delivery_status: string;

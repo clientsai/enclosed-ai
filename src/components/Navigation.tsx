@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
 import { cn } from "@/lib/utils";
+import { Button, IconButton } from "./ui";
 interface NavigationProps {
   variant?: "landing" | "app";
   user?: any;
@@ -15,8 +16,17 @@ export default function Navigation({
   transparent = false
 }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const landingLinks = [
     { href: "/features", label: "Features" },
     { href: "/pricing", label: "Pricing" },
@@ -34,28 +44,30 @@ export default function Navigation({
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
-        transparent ? "bg-black/50 backdrop-blur-xl" : "bg-black border-b border-white/10",
-        "h-16" // Consistent height - 64px
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled || !transparent
+          ? "bg-black/80 backdrop-blur-2xl border-b border-gray-800/50 shadow-2xl"
+          : "bg-transparent",
+        "h-16"
       )}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-6 md:px-8 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex-shrink-0">
             <Logo size="sm" showText={true} />
           </div>
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors duration-200",
+                  "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
                   isActive(link.href)
-                    ? "text-white"
-                    : "text-gray-300 hover:text-white"
+                    ? "text-white bg-gray-800/50"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800/30"
                 )}
               >
                 {link.label}
@@ -63,45 +75,54 @@ export default function Navigation({
             ))}
           </div>
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center gap-3">
             {variant === "landing" ? (
               <>
-                <Link
+                <Button
+                  variant="ghost"
+                  size="sm"
                   href="/auth/login"
-                  className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
                 >
                   Sign In
-                </Link>
-                <Link
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
                   href="/auth/signup"
-                  className="btn btn-primary btn-sm"
                 >
-                  Get Started
-                </Link>
+                  Get Started →
+                </Button>
               </>
             ) : (
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center gap-4">
                 {user && (
-                  <span className="text-sm text-gray-300">
-                    {user.email}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-xs font-semibold text-gray-300 border border-gray-700">
+                      {user.email?.charAt(0).toUpperCase()}
+                    </div>
+                    <span className="text-sm text-gray-400">
+                      {user.email}
+                    </span>
+                  </div>
                 )}
-                <Link
+                <Button
+                  variant="ghost"
+                  size="sm"
                   href="/auth/login"
-                  className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
                 >
                   Sign Out
-                </Link>
+                </Button>
               </div>
             )}
           </div>
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
+            <IconButton
+              variant="ghost"
+              size="default"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-white transition-colors"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -109,55 +130,73 @@ export default function Navigation({
                   d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                 />
               </svg>
-            </button>
+            </IconButton>
           </div>
         </div>
       </div>
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-black border-t border-white/10">
-          <div className="px-6 py-4 space-y-2">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-gray-800 animate-slide-down">
+          <div className="px-6 py-4 space-y-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "block px-3 py-2 text-sm font-medium transition-colors",
+                  "block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200",
                   isActive(link.href)
-                    ? "text-white bg-white/10"
-                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                    ? "text-white bg-gray-800/50"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800/30"
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 border-t border-white/10 space-y-2">
+            <div className="pt-4 mt-4 border-t border-gray-800 space-y-2">
               {variant === "landing" ? (
                 <>
-                  <Link
+                  <Button
+                    variant="ghost"
+                    size="default"
                     href="/auth/login"
+                    fullWidth
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
                   >
                     Sign In
-                  </Link>
-                  <Link
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="default"
                     href="/auth/signup"
+                    fullWidth
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-3 py-2 text-sm font-medium btn btn-primary text-center"
                   >
-                    Get Started
-                  </Link>
+                    Get Started →
+                  </Button>
                 </>
               ) : (
-                <Link
-                  href="/auth/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
-                >
-                  Sign Out
-                </Link>
+                <>
+                  {user && (
+                    <div className="flex items-center gap-3 px-4 py-2 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-xs font-semibold text-gray-300 border border-gray-700">
+                        {user.email?.charAt(0).toUpperCase()}
+                      </div>
+                      <span className="text-sm text-gray-400">
+                        {user.email}
+                      </span>
+                    </div>
+                  )}
+                  <Button
+                    variant="ghost"
+                    size="default"
+                    href="/auth/login"
+                    fullWidth
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Sign Out
+                  </Button>
+                </>
               )}
             </div>
           </div>

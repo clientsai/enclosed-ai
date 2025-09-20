@@ -1,4 +1,7 @@
-/* UI Component Transformation - Diverse lightweight components with no duplicates per page */
+/*
+ * Billing Page - Jony Ive-Inspired Dark Theme
+ * Clean, transparent billing and credit management
+ */
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -7,6 +10,28 @@ import { supabase } from "@/lib/supabase";
 import { formatCurrency } from "@/lib/pricing";
 import Logo from "@/components/Logo";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import {
+  Container,
+  Section,
+  Grid,
+  Flex,
+  H1,
+  H2,
+  H3,
+  Text,
+  Button,
+  Card,
+  Badge,
+  Divider,
+  Spinner,
+  GlowOrb,
+  Noise,
+  Metric,
+  ProgressBar,
+  DataTable,
+} from "@/components/ui";
+
 interface Transaction {
   id: string;
   type: "credit" | "debit";
@@ -15,85 +40,112 @@ interface Transaction {
   created_at: string;
   campaign_id?: string;
 }
-interface Subscription {
+
+interface CreditPackage {
   id: string;
-  plan: "starter" | "premium";
-  status: "active" | "canceled" | "past_due";
-  currentPeriodEnd: Date;
-  monthlyLetters: number;
-  lettersUsed: number;
-  pricePerMonth: number;
+  name: string;
+  credits: number;
+  price: number;
+  savings?: number;
+  popular?: boolean;
 }
-interface MailingCredit {
-  total: number;
-  used: number;
-  available: number;
-  addOns: number;
-}
+
 export default function BillingPage() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPackage, setSelectedPackage] = useState<string>("");
-  const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [credits, setCredits] = useState<MailingCredit>({
-    total: 0,
-    used: 0,
-    available: 0,
-    addOns: 0,
-  });
-  const [showLowCreditWarning, setShowLowCreditWarning] = useState(false);
-  const subscriptionPlans = [
-    { id: "starter", name: "Starter Plan", letters: 50, price: 99.99 },
-    { id: "premium", name: "Premium Plan", letters: 100, price: 299.99 },
+
+  const creditPackages: CreditPackage[] = [
+    {
+      id: "package_50",
+      name: "Starter Pack",
+      credits: 50,
+      price: 100,
+    },
+    {
+      id: "package_100",
+      name: "Growth Pack",
+      credits: 100,
+      price: 180,
+      savings: 20,
+    },
+    {
+      id: "package_500",
+      name: "Pro Pack",
+      credits: 500,
+      price: 800,
+      savings: 100,
+      popular: true,
+    },
+    {
+      id: "package_1000",
+      name: "Enterprise Pack",
+      credits: 1000,
+      price: 1500,
+      savings: 250,
+    },
   ];
-  const letterBundles = [
-    { id: "bundle100", name: "100 Letter Bundle", letters: 100, price: 200 },
-  ];
+
   useEffect(() => {
     loadBillingData();
   }, []);
+
   const loadBillingData = async () => {
-    const {
-      data: { user: authUser },
-    } = await supabase.auth.getUser();
+    const { data: { user: authUser } } = await supabase.auth.getUser();
     if (!authUser) {
       router.push("/auth/login");
       return;
     }
+
     const { data: userData } = await supabase
       .from("enclosed_users")
       .select("*")
       .eq("id", authUser.id)
       .single();
+
     if (userData) {
       setUser(userData);
     }
-    // In a real app, load transactions from a transactions table
+
+    // Mock transaction data
     setTransactions([
       {
         id: "1",
         type: "credit",
         amount: 100,
-        description: "Starter package purchase",
-        created_at: new Date(
-          Date.now() - 7 * 24 * 60 * 60 * 1000,
-        ).toISOString(),
+        description: "Growth Pack purchase",
+        created_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
       },
       {
         id: "2",
         type: "debit",
         amount: 25,
         description: "Campaign: Q4 Marketing",
-        created_at: new Date(
-          Date.now() - 3 * 24 * 60 * 60 * 1000,
-        ).toISOString(),
+        created_at: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
         campaign_id: "camp_123",
       },
+      {
+        id: "3",
+        type: "credit",
+        amount: 50,
+        description: "Starter Pack purchase",
+        created_at: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+      {
+        id: "4",
+        type: "debit",
+        amount: 45,
+        description: "Campaign: Holiday Sale",
+        created_at: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
+        campaign_id: "camp_456",
+      },
     ]);
+
     setLoading(false);
   };
+
   const handlePurchase = async (packageId: string) => {
     try {
       const response = await fetch("/api/stripe/checkout", {
@@ -110,212 +162,263 @@ export default function BillingPage() {
       alert("Failed to create checkout session");
     }
   };
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white">
-        <Navigation variant="app" />
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="spinner"></div>
+      <div className="min-h-screen bg-black">
+        <Navigation />
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center space-y-4">
+            <Spinner size="lg" />
+            <Text size="sm" color="muted">Loading billing data...</Text>
+          </div>
         </div>
       </div>
     );
   }
 
-  const creditPackages = [
-    { id: "starter", name: "Starter", credits: 50, price: 99.99, savings: 0 },
-    { id: "premium", name: "Premium", credits: 100, price: 199.99, savings: 0 },
-    { id: "pro", name: "Pro", credits: 250, price: 449.99, savings: 50 },
-  ];
+  const stats = {
+    currentBalance: user?.credits_balance || 0,
+    totalSpent: transactions
+      .filter((t) => t.type === "debit")
+      .reduce((sum, t) => sum + t.amount, 0),
+    lettersSent: user?.total_pieces_sent || 0,
+    creditsUsed: transactions
+      .filter((t) => t.type === "debit")
+      .reduce((sum, t) => sum + t.amount, 0),
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black overflow-x-hidden">
+      {/* Premium Background Effects */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black to-black" />
+        <GlowOrb color="accent" size="lg" className="top-20 -left-20 opacity-20" />
+        <GlowOrb color="purple" size="default" className="bottom-40 right-10 opacity-15" />
+        <GlowOrb color="white" size="sm" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
+      </div>
+      <Noise opacity={0.015} />
+
       {/* Navigation */}
-      <Navigation variant="app" />
-      <div className="pt-24">
+      <Navigation />
+
+      <Section className="relative pt-24">
         <Container size="xl">
-          <div className="space-y-12">
+          <div className="space-y-12 relative z-10">
             {/* Header */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-light mb-4">Billing & Credits</h1>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Manage your account balance and purchase additional credits
-              </p>
+            <div className="animate-fade-in">
+              <div className="space-y-2 mb-8">
+                <H1 className="text-6xl font-bold gradient-text">Billing</H1>
+                <Text size="lg" color="secondary">
+                  Manage your credits and view transaction history
+                </Text>
+              </div>
             </div>
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="card glass text-center p-6">
-                <div className="text-4xl mb-4">💰</div>
-                <div className="text-sm text-gray-400 mb-2">Current Balance</div>
-                <div className="text-3xl font-light">
-                  {formatCurrency(user?.credits_balance || 0)}
-                </div>
-              </div>
-              <div className="card glass text-center p-6">
-                <div className="text-4xl mb-4">📊</div>
-                <div className="text-sm text-gray-400 mb-2">Total Spent</div>
-                <div className="text-3xl font-light">
-                  {formatCurrency(
-                    transactions
-                      .filter((t) => t.type === "debit")
-                      .reduce((sum, t) => sum + t.amount, 0),
-                  )}
-                </div>
-              </div>
-              <div className="card glass text-center p-6">
-                <div className="text-4xl mb-4">✉️</div>
-                <div className="text-sm text-gray-400 mb-2">Letters Sent</div>
-                <div className="text-3xl font-light">
-                  {user?.total_pieces_sent || 0}
-                </div>
-              </div>
+            {/* Stats Grid */}
+            <div className="animate-slide-up animation-delay-200">
+              <Grid cols={4} gap={6}>
+                <Card glass className="hover-lift backdrop-blur-xl border-gray-800/50 premium-shadow">
+                  <Metric
+                    value={formatCurrency(stats.currentBalance)}
+                    label="Current Balance"
+                  />
+                  <div className="mt-2">
+                    <ProgressBar
+                      value={stats.currentBalance}
+                      max={Math.max(200, stats.currentBalance)}
+                      variant="accent"
+                      className="h-1"
+                    />
+                  </div>
+                </Card>
+                <Card glass className="hover-lift backdrop-blur-xl border-gray-800/50 premium-shadow">
+                  <Metric
+                    value={formatCurrency(stats.totalSpent)}
+                    label="Total Spent"
+                  />
+                </Card>
+                <Card glass className="hover-lift backdrop-blur-xl border-gray-800/50 premium-shadow">
+                  <Metric
+                    value={stats.lettersSent.toLocaleString()}
+                    label="Letters Sent"
+                  />
+                </Card>
+                <Card glass className="hover-lift backdrop-blur-xl border-gray-800/50 premium-shadow">
+                  <Metric
+                    value={`${stats.creditsUsed}`}
+                    label="Credits Used"
+                  />
+                </Card>
+              </Grid>
             </div>
+
             {/* Credit Packages */}
-            <div className="space-y-8">
-              <div className="text-center">
-                <h2 className="text-3xl font-semibold mb-4">Purchase Credits</h2>
-                <p className="text-gray-400 max-w-2xl mx-auto">
-                  Choose a credit package that fits your needs. Each credit covers one complete letter including AI generation, printing, and postage.
-                </p>
+            <div className="animate-slide-up animation-delay-400">
+              <div className="text-center space-y-4 mb-12">
+                <H2 className="text-4xl font-semibold">Purchase Credits</H2>
+                <Text size="lg" color="secondary">
+                  Choose the perfect credit package for your campaigns
+                </Text>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {creditPackages.map((pkg, index) => (
-                  <div
+
+              <Grid cols={4} gap={6}>
+                {creditPackages.map((pkg) => (
+                  <Card
                     key={pkg.id}
-                    className={`relative card glass p-8 cursor-pointer transition-all hover:scale-105 ${
-                      selectedPackage === pkg.id
-                        ? "border-blue-500 bg-blue-500/10"
-                        : "border-gray-600"
-                    } ${index === 2 ? "md:scale-105 md:shadow-2xl" : ""}`}
+                    className={`relative overflow-hidden transition-all duration-300 hover-lift cursor-pointer ${
+                      pkg.popular
+                        ? "border-blue-500/50 bg-gradient-to-b from-gray-900/50 to-black scale-105 premium-shadow"
+                        : "border-gray-800/50 backdrop-blur-xl premium-shadow"
+                    } ${
+                      selectedPackage === pkg.id ? "ring-2 ring-blue-500/50" : ""
+                    }`}
+                    glass={!pkg.popular}
                     onClick={() => setSelectedPackage(pkg.id)}
                   >
-                    {index === 2 && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span className="badge badge-accent">
-                          MOST POPULAR
-                        </span>
-                      </div>
+                    {pkg.popular && (
+                      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500" />
                     )}
-                    <div className="text-center">
-                      <h3 className="text-2xl font-semibold mb-2">{pkg.name}</h3>
-                      <div className="text-4xl font-light mb-2">${pkg.price}</div>
-                      <div className="text-lg text-gray-400 mb-4">
-                        {pkg.credits.toLocaleString()} credits
-                      </div>
-                      <div className="text-sm text-gray-500 mb-4">
-                        ${(pkg.price / pkg.credits).toFixed(3)} per letter
-                      </div>
-                      {pkg.savings > 0 && (
-                        <div className="text-green-400 text-sm mb-6">
-                          Save ${pkg.savings}
+                    {pkg.popular && (
+                      <Badge
+                        variant="accent"
+                        className="absolute -top-3 left-1/2 -translate-x-1/2"
+                      >
+                        Most Popular
+                      </Badge>
+                    )}
+
+                    <div className="space-y-6 text-center">
+                      <div className="space-y-2">
+                        <H3 className="text-xl font-semibold">{pkg.name}</H3>
+                        <div className="flex items-baseline justify-center gap-2">
+                          <span className="text-4xl font-bold text-white">
+                            ${pkg.price}
+                          </span>
                         </div>
-                      )}
-                      <button
+                        <Text size="lg" color="accent" weight="semibold">
+                          {pkg.credits.toLocaleString()} credits
+                        </Text>
+                        <Text size="sm" color="muted">
+                          ${(pkg.price / pkg.credits).toFixed(3)} per credit
+                        </Text>
+                        {pkg.savings && (
+                          <Text size="sm" color="success" className="flex items-center justify-center gap-1">
+                            💰 Save ${pkg.savings}
+                          </Text>
+                        )}
+                      </div>
+
+                      <Divider />
+
+                      <Button
+                        variant={pkg.popular ? "primary" : "secondary"}
+                        fullWidth
                         onClick={(e) => {
                           e.stopPropagation();
                           handlePurchase(pkg.id);
                         }}
-                        className={`w-full py-3 rounded-lg font-medium transition-all ${
-                          selectedPackage === pkg.id
-                            ? "btn btn-primary"
-                            : "btn btn-ghost"
-                        }`}
+                        className={pkg.popular ? "shadow-lg shadow-blue-500/20" : ""}
                       >
-                        Purchase
-                      </button>
+                        Purchase Package
+                      </Button>
                     </div>
-                  </div>
+                  </Card>
                 ))}
-              </div>
+              </Grid>
             </div>
+
             {/* Transaction History */}
-            <div className="space-y-8">
-              <div className="text-center">
-                <h2 className="text-3xl font-semibold mb-4">Transaction History</h2>
-              </div>
-              <div className="space-y-4">
+            <div className="animate-slide-up animation-delay-600">
+              <div className="space-y-6">
+                <H2 className="text-4xl font-semibold">Transaction History</H2>
+
                 {transactions.length === 0 ? (
-                  <div className="card glass text-center py-12">
-                    <p className="text-gray-400 text-lg">No transactions yet</p>
-                  </div>
+                  <Card glass className="text-center space-y-6 backdrop-blur-xl border-gray-800/50 premium-shadow hover-lift p-12">
+                    <div className="text-6xl opacity-50">💳</div>
+                    <H3 className="text-2xl">No transactions yet</H3>
+                    <Text color="secondary">
+                      Purchase your first credit package to get started
+                    </Text>
+                  </Card>
                 ) : (
-                  transactions.map((transaction, index) => (
-                    <div key={transaction.id} className="card glass p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <div
-                            className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                              transaction.type === "credit"
-                                ? "bg-green-500/20 text-green-400"
-                                : "bg-red-500/20 text-red-400"
-                            }`}
-                          >
-                            {transaction.type === "credit" ? (
-                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                              </svg>
-                            ) : (
-                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                              </svg>
-                            )}
-                          </div>
-                          <div>
-                            <p className="font-semibold text-lg">{transaction.description}</p>
-                            <p className="text-gray-400 text-sm">
-                              {new Date(transaction.created_at).toLocaleDateString()} at{" "}
-                              {new Date(transaction.created_at).toLocaleTimeString()}
-                            </p>
-                            {transaction.campaign_id && (
-                              <Link
-                                href={`/campaigns/${transaction.campaign_id}`}
-                                className="text-blue-400 hover:text-blue-300 text-sm"
-                              >
-                                View campaign →
-                              </Link>
-                            )}
+                  <Card glass className="backdrop-blur-xl border-gray-800/50 premium-shadow">
+                    <div className="space-y-1">
+                      {transactions.map((transaction, index) => (
+                        <div
+                          key={transaction.id}
+                          className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-800/30 transition-colors"
+                        >
+                          <Flex gap={4} align="center">
+                            <div
+                              className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                                transaction.type === "credit"
+                                  ? "bg-green-500/20 text-green-400"
+                                  : "bg-red-500/20 text-red-400"
+                              }`}
+                            >
+                              {transaction.type === "credit" ? "+" : "-"}
+                            </div>
+                            <div className="space-y-1">
+                              <Text weight="semibold">{transaction.description}</Text>
+                              <Text size="sm" color="muted">
+                                {new Date(transaction.created_at).toLocaleDateString()} at{" "}
+                                {new Date(transaction.created_at).toLocaleTimeString()}
+                              </Text>
+                              {transaction.campaign_id && (
+                                <Link
+                                  href={`/campaigns/${transaction.campaign_id}`}
+                                  className="text-blue-500 hover:text-blue-400 text-sm transition-colors"
+                                >
+                                  View campaign →
+                                </Link>
+                              )}
+                            </div>
+                          </Flex>
+                          <div className="text-right">
+                            <Text
+                              weight="bold"
+                              size="lg"
+                              className={
+                                transaction.type === "credit"
+                                  ? "text-green-400"
+                                  : "text-red-400"
+                              }
+                            >
+                              {transaction.type === "credit" ? "+" : "-"}
+                              {formatCurrency(transaction.amount)}
+                            </Text>
                           </div>
                         </div>
-                        <span
-                          className={`text-2xl font-light ${
-                            transaction.type === "credit"
-                              ? "text-green-400"
-                              : "text-red-400"
-                          }`}
-                        >
-                          {transaction.type === "credit" ? "+" : "-"}
-                          {formatCurrency(transaction.amount)}
-                        </span>
-                      </div>
+                      ))}
                     </div>
-                  ))
+                  </Card>
                 )}
               </div>
             </div>
 
             {/* Info Section */}
-            <div className="card glass p-6">
-              <div className="flex items-start space-x-4">
-                <svg className="w-6 h-6 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div>
-                  <p className="font-semibold text-lg mb-2">How credits work</p>
-                  <p className="text-gray-400">
-                    Each credit equals $1 and covers the full cost of sending one
-                    letter including AI generation, printing, and postage. Bulk
-                    purchases receive discounted rates.
-                  </p>
-                </div>
-              </div>
+            <div className="animate-slide-up animation-delay-800">
+              <Card glass className="backdrop-blur-xl border-gray-800/50 premium-shadow">
+                <Flex gap={4} align="start">
+                  <div className="text-blue-500 text-2xl">ℹ️</div>
+                  <div className="space-y-2">
+                    <Text weight="semibold" size="lg">How credits work</Text>
+                    <Text color="secondary" className="leading-relaxed">
+                      Each credit equals $1 and covers the full cost of sending one
+                      letter including AI generation, printing, and postage. Bulk
+                      purchases receive discounted rates and never expire.
+                    </Text>
+                  </div>
+                </Flex>
+              </Card>
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

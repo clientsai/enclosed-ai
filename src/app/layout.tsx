@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { PageErrorBoundary } from "@/components/ErrorBoundary";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Enclosed.AI - Direct Mail Marketing Platform",
@@ -42,13 +43,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased bg-black text-white`}>
-        <div >
-          <Navigation variant="landing" />
-          <main >
-            {children}
-          </main>
-          <Footer variant="landing" />
-        </div>
+        <PageErrorBoundary>
+          <div >
+            <Navigation variant="landing" />
+            <main >
+              {children}
+            </main>
+            <Footer variant="landing" />
+          </div>
+        </PageErrorBoundary>
       </body>
     </html>
   );
