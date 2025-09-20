@@ -5,6 +5,8 @@ import {
   Grid,
   Flex,
   H1,
+  H2,
+  H3,
   Text,
 } from "@/components/ui";
 export const metadata = {
@@ -77,7 +79,7 @@ export default function SitemapPage() {
         <div >
           <Flex gap={8}>
             <div >
-              <H1 level={1}>Sitemap</H1>
+              <H1>Sitemap</H1>
               <Text >
                 Navigate through all pages and resources available on the Enclosed.AI website. Find exactly what you're looking for.
               </Text>
@@ -85,16 +87,16 @@ export default function SitemapPage() {
             <div >
               {Object.entries(siteMap).map(([category, pages]) => (
                 <div key={category}>
-                  <H1 level={2} >
+                  <H2 >
                     {category}
-                  </H1>
-                  <Grid columns={2}>
+                  </H2>
+                  <Grid cols={2}>
                     {pages.map((page) => (
                       <div key={page.href} >
                         <div >
                           <div >
                             <Link
-                              href={page.href}
+                              href={page.href as any}
                             >
                               {page.name}
                             </Link>
@@ -103,7 +105,7 @@ export default function SitemapPage() {
                             </p>
                           </div>
                           <Link
-                            href={page.href}
+                            href={page.href as any}
                           >
                             <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -119,15 +121,15 @@ export default function SitemapPage() {
             {/* Additional Information */}
             <div >
               <Flex gap={4}>
-                <H1 level={3}>Can't Find What You're Looking For?</H1>
+                <H3>Can't Find What You're Looking For?</H3>
                 <p >
                   If you can't find a specific page or resource, try using our search function or contact our support team for assistance.
                 </p>
                 <div >
-                  <Link href="/help" >
+                  <Link href={"/help" as any} >
                     Visit Help Center →
                   </Link>
-                  <Link href="/contact" >
+                  <Link href={"/contact" as any} >
                     Contact Support →
                   </Link>
                 </div>

@@ -32,7 +32,7 @@ export default function FAQPage() {
       {/* Hero Section */}
       <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} >
+          <Flex direction="col"  gap={8} >
             <Badge variant="accent" >
               Quick Answers • 24/7 Support • Expert Help
             </Badge>
@@ -68,10 +68,10 @@ export default function FAQPage() {
       {/* FAQ Content Section */}
       <Section id="faq-content">
         <Container>
-          <Flex direction="col" gap={16}>
+          <Flex direction="col" gap={8}>
           {/* Getting Started */}
           <div>
-            <Flex align="center" gap={4} >
+            <Flex  gap={4} >
               <div >
                 <svg
                   fill="none"
@@ -161,7 +161,7 @@ export default function FAQPage() {
       <Section>
         <Container>
           <Card glass >
-            <H2 >Still Have Questions?</H2>
+            <H2>Still Have Questions?</H2>
             <Text size="xl" color="secondary" >
               Can't find the answer you're looking for? Our support team is here
               to help you succeed with your direct mail campaigns.
@@ -221,7 +221,7 @@ export default function FAQPage() {
               ))}
             </Grid>
             <Divider  />
-            <Flex justify="between" align="center">
+            <Flex justify="between" >
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>

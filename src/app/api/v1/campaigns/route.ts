@@ -3,6 +3,8 @@ import { createServerSupabaseClient } from '@/lib/supabase-server';
 import { z } from 'zod';
 import crypto from 'crypto';
 import { createApiError, ErrorCode, withErrorHandling } from '@/lib/error-handler';
+import { validateApiKey } from '@/lib/auth-middleware';
+import { log } from '@/lib/logger';
 
 const CreateCampaignSchema = z.object({
   name: z.string().min(1),
@@ -75,7 +77,7 @@ async function verifyApiKey(request: NextRequest) {
     .eq('id', client.id);
 
   if (updateError) {
-    console.warn('Failed to update API client last_used_at:', updateError);
+    log.warn('Failed to update API client last_used_at', { error: updateError.message });
   }
 
   return client;

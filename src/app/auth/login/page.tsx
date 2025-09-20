@@ -70,7 +70,7 @@ export default function LoginPage() {
         <Card glass className="backdrop-blur-2xl border-gray-800/50 p-8 md:p-10 shadow-2xl animate-slide-up">
           {/* Header */}
           <div className="text-center space-y-2 mb-8">
-            <H2 className="text-3xl font-bold text-white">Welcome back</H2>
+            <H2>Welcome back</H2>
             <Text color="secondary">
               Sign in to continue to your dashboard
             </Text>
@@ -127,14 +127,14 @@ export default function LoginPage() {
               />
             </FormGroup>
             {/* Remember me & Forgot password */}
-            <Flex justify="between" align="center" className="py-2">
+            <Flex justify="between"  className="py-2">
               <Checkbox
                 label="Remember me"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
               />
               <Link
-                href="/auth/forgot-password"
+                href="/help"
                 className="text-sm text-blue-500 hover:text-blue-400 transition-colors"
               >
                 Forgot password?

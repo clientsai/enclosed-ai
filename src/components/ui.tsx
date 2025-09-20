@@ -302,6 +302,13 @@ export const Button = ({
     </Component>
   );
 };
+type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'prefix'> & {
+  label?: string;
+  error?: string;
+  helper?: string;
+  prefix?: any;
+  suffix?: any;
+}
 export const Input = ({
   className,
   label,
@@ -310,13 +317,7 @@ export const Input = ({
   prefix,
   suffix,
   ...props
-}: {
-  label?: string;
-  error?: string;
-  helper?: string;
-  prefix?: ReactNode;
-  suffix?: ReactNode;
-} & InputHTMLAttributes<HTMLInputElement>) => (
+}: InputProps) => (
   <div className="space-y-2">
     {label && <label className="block text-sm font-medium text-gray-300">{label}</label>}
     <div className="relative">
@@ -559,7 +560,7 @@ export const Nav = ({
 } & HTMLAttributes<HTMLElement>) => (
   <nav className={cn("nav glass-dark border-b border-gray-900", className)} {...props}>
     <Container>
-      <Flex align="center" justify="between">
+      <Flex  justify="between">
         {children}
       </Flex>
     </Container>
@@ -578,7 +579,7 @@ export const NavLink = ({
   href: string;
 } & HTMLAttributes<HTMLAnchorElement>) => (
   <Link
-    href={href}
+    href={href as any}
     className={cn(
       "nav-link",
       active && "active",
@@ -626,7 +627,7 @@ export const Checkbox = ({
   error,
   ...props
 }: {
-  label?: string;
+  label?: any;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => (
   <div >
@@ -1133,7 +1134,7 @@ export const Breadcrumbs = ({
     {items.map((item, i) => (
       <React.Fragment key={i}>
         {item.href ? (
-          <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">
+          <Link href={item.href as any} className="text-gray-400 hover:text-white transition-colors">
             {item.label}
           </Link>
         ) : (

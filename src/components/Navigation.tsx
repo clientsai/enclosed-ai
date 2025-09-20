@@ -62,7 +62,7 @@ export default function Navigation({
             {links.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={link.href as any}
                 className={cn(
                   "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
                   isActive(link.href)
@@ -141,7 +141,7 @@ export default function Navigation({
             {links.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={link.href as any}
                 className={cn(
                   "block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200",
                   isActive(link.href)

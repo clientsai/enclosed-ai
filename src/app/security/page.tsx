@@ -33,7 +33,7 @@ export default function SecurityPage() {
       {/* Hero Section */}
       <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} >
+          <Flex direction="col"  gap={8} >
             <Badge variant="accent" >
               Enterprise-Grade Security
             </Badge>
@@ -54,10 +54,10 @@ export default function SecurityPage() {
       {/* Security Features */}
       <Section>
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Protection</Badge>
-              <H2 >Security Features</H2>
+              <H2>Security Features</H2>
               <Text size="xl" color="secondary" >
                 Enterprise-grade security features to protect your data and campaigns.
               </Text>
@@ -151,7 +151,7 @@ export default function SecurityPage() {
               ))}
             </Grid>
             <Divider  />
-            <Flex justify="between" align="center">
+            <Flex justify="between" >
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>

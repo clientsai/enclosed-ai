@@ -30,7 +30,7 @@ export default function CookiesPage() {
       {/* Content */}
       <Section >
         <Container size="default">
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Legal</Badge>
               <H1  gradient>Cookie Policy</H1>
@@ -192,7 +192,7 @@ export default function CookiesPage() {
               </Text>
             </div>
             <Divider  />
-            <Flex justify="between" align="center">
+            <Flex justify="between" >
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>

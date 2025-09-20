@@ -150,7 +150,7 @@ export default function PressPage() {
       <Section >
         <Flex gap={6}>
           <Badge>Press Center</Badge>
-          <H1 level={1}>
+          <H1>
             Latest News & Media Resources
           </H1>
           <Text >
@@ -170,7 +170,7 @@ export default function PressPage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Latest Press Releases</H1>
+            <H2>Latest Press Releases</H2>
             <Text >
               Recent announcements and company updates
             </Text>
@@ -181,7 +181,7 @@ export default function PressPage() {
                 <Flex gap={4}>
                   <div >
                     <div >
-                      <Flex gap={3} >
+                      <Flex gap={4} >
                         <Badge variant={release.featured ? "default" : "success"}>
                           {release.category}
                         </Badge>
@@ -192,9 +192,9 @@ export default function PressPage() {
                         )}
                         <span >{release.date}</span>
                       </Flex>
-                      <H1 level={3} >
+                      <H3 >
                         {release.title}
-                      </H1>
+                      </H3>
                       <p >
                         {release.content}
                       </p>
@@ -221,7 +221,7 @@ export default function PressPage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Media Coverage</H1>
+            <H2>Media Coverage</H2>
             <Text >
               What industry publications are saying about Enclosed.AI
             </Text>
@@ -236,9 +236,9 @@ export default function PressPage() {
                       <Badge variant="success">{item.type}</Badge>
                       <span >{item.date}</span>
                     </div>
-                    <H1 level={4} >
+                    <H4 >
                       {item.headline}
-                    </H1>
+                    </H4>
                   </div>
                   <Button size="sm" variant="ghost">
                     Read Article →
@@ -253,12 +253,12 @@ export default function PressPage() {
       <Section id="media-kit" >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Media Kit</H1>
+            <H2>Media Kit</H2>
             <Text >
               Download logos, photos, and company resources for your stories
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             {/* Logos */}
             <Card >
               <Flex gap={4}>
@@ -277,7 +277,7 @@ export default function PressPage() {
                       />
                     </svg>
                   </div>
-                  <H1 level={4}>Logos & Brand Assets</H1>
+                  <H4>Logos & Brand Assets</H4>
                 </div>
                 <div >
                   {mediaKit.logos.map((logo, index) => (
@@ -313,7 +313,7 @@ export default function PressPage() {
                       />
                     </svg>
                   </div>
-                  <H1 level={4}>Photos & Screenshots</H1>
+                  <H4>Photos & Screenshots</H4>
                 </div>
                 <div >
                   {mediaKit.photos.map((photo, index) => (
@@ -349,7 +349,7 @@ export default function PressPage() {
                       />
                     </svg>
                   </div>
-                  <H1 level={4}>Documents & Reports</H1>
+                  <H4>Documents & Reports</H4>
                 </div>
                 <div >
                   {mediaKit.documents.map((doc, index) => (
@@ -382,12 +382,12 @@ export default function PressPage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Executive Team</H1>
+            <H2>Executive Team</H2>
             <Text >
               Connect with our leadership team for interviews and expert commentary
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             {executives.map((exec, index) => (
               <Card key={index} >
                 <Flex gap={4}>
@@ -397,7 +397,7 @@ export default function PressPage() {
                         {exec.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
-                    <H1 level={4}>{exec.name}</H1>
+                    <H4>{exec.name}</H4>
                     <p >{exec.title}</p>
                   </div>
                   <p >
@@ -432,16 +432,16 @@ export default function PressPage() {
         <div >
           <Flex gap={8}>
             <div >
-              <H1 level={2}>Press Contact</H1>
+              <H2>Press Contact</H2>
               <Text >
                 Get in touch with our press team for interviews, quotes, and exclusive access
               </Text>
             </div>
-            <Grid columns={2}>
+            <Grid cols={2}>
               <Card >
                 <Flex gap={6}>
                   <div>
-                    <H1 level={3}>Media Inquiries</H1>
+                    <H3>Media Inquiries</H3>
                     <p >
                       For press releases, executive interviews, and general media questions
                     </p>
@@ -490,7 +490,7 @@ export default function PressPage() {
               <Card >
                 <Flex gap={6}>
                   <div>
-                    <H1 level={3}>Quick Media Request</H1>
+                    <H3>Quick Media Request</H3>
                     <p >
                       Submit your request and we'll get back to you quickly
                     </p>
@@ -546,7 +546,7 @@ export default function PressPage() {
                       />
                     </div>
                   </div>
-                  <Button size="md" >
+                  <Button size="default" >
                     Submit Request
                   </Button>
                 </Flex>
@@ -558,7 +558,7 @@ export default function PressPage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo
                 size="md"

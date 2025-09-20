@@ -29,7 +29,7 @@ export default function CareersPage() {
       {/* Hero Section */}
       <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} >
+          <Flex direction="col"  gap={8} >
             <Badge variant="accent" >
               Join Our Mission • Build the Future • Make an Impact
             </Badge>
@@ -60,10 +60,10 @@ export default function CareersPage() {
       {/* Why Work With Us */}
       <Section id="culture">
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Culture</Badge>
-              <H2 >Why Work at Enclosed.AI?</H2>
+              <H2>Why Work at Enclosed.AI?</H2>
               <Text size="xl" color="secondary" >
                 We're building something extraordinary, and we want you to be part of it.
               </Text>
@@ -160,17 +160,17 @@ export default function CareersPage() {
       {/* Open Positions */}
       <Section id="positions">
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Open Positions</Badge>
-              <H2 >Open Positions</H2>
+              <H2>Open Positions</H2>
               <Text size="xl" color="secondary" >
                 Join our team and help build the future of direct mail marketing.
               </Text>
             </div>
             <Flex direction="col" gap={6}>
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <Flex direction="col" gap={4}>
                     <Flex direction="col" gap={2}>
                       <H3>Senior Full-Flex Engineer</H3>
@@ -200,7 +200,7 @@ export default function CareersPage() {
                 </Grid>
               </Card>
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <Flex direction="col" gap={4}>
                     <Flex direction="col" gap={2}>
                       <H3>AI/ML Engineer</H3>
@@ -230,7 +230,7 @@ export default function CareersPage() {
                 </Grid>
               </Card>
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <Flex direction="col" gap={4}>
                     <Flex direction="col" gap={2}>
                       <H3>Product Marketing Manager</H3>
@@ -260,7 +260,7 @@ export default function CareersPage() {
                 </Grid>
               </Card>
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <Flex direction="col" gap={4}>
                     <Flex direction="col" gap={2}>
                       <H3>Customer Success Manager</H3>
@@ -296,17 +296,17 @@ export default function CareersPage() {
       {/* Benefits */}
       <Section>
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Benefits</Badge>
-              <H2 >Benefits & Perks</H2>
+              <H2>Benefits & Perks</H2>
               <Text size="xl" color="secondary" >
                 We take care of our team so you can focus on doing your best work.
               </Text>
             </div>
             <Grid cols={3} gap={8}>
               <div >
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >🏥</div>
                   <H4>Health & Wellness</H4>
                   <Text size="sm" color="secondary">
@@ -316,7 +316,7 @@ export default function CareersPage() {
                 </Flex>
               </div>
               <div >
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >💰</div>
                   <H4>Equity & Compensation</H4>
                   <Text size="sm" color="secondary">
@@ -325,7 +325,7 @@ export default function CareersPage() {
                 </Flex>
               </div>
               <div >
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >🏖️</div>
                   <H4>Time Off</H4>
                   <Text size="sm" color="secondary">
@@ -334,7 +334,7 @@ export default function CareersPage() {
                 </Flex>
               </div>
               <div >
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >📚</div>
                   <H4>Learning Budget</H4>
                   <Text size="sm" color="secondary">
@@ -343,7 +343,7 @@ export default function CareersPage() {
                 </Flex>
               </div>
               <div >
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >💻</div>
                   <H4>Equipment</H4>
                   <Text size="sm" color="secondary">
@@ -352,7 +352,7 @@ export default function CareersPage() {
                 </Flex>
               </div>
               <div >
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >🏠</div>
                   <H4>Remote Work</H4>
                   <Text size="sm" color="secondary">
@@ -367,10 +367,10 @@ export default function CareersPage() {
       {/* Hiring Process */}
       <Section>
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Process</Badge>
-              <H2 >Our Hiring Process</H2>
+              <H2>Our Hiring Process</H2>
               <Text size="xl" color="secondary" >
                 A transparent, efficient process designed to find the right fit for both sides.
               </Text>
@@ -414,7 +414,7 @@ export default function CareersPage() {
       <Section>
         <Container>
           <Card glass >
-            <H2 >Don't See Your Role?</H2>
+            <H2>Don't See Your Role?</H2>
             <Text size="xl" color="secondary" >
               We're always looking for talented people who share our vision. Send
               us your resume and tell us how you'd like to contribute.
@@ -474,7 +474,7 @@ export default function CareersPage() {
               ))}
             </Grid>
             <Divider  />
-            <Flex justify="between" align="center">
+            <Flex justify="between" >
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>

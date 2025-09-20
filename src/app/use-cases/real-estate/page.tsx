@@ -8,6 +8,7 @@ import {
   H1,
   H2,
   H3,
+  H4,
   Text,
   Button,
   Card,
@@ -146,7 +147,7 @@ export default function RealEstateUseCasePage() {
       <Section >
         <Flex gap={6}>
           <Badge>Real Estate Use Case</Badge>
-          <H1 level={1}>
+          <H1>
             Generate More Real Estate Texts with Direct Mail
           </H1>
           <Text >
@@ -166,18 +167,18 @@ export default function RealEstateUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Real Estate Marketing Challenges</H1>
+            <H2>Real Estate Marketing Challenges</H2>
             <Text >
               Common obstacles facing real estate professionals in today's competitive market
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} >
                 <Flex gap={4}>
-                  <H1 level={4} >
+                  <H4 >
                     {challenge.title}
-                  </H1>
+                  </H4>
                   <p >
                     {challenge.description}
                   </p>
@@ -194,20 +195,20 @@ export default function RealEstateUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Direct Mail Solutions for Real Estate</H1>
+            <H2>Direct Mail Solutions for Real Estate</H2>
             <Text >
               Proven strategies to overcome marketing challenges and grow your real estate business
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {solutions.map((solution, index) => (
               <Card key={index} >
                 <Flex gap={4}>
                   <div >
                     <span >{solution.icon}</span>
-                    <H1 level={4} >
+                    <H4 >
                       {solution.title}
-                    </H1>
+                    </H4>
                   </div>
                   <p >
                     {solution.description}
@@ -225,18 +226,18 @@ export default function RealEstateUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Real Estate Campaign Types</H1>
+            <H2>Real Estate Campaign Types</H2>
             <Text >
               Effective direct mail strategies for different real estate objectives
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {useCaseExamples.map((useCase, index) => (
               <Card key={index} hover >
                 <Flex gap={4}>
-                  <H1 level={3} >
+                  <H3 >
                     {useCase.title}
-                  </H1>
+                  </H3>
                   <p >
                     {useCase.description}
                   </p>
@@ -268,7 +269,7 @@ export default function RealEstateUseCasePage() {
       <Section id="case-study">
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Success Story</H1>
+            <H2>Success Story</H2>
             <Text >
               How Maria Santos built her real estate business with direct mail
             </Text>
@@ -280,7 +281,7 @@ export default function RealEstateUseCasePage() {
                   <span >MS</span>
                 </div>
                 <div>
-                  <H1 level={3}>{caseStudy.agent}</H1>
+                  <H3>{caseStudy.agent}</H3>
                   <p >{caseStudy.company} • {caseStudy.market}</p>
                 </div>
               </div>
@@ -330,7 +331,7 @@ export default function RealEstateUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Implementation Guide</H1>
+            <H2>Implementation Guide</H2>
             <Text >
               Steps to launch successful real estate direct mail campaigns
             </Text>
@@ -358,12 +359,12 @@ export default function RealEstateUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Real Estate Direct Mail Benchmarks</H1>
+            <H2>Real Estate Direct Mail Benchmarks</H2>
             <Text >
               Industry performance standards for real estate marketing
             </Text>
           </div>
-          <Grid columns={4}>
+          <Grid cols={4}>
             {benchmarks.map((benchmark, index) => (
               <Card key={index} glass >
                 <H3 >{benchmark.value}</H3>
@@ -377,9 +378,9 @@ export default function RealEstateUseCasePage() {
       {/* CTA Section */}
       <Section >
         <Flex gap={6}>
-          <H1 level={2} >
+          <H2 >
             Ready to Grow Your Real Estate Business?
-          </H1>
+          </H2>
           <Text >
             Join thousands of real estate professionals using Enclosed.AI to generate leads, build relationships, and close more deals with targeted direct mail campaigns.
           </Text>
@@ -396,7 +397,7 @@ export default function RealEstateUseCasePage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo
                 size="md"

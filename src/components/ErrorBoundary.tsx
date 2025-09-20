@@ -2,6 +2,8 @@
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
+import * as Sentry from '@sentry/nextjs';
+import { log } from '@/lib/logger-client';
 
 interface Props {
   children: ReactNode;
@@ -13,6 +15,7 @@ interface State {
   hasError: boolean;
   error?: Error;
   errorId: string;
+  sentryEventId?: string;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -31,17 +34,54 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Generate unique error ID
+    const errorId = Math.random().toString(36).substring(7);
+
     // Log error to monitoring service
     console.error('ErrorBoundary caught an error:', error, errorInfo);
 
+    // Log to our structured logging system
+    log.error('React Error Boundary triggered', {
+      error: error.message,
+      stack: error.stack,
+      componentStack: errorInfo.componentStack,
+      errorId,
+      userAgent: typeof window !== 'undefined' ? navigator.userAgent : undefined,
+      url: typeof window !== 'undefined' ? window.location.href : undefined
+    });
+
+    // Send to Sentry with detailed context
+    Sentry.withScope((scope) => {
+      scope.setTag('errorBoundary', true);
+      scope.setTag('errorId', errorId);
+      scope.setLevel('error');
+
+      // Add React component stack
+      scope.setContext('react', {
+        componentStack: errorInfo.componentStack
+      });
+
+      // Add additional browser context
+      if (typeof window !== 'undefined') {
+        scope.setContext('browser', {
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          viewport: {
+            width: window.innerWidth,
+            height: window.innerHeight
+          }
+        });
+      }
+
+      // Capture the exception
+      const sentryEventId = Sentry.captureException(error);
+
+      // Update state with Sentry event ID
+      this.setState({ sentryEventId });
+    });
+
     // Call custom error handler if provided
     this.props.onError?.(error, errorInfo);
-
-    // In production, you might want to send this to an error reporting service
-    if (process.env.NODE_ENV === 'production') {
-      // Example: Send to error reporting service
-      // errorReportingService.report(error, errorInfo);
-    }
   }
 
   private handleRetry = () => {
@@ -49,6 +89,7 @@ export class ErrorBoundary extends Component<Props, State> {
       hasError: false,
       error: undefined,
       errorId: '',
+      sentryEventId: undefined,
     });
   };
 
@@ -106,9 +147,23 @@ export class ErrorBoundary extends Component<Props, State> {
               </button>
             </div>
 
-            <p className="text-xs text-gray-500">
-              Error ID: {this.state.errorId}
-            </p>
+            <div className="text-xs text-gray-500 space-y-1">
+              <p>Error ID: {this.state.errorId}</p>
+              {this.state.sentryEventId && (
+                <p>Report ID: {this.state.sentryEventId}</p>
+              )}
+            </div>
+
+            {this.state.sentryEventId && (
+              <button
+                onClick={() => {
+                  Sentry.showReportDialog({ eventId: this.state.sentryEventId });
+                }}
+                className="text-xs text-blue-600 hover:text-blue-800 underline"
+              >
+                Send Feedback
+              </button>
+            )}
           </div>
         </div>
       );
@@ -142,6 +197,12 @@ export function PageErrorBoundary({ children }: { children: ReactNode }) {
       }
       onError={(error, errorInfo) => {
         console.error('Page Error:', error, errorInfo);
+        log.error('Page-level error boundary triggered', {
+          error: error.message,
+          stack: error.stack,
+          componentStack: errorInfo.componentStack,
+          context: 'page'
+        });
       }}
     >
       {children}
@@ -170,6 +231,13 @@ export function ComponentErrorBoundary({
       }
       onError={(error, errorInfo) => {
         console.error(`Component Error (${componentName}):`, error, errorInfo);
+        log.error('Component-level error boundary triggered', {
+          error: error.message,
+          stack: error.stack,
+          componentStack: errorInfo.componentStack,
+          componentName,
+          context: 'component'
+        });
       }}
     >
       {children}

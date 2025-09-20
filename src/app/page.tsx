@@ -73,7 +73,7 @@ export default function Home() {
       {/* Hero Section */}
       <Section className="relative min-h-screen flex items-center pt-20">
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} className="text-center relative z-10">
+          <Flex direction="col"  gap={8} className="text-center relative z-10">
             <Badge variant="accent" pulse className="animate-fade-in">
               AI-Powered Direct Mail Platform
             </Badge>
@@ -155,10 +155,10 @@ export default function Home() {
       {/* Features Section */}
       <Section id="features" className="relative py-32">
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div className="text-center space-y-4">
               <Badge variant="default" className="animate-fade-in">Features</Badge>
-              <H2 className="animate-slide-up">Everything you need</H2>
+              <H2>Everything you need</H2>
               <Text size="xl" color="secondary" className="max-w-2xl mx-auto animate-fade-in animation-delay-200">
                 A complete platform designed for simplicity and power
               </Text>
@@ -219,7 +219,7 @@ export default function Home() {
       {/* How It Works */}
       <Section className="relative py-32 bg-gradient-to-b from-black via-gray-900/5 to-black">
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div className="text-center space-y-4">
               <Badge variant="accent">Process</Badge>
               <H2>Simple as 1-2-3</H2>
@@ -278,7 +278,7 @@ export default function Home() {
                 profitable channel. Response rates went from 0.5% to 12%.
               </Text>
               <Divider className="my-6" />
-              <Flex align="center" gap={4}>
+              <Flex  gap={4}>
                 <Avatar src="" alt="Sarah Chen" size="lg" />
                 <div>
                   <Text weight="semibold">Sarah Chen</Text>
@@ -293,7 +293,7 @@ export default function Home() {
       {/* Pricing Preview */}
       <Section id="pricing" className="relative py-32 bg-gradient-to-b from-black via-gray-900/10 to-black">
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div className="text-center space-y-4">
               <Badge>Pricing</Badge>
               <H2>Simple, transparent pricing</H2>
@@ -360,7 +360,7 @@ export default function Home() {
 
                     <div className="space-y-3 min-h-[200px]">
                       {plan.features.map((feature, j) => (
-                        <Flex key={j} gap={3} align="center">
+                        <Flex key={j} gap={4} >
                           <span className="text-green-400">✓</span>
                           <Text size="sm" color="secondary">{feature}</Text>
                         </Flex>
@@ -388,7 +388,7 @@ export default function Home() {
           <Card glass className="relative overflow-hidden backdrop-blur-xl border-gray-800/50 p-16 text-center">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10" />
             <div className="relative z-10 space-y-6 max-w-3xl mx-auto">
-              <H2 className="text-5xl">Ready to transform your direct mail?</H2>
+              <H2>Ready to transform your direct mail?</H2>
               <Text size="xl" color="secondary">
                 Join thousands of businesses getting exceptional results with AI-powered direct mail.
               </Text>

@@ -256,7 +256,7 @@ export default function BillingPage() {
             {/* Credit Packages */}
             <div className="animate-slide-up animation-delay-400">
               <div className="text-center space-y-4 mb-12">
-                <H2 className="text-4xl font-semibold">Purchase Credits</H2>
+                <H2>Purchase Credits</H2>
                 <Text size="lg" color="secondary">
                   Choose the perfect credit package for your campaigns
                 </Text>
@@ -331,7 +331,7 @@ export default function BillingPage() {
             {/* Transaction History */}
             <div className="animate-slide-up animation-delay-600">
               <div className="space-y-6">
-                <H2 className="text-4xl font-semibold">Transaction History</H2>
+                <H2>Transaction History</H2>
 
                 {transactions.length === 0 ? (
                   <Card glass className="text-center space-y-6 backdrop-blur-xl border-gray-800/50 premium-shadow hover-lift p-12">
@@ -349,7 +349,7 @@ export default function BillingPage() {
                           key={transaction.id}
                           className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-800/30 transition-colors"
                         >
-                          <Flex gap={4} align="center">
+                          <Flex gap={4} >
                             <div
                               className={`w-12 h-12 rounded-full flex items-center justify-center ${
                                 transaction.type === "credit"

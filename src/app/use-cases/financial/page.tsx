@@ -8,6 +8,7 @@ import {
   H1,
   H2,
   H3,
+  H4,
   Text,
   Button,
   Card,
@@ -100,7 +101,7 @@ export default function FinancialUseCasePage() {
       <Section >
         <Flex gap={6}>
           <Badge>Financial Services Use Case</Badge>
-          <H1 level={1}>Compliant Direct Mail for Financial Services</H1>
+          <H1>Compliant Direct Mail for Financial Services</H1>
           <Text >
             Build trust, acquire customers, and promote financial products with compliant direct mail campaigns. Our platform ensures regulatory compliance while delivering personalized messaging that drives results.
           </Text>
@@ -114,14 +115,14 @@ export default function FinancialUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Financial Marketing Challenges</H1>
+            <H2>Financial Marketing Challenges</H2>
             <Text >How direct mail addresses unique financial services marketing needs</Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} >
                 <Flex gap={4}>
-                  <H1 level={4} >{challenge.title}</H1>
+                  <H4>{challenge.title}</H4>
                   <p >{challenge.description}</p>
                   <div >
                     <p >Solution: {challenge.solution}</p>
@@ -136,11 +137,11 @@ export default function FinancialUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Built-in Compliance Features</H1>
+            <H2>Built-in Compliance Features</H2>
             <Text >Ensure regulatory compliance with automated checks and industry-specific templates</Text>
           </div>
           <Card >
-            <Grid columns={2}>
+            <Grid cols={2}>
               {complianceFeatures.map((feature, index) => (
                 <div key={index} >
                   <div >
@@ -160,14 +161,14 @@ export default function FinancialUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Financial Services Campaign Types</H1>
+            <H2>Financial Services Campaign Types</H2>
             <Text >Proven direct mail strategies for financial institutions</Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {useCases.map((useCase, index) => (
               <Card key={index} hover >
                 <Flex gap={4}>
-                  <H1 level={3} >{useCase.title}</H1>
+                  <H3>{useCase.title}</H3>
                   <p >{useCase.description}</p>
                   <div>
                     <h4 >Key Tactics:</h4>
@@ -195,7 +196,7 @@ export default function FinancialUseCasePage() {
       <Section id="case-study">
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Success Story</H1>
+            <H2>Success Story</H2>
             <Text >How Community First Bank increased mortgage applications by 42%</Text>
           </div>
           <Card >
@@ -205,7 +206,7 @@ export default function FinancialUseCasePage() {
                   <span >CF</span>
                 </div>
                 <div>
-                  <H1 level={3}>{caseStudy.company}</H1>
+                  <H3>{caseStudy.company}</H3>
                   <p >{caseStudy.type}</p>
                 </div>
               </div>
@@ -253,10 +254,10 @@ export default function FinancialUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Financial Services Benchmarks</H1>
+            <H2>Financial Services Benchmarks</H2>
             <Text >Industry performance standards for financial direct mail</Text>
           </div>
-          <Grid columns={4}>
+          <Grid cols={4}>
             <Card >
               <H3 >4.8%</H3>
               <Text size="sm" color="muted">Average Response Rate</Text>
@@ -283,7 +284,7 @@ export default function FinancialUseCasePage() {
       {/* CTA Section */}
       <Section >
         <Flex gap={6}>
-          <H1 level={2} >Ready to Launch Compliant Campaigns?</H1>
+          <H2>Ready to Launch Compliant Campaigns?</H2>
           <Text >
             Join financial institutions using Enclosed.AI to acquire customers and promote products with confidence in regulatory compliance.
           </Text>
@@ -296,7 +297,7 @@ export default function FinancialUseCasePage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo size="md" showText={true} linkToHome={false}  />
               <p >Direct mail marketing powered by artificial intelligence</p>

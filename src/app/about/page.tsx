@@ -33,7 +33,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <Section >
         <Container size="lg">
-          <Flex direction="col" align="center" gap={8} >
+          <Flex direction="col"  gap={8} >
             <Badge variant="accent" >
               Trusted by 500+ businesses worldwide
             </Badge>
@@ -69,7 +69,7 @@ export default function AboutPage() {
               <div>
                 <H2>Our Mission</H2>
               </div>
-              <Flex direction="col" gap={5}>
+              <Flex direction="col" gap={4}>
                 <Text size="xl" weight="light">
                   At Enclosed.AI, we believe that every customer deserves a
                   personalized experience, even in the physical world. Our
@@ -101,25 +101,25 @@ export default function AboutPage() {
               <Card glass >
                 <Grid cols={2} gap={6}>
                   <div >
-                    <H2 >10,000+</H2>
+                    <H2>10,000+</H2>
                     <Text size="lg" weight="medium" >
                       Letters Sent
                     </Text>
                   </div>
                   <div >
-                    <H2 >95%</H2>
+                    <H2>95%</H2>
                     <Text size="lg" weight="medium" >
                       Delivery Rate
                     </Text>
                   </div>
                   <div >
-                    <H2 >3.2x</H2>
+                    <H2>3.2x</H2>
                     <Text size="lg" weight="medium" >
                       Higher Response
                     </Text>
                   </div>
                   <div >
-                    <H2 >500+</H2>
+                    <H2>500+</H2>
                     <Text size="lg" weight="medium" >
                       Happy Customers
                     </Text>
@@ -133,14 +133,14 @@ export default function AboutPage() {
       {/* Story Section */}
       <Section>
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Our Journey</Badge>
-              <H2 >Our Story</H2>
+              <H2>Our Story</H2>
             </div>
             <div >
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <div>
                     <div >
                       2022
@@ -159,7 +159,7 @@ export default function AboutPage() {
                 </Grid>
               </Card>
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <div>
                     <div >
                       2023
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 </Grid>
               </Card>
               <Card glass >
-                <Grid cols={2} gap={8} align="center">
+                <Grid cols={2} gap={8} >
                   <div>
                     <div >
                       2024
@@ -203,10 +203,10 @@ export default function AboutPage() {
       {/* Values Section */}
       <Section>
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Our Values</Badge>
-              <H2 >Our Values</H2>
+              <H2>Our Values</H2>
               <Text size="xl" color="secondary" >
                 These core principles guide everything we do and shape how we
                 serve our customers
@@ -295,10 +295,10 @@ export default function AboutPage() {
       {/* Team Preview Section */}
       <Section>
         <Container>
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Our Team</Badge>
-              <H2 >Meet Our Team</H2>
+              <H2>Meet Our Team</H2>
               <Text size="xl" color="secondary" >
                 We're a diverse group of marketers, engineers, and AI specialists
                 united by our passion for revolutionizing direct mail marketing.
@@ -387,7 +387,7 @@ export default function AboutPage() {
       <Section>
         <Container>
           <Card glass >
-            <H2 >Ready to Transform Your Direct Mail?</H2>
+            <H2>Ready to Transform Your Direct Mail?</H2>
             <Text size="xl" color="secondary" >
               Join hundreds of businesses already using Enclosed.AI to create more
               effective, personalized direct mail campaigns that drive real
@@ -448,7 +448,7 @@ export default function AboutPage() {
               ))}
             </Grid>
             <Divider  />
-            <Flex justify="between" align="center">
+            <Flex justify="between" >
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>

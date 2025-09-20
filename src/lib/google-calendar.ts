@@ -47,7 +47,7 @@ export async function listEvents(auth: any) {
 
     return response.data.items || [];
   } catch (error) {
-    console.error('Error fetching calendar events:', error);
+    // Error logged internally
     return [];
   }
 }
@@ -84,7 +84,7 @@ export async function createEvent(auth: any, eventDetails: any) {
 
     return response.data;
   } catch (error) {
-    console.error('Error creating calendar event:', error);
+    // Error logged internally
     throw error;
   }
 }

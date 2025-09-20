@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createApiError, ErrorCode, withErrorHandling } from '@/lib/error-handler';
+import { requireAuth } from '@/lib/auth-middleware';
 import { z } from 'zod';
 
 const supabase = createClient(
@@ -28,15 +29,16 @@ const LeadSchema = z.object({
 
 const ImportLeadsSchema = z.object({
   leads: z.array(LeadSchema).min(1, 'At least one lead is required').max(10000, 'Maximum 10,000 leads allowed'),
-  userId: z.string().uuid('Valid user ID is required'),
   campaignId: z.string().uuid('Valid campaign ID is required').optional(),
 });
 
 export const POST = withErrorHandling(async (req: NextRequest) => {
-  const body = await req.json();
-  const validatedData = ImportLeadsSchema.parse(body);
+  return requireAuth(req, async (request, { user }) => {
+    const body = await request.json();
+    const validatedData = ImportLeadsSchema.parse(body);
 
-  const { leads, userId, campaignId } = validatedData;
+    const { leads, campaignId } = validatedData;
+    const userId = user.db_id;
 
   // Validate environment variables
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -96,5 +98,6 @@ export const POST = withErrorHandling(async (req: NextRequest) => {
     count: data?.length || 0,
     message: `Successfully imported ${data?.length || 0} leads`,
     importedIds: data?.map(lead => lead.id) || [],
+  });
   });
 });

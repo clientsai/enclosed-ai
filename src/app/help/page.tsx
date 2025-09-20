@@ -169,7 +169,7 @@ export default function HelpPage() {
         <Container>
           <div className="space-y-12">
             <div className="text-center animate-slide-up animation-delay-600">
-              <H2 className="text-4xl font-semibold mb-4">Quick Help</H2>
+              <H2>Quick Help</H2>
               <Text size="lg" color="secondary">
                 Get started with the most common tasks
               </Text>
@@ -178,7 +178,7 @@ export default function HelpPage() {
             <div className="animate-slide-up animation-delay-800">
               <Grid cols={4} gap={6}>
                 {quickHelpCategories.map((category, index) => (
-                  <Link key={category.title} href={category.href}>
+                  <Link key={category.title} href={category.href as any}>
                     <Card className="hover-lift group relative overflow-hidden border-gray-800/50 backdrop-blur-sm premium-shadow transition-all duration-300 hover:scale-105">
                       <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                       <div className="relative z-10 space-y-4 text-center">
@@ -200,7 +200,7 @@ export default function HelpPage() {
         <Container>
           <div className="space-y-12">
             <div className="text-center animate-slide-up animation-delay-1000">
-              <H2 className="text-4xl font-semibold mb-4">Popular Articles</H2>
+              <H2>Popular Articles</H2>
               <Text size="lg" color="secondary">
                 Most helpful guides and tutorials
               </Text>
@@ -209,7 +209,7 @@ export default function HelpPage() {
             <div className="animate-slide-up animation-delay-1200">
               <Grid cols={2} gap={6}>
                 {popularArticles.map((article, index) => (
-                  <Link key={article.title} href={article.href}>
+                  <Link key={article.title} href={article.href as any}>
                     <Card className="hover-lift group border-gray-800/50 backdrop-blur-sm premium-shadow transition-all duration-300">
                       <Flex gap={4} align="start">
                         <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
@@ -248,7 +248,7 @@ export default function HelpPage() {
         <Container>
           <div className="space-y-12">
             <div className="text-center animate-slide-up animation-delay-1400">
-              <H2 className="text-4xl font-semibold mb-4">Additional Resources</H2>
+              <H2>Additional Resources</H2>
               <Text size="lg" color="secondary">
                 More ways to get the help you need
               </Text>
@@ -257,7 +257,7 @@ export default function HelpPage() {
             <div className="animate-slide-up animation-delay-1600">
               <Grid cols={3} gap={8}>
                 {additionalResources.map((resource, index) => (
-                  <Link key={resource.title} href={resource.href}>
+                  <Link key={resource.title} href={resource.href as any}>
                     <Card className="hover-lift group text-center space-y-6 border-gray-800/50 backdrop-blur-sm premium-shadow transition-all duration-300 hover:scale-105">
                       <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
                         {resource.icon}
@@ -289,7 +289,7 @@ export default function HelpPage() {
             <Card glass className="text-center space-y-8 backdrop-blur-xl border-gray-800/50 premium-shadow relative overflow-hidden p-16">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10" />
               <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-                <H2 className="text-4xl font-bold">Still Need Help?</H2>
+                <H2>Still Need Help?</H2>
                 <Text size="xl" color="secondary">
                   Can't find what you're looking for? Our support team is here to help
                   you succeed with your direct mail campaigns.

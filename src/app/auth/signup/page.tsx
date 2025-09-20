@@ -118,7 +118,7 @@ export default function SignupPage() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black,transparent)]" />
 
       <Container size="xl" className="relative z-10">
-        <Grid cols={2} gap={12} className="items-center">
+        <Grid cols={2} gap={8} className="items-center">
           {/* Left side - Benefits */}
           <div className="hidden lg:block space-y-8 animate-fade-in">
             <Badge variant="accent" pulse className="inline-block">
@@ -177,7 +177,7 @@ export default function SignupPage() {
               <Text className="italic text-gray-300 mb-4">
                 "The AI personalization is incredible. Our response rates went from 0.5% to 12% overnight."
               </Text>
-              <Flex align="center" gap={3}>
+              <Flex  gap={4}>
                 <Avatar src="" alt="Michael Torres" size="default" />
                 <div>
                   <Text weight="semibold" size="sm">

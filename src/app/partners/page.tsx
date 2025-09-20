@@ -126,7 +126,7 @@ export default function PartnersPage() {
       <Section >
         <Flex gap={6}>
           <Badge>Partnership Ecosystem</Badge>
-          <H1 level={1}>
+          <H1>
             Build the Future of Direct Mail Marketing Together
           </H1>
           <Text >
@@ -146,12 +146,12 @@ export default function PartnersPage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Partner Success by the Numbers</H1>
+            <H2>Partner Success by the Numbers</H2>
             <Text >
               Our partners see real results when they join the Enclosed.AI ecosystem
             </Text>
           </div>
-          <Grid columns={4}>
+          <Grid cols={4}>
             {partnerStats.map((stat, index) => (
               <Card key={index} >
                 <H3 >{stat.value}</H3>
@@ -166,12 +166,12 @@ export default function PartnersPage() {
       <Section id="integrations">
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Technology Integration Partners</H1>
+            <H2>Technology Integration Partners</H2>
             <Text >
               Seamlessly connect Enclosed.AI with your existing marketing stack through our certified integration partners
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             {techPartners.map((partner, index) => (
               <Card key={index} hover >
                 <Flex gap={4}>
@@ -183,9 +183,9 @@ export default function PartnersPage() {
                         </span>
                       </div>
                       <div>
-                        <H1 level={4} >
+                        <H4 >
                           {partner.name}
-                        </H1>
+                        </H4>
                         <span >{partner.category}</span>
                       </div>
                     </div>
@@ -222,12 +222,12 @@ export default function PartnersPage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Partnership Opportunities</H1>
+            <H2>Partnership Opportunities</H2>
             <Text >
               Choose the partnership model that aligns with your business goals and capabilities
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             {/* Technology Partners */}
             <Card >
               <Flex gap={6}>
@@ -246,7 +246,7 @@ export default function PartnersPage() {
                       />
                     </svg>
                   </div>
-                  <H1 level={3}>Technology Partners</H1>
+                  <H3>Technology Partners</H3>
                   <p >
                     Build native integrations and enhance your platform's capabilities
                   </p>
@@ -287,7 +287,7 @@ export default function PartnersPage() {
                       />
                     </svg>
                   </div>
-                  <H1 level={3}>Reseller Partners</H1>
+                  <H3>Reseller Partners</H3>
                   <p >
                     Sell Enclosed.AI services and earn competitive commissions
                   </p>
@@ -328,7 +328,7 @@ export default function PartnersPage() {
                       />
                     </svg>
                   </div>
-                  <H1 level={3}>Agency Partners</H1>
+                  <H3>Agency Partners</H3>
                   <p >
                     Offer direct mail services to your clients with white-label options
                   </p>
@@ -358,7 +358,7 @@ export default function PartnersPage() {
       <Section id="apply">
         <Flex gap={8}>
           <div >
-            <H1 level={2}>How to Become a Partner</H1>
+            <H2>How to Become a Partner</H2>
             <Text >
               Our streamlined application process gets you up and running quickly
             </Text>
@@ -384,7 +384,7 @@ export default function PartnersPage() {
             <Card >
               <Flex gap={6}>
                 <div >
-                  <H1 level={3}>Ready to Apply?</H1>
+                  <H3>Ready to Apply?</H3>
                   <p >
                     Tell us about your company and partnership interests
                   </p>
@@ -457,12 +457,12 @@ export default function PartnersPage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Partner Support & Resources</H1>
+            <H2>Partner Support & Resources</H2>
             <Text >
               We provide comprehensive support to ensure your success as a partner
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             <Card >
               <Flex gap={4}>
                 <div >
@@ -479,7 +479,7 @@ export default function PartnersPage() {
                     />
                   </svg>
                 </div>
-                <H1 level={4}>Technical Documentation</H1>
+                <H4>Technical Documentation</H4>
                 <p >
                   Comprehensive API documentation, SDKs, and integration guides to get you started quickly.
                 </p>
@@ -501,7 +501,7 @@ export default function PartnersPage() {
                     />
                   </svg>
                 </div>
-                <H1 level={4}>Dedicated Support</H1>
+                <H4>Dedicated Support</H4>
                 <p >
                   Access to our partner success team for technical support, account management, and strategic guidance.
                 </p>
@@ -523,7 +523,7 @@ export default function PartnersPage() {
                     />
                   </svg>
                 </div>
-                <H1 level={4}>Marketing Resources</H1>
+                <H4>Marketing Resources</H4>
                 <p >
                   Co-branded materials, case studies, sales tools, and marketing support to help you promote our partnership.
                 </p>
@@ -535,9 +535,9 @@ export default function PartnersPage() {
       {/* CTA Section */}
       <Section >
         <Flex gap={6}>
-          <H1 level={2} >
+          <H2 >
             Ready to Partner with Enclosed.AI?
-          </H1>
+          </H2>
           <Text >
             Join our ecosystem of successful partners and unlock new revenue opportunities while providing innovative direct mail solutions to your customers.
           </Text>
@@ -554,7 +554,7 @@ export default function PartnersPage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo
                 size="md"

@@ -172,7 +172,7 @@ export default function PricingPage() {
             </Text>
             {/* Billing Toggle */}
             <div className="animate-fade-in animation-delay-400">
-              <Flex justify="center" align="center" gap={4} className="glass backdrop-blur-xl border border-gray-800/50 rounded-full p-2 w-fit mx-auto">
+              <Flex justify="center"  gap={4} className="glass backdrop-blur-xl border border-gray-800/50 rounded-full p-2 w-fit mx-auto">
                 <Text color={billingPeriod === "monthly" ? "primary" : "secondary"} weight="medium">
                   Monthly
                 </Text>
@@ -244,7 +244,7 @@ export default function PricingPage() {
 
                     <div className="space-y-4 min-h-[300px]">
                       {plan.features.map((feature, i) => (
-                        <Flex key={i} gap={3} align="start">
+                        <Flex key={i} gap={4} align="start">
                           <span className="text-green-400 text-lg">✓</span>
                           <Text size="sm" color="secondary">{feature}</Text>
                         </Flex>
@@ -273,13 +273,13 @@ export default function PricingPage() {
           {/* Add-on Section */}
           <div className="animate-slide-up animation-delay-800">
             <div className="text-center space-y-4 mb-8">
-              <H2 className="text-4xl font-semibold">Need more letters?</H2>
+              <H2>Need more letters?</H2>
               <Text size="lg" color="secondary">
                 Add letter bundles to any plan
               </Text>
             </div>
             <Card glass className="backdrop-blur-xl border-gray-800/50 premium-shadow hover-lift max-w-md mx-auto">
-              <Flex justify="between" align="center" className="mb-6">
+              <Flex justify="between"  className="mb-6">
                 <div className="space-y-1">
                   <Text weight="semibold" size="lg">
                     Letter Bundle
@@ -307,7 +307,7 @@ export default function PricingPage() {
           {/* Features Grid */}
           <div className="animate-slide-up animation-delay-1000">
             <div className="text-center space-y-4 mb-12">
-              <H2 className="text-4xl font-semibold">Everything included</H2>
+              <H2>Everything included</H2>
               <Text size="lg" color="secondary">
                 All plans include our core features
               </Text>
@@ -336,7 +336,7 @@ export default function PricingPage() {
           {/* FAQ Section */}
           <div className="animate-slide-up animation-delay-1200 max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-12">
-              <H2 className="text-4xl font-semibold">Frequently asked questions</H2>
+              <H2>Frequently asked questions</H2>
               <Text size="lg" color="secondary">
                 Everything you need to know about our pricing
               </Text>
@@ -346,7 +346,7 @@ export default function PricingPage() {
                 <details key={i} className="group">
                   <summary className="cursor-pointer list-none">
                     <Card glass className="hover-lift backdrop-blur-xl border-gray-800/50 premium-shadow group-open:border-blue-500/30 transition-all">
-                      <Flex justify="between" align="center">
+                      <Flex justify="between" >
                         <Text weight="semibold" size="lg">{faq.question}</Text>
                         <span className="text-gray-400 group-open:rotate-180 transition-transform duration-300">
                           ↓
@@ -366,7 +366,7 @@ export default function PricingPage() {
             <Card glass className="text-center space-y-8 backdrop-blur-xl border-gray-800/50 premium-shadow relative overflow-hidden p-16">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10" />
               <div className="relative z-10 space-y-6 max-w-3xl mx-auto">
-                <H2 className="text-5xl font-bold">Ready to get started?</H2>
+                <H2>Ready to get started?</H2>
                 <Text size="xl" color="secondary">
                   Join thousands of businesses using AI-powered direct mail to drive exceptional results.
                 </Text>

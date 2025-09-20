@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { PageErrorBoundary } from "@/components/ErrorBoundary";
+import WebVitals from "@/components/WebVitals";
+import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Enclosed.AI - Direct Mail Marketing Platform",
@@ -52,6 +54,14 @@ export default function RootLayout({
             <Footer variant="landing" />
           </div>
         </PageErrorBoundary>
+
+        {/* Performance and Analytics Monitoring */}
+        <Suspense fallback={null}>
+          <WebVitals
+            analyticsId={process.env.NEXT_PUBLIC_GA_ID}
+            debug={process.env.NODE_ENV === 'development'}
+          />
+        </Suspense>
       </body>
     </html>
   );

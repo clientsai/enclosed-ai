@@ -132,8 +132,8 @@ export class LobClient {
     try {
       if (this.testMode || !this.apiKey) {
         // Basic validation in test mode
-        const hasRequired = address.address_line1 && address.address_city &&
-                           address.address_state && address.address_zip;
+        const hasRequired = !!(address.address_line1 && address.address_city &&
+                           address.address_state && address.address_zip);
         return { valid: hasRequired };
       }
 

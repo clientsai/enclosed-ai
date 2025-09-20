@@ -109,7 +109,7 @@ export default function Footer({ variant = "landing", className }: FooterProps) 
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={link.href as any}
                     className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     {link.label}
@@ -124,7 +124,7 @@ export default function Footer({ variant = "landing", className }: FooterProps) 
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={link.href as any}
                     className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     {link.label}
@@ -139,7 +139,7 @@ export default function Footer({ variant = "landing", className }: FooterProps) 
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={link.href as any}
                     className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     {link.label}
@@ -160,7 +160,7 @@ export default function Footer({ variant = "landing", className }: FooterProps) 
               {footerLinks.legal.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href as any}
                   className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
                 >
                   {link.label}

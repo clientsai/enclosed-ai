@@ -131,7 +131,7 @@ export default function WebinarsPage() {
       <Section >
         <Flex gap={6}>
           <Badge>Expert Training</Badge>
-          <H1 level={1}>
+          <H1>
             Master Direct Mail Marketing with Expert-Led Webinars
           </H1>
           <Text >
@@ -151,7 +151,7 @@ export default function WebinarsPage() {
       <Section id="upcoming">
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Upcoming Live Webinars</H1>
+            <H2>Upcoming Live Webinars</H2>
             <Text >
               Reserve your spot in our upcoming live sessions. Interact directly with experts, ask questions, and get personalized advice for your specific challenges.
             </Text>
@@ -174,9 +174,9 @@ export default function WebinarsPage() {
                               {webinar.registrations} registered
                             </span>
                           </Flex>
-                          <H1 level={3} >
+                          <H3 >
                             {webinar.title}
-                          </H1>
+                          </H3>
                         </div>
                       </div>
                       <div >
@@ -203,10 +203,10 @@ export default function WebinarsPage() {
                     </Flex>
                   </div>
                   <div >
-                    <Button size="md" >
+                    <Button size="default" >
                       Register Free
                     </Button>
-                    <Button variant="ghost" size="md" >
+                    <Button variant="ghost" size="default" >
                       Add to Calendar
                     </Button>
                   </div>
@@ -220,7 +220,7 @@ export default function WebinarsPage() {
       <Section id="recorded" >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>On-Demand Webinar Library</H1>
+            <H2>On-Demand Webinar Library</H2>
             <Text >
               Access our comprehensive library of recorded webinars. Learn at your own pace with expert insights available 24/7.
             </Text>
@@ -240,7 +240,7 @@ export default function WebinarsPage() {
                 Analytics
               </Button>
             </Flex>
-            <Grid columns={2}>
+            <Grid cols={2}>
               {recordedWebinars.map((webinar, index) => (
                       <Card key={index} hover >
                         <Flex gap={4}>
@@ -252,9 +252,9 @@ export default function WebinarsPage() {
                               {webinar.views.toLocaleString()} views
                             </span>
                           </div>
-                          <H1 level={4} >
+                          <H4 >
                             {webinar.title}
-                          </H1>
+                          </H4>
                           <div >
                             <div>
                               <span >Date:</span>
@@ -286,12 +286,12 @@ export default function WebinarsPage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Why Attend Our Webinars?</H1>
+            <H2>Why Attend Our Webinars?</H2>
             <Text >
               Learn from industry experts and join a community of successful direct mail marketers
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             <Card >
               <Flex gap={4}>
                 <div >
@@ -308,7 +308,7 @@ export default function WebinarsPage() {
                     />
                   </svg>
                 </div>
-                <H1 level={4}>Expert Knowledge</H1>
+                <H4>Expert Knowledge</H4>
                 <p >
                   Learn from industry professionals with years of direct mail marketing experience and proven track records.
                 </p>
@@ -330,7 +330,7 @@ export default function WebinarsPage() {
                     />
                   </svg>
                 </div>
-                <H1 level={4}>Interactive Learning</H1>
+                <H4>Interactive Learning</H4>
                 <p >
                   Participate in live Q&A sessions, polls, and discussions with fellow marketers and industry experts.
                 </p>
@@ -352,7 +352,7 @@ export default function WebinarsPage() {
                     />
                   </svg>
                 </div>
-                <H1 level={4}>Actionable Strategies</H1>
+                <H4>Actionable Strategies</H4>
                 <p >
                   Walk away with concrete tactics and frameworks you can implement immediately to improve your campaigns.
                 </p>
@@ -364,9 +364,9 @@ export default function WebinarsPage() {
       {/* CTA Section */}
       <Section >
         <Flex gap={6}>
-          <H1 level={2} >
+          <H2 >
             Ready to Level Up Your Direct Mail Marketing?
-          </H1>
+          </H2>
           <Text >
             Join thousands of marketers who have transformed their campaigns through our expert-led training. Register for upcoming webinars or start learning today with our on-demand library.
           </Text>
@@ -383,7 +383,7 @@ export default function WebinarsPage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo
                 size="md"

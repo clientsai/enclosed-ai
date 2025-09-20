@@ -185,7 +185,7 @@ export default function TeamPage() {
                 <div >
                   <span >MR</span>
                 </div>
-                <Flex direction="col" gap={1}>
+                <Flex direction="col" gap={2}>
                   <H4>Michael Rodriguez</H4>
                   <Badge variant="default">Head of Engineering</Badge>
                 </Flex>
@@ -199,7 +199,7 @@ export default function TeamPage() {
                 <div >
                   <span >AK</span>
                 </div>
-                <Flex direction="col" gap={1}>
+                <Flex direction="col" gap={2}>
                   <H4>Alex Kim</H4>
                   <Badge variant="default">Senior AI Engineer</Badge>
                 </Flex>
@@ -213,7 +213,7 @@ export default function TeamPage() {
                 <div >
                   <span >JS</span>
                 </div>
-                <Flex direction="col" gap={1}>
+                <Flex direction="col" gap={2}>
                   <H4>Jessica Smith</H4>
                   <Badge variant="default">Frontend Engineer</Badge>
                 </Flex>
@@ -227,7 +227,7 @@ export default function TeamPage() {
                 <div >
                   <span >RC</span>
                 </div>
-                <Flex direction="col" gap={1}>
+                <Flex direction="col" gap={2}>
                   <H4>Ryan Chen</H4>
                   <Badge variant="default">Backend Engineer</Badge>
                 </Flex>

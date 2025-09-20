@@ -33,7 +33,7 @@ export default function ContactPage() {
       {/* Header */}
       {/* Hero Section */}
       <Section >
-        <Flex direction="col" gap={6} align="center">
+        <Flex direction="col" gap={6} >
           <Badge variant="accent">We're here to help • 24/7 Support • Quick Response</Badge>
           <H1 gradient>Get in Touch</H1>
           <Text size="xl" color="secondary" >
@@ -56,7 +56,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <Card glass >
             <Flex direction="col" gap={6}>
-              <Flex align="center" gap={4}>
+              <Flex  gap={4}>
                 <div >
                   <svg
                     fill="none"
@@ -121,7 +121,7 @@ export default function ContactPage() {
           <Flex direction="col" gap={6}>
             <Card glass >
               <Flex direction="col" gap={6}>
-                <Flex align="center" gap={4}>
+                <Flex  gap={4}>
                   <div >
                     <svg
                       fill="none"
@@ -237,7 +237,7 @@ export default function ContactPage() {
             </Card>
             <Card glass >
               <Flex direction="col" gap={4}>
-                <Flex align="center" gap={3}>
+                <Flex  gap={4}>
                   <div >
                     <svg
                       fill="none"
@@ -254,16 +254,16 @@ export default function ContactPage() {
                   </div>
                   <H3>Response Times</H3>
                 </Flex>
-                <Flex direction="col" gap={3}>
-                  <Flex justify="between" align="center">
+                <Flex direction="col" gap={4}>
+                  <Flex justify="between" >
                     <Text color="secondary">Email Support</Text>
                     <Text weight="semibold">Within 2 hours</Text>
                   </Flex>
-                  <Flex justify="between" align="center">
+                  <Flex justify="between" >
                     <Text color="secondary">Live Chat</Text>
                     <Text weight="semibold">Immediate</Text>
                   </Flex>
-                  <Flex justify="between" align="center">
+                  <Flex justify="between" >
                     <Text color="secondary">Phone Support</Text>
                     <Text weight="semibold">Within 5 minutes</Text>
                   </Flex>
@@ -284,7 +284,7 @@ export default function ContactPage() {
           </div>
           <Grid cols={3} gap={6}>
             <Card glass hover >
-              <Flex direction="col" gap={4} align="center">
+              <Flex direction="col" gap={4} >
                 <div >
                   <svg
                     fill="none"
@@ -310,7 +310,7 @@ export default function ContactPage() {
               </Flex>
             </Card>
             <Card glass hover >
-              <Flex direction="col" gap={4} align="center">
+              <Flex direction="col" gap={4} >
                 <div >
                   <svg
                     fill="none"
@@ -336,7 +336,7 @@ export default function ContactPage() {
               </Flex>
             </Card>
             <Card glass hover >
-              <Flex direction="col" gap={4} align="center">
+              <Flex direction="col" gap={4} >
                 <div >
                   <svg
                     fill="none"

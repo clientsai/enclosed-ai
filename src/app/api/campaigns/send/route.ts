@@ -2,16 +2,41 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendCampaignNotification, sendLetterPreview } from '@/lib/email';
 import { generateAdvancedPersonalizedLetter } from '@/lib/letter-personalization';
 import { createApiError, ErrorCode, withErrorHandling } from '@/lib/error-handler';
+import { requireAuth } from '@/lib/auth-middleware';
 import { z } from 'zod';
 
 const SendCampaignSchema = z.object({
   campaign: z.object({
     name: z.string().min(1, 'Campaign name is required'),
     offer_type: z.string(),
+    offerName: z.string().min(1, 'Offer name is required'),
+    offerDescription: z.string().min(1, 'Offer description is required'),
+    businessDescription: z.string().min(1, 'Business description is required'),
+    targetAudience: z.string().min(1, 'Target audience is required'),
+    senderName: z.string().min(1, 'Sender name is required'),
+    companyName: z.string().min(1, 'Company name is required'),
+    industry: z.string().min(1, 'Industry is required'),
+    leadMagnetName: z.string().optional(),
   }),
   leads: z.array(z.object({
     firstName: z.string().min(1, 'First name is required'),
     lastName: z.string().min(1, 'Last name is required'),
+    address: z.string().min(1, 'Address is required'),
+    city: z.string().min(1, 'City is required'),
+    state: z.string().min(1, 'State is required'),
+    zipCode: z.string().min(1, 'ZIP code is required'),
+    company: z.string().optional(),
+    email: z.string().email().optional(),
+    phone: z.string().optional(),
+    industry: z.string().optional(),
+    position: z.string().optional(),
+    revenue: z.string().optional(),
+    employees: z.string().optional(),
+    website: z.string().optional(),
+    notes: z.string().optional(),
+    customField1: z.string().optional(),
+    customField2: z.string().optional(),
+    customField3: z.string().optional(),
   })).min(1, 'At least one lead is required'),
   customPrompt: z.string().optional(),
   userEmail: z.string().email('Valid email is required'),
@@ -19,8 +44,9 @@ const SendCampaignSchema = z.object({
 });
 
 export const POST = withErrorHandling(async (req: NextRequest) => {
-  const body = await req.json();
-  const validatedData = SendCampaignSchema.parse(body);
+  return requireAuth(req, async (request, { user }) => {
+    const body = await request.json();
+    const validatedData = SendCampaignSchema.parse(body);
 
   const { campaign, leads, customPrompt, userEmail, action } = validatedData;
 
@@ -104,5 +130,6 @@ export const POST = withErrorHandling(async (req: NextRequest) => {
     message: `Campaign "${campaign.name}" has been created. ${recipientCount} letters will be processed.`,
     recipientCount,
     totalCredits,
+  });
   });
 });

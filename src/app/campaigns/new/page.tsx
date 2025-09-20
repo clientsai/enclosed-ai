@@ -92,10 +92,10 @@ export default function NewCampaignPage() {
                 csvData: results.data,
                 csvHeaders: headers,
                 columnMapping: autoMapping,
-                letterCount: results.data.filter(row => Object.values(row).some(v => v)).length,
+                letterCount: results.data.filter((row: any) => Object.values(row).some(v => v)).length,
               }));
             },
-            error: (err) => {
+            error: (err: any) => {
               setError("Failed to parse CSV: " + err.message);
             },
           });

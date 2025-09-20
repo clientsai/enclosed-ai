@@ -76,7 +76,7 @@ export default function Dashboard() {
         .limit(5);
       if (campaignData) {
         setCampaigns(campaignData);
-        const active = campaignData.filter((c) =>
+        const active = campaignData.filter((c: any) =>
           ["draft", "scheduled", "processing"].includes(c.status)
         ).length;
         setStats((prev) => ({ ...prev, activeCampaigns: active }));
@@ -205,7 +205,7 @@ export default function Dashboard() {
             </div>
             {/* Recent Campaigns */}
             <div className="animate-slide-up animation-delay-600">
-              <Flex justify="between" align="center" className="mb-6">
+              <Flex justify="between"  className="mb-6">
                 <H3 className="text-2xl font-semibold">Recent Campaigns</H3>
                 <Button variant="ghost" size="sm" href="/campaigns" className="hover:scale-105 transition-transform">
                   View All →
@@ -226,10 +226,10 @@ export default function Dashboard() {
                 <div className="space-y-4">
                   {campaigns.map((campaign, index) => (
                     <Card key={campaign.id} className="hover-lift backdrop-blur-sm border-gray-800/50 premium-shadow transition-all duration-300 hover:scale-[1.02]">
-                      <Flex justify="between" align="center">
-                        <Flex gap={4} align="center">
+                      <Flex justify="between" >
+                        <Flex gap={4} >
                           <div className="space-y-2">
-                            <Flex gap={3} align="center">
+                            <Flex gap={4} >
                               <Text weight="semibold" size="lg">{campaign.name}</Text>
                               <Badge
                                 variant={

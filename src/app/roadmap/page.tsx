@@ -179,7 +179,7 @@ export default function RoadmapPage() {
                     </div>
                     {/* Content */}
                     <Card >
-                      <Flex direction="col" gap={3}>
+                      <Flex direction="col" gap={4}>
                         <div >
                           <Badge variant="accent">{item.date}</Badge>
                         </div>
@@ -226,7 +226,7 @@ export default function RoadmapPage() {
       {/* CTA Section */}
       <Section >
         <Flex direction="col" gap={6}>
-          <H2 >Ready to Experience the Future?</H2>
+          <H2>Ready to Experience the Future?</H2>
           <Text size="lg" >
             Start using Enclosed.AI today and get automatic access to all new features as they're released. No additional costs, just continuous innovation.
           </Text>

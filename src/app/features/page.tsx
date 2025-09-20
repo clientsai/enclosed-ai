@@ -59,7 +59,7 @@ export default function FeaturesPage() {
       <Section >
         <Container size="xl">
           <div >
-            <H2 >Core Features</H2>
+            <H2>Core Features</H2>
             <Text size="lg" color="secondary">
               Built for modern marketers who demand results
             </Text>
@@ -77,19 +77,19 @@ export default function FeaturesPage() {
                 Generate unique, personalized content for every recipient using advanced AI that understands context and intent.
               </Text>
               <div >
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
                   <Text size="sm" color="secondary">Dynamic content generation</Text>
                 </Flex>
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
                   <Text size="sm" color="secondary">Behavioral targeting</Text>
                 </Flex>
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
@@ -109,19 +109,19 @@ export default function FeaturesPage() {
                 Set up triggered campaigns, scheduled sends, and multi-touch sequences that run on autopilot.
               </Text>
               <div >
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
                   <Text size="sm" color="secondary">Trigger-based sending</Text>
                 </Flex>
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
                   <Text size="sm" color="secondary">A/B testing built-in</Text>
                 </Flex>
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
@@ -141,19 +141,19 @@ export default function FeaturesPage() {
                 Track performance, measure ROI, and optimize campaigns with comprehensive analytics dashboards.
               </Text>
               <div >
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
                   <Text size="sm" color="secondary">Live tracking dashboard</Text>
                 </Flex>
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
                   <Text size="sm" color="secondary">ROI measurement</Text>
                 </Flex>
-                <Flex gap={3} align="start">
+                <Flex gap={4} align="start">
                   <div >
                     <span >✓</span>
                   </div>
@@ -168,7 +168,7 @@ export default function FeaturesPage() {
       <Section >
         <Container size="xl">
           <div >
-            <H2 >Advanced Capabilities</H2>
+            <H2>Advanced Capabilities</H2>
             <Text size="lg" color="secondary">
               Enterprise-grade features for sophisticated campaigns
             </Text>
@@ -268,7 +268,7 @@ export default function FeaturesPage() {
       {/* Integration Section */}
       <Section >
         <Container size="lg">
-          <Grid cols={2} gap={12} >
+          <Grid cols={2} gap={8} >
             <div>
               <Badge variant="accent" >Integrations</Badge>
               <H2 >
@@ -280,25 +280,25 @@ export default function FeaturesPage() {
                 Seamlessly integrate with your existing tools and workflows. Our platform works with all major CRMs, marketing platforms, and analytics tools.
               </Text>
               <div >
-                <Flex gap={3} align="center">
+                <Flex gap={4} >
                   <div >
                     <span >✓</span>
                   </div>
                   <Text>Salesforce, HubSpot, Pipedrive CRM sync</Text>
                 </Flex>
-                <Flex gap={3} align="center">
+                <Flex gap={4} >
                   <div >
                     <span >✓</span>
                   </div>
                   <Text>Mailchimp, Klaviyo, ActiveCampaign</Text>
                 </Flex>
-                <Flex gap={3} align="center">
+                <Flex gap={4} >
                   <div >
                     <span >✓</span>
                   </div>
                   <Text>Google Analytics, Segment, Mixpanel</Text>
                 </Flex>
-                <Flex gap={3} align="center">
+                <Flex gap={4} >
                   <div >
                     <span >✓</span>
                   </div>
@@ -328,7 +328,7 @@ export default function FeaturesPage() {
       {/* CTA Section */}
       <Section >
         <GlowOrb  color="accent" size="lg" />
-        <Container size="md">
+        <Container size="default">
           <H2 >
             Ready to Transform Your
             <br />

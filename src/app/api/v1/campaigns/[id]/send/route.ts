@@ -69,7 +69,7 @@ export async function POST(
     // Check user balance
     const { data: user } = await supabase
       .from('enclosed_users')
-      .select('credits_balance')
+      .select('credits_balance, total_pieces_sent')
       .eq('id', client.user_id)
       .single();
 
@@ -211,7 +211,7 @@ export async function POST(
       .from('enclosed_users')
       .update({
         credits_balance: user.credits_balance - totalDeduction,
-        total_pieces_sent: supabase.raw('total_pieces_sent + ?', [successCount]),
+        total_pieces_sent: (user.total_pieces_sent || 0) + successCount,
       })
       .eq('id', client.user_id);
 

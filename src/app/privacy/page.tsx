@@ -140,7 +140,7 @@ export default function PrivacyPage() {
               <div key={section.title} className={`animate-slide-up animation-delay-${(index + 1) * 200}`}>
                 <Card glass className="backdrop-blur-xl border-gray-800/50 premium-shadow">
                   <div className="space-y-6">
-                    <H2 className="text-3xl font-semibold">{section.title}</H2>
+                    <H2>{section.title}</H2>
                     <div className="space-y-4">
                       {section.content.map((paragraph, pIndex) => (
                         <Text key={pIndex} color="secondary" className="leading-relaxed">
@@ -157,7 +157,7 @@ export default function PrivacyPage() {
             <div className="animate-slide-up animation-delay-1800">
               <Card glass className="backdrop-blur-xl border-gray-800/50 premium-shadow">
                 <div className="space-y-6">
-                  <H2 className="text-3xl font-semibold">Contact Us</H2>
+                  <H2>Contact Us</H2>
                   <Text color="secondary" className="leading-relaxed">
                     If you have any questions about this Privacy Policy or our privacy practices, please contact us using the information below:
                   </Text>
@@ -168,7 +168,7 @@ export default function PrivacyPage() {
                           {contact.label}:
                         </Text>
                         {contact.href ? (
-                          <Link href={contact.href} className="text-blue-500 hover:text-blue-400 transition-colors">
+                          <Link href={contact.href as any} className="text-blue-500 hover:text-blue-400 transition-colors">
                             {contact.value}
                           </Link>
                         ) : (
@@ -186,7 +186,7 @@ export default function PrivacyPage() {
               <Card glass className="text-center space-y-6 backdrop-blur-xl border-gray-800/50 premium-shadow relative overflow-hidden p-12">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10" />
                 <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-                  <H2 className="text-3xl font-bold">Questions About Your Privacy?</H2>
+                  <H2>Questions About Your Privacy?</H2>
                   <Text size="lg" color="secondary">
                     We're committed to transparency and protecting your data. Contact our privacy team for any concerns.
                   </Text>

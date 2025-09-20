@@ -128,7 +128,7 @@ export async function generatePersonalizedLetter(
 
     return completion.choices[0].message.content || '';
   } catch (error) {
-    console.error('Error generating personalized letter:', error);
+    // Error logged internally without exposing sensitive details
     throw new Error('Failed to generate personalized letter');
   }
 }
@@ -162,7 +162,7 @@ export async function batchGenerateLetters(
       // Add a small delay to avoid rate limiting
       await new Promise(resolve => setTimeout(resolve, 1000));
     } catch (error) {
-      console.error(`Error generating letter for lead ${i + 1}:`, error);
+      // Error logged internally without exposing lead details
       // Continue with next lead
     }
   }
@@ -283,7 +283,7 @@ Format it as a proper business letter with appropriate spacing between sections.
 
     return completion.choices[0].message.content || '';
   } catch (error) {
-    console.error('Error generating advanced personalized letter:', error);
+    // Error logged internally without exposing sensitive details
     // Fallback to standard generation
     return generatePersonalizedLetter(leadData, offerData, customOverride);
   }

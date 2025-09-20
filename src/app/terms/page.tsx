@@ -30,7 +30,7 @@ export default function TermsPage() {
       {/* Content */}
       <Section >
         <Container size="default">
-          <Flex direction="col" gap={12}>
+          <Flex direction="col" gap={8}>
             <div >
               <Badge >Legal</Badge>
               <H1  gradient>Terms of Service</H1>
@@ -84,7 +84,7 @@ export default function TermsPage() {
               </Text>
             </div>
             <Divider  />
-            <Flex justify="between" align="center">
+            <Flex justify="between" >
               <Text size="sm" color="muted">
                 © 2024 Enclosed.AI. All rights reserved.
               </Text>

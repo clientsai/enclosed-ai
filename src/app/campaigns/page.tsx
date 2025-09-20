@@ -170,7 +170,7 @@ export default function CampaignsPage() {
             {/* Filters */}
             <div className="animate-slide-up animation-delay-400">
               <Card glass className="backdrop-blur-xl border-gray-800/50 p-6">
-                <Flex justify="between" align="center">
+                <Flex justify="between" >
                   <div>
                     <Text size="sm" color="muted" className="mb-3 block">Filter by status</Text>
                     <Flex gap={2} wrap>
@@ -224,7 +224,7 @@ export default function CampaignsPage() {
                     <Card key={campaign.id} className="hover-lift backdrop-blur-sm border-gray-800/50 premium-shadow transition-all duration-300 hover:scale-[1.01]">
                       <Flex justify="between" align="start">
                         <div className="space-y-4 flex-1">
-                          <Flex gap={3} align="center">
+                          <Flex gap={4} >
                             <H3 className="text-xl font-semibold">{campaign.name}</H3>
                             <Badge
                               variant={
@@ -267,7 +267,7 @@ export default function CampaignsPage() {
                             <div className="mt-4 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
                               <Flex gap={6}>
                                 <Text size="sm" color="success">
-                                  <span className="text-green-400">✓</span> Delivered: {campaign.sent_count || 0}
+                                  <span className="text-green-400">✓</span> Delivered: {campaign.recipient_count || 0}
                                 </Text>
                                 <Text size="sm" color="success">
                                   <span className="text-green-400">📊</span> Response Rate: 12.4%
@@ -277,7 +277,7 @@ export default function CampaignsPage() {
                           )}
                         </div>
 
-                        <Flex gap={3} direction="col" className="ml-6">
+                        <Flex gap={4} direction="col" className="ml-6">
                           <Button
                             variant="ghost"
                             size="sm"

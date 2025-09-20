@@ -8,6 +8,7 @@ import {
   H1,
   H2,
   H3,
+  H4,
   Text,
   Button,
   Card,
@@ -91,7 +92,7 @@ export default function EcommerceUseCasePage() {
       <Section >
         <Flex gap={6}>
           <Badge>E-commerce Use Case</Badge>
-          <H1 level={1}>
+          <H1>
             Boost Online Sales with Strategic Direct Mail
           </H1>
           <Text >
@@ -111,18 +112,18 @@ export default function EcommerceUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>E-commerce Marketing Challenges</H1>
+            <H2>E-commerce Marketing Challenges</H2>
             <Text >
               How direct mail solves common online retail marketing problems
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} >
                 <Flex gap={4}>
-                  <H1 level={4} >
+                  <H4 >
                     {challenge.title}
-                  </H1>
+                  </H4>
                   <p >
                     {challenge.description}
                   </p>
@@ -141,18 +142,18 @@ export default function EcommerceUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>E-commerce Campaign Types</H1>
+            <H2>E-commerce Campaign Types</H2>
             <Text >
               Proven direct mail strategies for online retailers
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {useCases.map((useCase, index) => (
               <Card key={index} hover >
                 <Flex gap={4}>
-                  <H1 level={3} >
+                  <H3 >
                     {useCase.title}
-                  </H1>
+                  </H3>
                   <p >
                     {useCase.description}
                   </p>
@@ -184,7 +185,7 @@ export default function EcommerceUseCasePage() {
       <Section id="case-study" >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Success Story</H1>
+            <H2>Success Story</H2>
             <Text >
               How Artisan Home Goods increased customer lifetime value by 45%
             </Text>
@@ -196,7 +197,7 @@ export default function EcommerceUseCasePage() {
                   <span >AH</span>
                 </div>
                 <div>
-                  <H1 level={3}>{caseStudy.company}</H1>
+                  <H3>{caseStudy.company}</H3>
                   <p >{caseStudy.industry}</p>
                 </div>
               </div>
@@ -248,12 +249,12 @@ export default function EcommerceUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>E-commerce Direct Mail Benchmarks</H1>
+            <H2>E-commerce Direct Mail Benchmarks</H2>
             <Text >
               Industry performance standards for e-commerce direct mail
             </Text>
           </div>
-          <Grid columns={4}>
+          <Grid cols={4}>
             <Card >
               <H3 >3.2%</H3>
               <Text size="sm" color="muted">Average Response Rate</Text>
@@ -280,9 +281,9 @@ export default function EcommerceUseCasePage() {
       {/* CTA Section */}
       <Section >
         <Flex gap={6}>
-          <H1 level={2} >
+          <H2 >
             Ready to Boost Your E-commerce Sales?
-          </H1>
+          </H2>
           <Text >
             Join successful e-commerce brands using Enclosed.AI to complement their digital marketing with high-converting direct mail campaigns.
           </Text>
@@ -299,7 +300,7 @@ export default function EcommerceUseCasePage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo size="md" showText={true} linkToHome={false}  />
               <p >Direct mail marketing powered by artificial intelligence</p>

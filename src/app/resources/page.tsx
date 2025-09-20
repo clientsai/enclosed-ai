@@ -23,7 +23,7 @@ export default function ResourcesPage() {
       {/* Header */}
       {/* Hero */}
       <Section >
-        <Flex direction="col" gap={8} align="center" >
+        <Flex direction="col" gap={8}  >
           <Badge>Learning Center</Badge>
           <H1 >
             Everything You Need to Master
@@ -52,7 +52,7 @@ export default function ResourcesPage() {
               </div>
               <H4>Getting Started</H4>
               <p >New to AI direct mail? Start here</p>
-              <Link href="/help/getting-started" >
+              <Link href={"/help/getting-started" as any} >
                 Begin Learning →
               </Link>
             </Flex>
@@ -64,7 +64,7 @@ export default function ResourcesPage() {
               </div>
               <H4>Templates</H4>
               <p >Ready-to-use campaign templates</p>
-              <Link href="/templates" >
+              <Link href={"/templates" as any} >
                 Browse Templates →
               </Link>
             </Flex>
@@ -76,7 +76,7 @@ export default function ResourcesPage() {
               </div>
               <H4>Webinars</H4>
               <p >Live and recorded expert sessions</p>
-              <Link href="/webinars" >
+              <Link href={"/webinars" as any} >
                 Watch Webinars →
               </Link>
             </Flex>
@@ -88,7 +88,7 @@ export default function ResourcesPage() {
               </div>
               <H4>Case Studies</H4>
               <p >Real success stories and results</p>
-              <Link href="/case-studies" >
+              <Link href={"/case-studies" as any} >
                 Read Studies →
               </Link>
             </Flex>
@@ -97,7 +97,7 @@ export default function ResourcesPage() {
       </Section>
       {/* Featured Guides */}
       <Section >
-        <Flex direction="col" gap={12}>
+        <Flex direction="col" gap={8}>
           <div >
             <Badge>Featured Guides</Badge>
             <H2>Master Every Aspect of AI Direct Mail</H2>
@@ -120,7 +120,7 @@ export default function ResourcesPage() {
                   <span>•</span>
                   <span>12,000 reads</span>
                 </div>
-                <Link href="/guides/ai-personalization" >
+                <Link href={"/guides/ai-personalization" as any} >
                   Read Guide →
                 </Link>
               </Flex>
@@ -139,7 +139,7 @@ export default function ResourcesPage() {
                   <span>•</span>
                   <span>8,500 reads</span>
                 </div>
-                <Link href="/guides/campaign-optimization" >
+                <Link href={"/guides/campaign-optimization" as any} >
                   Read Guide →
                 </Link>
               </Flex>
@@ -158,7 +158,7 @@ export default function ResourcesPage() {
                   <span>•</span>
                   <span>5,200 reads</span>
                 </div>
-                <Link href="/guides/enterprise-scale" >
+                <Link href={"/guides/enterprise-scale" as any} >
                   Read Guide →
                 </Link>
               </Flex>
@@ -168,7 +168,7 @@ export default function ResourcesPage() {
       </Section>
       {/* Industry Playbooks */}
       <Section>
-        <Flex direction="col" gap={12}>
+        <Flex direction="col" gap={8}>
           <div >
             <Badge>Industry Playbooks</Badge>
             <H2>Proven Strategies for Your Industry</H2>
@@ -311,7 +311,7 @@ export default function ResourcesPage() {
       </Section>
       {/* Tools & Calculators */}
       <Section >
-        <Flex direction="col" gap={12}>
+        <Flex direction="col" gap={8}>
           <div >
             <Badge>Interactive Tools</Badge>
             <H2>Powerful Tools to Plan and Optimize</H2>
@@ -370,7 +370,7 @@ export default function ResourcesPage() {
       </Section>
       {/* Latest Content */}
       <Section>
-        <Flex direction="col" gap={12}>
+        <Flex direction="col" gap={8}>
           <div >
             <Badge>Fresh Content</Badge>
             <H2>Latest Resources</H2>
@@ -424,14 +424,14 @@ export default function ResourcesPage() {
               },
             ].map((item, index) => (
               <Card hover key={index}>
-                <Flex direction="col" gap={3}>
+                <Flex direction="col" gap={4}>
                   <div >
                     <Badge>{item.type}</Badge>
                     <span >{item.date}</span>
                   </div>
                   <H4>{item.title}</H4>
                   <p >{item.description}</p>
-                  <Link href={item.link} >
+                  <Link href={item.link as any} >
                     Read more →
                   </Link>
                 </Flex>
@@ -442,7 +442,7 @@ export default function ResourcesPage() {
       </Section>
       {/* Newsletter CTA */}
       <Section >
-        <Flex direction="col" gap={8} align="center" >
+        <Flex direction="col" gap={8}  >
           <H2 >
             Get Weekly Direct Mail Insights
           </H2>

@@ -8,6 +8,7 @@ import {
   H1,
   H2,
   H3,
+  H4,
   Text,
   Button,
   Card,
@@ -145,7 +146,7 @@ export default function B2BUseCasePage() {
       <Section >
         <Flex gap={6}>
           <Badge>B2B Use Case</Badge>
-          <H1 level={1}>
+          <H1>
             Drive B2B Sales with AI-Powered Direct Mail
           </H1>
           <Text >
@@ -165,18 +166,18 @@ export default function B2BUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>B2B Marketing Challenges</H1>
+            <H2>B2B Marketing Challenges</H2>
             <Text >
               Traditional digital marketing faces increasing obstacles in reaching B2B decision makers
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {challenges.map((challenge, index) => (
               <Card key={index} >
                 <Flex gap={4}>
-                  <H1 level={4} >
+                  <H4 >
                     {challenge.title}
-                  </H1>
+                  </H4>
                   <p >
                     {challenge.description}
                   </p>
@@ -193,20 +194,20 @@ export default function B2BUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Direct Mail Solutions for B2B</H1>
+            <H2>Direct Mail Solutions for B2B</H2>
             <Text >
               Overcome digital marketing challenges with strategic direct mail campaigns
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {solutions.map((solution, index) => (
               <Card key={index} >
                 <Flex gap={4}>
                   <div >
                     <span >{solution.icon}</span>
-                    <H1 level={4} >
+                    <H4 >
                       {solution.title}
-                    </H1>
+                    </H4>
                   </div>
                   <p >
                     {solution.description}
@@ -224,18 +225,18 @@ export default function B2BUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>B2B Campaign Types</H1>
+            <H2>B2B Campaign Types</H2>
             <Text >
               Proven direct mail strategies for different B2B marketing objectives
             </Text>
           </div>
-          <Grid columns={2}>
+          <Grid cols={2}>
             {useCaseExamples.map((useCase, index) => (
               <Card key={index} hover >
                 <Flex gap={4}>
-                  <H1 level={3} >
+                  <H3 >
                     {useCase.title}
-                  </H1>
+                  </H3>
                   <p >
                     {useCase.description}
                   </p>
@@ -267,7 +268,7 @@ export default function B2BUseCasePage() {
       <Section id="case-study">
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Success Story</H1>
+            <H2>Success Story</H2>
             <Text >
               How TechFlow Solutions transformed their B2B lead generation
             </Text>
@@ -279,7 +280,7 @@ export default function B2BUseCasePage() {
                   <span >TF</span>
                 </div>
                 <div>
-                  <H1 level={3}>{caseStudy.company}</H1>
+                  <H3>{caseStudy.company}</H3>
                   <p >{caseStudy.industry}</p>
                 </div>
               </div>
@@ -331,7 +332,7 @@ export default function B2BUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Implementation Guide</H1>
+            <H2>Implementation Guide</H2>
             <Text >
               Follow these steps to launch successful B2B direct mail campaigns
             </Text>
@@ -359,12 +360,12 @@ export default function B2BUseCasePage() {
       <Section>
         <Flex gap={8}>
           <div >
-            <H1 level={2}>B2B Direct Mail Benchmarks</H1>
+            <H2>B2B Direct Mail Benchmarks</H2>
             <Text >
               Industry performance standards to guide your campaign expectations
             </Text>
           </div>
-          <Grid columns={4}>
+          <Grid cols={4}>
             {benchmarks.map((benchmark, index) => (
               <Card key={index} >
                 <H3 >{benchmark.value}</H3>
@@ -379,18 +380,18 @@ export default function B2BUseCasePage() {
       <Section >
         <Flex gap={8}>
           <div >
-            <H1 level={2}>Explore Other Use Cases</H1>
+            <H2>Explore Other Use Cases</H2>
             <Text >
               Discover how different industries leverage direct mail marketing
             </Text>
           </div>
-          <Grid columns={3}>
+          <Grid cols={3}>
             <Card hover >
               <Flex gap={4}>
                 <div >
                   <span >🏠</span>
                 </div>
-                <H1 level={4}>Real Estate</H1>
+                <H4>Real Estate</H4>
                 <p >
                   Generate leads, nurture prospects, and close more property deals with targeted direct mail campaigns.
                 </p>
@@ -404,7 +405,7 @@ export default function B2BUseCasePage() {
                 <div >
                   <span >🛒</span>
                 </div>
-                <H1 level={4}>E-commerce</H1>
+                <H4>E-commerce</H4>
                 <p >
                   Drive online sales, recover abandoned carts, and increase customer lifetime value with personalized mail.
                 </p>
@@ -418,7 +419,7 @@ export default function B2BUseCasePage() {
                 <div >
                   <span >💰</span>
                 </div>
-                <H1 level={4}>Financial Services</H1>
+                <H4>Financial Services</H4>
                 <p >
                   Build trust, acquire customers, and promote financial products with compliant direct mail strategies.
                 </p>
@@ -433,9 +434,9 @@ export default function B2BUseCasePage() {
       {/* CTA Section */}
       <Section >
         <Flex gap={6}>
-          <H1 level={2} >
+          <H2 >
             Ready to Transform Your B2B Marketing?
-          </H1>
+          </H2>
           <Text >
             Join hundreds of B2B companies using Enclosed.AI to reach decision makers, generate qualified leads, and accelerate sales cycles with AI-powered direct mail.
           </Text>
@@ -452,7 +453,7 @@ export default function B2BUseCasePage() {
       {/* Footer */}
       <footer >
         <Section >
-          <Grid columns={4}>
+          <Grid cols={4}>
             <div>
               <Logo
                 size="md"
