@@ -61,6 +61,7 @@
     "resend": "^6.1.0",
     "stripe": "^18.5.0",
     "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
     "web-vitals": "^5.1.0",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",

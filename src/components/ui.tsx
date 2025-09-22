@@ -31,7 +31,7 @@ export const Container = ({
     full: "max-w-full"
   };
   return (
-    <div className={cn("container mx-auto px-6 md:px-8", sizes[size], className)} {...props}>
+    <div className={cn("w-full mx-auto px-6 md:px-8 lg:px-12", sizes[size], className)} {...props}>
       {children}
     </div>
   );
@@ -44,8 +44,8 @@ export const Section = ({
   children: ReactNode;
   className?: string;
 } & HTMLAttributes<HTMLElement>) => (
-  <section className={cn("section", className)} {...props}>
-    <Container>{children}</Container>
+  <section className={cn("section w-full", className)} {...props}>
+    {children}
   </section>
 );
 export const Grid = ({
@@ -101,7 +101,7 @@ export const Flex = ({
   return (
     <div
       className={cn(
-        "flex",
+        "flex w-full",
         direction === "col" && "flex-col",
         {
           "items-start": align === "start",
@@ -358,8 +358,8 @@ export const Textarea = ({
   label?: string;
   error?: string;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>) => (
-  <div >
-    {label && <label >{label}</label>}
+  <div className="space-y-2">
+    {label && <label className="block text-sm font-medium text-gray-300">{label}</label>}
     <textarea
       className={cn(
         "input min-h-[120px] resize-none",
@@ -368,7 +368,7 @@ export const Textarea = ({
       )}
       {...props}
     />
-    {error && <Text size="sm" color="muted" >{error}</Text>}
+    {error && <Text size="sm" color="error" className="mt-1">{error}</Text>}
   </div>
 );
 export const Select = ({
@@ -382,8 +382,8 @@ export const Select = ({
   error?: string;
   children: ReactNode;
 } & SelectHTMLAttributes<HTMLSelectElement>) => (
-  <div >
-    {label && <label >{label}</label>}
+  <div className="space-y-2">
+    {label && <label className="block text-sm font-medium text-gray-300">{label}</label>}
     <select
       className={cn(
         "input appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDJMNiA3TDExIDIiIHN0cm9rZT0iIzk5OTk5OSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+')] bg-[right_1rem_center] bg-no-repeat",
@@ -394,7 +394,7 @@ export const Select = ({
     >
       {children}
     </select>
-    {error && <Text size="sm" color="muted" >{error}</Text>}
+    {error && <Text size="sm" color="error" className="mt-1">{error}</Text>}
   </div>
 );
 /* === DISPLAY COMPONENTS === */
@@ -560,7 +560,7 @@ export const Nav = ({
 } & HTMLAttributes<HTMLElement>) => (
   <nav className={cn("nav glass-dark border-b border-gray-900", className)} {...props}>
     <Container>
-      <Flex  justify="between">
+      <Flex align="center" justify="between">
         {children}
       </Flex>
     </Container>
@@ -630,7 +630,7 @@ export const Checkbox = ({
   label?: any;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => (
-  <div >
+  <div className="flex items-start gap-3">
     <input
       type="checkbox"
       className={cn(
@@ -640,8 +640,8 @@ export const Checkbox = ({
       )}
       {...props}
     />
-    {label && <label >{label}</label>}
-    {error && <Text size="sm" color="muted" >{error}</Text>}
+    {label && <label className="text-sm font-medium text-gray-300">{label}</label>}
+    {error && <Text size="sm" color="error" className="mt-1">{error}</Text>}
   </div>
 );
 /* === SPECIAL EFFECTS === */

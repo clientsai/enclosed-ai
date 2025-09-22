@@ -1,7 +1,7 @@
 // SERVER-ONLY MODULE - Do not import in client components
 // Use @/lib/analytics for client-side analytics
 
-let serverClient: any = null;
+const serverClient: any = null;
 
 // Server-side analytics for API routes
 class ServerAnalytics {

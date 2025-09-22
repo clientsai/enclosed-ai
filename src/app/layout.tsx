@@ -45,11 +45,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased bg-black text-white`}>
+      <body className={`${inter.className} antialiased bg-black text-white min-h-screen`}>
         <PageErrorBoundary>
-          <div >
+          <div className="relative flex flex-col min-h-screen">
             <Navigation variant="landing" />
-            <main >
+            <main className="flex-1 w-full">
               {children}
             </main>
             <Footer variant="landing" />

@@ -127,7 +127,7 @@ export default function LoginPage() {
               />
             </FormGroup>
             {/* Remember me & Forgot password */}
-            <Flex justify="between"  className="py-2">
+            <Flex justify="between" align="center" className="py-2">
               <Checkbox
                 label="Remember me"
                 checked={rememberMe}

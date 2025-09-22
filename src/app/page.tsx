@@ -73,7 +73,7 @@ export default function Home() {
       {/* Hero Section */}
       <Section className="relative min-h-screen flex items-center pt-20">
         <Container size="lg">
-          <Flex direction="col"  gap={8} className="text-center relative z-10">
+          <Flex direction="col" align="center" gap={8} className="text-center relative z-10">
             <Badge variant="accent" pulse className="animate-fade-in">
               AI-Powered Direct Mail Platform
             </Badge>
@@ -96,7 +96,7 @@ export default function Home() {
               Every letter, uniquely crafted. Every message, perfectly timed.
             </Text>
 
-            <Flex gap={4} className="animate-fade-in animation-delay-400">
+            <Flex gap={4} justify="center" className="animate-fade-in animation-delay-400 flex-wrap">
               <Button size="lg" href="/auth/signup" icon="🚀">
                 Start Free Trial
               </Button>
@@ -105,21 +105,21 @@ export default function Home() {
               </Button>
             </Flex>
 
-            <Flex gap={6} className="animate-fade-in animation-delay-600">
+            <Flex gap={6} justify="center" className="animate-fade-in animation-delay-600 flex-wrap">
               <Text size="sm" color="muted">✓ No credit card required</Text>
               <Text size="sm" color="muted">✓ 14-day free trial</Text>
               <Text size="sm" color="muted">✓ Cancel anytime</Text>
             </Flex>
 
             {/* Floating UI Elements */}
-            <div className="absolute -top-20 left-10 animate-pulse-glow">
+            <div className="hidden lg:block absolute -top-20 left-10 animate-pulse-glow">
               <Card glass className="p-3 backdrop-blur-xl">
                 <Text size="xs" color="muted">Response Rate</Text>
                 <Text size="lg" weight="bold">12.4%</Text>
               </Card>
             </div>
 
-            <div className="absolute -top-10 right-20 animate-pulse-glow animation-delay-1000">
+            <div className="hidden lg:block absolute -top-10 right-20 animate-pulse-glow animation-delay-1000">
               <Card glass className="p-3 backdrop-blur-xl">
                 <Text size="xs" color="muted">AI Personalization</Text>
                 <ProgressBar value={87} max={100} variant="accent" />
@@ -278,7 +278,7 @@ export default function Home() {
                 profitable channel. Response rates went from 0.5% to 12%.
               </Text>
               <Divider className="my-6" />
-              <Flex  gap={4}>
+              <Flex align="center" gap={4}>
                 <Avatar src="" alt="Sarah Chen" size="lg" />
                 <div>
                   <Text weight="semibold">Sarah Chen</Text>
@@ -360,9 +360,9 @@ export default function Home() {
 
                     <div className="space-y-3 min-h-[200px]">
                       {plan.features.map((feature, j) => (
-                        <Flex key={j} gap={4} >
-                          <span className="text-green-400">✓</span>
-                          <Text size="sm" color="secondary">{feature}</Text>
+                        <Flex key={j} gap={4} align="start">
+                          <span className="text-green-400 flex-shrink-0">✓</span>
+                          <Text size="sm" color="secondary" className="text-left">{feature}</Text>
                         </Flex>
                       ))}
                     </div>
@@ -392,7 +392,7 @@ export default function Home() {
               <Text size="xl" color="secondary">
                 Join thousands of businesses getting exceptional results with AI-powered direct mail.
               </Text>
-              <Flex gap={4} justify="center" className="pt-4">
+              <Flex gap={4} justify="center" className="pt-4 flex-wrap">
                 <Button size="lg" href="/auth/signup" icon="🚀">
                   Start Your Free Trial
                 </Button>
